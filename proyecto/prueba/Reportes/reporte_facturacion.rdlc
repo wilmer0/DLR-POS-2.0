@@ -2,27 +2,17 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Line Name="Line1">
-        <Top>1.92361in</Top>
-        <Height>0in</Height>
-        <Width>3.22333in</Width>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-        </Style>
-      </Line>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.03514in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.03514in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.03514in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -236,11 +226,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>facturaDetalle</DataSetName>
-        <Top>0.49653in</Top>
-        <Left>0.10876in</Left>
+        <Top>0.06944in</Top>
+        <Left>0.21166in</Left>
         <Height>0.5in</Height>
-        <Width>3in</Width>
-        <ZIndex>1</ZIndex>
+        <Width>3.10541in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -255,7 +244,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>3.31708in</Width>
+  <Width>3.47333in</Width>
   <Page>
     <PageHeader>
       <Height>2.34597in</Height>
@@ -281,8 +270,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>cod_telefono</rd:DefaultName>
-          <Top>0.78001in</Top>
-          <Left>0.09042in</Left>
+          <Top>0.80779in</Top>
+          <Left>0.21167in</Left>
           <Height>0.25in</Height>
           <Width>3.10541in</Width>
           <Style>
@@ -312,8 +301,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>identificacion</rd:DefaultName>
-          <Top>1.01611in</Top>
-          <Left>0.09042in</Left>
+          <Top>1.04389in</Top>
+          <Left>0.21167in</Left>
           <Height>0.25in</Height>
           <Width>3.10541in</Width>
           <ZIndex>1</ZIndex>
@@ -341,8 +330,8 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <Top>1.32167in</Top>
-          <Left>0.09042in</Left>
+          <Top>1.34945in</Top>
+          <Left>0.21167in</Left>
           <Height>0.23611in</Height>
           <Width>1.44667in</Width>
           <ZIndex>2</ZIndex>
@@ -384,7 +373,8 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Left>0.09959in</Left>
+          <Top>0.07056cm</Top>
+          <Left>0.22084in</Left>
           <Height>0.25in</Height>
           <Width>3.09624in</Width>
           <ZIndex>4</ZIndex>
@@ -414,8 +404,8 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.27778in</Top>
-          <Left>0.22965cm</Left>
+          <Top>0.30556in</Top>
+          <Left>0.53762cm</Left>
           <Height>0.52306in</Height>
           <Width>3.10541in</Width>
           <ZIndex>5</ZIndex>
@@ -447,8 +437,8 @@
               <Style />
             </Paragraph>
           </Paragraphs>
-          <Top>1.33555in</Top>
-          <Left>1.76041in</Left>
+          <Top>1.36333in</Top>
+          <Left>1.88166in</Left>
           <Height>0.20833in</Height>
           <Width>1.43541in</Width>
           <ZIndex>6</ZIndex>
@@ -580,22 +570,6 @@
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
-  <DataSources>
-    <DataSource Name="punto_ventaDataSet2">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>8c4824df-0654-4f68-85fa-92999dce2c0f</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="punto_ventaDataSet3">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>70207787-cd72-4323-80d2-6c4029e5db4e</rd:DataSourceID>
-    </DataSource>
-  </DataSources>
   <DataSets>
     <DataSet Name="facturaDetalle">
       <Query>
@@ -706,12 +680,6 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
-  <ReportParameters>
-    <ReportParameter Name="codigo_factura">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>5dfa33c3-9802-4614-8bcb-650b20bc1a08</rd:ReportID>
 </Report>

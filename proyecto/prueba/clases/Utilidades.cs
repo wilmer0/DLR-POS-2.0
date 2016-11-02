@@ -20,7 +20,7 @@ using MySql.Data.MySqlClient;
 namespace puntoVenta
 {
 
-    public  static class Utilidades
+    public class Utilidades
     {
 
 
@@ -1014,6 +1014,13 @@ namespace puntoVenta
                 MessageBox.Show("Error: " + ex.ToString());
                 return false;
             }
+        }
+
+        public static string getFormaFechaNormal(DateTime fecha)
+        {
+
+            return fecha.ToString("dd/MM/yyyy");
+
         }
     }
 }
