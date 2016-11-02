@@ -1,0 +1,76 @@
+-ya el trae los datos del pedido, ahora falta que cuando le de a actualizar si quita articulos deben entrarse en inventario de nuevo
+
+-reporte con todos los codigo de barra de cada unidad de cada producto que lo agrupe por producto, que lo pueda buscar por categoria, subcategoria, almacen etc
+
+-las ofertas y descuento por categorias terminar.
+
+-
+
+-
+
+
+
+que pueda mandar algunas informaciones al correo por dia semana o mensual por ejemplo
+
+
+
+**
+-que se pueda hacer factura a credito con productos determinado que sea poniendo varias cuotas en varios meses.
+-
+
+
+**inventario
+-combos de productos.
+-mov de inventario para varias sucursales.
+
+
+**cuentas por cobrar
+-reporte de clientes que los traiga con deudas o saldado.
+
+
+**cuentas por pagar
+-reportes de suplidor que los traiga con deudas o saldado.
+
+
+**nomina
+-nomina terminar el proceso hacer la entrada de nomina por debajo como sueldo base,ganado en ventas como vendedores porciento de venta.
+
+
+
+**facturacion
+-reporte de cuadre de caja. con todos los egresos, total entradas y mas cosas.
+-reporte de ventas dar terminacion
+-flash point programar
+-modificar factura para cambiar datos pequenos.
+
+
+**administracion
+-reporte mejores clientes.
+-reporte de composicion de ventas.
+
+
+
+
+
+-en la nomina en el concepto de descuento por factura debe traerme el total de la deuda de ese
+empleado para que modificandola se le reste lo que le deje el empleado.
+
+-tambien poner que me traiga por defecto las comisiones por venta siempre y cuando el empleado
+sea vendedor y haya hecho ventas y las ventas se hayan facturado(preguntar si cuando este facturada o totalmente pagada)
+
+-que me traiga el total de facturas pendiente que tiene el empleado como cliente para de una vez aplicarle el pago por nomina.
+
+-y el descueno por faltante en cuadre de caja siempre y cuando el empleado sea cajero
+y haya tenido faltantes en ese periodo de tiempo en que esta la nomina generada.
+
+-crear volantes de nomina.
+
+-copiar la tarea de org de empre que les tiramos las fotos y terminar la ing sof
+
+-pcga investigar, 
+
+tricombda2010
+TRICOMBDA2010
+BDATRICOM2010
+2010TRICOMBDA
+2010BDATRICOM

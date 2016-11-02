@@ -1,0 +1,20 @@
+--------------------------
+I N S T R U C C I O N E S 
+--------------------------
+
+1.- Instale el Programa, seleccionar "Privada/No Comercialmente", no lo inicie.
+2.- Finalizar el proceso "TeamViewer_Service.exe", 3 veces.
+3.- Copiar el contenido de la carpeta "Crack" en "C:\Program Files\TeamViewer", reemplazar.
+
+PD. Win+R y pegar services.msc detener TeamViewer (en win8 se puede cerrar desde el administrador de tareas).
+
+Listo !!!!
+
+Nota. Analisis en VirusTotal: https://www.virustotal.com/en/file/ab499ea3fdf0621e48a7675ccb5093f359c1989a59502c38fc321c6ce5e3fd2e/analysis/
+      Usarlo bajo su responsabilidad.
+
+=================================================
+Visita: www.DeluxeDescargas.Com
+	www.DeluxePelis.Com
+	www.DeluxeTec.Com
+================================================

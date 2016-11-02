@@ -1,0 +1,12 @@
+USE proyecto_01;
+GO
+declare @fecha varchar(MAX)
+declare @archivo varchar(MAX)
+set @fecha = CONVERT(Varchar(max), GETDATE(),102)+'_'+SUBSTRING(CONVERT(varchar(10), getdate(),108),1,2)+SUBSTRING(CONVERT(varchar(10), getdate(),108),4,2)+'horas'
+set @archivo ='D:\proyecto_01-'+@fecha+'.bak'
+BACKUP DATABASE proyecto_01
+TO DISK = @archivo
+   WITH FORMAT,
+      MEDIANAME = 'D_SQLServerBackups',
+      NAME = 'Full Backup of proyecto_01';
+GO
