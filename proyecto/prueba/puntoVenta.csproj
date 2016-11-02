@@ -979,7 +979,6 @@
     <EmbeddedResource Include="modulo_inventario\almacen.resx">
       <DependentUpon>almacen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\reporte_facturacion.rdlc" />
     <EmbeddedResource Include="modulo_opciones\backup.resx">
       <DependentUpon>backup.cs</DependentUpon>
     </EmbeddedResource>

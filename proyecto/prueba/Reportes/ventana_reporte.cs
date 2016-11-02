@@ -25,7 +25,6 @@ namespace puntoVenta.Reportes
 
         //variables
         public string codigo_factura {get;set;}
-        public  Utilidades utilidades = new Utilidades();
         private Microsoft.Reporting.WinForms.ReportViewer Reporte;
 
         public ventana_reporte()

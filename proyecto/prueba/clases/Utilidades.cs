@@ -20,7 +20,7 @@ using MySql.Data.MySqlClient;
 namespace puntoVenta
 {
 
-    public class Utilidades
+    public static class Utilidades
     {
 
 
