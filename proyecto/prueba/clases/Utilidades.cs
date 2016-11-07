@@ -761,7 +761,7 @@ namespace puntoVenta
                 e.Graphics.DrawString("Autorizado por", pf7, Brushes.Black, (x + 50), y);
                 y += 10;
                 e.Graphics.DrawString("GRACIAS POR PREFERIRNOS", pf7, Brushes.Black, (x + 20), y);
-
+                y += 40;
                 e.PageSettings.PaperSize.Width += 200;
             }
             catch (Exception ex)
