@@ -10,10 +10,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
-using System.Data.SqlClient;
 using System.Data;
 using System.IO.Compression;
-using System.Drawing.Printing;
 using System.Drawing;
 using MySql.Data.MySqlClient;
 

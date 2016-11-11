@@ -68,25 +68,34 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BarcodeLib">
-      <HintPath>C:\Users\wilmer\Desktop\BarcodeLib.dll</HintPath>
+      <HintPath>..\packages\BarcodeLib.1.0.0.22\lib\net20\BarcodeLib.dll</HintPath>
     </Reference>
-    <Reference Include="MetroFramework">
-      <HintPath>C:\Users\wilmer\Desktop\MetroFramework.dll</HintPath>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.6.9.9\lib\net40\MySql.Data.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Web.Extensions" />
@@ -169,26 +178,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="punto_ventaDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>punto_ventaDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="punto_ventaDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>punto_ventaDataSet1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="punto_ventaDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>punto_ventaDataSet2.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="punto_ventaDataSet3.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>punto_ventaDataSet3.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reportes\ventana_reporte.cs">
       <SubType>Form</SubType>
@@ -754,12 +743,6 @@
     <Compile Include="modulo_facturacion\pedidos.Designer.cs">
       <DependentUpon>pedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="sistema\princpal_mdi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\princpal_mdi.Designer.cs">
-      <DependentUpon>princpal_mdi.cs</DependentUpon>
-    </Compile>
     <Compile Include="modulo_inventario\movimiento_inventario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -784,11 +767,11 @@
     <Compile Include="modulo_opciones\cambiar_clave.Designer.cs">
       <DependentUpon>cambiar_clave.cs</DependentUpon>
     </Compile>
-    <Compile Include="sistema\login.cs">
+    <Compile Include="sistema\login1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sistema\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
+    <Compile Include="sistema\login1.Designer.cs">
+      <DependentUpon>login1.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_empresa\pais.cs">
       <SubType>Form</SubType>
@@ -808,11 +791,11 @@
     <Compile Include="modulo_prestamos\prestamo.Designer.cs">
       <DependentUpon>prestamo.cs</DependentUpon>
     </Compile>
-    <Compile Include="sistema\MenuPrincipal.cs">
+    <Compile Include="sistema\Menu1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="sistema\MenuPrincipal.Designer.cs">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <Compile Include="sistema\Menu1.Designer.cs">
+      <DependentUpon>Menu1.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_inventario\producto.cs">
       <SubType>Form</SubType>
@@ -839,15 +822,6 @@
     </Compile>
     <Compile Include="modulo_empresa\provincia.Designer.cs">
       <DependentUpon>provincia.cs</DependentUpon>
-    </Compile>
-    <Compile Include="proyecto01.cs">
-      <DependentUpon>proyecto01.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="proyecto01.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>proyecto01.xsd</DependentUpon>
     </Compile>
     <Compile Include="modulo_inventario\recibir_producto_reparacion.cs">
       <SubType>Form</SubType>
@@ -1267,9 +1241,6 @@
     <EmbeddedResource Include="modulo_facturacion\pedidos.resx">
       <DependentUpon>pedidos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sistema\princpal_mdi.resx">
-      <DependentUpon>princpal_mdi.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="modulo_inventario\movimiento_inventario.resx">
       <DependentUpon>movimiento_inventario.cs</DependentUpon>
     </EmbeddedResource>
@@ -1282,8 +1253,8 @@
     <EmbeddedResource Include="modulo_opciones\cambiar_clave.resx">
       <DependentUpon>cambiar_clave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sistema\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
+    <EmbeddedResource Include="sistema\login1.resx">
+      <DependentUpon>login1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_empresa\pais.resx">
       <DependentUpon>pais.cs</DependentUpon>
@@ -1294,8 +1265,8 @@
     <EmbeddedResource Include="modulo_prestamos\prestamo.resx">
       <DependentUpon>prestamo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sistema\MenuPrincipal.resx">
-      <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="sistema\Menu1.resx">
+      <DependentUpon>Menu1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_inventario\producto.resx">
       <DependentUpon>producto.cs</DependentUpon>
@@ -1413,50 +1384,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Graphicloads-Seo-Services-Pay-per-click.ico" />
-    <None Include="punto_ventaDataSet.xsc">
-      <DependentUpon>punto_ventaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>punto_ventaDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="punto_ventaDataSet.xss">
-      <DependentUpon>punto_ventaDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet1.xsc">
-      <DependentUpon>punto_ventaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>punto_ventaDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="punto_ventaDataSet1.xss">
-      <DependentUpon>punto_ventaDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet2.xsc">
-      <DependentUpon>punto_ventaDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>punto_ventaDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="punto_ventaDataSet2.xss">
-      <DependentUpon>punto_ventaDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet3.xsc">
-      <DependentUpon>punto_ventaDataSet3.xsd</DependentUpon>
-    </None>
-    <None Include="punto_ventaDataSet3.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>punto_ventaDataSet3.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="punto_ventaDataSet3.xss">
-      <DependentUpon>punto_ventaDataSet3.xsd</DependentUpon>
-    </None>
     <None Include="Resources\icono_formulario_inscripcixn_diadeporte2015.png" />
     <None Include="Resources\images.jpg" />
     <None Include="Resources\Login-icon.png" />
@@ -1505,17 +1432,6 @@
     <None Include="Resources\printer_256.png" />
     <None Include="Resources\print_256.png" />
     <None Include="Resources\mount.png" />
-    <None Include="proyecto01.xsc">
-      <DependentUpon>proyecto01.xsd</DependentUpon>
-    </None>
-    <None Include="proyecto01.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>proyecto01.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="proyecto01.xss">
-      <DependentUpon>proyecto01.xsd</DependentUpon>
-    </None>
     <None Include="Resources\usuario-mujer.png" />
     <None Include="Resources\users.png" />
     <None Include="Resources\user-info-icon.png" />
@@ -1559,6 +1475,13 @@
     <Folder Include="Contabilidad\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
