@@ -108,9 +108,9 @@ namespace puntoVenta
                 codigo_cliente_txt.Text = ds.Tables[0].Rows[0][0].ToString();
                 cargar_nombre_cliente();
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                MessageBox.Show("Error cargando el primer cliente");
+                MessageBox.Show("Error cargando el primer cliente.:"+ex.ToString());
             }
         }
         public void cargar_cajero()
