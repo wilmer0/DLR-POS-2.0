@@ -656,6 +656,7 @@
             // 
             // unidad_combo_txt
             // 
+            this.unidad_combo_txt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.unidad_combo_txt.FormattingEnabled = true;
             this.unidad_combo_txt.Location = new System.Drawing.Point(185, 40);
             this.unidad_combo_txt.Name = "unidad_combo_txt";

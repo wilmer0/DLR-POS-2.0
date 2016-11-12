@@ -12,6 +12,8 @@ namespace puntoVenta
 {
     public partial class busqueda_pagos_compras : Form
     {
+
+        Utilidades utilidades=new Utilidades();
         public busqueda_pagos_compras()
         {
             InitializeComponent();

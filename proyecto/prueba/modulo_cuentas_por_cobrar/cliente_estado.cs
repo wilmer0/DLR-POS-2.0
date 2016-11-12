@@ -33,12 +33,9 @@ namespace puntoVenta
                 DialogResult dr = MessageBox.Show("Desea limpiar?", "Limpiando", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-
                     codigo_cliente_txt.Clear();
                     nombre_cliente_txt.Clear();
                     dataGridView1.Rows.Clear();
-                   
-
                 }
             }
             catch (Exception)
@@ -87,7 +84,7 @@ namespace puntoVenta
                     double monto_factura = 0;
                     string codigo_factura = row[0].ToString();
                     //MessageBox.Show("codigo fac->"+codigo_factura.ToString());
-                    string cmd = "select sum(vp.monto) from venta_vs_pagos vp join factura f on f.codigo=vp.cod_factura join cliente c on f.codigo_cliente=c.codigo where vp.estado='1' and f.codigo='" + codigo_factura.ToString() + "'";
+                    string cmd = "select sum((cd.monto_pagado)-(cd.monto_descontado)) from cobros_detalles cd join factura f on f.codigo=cd.cod_factura join cliente c on f.codigo_cliente=c.codigo where cd.estado='1' and f.codigo='"+codigo_factura+"'";
                     DataSet dx = Utilidades.ejecutarcomando(cmd);
                     if (dx.Tables[0].Rows[0][0].ToString() != "")
                     {
@@ -100,7 +97,7 @@ namespace puntoVenta
                         monto_factura = Convert.ToDouble(dx.Tables[0].Rows[0][0].ToString());
                     }
                     monto_pendiente = (monto_factura - monto_saldo);
-                    dataGridView1.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), monto_saldo.ToString("###,###,###,###,#0"), monto_pendiente.ToString("###,###,###,###,#0"));
+                    dataGridView1.Rows.Add(row[0].ToString(), row[1].ToString(), row[2].ToString(), row[3].ToString(), row[4].ToString(), row[5].ToString(), row[6].ToString(), monto_saldo.ToString("N"), monto_pendiente.ToString("N"));
                 }
                 pendiente = 0;
                 saldado = 0;
@@ -109,8 +106,8 @@ namespace puntoVenta
                     saldado += Convert.ToDouble(row.Cells[7].Value.ToString());
                     pendiente += Convert.ToDouble(row.Cells[8].Value.ToString());
                 }
-                total_factura_pendiente_txt.Text = pendiente.ToString("###,###,###,###.#0");
-                total_saldadas_txt.Text = saldado.ToString("###,###,###,###.#0");
+                total_factura_pendiente_txt.Text = pendiente.ToString("N");
+                total_saldadas_txt.Text = saldado.ToString("N");
                 MessageBox.Show("Finalizado");
             }
             catch(Exception)

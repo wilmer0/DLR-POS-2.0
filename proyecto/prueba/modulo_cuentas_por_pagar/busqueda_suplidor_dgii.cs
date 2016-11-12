@@ -13,6 +13,8 @@ namespace puntoVenta
 {
     public partial class busqueda_suplidor_dgii : Form
     {
+
+        Utilidades utilidades=new Utilidades();
         public busqueda_suplidor_dgii()
         {
             InitializeComponent();
@@ -137,7 +139,7 @@ namespace puntoVenta
                     {
                         string resultado = linea.Split('|').First();
                         resultado += "|";
-                        linea = Utilidades.CadenaEliminarPalabra(linea, resultado);
+                        linea = utilidades.CadenaEliminarPalabra(linea, resultado);
                         MessageBox.Show("nueva: "+linea.ToString());
                         //MessageBox.Show(resultado.ToString());
                     } 
