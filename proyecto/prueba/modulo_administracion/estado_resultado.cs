@@ -12,6 +12,9 @@ namespace puntoVenta
 {
     public partial class estado_resultado : Form
     {
+
+
+        public Utilidades utilidades = new Utilidades();
         public estado_resultado()
         {
             InitializeComponent();

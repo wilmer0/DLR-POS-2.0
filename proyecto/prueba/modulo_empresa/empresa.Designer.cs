@@ -53,7 +53,7 @@
             this.ck_activo.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ck_activo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ck_activo.ForeColor = System.Drawing.Color.Black;
-            this.ck_activo.Location = new System.Drawing.Point(167, 196);
+            this.ck_activo.Location = new System.Drawing.Point(167, 212);
             this.ck_activo.Name = "ck_activo";
             this.ck_activo.Size = new System.Drawing.Size(80, 28);
             this.ck_activo.TabIndex = 47;
@@ -65,7 +65,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(72, 82);
+            this.label2.Location = new System.Drawing.Point(72, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 29);
             this.label2.TabIndex = 45;
@@ -74,7 +74,7 @@
             // 
             // nombre_empresa_txt
             // 
-            this.nombre_empresa_txt.Location = new System.Drawing.Point(167, 88);
+            this.nombre_empresa_txt.Location = new System.Drawing.Point(167, 94);
             this.nombre_empresa_txt.MaxLength = 50;
             this.nombre_empresa_txt.Name = "nombre_empresa_txt";
             this.nombre_empresa_txt.Size = new System.Drawing.Size(175, 20);
@@ -155,7 +155,7 @@
             // 
             this.button6.BackgroundImage = global::puntoVenta.Properties.Resources.find_icon;
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.Location = new System.Drawing.Point(307, 49);
+            this.button6.Location = new System.Drawing.Point(307, 46);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(35, 31);
             this.button6.TabIndex = 55;
@@ -167,7 +167,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(72, 119);
+            this.label6.Location = new System.Drawing.Point(72, 134);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 29);
             this.label6.TabIndex = 64;
@@ -176,7 +176,7 @@
             // 
             // identificacion_txt
             // 
-            this.identificacion_txt.Location = new System.Drawing.Point(167, 120);
+            this.identificacion_txt.Location = new System.Drawing.Point(167, 135);
             this.identificacion_txt.MaxLength = 11;
             this.identificacion_txt.Name = "identificacion_txt";
             this.identificacion_txt.Size = new System.Drawing.Size(175, 20);
@@ -187,7 +187,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(72, 161);
+            this.label3.Location = new System.Drawing.Point(72, 172);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 29);
             this.label3.TabIndex = 66;
@@ -196,10 +196,10 @@
             // 
             // division_txt
             // 
-            this.division_txt.Location = new System.Drawing.Point(167, 167);
+            this.division_txt.Location = new System.Drawing.Point(167, 178);
             this.division_txt.MaxLength = 2;
             this.division_txt.Name = "division_txt";
-            this.division_txt.Size = new System.Drawing.Size(175, 20);
+            this.division_txt.Size = new System.Drawing.Size(54, 20);
             this.division_txt.TabIndex = 67;
             this.division_txt.KeyUp += new System.Windows.Forms.KeyEventHandler(this.division_txt_KeyUp);
             // 

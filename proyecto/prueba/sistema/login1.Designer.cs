@@ -36,9 +36,9 @@
             this.labelInicioSesion = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.LoginPanel = new System.Windows.Forms.Panel();
             this.SalirPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -127,6 +127,16 @@
             this.groupBox2.TabIndex = 24;
             this.groupBox2.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 198);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(192, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Developed By Black Code";
+            // 
             // LoginPanel
             // 
             this.LoginPanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -150,15 +160,6 @@
             this.SalirPanel.TabIndex = 18;
             this.SalirPanel.Click += new System.EventHandler(this.panel7_Click);
             this.SalirPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.SalirPanel_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(144, 173);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Developed By Black Code";
             // 
             // login
             // 
