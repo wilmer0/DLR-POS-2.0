@@ -246,7 +246,7 @@ namespace puntoVenta
         {
             try
             {
-                string sql = "select u.nombre,u.codigo from producto_unidad p join unidad u on p.cod_unidad=u.codigo where p.cod_producto='" + codigo_producto_txt.Text.Trim() + "'";
+                string sql = "select u.nombre,u.codigo from producto_unidad_conversion p join unidad u on p.cod_unidad=u.codigo where p.cod_producto='" + codigo_producto_txt.Text.Trim() + "'";
                 DataSet ds = Utilidades.ejecutarcomando(sql);
                 unidad_combo_txt.ValueMember = "nombre";
                 unidad_combo_txt.DisplayMember = "nombre";
