@@ -50,33 +50,33 @@ namespace puntoVenta.Reportes
         }
         public ventana_reporte(String reporte, List<ReportDataSource> lista, string usuario, List<ReportParameter> ListaReportParameter, Boolean IncluirEmpresa, Boolean IncluirUsuario, Boolean IncluirFechaActual, Boolean ExportarExel = false)
         {
-            InitializeComponent();
-            ExportarExel = ExportarExel;
-            List<string> listaempresa = new List<string>();
-            if (IncluirEmpresa)
-            {
-                listaempresa.Add(usuario);
-                ReportDataSource empresaDataSource = new ReportDataSource("empresa", listaempresa);
-                lista.Add(empresaDataSource);
-            }
-            if (IncluirUsuario)
-            {
-                List<string> listausuario = new List<string>();
-                listausuario.Add(usuario);
-                ReportDataSource usuarioDataSource = new ReportDataSource("usuario", listausuario);
-                lista.Add(usuarioDataSource);
-            }
-            if (IncluirFechaActual)
-            {
-                if (ListaReportParameter == null)
-                {
-                    ListaReportParameter = new List<ReportParameter>();
-                }
-                ReportParameter parameter = new ReportParameter("fecha", Utilidades.getFormaFechaNormal(DateTime.Now));
-                ListaReportParameter.Add(parameter);
-                GetLoad(reporte, lista, ListaReportParameter);
-            }
-            GetLoad(reporte, lista, ListaReportParameter);
+            //InitializeComponent();
+            //ExportarExel = ExportarExel;
+            //List<string> listaempresa = new List<string>();
+            //if (IncluirEmpresa)
+            //{
+            //    listaempresa.Add(usuario);
+            //    ReportDataSource empresaDataSource = new ReportDataSource("empresa", listaempresa);
+            //    lista.Add(empresaDataSource);
+            //}
+            //if (IncluirUsuario)
+            //{
+            //    List<string> listausuario = new List<string>();
+            //    listausuario.Add(usuario);
+            //    ReportDataSource usuarioDataSource = new ReportDataSource("usuario", listausuario);
+            //    lista.Add(usuarioDataSource);
+            //}
+            //if (IncluirFechaActual)
+            //{
+            //    if (ListaReportParameter == null)
+            //    {
+            //        ListaReportParameter = new List<ReportParameter>();
+            //    }
+            //    ReportParameter parameter = new ReportParameter("fecha", Utilidades.getFormaFechaNormal(DateTime.Now));
+            //    ListaReportParameter.Add(parameter);
+            //    GetLoad(reporte, lista, ListaReportParameter);
+            //}
+            //GetLoad(reporte, lista, ListaReportParameter);
         }
 
         private void GetLoad(String reporte, List<ReportDataSource> lista, List<ReportParameter> ListaReportParameter)
