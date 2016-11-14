@@ -1426,7 +1426,7 @@ namespace puntoVenta
         {
             try
             {
-                string titulo = "DLR-POS";
+                string titulo = "BC-POS";
 
                 titulo = titulo + "-" + tituloVentana.ToString().ToUpper() + "-" + usuario.ToString().ToUpper();
 
