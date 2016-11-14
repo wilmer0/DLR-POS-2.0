@@ -33,10 +33,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.usuarioText = new System.Windows.Forms.TextBox();
-            this.claveText = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -102,47 +98,6 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(102, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 17);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
-            // 
-            // usuarioText
-            // 
-            this.usuarioText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuarioText.Location = new System.Drawing.Point(160, 156);
-            this.usuarioText.MaxLength = 20;
-            this.usuarioText.Name = "usuarioText";
-            this.usuarioText.Size = new System.Drawing.Size(169, 24);
-            this.usuarioText.TabIndex = 3;
-            this.usuarioText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.usuarioText_KeyDown);
-            // 
-            // claveText
-            // 
-            this.claveText.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.claveText.Location = new System.Drawing.Point(160, 194);
-            this.claveText.MaxLength = 20;
-            this.claveText.Name = "claveText";
-            this.claveText.PasswordChar = '*';
-            this.claveText.Size = new System.Drawing.Size(169, 24);
-            this.claveText.TabIndex = 5;
-            this.claveText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.claveText_KeyDown);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(102, 195);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "clave";
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -175,10 +130,6 @@
             this.ClientSize = new System.Drawing.Size(518, 403);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.claveText);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.usuarioText);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -202,10 +153,6 @@
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox usuarioText;
-        public System.Windows.Forms.TextBox claveText;
-        public System.Windows.Forms.Label label2;
         public System.Windows.Forms.Label tituloLabel;
         public System.Windows.Forms.Panel panel2;
 

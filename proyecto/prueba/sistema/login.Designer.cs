@@ -47,19 +47,6 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(75, 119);
-            // 
-            // usuarioText
-            // 
-            this.usuarioText.Location = new System.Drawing.Point(133, 118);
-            // 
-            // claveText
-            // 
-            this.claveText.Location = new System.Drawing.Point(133, 156);
-            // 
-            // label2
-            // 
-            this.label2.Location = new System.Drawing.Point(75, 157);
             // 
             // panel2
             // 

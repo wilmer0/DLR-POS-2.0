@@ -55,7 +55,7 @@ namespace puntoVenta
         //variables
         static string codigoFactura = "";
         double numero_de_hojas = 0;
-        PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
+        //PrintDocument printDocument = new System.Drawing.Printing.PrintDocument();
         PrintDialog printDialog = new PrintDialog();
         private  string CodigoCobro;
         Utilidades utilidades = new Utilidades();

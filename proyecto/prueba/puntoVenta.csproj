@@ -846,6 +846,12 @@
     <Compile Include="sistema\login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="sistema\menu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\menu1.Designer.cs">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </Compile>
     <Compile Include="sistema\sistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1267,6 +1273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sistema\login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\menu1.resx">
+      <DependentUpon>menu1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sistema\sistema.resx">
       <DependentUpon>sistema.cs</DependentUpon>
