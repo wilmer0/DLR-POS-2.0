@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using puntoVenta.sistema;
+using System.Data.Entity;
+using MySql.Data.Entity;
 
 namespace puntoVenta
 {
@@ -127,6 +130,11 @@ namespace puntoVenta
         private void Panel2_Paint(object sender, PaintEventArgs e)
         {
             //panel para ocultar los controles que no quiero mostrar en los hijos en tiempo de diseño
+        }
+
+        private void FormBase_Load_1(object sender, EventArgs e)
+        {
+
         }
 
     }

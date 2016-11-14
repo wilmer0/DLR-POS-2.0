@@ -37,7 +37,6 @@
             this.usuarioText = new System.Windows.Forms.TextBox();
             this.claveText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tituloLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -144,17 +143,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "clave";
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabel1.Location = new System.Drawing.Point(47, 225);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(72, 17);
-            this.linkLabel1.TabIndex = 6;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "linkLabel1";
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -187,7 +175,6 @@
             this.ClientSize = new System.Drawing.Size(518, 403);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.claveText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.usuarioText);
@@ -200,6 +187,7 @@
             this.Name = "FormBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BC";
+            this.Load += new System.EventHandler(this.FormBase_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -218,7 +206,6 @@
         public System.Windows.Forms.TextBox usuarioText;
         public System.Windows.Forms.TextBox claveText;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.LinkLabel linkLabel1;
         public System.Windows.Forms.Label tituloLabel;
         public System.Windows.Forms.Panel panel2;
 
