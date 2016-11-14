@@ -26,6 +26,11 @@ namespace puntoVenta.sistema
         {
             Salir();
         }
+
+        private void menu1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+        }
         
     }
 }
