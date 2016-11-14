@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using puntoVenta.sistema;
 
 namespace puntoVenta
 {
@@ -17,7 +18,7 @@ namespace puntoVenta
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login());
+            Application.Run(new menu1());
         }
     }
 }

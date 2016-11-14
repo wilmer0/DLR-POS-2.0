@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVenta;
+
 namespace puntoVenta
 {
     public partial class facturacion_flash : Form
@@ -626,7 +627,7 @@ namespace puntoVenta
             }
             catch (Exception)
             {
-                System.Windows.MessageBox.Show("Error cargando las categorias");
+                //System.Windows.MessageBox.Show("Error cargando las categorias");
             }
         }
         Button boton;//el boton objeto

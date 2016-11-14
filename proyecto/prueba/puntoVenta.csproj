@@ -86,9 +86,10 @@
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -126,6 +127,12 @@
       <DependentUpon>idioma-es.resx</DependentUpon>
     </Compile>
     <Compile Include="clases\reporte_facturacion_rollo.cs" />
+    <Compile Include="LabelNormal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LabelNormal.Designer.cs">
+      <DependentUpon>LabelNormal.cs</DependentUpon>
+    </Compile>
     <Compile Include="modulo_facturacion\abrir_caja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,12 +194,6 @@
     </Compile>
     <Compile Include="Reportes\ventana_reporte.Designer.cs">
       <DependentUpon>ventana_reporte.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sistema\banco.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\banco.Designer.cs">
-      <DependentUpon>banco.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_facturacion\busqueda_cuadre.cs">
       <SubType>Form</SubType>
@@ -602,18 +603,6 @@
     <Compile Include="modulo_administracion\estado_resultado.Designer.cs">
       <DependentUpon>estado_resultado.cs</DependentUpon>
     </Compile>
-    <Compile Include="sistema\busqueda_correo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\busqueda_correo.Designer.cs">
-      <DependentUpon>busqueda_correo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sistema\correo_electronico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\correo_electronico.Designer.cs">
-      <DependentUpon>correo_electronico.cs</DependentUpon>
-    </Compile>
     <Compile Include="sistema\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -625,12 +614,6 @@
     </Compile>
     <Compile Include="modulo_nomina\grupo_usuarios.Designer.cs">
       <DependentUpon>grupo_usuarios.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sistema\host.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\host.Designer.cs">
-      <DependentUpon>host.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_cuentas_por_pagar\imprimir_compra.cs">
       <SubType>Form</SubType>
@@ -655,12 +638,6 @@
     </Compile>
     <Compile Include="modulo_facturacion\imprimir_venta_rollo.Designer.cs">
       <DependentUpon>imprimir_venta_rollo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sistema\impuesto_sobre_renta.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\impuesto_sobre_renta.Designer.cs">
-      <DependentUpon>impuesto_sobre_renta.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_facturacion\itebis.cs">
       <SubType>Form</SubType>
@@ -770,12 +747,6 @@
     <Compile Include="modulo_opciones\cambiar_clave.Designer.cs">
       <DependentUpon>cambiar_clave.cs</DependentUpon>
     </Compile>
-    <Compile Include="sistema\login1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\login1.Designer.cs">
-      <DependentUpon>login1.cs</DependentUpon>
-    </Compile>
     <Compile Include="modulo_empresa\pais.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -793,12 +764,6 @@
     </Compile>
     <Compile Include="modulo_prestamos\prestamo.Designer.cs">
       <DependentUpon>prestamo.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sistema\Menu1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\Menu1.Designer.cs">
-      <DependentUpon>Menu1.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_inventario\producto.cs">
       <SubType>Form</SubType>
@@ -875,6 +840,18 @@
       <DependentUpon>sexo.cs</DependentUpon>
     </Compile>
     <Compile Include="clases\singleton.cs" />
+    <Compile Include="sistema\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\menu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\menu1.Designer.cs">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </Compile>
     <Compile Include="sistema\sistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -938,6 +915,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>idioma-es.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="LabelNormal.resx">
+      <DependentUpon>LabelNormal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="modulo_facturacion\abrir_caja.resx">
       <DependentUpon>abrir_caja.cs</DependentUpon>
     </EmbeddedResource>
@@ -961,9 +941,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ventana_reporte.resx">
       <DependentUpon>ventana_reporte.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\banco.resx">
-      <DependentUpon>banco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_facturacion\busqueda_cuadre.resx">
       <DependentUpon>busqueda_cuadre.cs</DependentUpon>
@@ -1169,20 +1146,11 @@
     <EmbeddedResource Include="modulo_administracion\estado_resultado.resx">
       <DependentUpon>estado_resultado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sistema\busqueda_correo.resx">
-      <DependentUpon>busqueda_correo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\correo_electronico.resx">
-      <DependentUpon>correo_electronico.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="sistema\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_nomina\grupo_usuarios.resx">
       <DependentUpon>grupo_usuarios.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\host.resx">
-      <DependentUpon>host.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_cuentas_por_pagar\imprimir_compra.resx">
       <DependentUpon>imprimir_compra.cs</DependentUpon>
@@ -1195,9 +1163,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_facturacion\imprimir_venta_rollo.resx">
       <DependentUpon>imprimir_venta_rollo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\impuesto_sobre_renta.resx">
-      <DependentUpon>impuesto_sobre_renta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_facturacion\itebis.resx">
       <DependentUpon>itebis.cs</DependentUpon>
@@ -1256,9 +1221,6 @@
     <EmbeddedResource Include="modulo_opciones\cambiar_clave.resx">
       <DependentUpon>cambiar_clave.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="sistema\login1.resx">
-      <DependentUpon>login1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="modulo_empresa\pais.resx">
       <DependentUpon>pais.cs</DependentUpon>
     </EmbeddedResource>
@@ -1267,9 +1229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_prestamos\prestamo.resx">
       <DependentUpon>prestamo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\Menu1.resx">
-      <DependentUpon>Menu1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_inventario\producto.resx">
       <DependentUpon>producto.cs</DependentUpon>
@@ -1311,6 +1270,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_nomina\sexo.resx">
       <DependentUpon>sexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\menu1.resx">
+      <DependentUpon>menu1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sistema\sistema.resx">
       <DependentUpon>sistema.cs</DependentUpon>
