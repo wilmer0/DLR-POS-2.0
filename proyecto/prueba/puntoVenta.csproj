@@ -1,0 +1,1460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5F92B391-2598-46EB-9651-21468DE7EE70}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>puntoVenta</RootNamespace>
+    <AssemblyName>puntoVenta</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>puntoVenta.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Graphicloads-Seo-Services-Pay-per-click.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\packages\BarcodeLib.1.0.0.22\lib\net20\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\..\..\..\..\Documents\GitHub\DLR-POS-2.0\proyecto\prueba\librerias\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="archivos\Idioma-en\idioma-en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>idioma-en.resx</DependentUpon>
+    </Compile>
+    <Compile Include="archivos\Idioma-es\idioma-es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>idioma-es.resx</DependentUpon>
+    </Compile>
+    <Compile Include="clases\reporte_facturacion_rollo.cs" />
+    <Compile Include="LabelNormal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LabelNormal.Designer.cs">
+      <DependentUpon>LabelNormal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\abrir_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\abrir_caja.Designer.cs">
+      <DependentUpon>abrir_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_ingresos_caja_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_ingresos_caja_conceptos.Designer.cs">
+      <DependentUpon>busqueda_ingresos_caja_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_ingresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_ingresos.Designer.cs">
+      <DependentUpon>caja_ingresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_ingresos_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_ingresos_conceptos.Designer.cs">
+      <DependentUpon>caja_ingresos_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_codigo_barra_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_codigo_barra_productos.Designer.cs">
+      <DependentUpon>imprimir_codigo_barra_productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\reporte_factura_dataset.cs">
+      <DependentUpon>reporte_factura_dataset.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\reporte_factura_dataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte_factura_dataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\almacen.Designer.cs">
+      <DependentUpon>almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_opciones\backup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\backup.Designer.cs">
+      <DependentUpon>backup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\ventana_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\ventana_reporte.Designer.cs">
+      <DependentUpon>ventana_reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cuadre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cuadre.Designer.cs">
+      <DependentUpon>busqueda_cuadre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_almacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_almacen.Designer.cs">
+      <DependentUpon>busqueda_almacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_caja.Designer.cs">
+      <DependentUpon>busqueda_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cajero.Designer.cs">
+      <DependentUpon>busqueda_cajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_cargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_cargo.Designer.cs">
+      <DependentUpon>busqueda_cargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_categoria.Designer.cs">
+      <DependentUpon>busqueda_categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente.Designer.cs">
+      <DependentUpon>busqueda_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente_categoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente_categoria.Designer.cs">
+      <DependentUpon>busqueda_cliente_categoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente_subcategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cliente_subcategoria.Designer.cs">
+      <DependentUpon>busqueda_cliente_subcategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cobros_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_cobros_venta.Designer.cs">
+      <DependentUpon>busqueda_cobros_venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_compras.Designer.cs">
+      <DependentUpon>busqueda_compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_comprobantes_fiscales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_comprobantes_fiscales.Designer.cs">
+      <DependentUpon>busqueda_comprobantes_fiscales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cuadre_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_cuadre_caja.Designer.cs">
+      <DependentUpon>busqueda_cuadre_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_departamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_departamento.Designer.cs">
+      <DependentUpon>busqueda_departamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_egresos_caja_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_egresos_caja_conceptos.Designer.cs">
+      <DependentUpon>busqueda_egresos_caja_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_empleado.Designer.cs">
+      <DependentUpon>busqueda_empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_empresa.Designer.cs">
+      <DependentUpon>busqueda_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_entrada_salida_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_entrada_salida_inventario.Designer.cs">
+      <DependentUpon>busqueda_entrada_salida_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_existencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_existencia.Designer.cs">
+      <DependentUpon>busqueda_existencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_factura.Designer.cs">
+      <DependentUpon>busqueda_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_factura_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\busqueda_factura_cliente.Designer.cs">
+      <DependentUpon>busqueda_factura_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_factura_suplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_factura_suplidor.Designer.cs">
+      <DependentUpon>busqueda_factura_suplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_grupo_usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_grupo_usuario.Designer.cs">
+      <DependentUpon>busqueda_grupo_usuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_itebis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_itebis.Designer.cs">
+      <DependentUpon>busqueda_itebis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_mesa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_mesa.Designer.cs">
+      <DependentUpon>busqueda_mesa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_moneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_moneda.Designer.cs">
+      <DependentUpon>busqueda_moneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_nomina_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_nomina_conceptos.Designer.cs">
+      <DependentUpon>busqueda_nomina_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_ofertas_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_ofertas_productos.Designer.cs">
+      <DependentUpon>busqueda_ofertas_productos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_oferta_producto_descuento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_oferta_producto_descuento.Designer.cs">
+      <DependentUpon>busqueda_oferta_producto_descuento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_pagos_compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_pagos_compras.Designer.cs">
+      <DependentUpon>busqueda_pagos_compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_permisos.Designer.cs">
+      <DependentUpon>busqueda_permisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_permiso_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_permiso_producto.Designer.cs">
+      <DependentUpon>busqueda_permiso_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_suplidor_dgii.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_suplidor_dgii.Designer.cs">
+      <DependentUpon>busqueda_suplidor_dgii.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_tercero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\busqueda_tercero.Designer.cs">
+      <DependentUpon>busqueda_tercero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_producto.Designer.cs">
+      <DependentUpon>busqueda_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_producto_detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_producto_detalle.Designer.cs">
+      <DependentUpon>busqueda_producto_detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_sexo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_sexo.Designer.cs">
+      <DependentUpon>busqueda_sexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_situacion_empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_situacion_empleado.Designer.cs">
+      <DependentUpon>busqueda_situacion_empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_subcategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_subcategoria.Designer.cs">
+      <DependentUpon>busqueda_subcategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\busqueda_sucursal.Designer.cs">
+      <DependentUpon>busqueda_sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_suplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\busqueda_suplidor.Designer.cs">
+      <DependentUpon>busqueda_suplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_tipo_nomina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_tipo_nomina.Designer.cs">
+      <DependentUpon>busqueda_tipo_nomina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_tipo_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_tipo_producto.Designer.cs">
+      <DependentUpon>busqueda_tipo_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_unidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\busqueda_unidad.Designer.cs">
+      <DependentUpon>busqueda_unidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_vendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_vendedores.Designer.cs">
+      <DependentUpon>busqueda_vendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_vendedor_ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\busqueda_vendedor_ventas.Designer.cs">
+      <DependentUpon>busqueda_vendedor_ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja.Designer.cs">
+      <DependentUpon>caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_egresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_egresos.Designer.cs">
+      <DependentUpon>caja_egresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_egresos_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja_egresos_conceptos.Designer.cs">
+      <DependentUpon>caja_egresos_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\cajeros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\cajeros.Designer.cs">
+      <DependentUpon>cajeros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\cambiar_precio_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\cambiar_precio_producto.Designer.cs">
+      <DependentUpon>cambiar_precio_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\cargo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\cargo.Designer.cs">
+      <DependentUpon>cargo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\categoria_subcatecoria_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\categoria_subcatecoria_cliente.Designer.cs">
+      <DependentUpon>categoria_subcatecoria_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\categoria_subcategoria_producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\categoria_subcategoria_producto.Designer.cs">
+      <DependentUpon>categoria_subcategoria_producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cliente.Designer.cs">
+      <DependentUpon>cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\compra.Designer.cs">
+      <DependentUpon>compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\compras_devolucion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\compras_devolucion.Designer.cs">
+      <DependentUpon>compras_devolucion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_fiscal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_fiscal.Designer.cs">
+      <DependentUpon>comprobante_fiscal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_serie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_serie.Designer.cs">
+      <DependentUpon>comprobante_serie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_tipo_comprobante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\comprobante_tipo_comprobante.Designer.cs">
+      <DependentUpon>comprobante_tipo_comprobante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\cuadre_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\cuadre_caja.Designer.cs">
+      <DependentUpon>cuadre_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cuenta_por_cobrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cuenta_por_cobrar.Designer.cs">
+      <DependentUpon>cuenta_por_cobrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\cuenta_por_pagar_suplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\cuenta_por_pagar_suplidores.Designer.cs">
+      <DependentUpon>cuenta_por_pagar_suplidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\departamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\departamento.Designer.cs">
+      <DependentUpon>departamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\detalles_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\detalles_factura.Designer.cs">
+      <DependentUpon>detalles_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\devolucion_venta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\devolucion_venta.Designer.cs">
+      <DependentUpon>devolucion_venta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cliente_estado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\cliente_estado.Designer.cs">
+      <DependentUpon>cliente_estado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_administracion\estado_resultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_administracion\estado_resultado.Designer.cs">
+      <DependentUpon>estado_resultado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\grupo_usuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\grupo_usuarios.Designer.cs">
+      <DependentUpon>grupo_usuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\imprimir_compra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\imprimir_compra.Designer.cs">
+      <DependentUpon>imprimir_compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\imprimir_nomina_volante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\imprimir_nomina_volante.Designer.cs">
+      <DependentUpon>imprimir_nomina_volante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_venta_hoja_completa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_venta_hoja_completa.Designer.cs">
+      <DependentUpon>imprimir_venta_hoja_completa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_venta_rollo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\imprimir_venta_rollo.Designer.cs">
+      <DependentUpon>imprimir_venta_rollo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\itebis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\itebis.Designer.cs">
+      <DependentUpon>itebis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\mesas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\mesas.Designer.cs">
+      <DependentUpon>mesas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\modificar_factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\modificar_factura.Designer.cs">
+      <DependentUpon>modificar_factura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\moneda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\moneda.Designer.cs">
+      <DependentUpon>moneda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\nomima.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\nomima.Designer.cs">
+      <DependentUpon>nomima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\nomina_conceptos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\nomina_conceptos.Designer.cs">
+      <DependentUpon>nomina_conceptos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\nomina_tipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\nomina_tipos.Designer.cs">
+      <DependentUpon>nomina_tipos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\pago_desglose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\pago_desglose.Designer.cs">
+      <DependentUpon>pago_desglose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\dlrsoft.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\dlrsoft.Designer.cs">
+      <DependentUpon>dlrsoft.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\empresa.Designer.cs">
+      <DependentUpon>empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\entrada_salida_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\entrada_salida_inventario.Designer.cs">
+      <DependentUpon>entrada_salida_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\facturacion.Designer.cs">
+      <DependentUpon>facturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\facturacion_flash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\facturacion_flash.Designer.cs">
+      <DependentUpon>facturacion_flash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\pedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\pedidos.Designer.cs">
+      <DependentUpon>pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\movimiento_inventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\movimiento_inventario.Designer.cs">
+      <DependentUpon>movimiento_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\inventario_entrada_salida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\inventario_entrada_salida.Designer.cs">
+      <DependentUpon>inventario_entrada_salida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\observaciones_empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\observaciones_empleados.Designer.cs">
+      <DependentUpon>observaciones_empleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_opciones\cambiar_clave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\cambiar_clave.Designer.cs">
+      <DependentUpon>cambiar_clave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\pais.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\pais.Designer.cs">
+      <DependentUpon>pais.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\permisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\permisos.Designer.cs">
+      <DependentUpon>permisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_prestamos\prestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_prestamos\prestamo.Designer.cs">
+      <DependentUpon>prestamo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\producto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\producto.Designer.cs">
+      <DependentUpon>producto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\productos_ofertas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\productos_ofertas.Designer.cs">
+      <DependentUpon>productos_ofertas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\producto_detalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\producto_detalle.Designer.cs">
+      <DependentUpon>producto_detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="modulo_empresa\provincia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\provincia.Designer.cs">
+      <DependentUpon>provincia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_inventario\recibir_producto_reparacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_inventario\recibir_producto_reparacion.Designer.cs">
+      <DependentUpon>recibir_producto_reparacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\region.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\region.Designer.cs">
+      <DependentUpon>region.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\empleado.Designer.cs">
+      <DependentUpon>empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\reporte_cliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_cobrar\reporte_cliente.Designer.cs">
+      <DependentUpon>reporte_cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\reporte_suplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\reporte_suplidor.Designer.cs">
+      <DependentUpon>reporte_suplidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_administracion\reporte_ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_administracion\reporte_ventas.Designer.cs">
+      <DependentUpon>reporte_ventas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\sector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\sector.Designer.cs">
+      <DependentUpon>sector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\sexo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\sexo.Designer.cs">
+      <DependentUpon>sexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clases\singleton.cs" />
+    <Compile Include="sistema\login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\menu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\menu1.Designer.cs">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\sistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\sistema.Designer.cs">
+      <DependentUpon>sistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_nomina\situacion_empleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\situacion_empleado.Designer.cs">
+      <DependentUpon>situacion_empleado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\splashscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\splashscreen.Designer.cs">
+      <DependentUpon>splashscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\sucursal.Designer.cs">
+      <DependentUpon>sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\suplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_cuentas_por_pagar\suplidores.Designer.cs">
+      <DependentUpon>suplidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="clases\Utilidades.cs" />
+    <Compile Include="modulo_nomina\vendedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_nomina\vendedores.Designer.cs">
+      <DependentUpon>vendedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventas_de_hoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventas_de_hoy.Designer.cs">
+      <DependentUpon>ventas_de_hoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_administracion\ventas_mensuales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_administracion\ventas_mensuales.Designer.cs">
+      <DependentUpon>ventas_mensuales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_administracion\ventas_productos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_administracion\ventas_productos.Designer.cs">
+      <DependentUpon>ventas_productos.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="archivos\Idioma-en\idioma-en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>idioma-en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="archivos\Idioma-es\idioma-es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>idioma-es.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LabelNormal.resx">
+      <DependentUpon>LabelNormal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\abrir_caja.resx">
+      <DependentUpon>abrir_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_ingresos_caja_conceptos.resx">
+      <DependentUpon>busqueda_ingresos_caja_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja_ingresos.resx">
+      <DependentUpon>caja_ingresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja_ingresos_conceptos.resx">
+      <DependentUpon>caja_ingresos_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\imprimir_codigo_barra_productos.resx">
+      <DependentUpon>imprimir_codigo_barra_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\almacen.resx">
+      <DependentUpon>almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_opciones\backup.resx">
+      <DependentUpon>backup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ventana_reporte.resx">
+      <DependentUpon>ventana_reporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_cuadre.resx">
+      <DependentUpon>busqueda_cuadre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_almacen.resx">
+      <DependentUpon>busqueda_almacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_caja.resx">
+      <DependentUpon>busqueda_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_cajero.resx">
+      <DependentUpon>busqueda_cajero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_cargo.resx">
+      <DependentUpon>busqueda_cargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_categoria.resx">
+      <DependentUpon>busqueda_categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\busqueda_cliente.resx">
+      <DependentUpon>busqueda_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\busqueda_cliente_categoria.resx">
+      <DependentUpon>busqueda_cliente_categoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\busqueda_cliente_subcategoria.resx">
+      <DependentUpon>busqueda_cliente_subcategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\busqueda_cobros_venta.resx">
+      <DependentUpon>busqueda_cobros_venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\busqueda_compras.resx">
+      <DependentUpon>busqueda_compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\busqueda_comprobantes_fiscales.resx">
+      <DependentUpon>busqueda_comprobantes_fiscales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_cuadre_caja.resx">
+      <DependentUpon>busqueda_cuadre_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_departamento.resx">
+      <DependentUpon>busqueda_departamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_egresos_caja_conceptos.resx">
+      <DependentUpon>busqueda_egresos_caja_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_empleado.resx">
+      <DependentUpon>busqueda_empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\busqueda_empresa.resx">
+      <DependentUpon>busqueda_empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_entrada_salida_inventario.resx">
+      <DependentUpon>busqueda_entrada_salida_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_existencia.resx">
+      <DependentUpon>busqueda_existencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_factura.resx">
+      <DependentUpon>busqueda_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\busqueda_factura_cliente.resx">
+      <DependentUpon>busqueda_factura_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\busqueda_factura_suplidor.resx">
+      <DependentUpon>busqueda_factura_suplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_grupo_usuario.resx">
+      <DependentUpon>busqueda_grupo_usuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_itebis.resx">
+      <DependentUpon>busqueda_itebis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_mesa.resx">
+      <DependentUpon>busqueda_mesa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_moneda.resx">
+      <DependentUpon>busqueda_moneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_nomina_conceptos.resx">
+      <DependentUpon>busqueda_nomina_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_ofertas_productos.resx">
+      <DependentUpon>busqueda_ofertas_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_oferta_producto_descuento.resx">
+      <DependentUpon>busqueda_oferta_producto_descuento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\busqueda_pagos_compras.resx">
+      <DependentUpon>busqueda_pagos_compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_permisos.resx">
+      <DependentUpon>busqueda_permisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_permiso_producto.resx">
+      <DependentUpon>busqueda_permiso_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\busqueda_suplidor_dgii.resx">
+      <DependentUpon>busqueda_suplidor_dgii.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\busqueda_tercero.resx">
+      <DependentUpon>busqueda_tercero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_producto.resx">
+      <DependentUpon>busqueda_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_producto_detalle.resx">
+      <DependentUpon>busqueda_producto_detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_sexo.resx">
+      <DependentUpon>busqueda_sexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_situacion_empleado.resx">
+      <DependentUpon>busqueda_situacion_empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_subcategoria.resx">
+      <DependentUpon>busqueda_subcategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\busqueda_sucursal.resx">
+      <DependentUpon>busqueda_sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\busqueda_suplidor.resx">
+      <DependentUpon>busqueda_suplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_tipo_nomina.resx">
+      <DependentUpon>busqueda_tipo_nomina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_tipo_producto.resx">
+      <DependentUpon>busqueda_tipo_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\busqueda_unidad.resx">
+      <DependentUpon>busqueda_unidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_vendedores.resx">
+      <DependentUpon>busqueda_vendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\busqueda_vendedor_ventas.resx">
+      <DependentUpon>busqueda_vendedor_ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja.resx">
+      <DependentUpon>caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja_egresos.resx">
+      <DependentUpon>caja_egresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja_egresos_conceptos.resx">
+      <DependentUpon>caja_egresos_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\cajeros.resx">
+      <DependentUpon>cajeros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\cambiar_precio_producto.resx">
+      <DependentUpon>cambiar_precio_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\cargo.resx">
+      <DependentUpon>cargo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\categoria_subcatecoria_cliente.resx">
+      <DependentUpon>categoria_subcatecoria_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\categoria_subcategoria_producto.resx">
+      <DependentUpon>categoria_subcategoria_producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\cliente.resx">
+      <DependentUpon>cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\compra.resx">
+      <DependentUpon>compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\compras_devolucion.resx">
+      <DependentUpon>compras_devolucion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\comprobante_fiscal.resx">
+      <DependentUpon>comprobante_fiscal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\comprobante_serie.resx">
+      <DependentUpon>comprobante_serie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\comprobante_tipo_comprobante.resx">
+      <DependentUpon>comprobante_tipo_comprobante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\cuadre_caja.resx">
+      <DependentUpon>cuadre_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\cuenta_por_cobrar.resx">
+      <DependentUpon>cuenta_por_cobrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\cuenta_por_pagar_suplidores.resx">
+      <DependentUpon>cuenta_por_pagar_suplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\departamento.resx">
+      <DependentUpon>departamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\detalles_factura.resx">
+      <DependentUpon>detalles_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\devolucion_venta.resx">
+      <DependentUpon>devolucion_venta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\cliente_estado.resx">
+      <DependentUpon>cliente_estado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_administracion\estado_resultado.resx">
+      <DependentUpon>estado_resultado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\grupo_usuarios.resx">
+      <DependentUpon>grupo_usuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\imprimir_compra.resx">
+      <DependentUpon>imprimir_compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\imprimir_nomina_volante.resx">
+      <DependentUpon>imprimir_nomina_volante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\imprimir_venta_hoja_completa.resx">
+      <DependentUpon>imprimir_venta_hoja_completa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\imprimir_venta_rollo.resx">
+      <DependentUpon>imprimir_venta_rollo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\itebis.resx">
+      <DependentUpon>itebis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\mesas.resx">
+      <DependentUpon>mesas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\modificar_factura.resx">
+      <DependentUpon>modificar_factura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\moneda.resx">
+      <DependentUpon>moneda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\nomima.resx">
+      <DependentUpon>nomima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\nomina_conceptos.resx">
+      <DependentUpon>nomina_conceptos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\nomina_tipos.resx">
+      <DependentUpon>nomina_tipos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\pago_desglose.resx">
+      <DependentUpon>pago_desglose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\direccion.resx">
+      <DependentUpon>direccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\dlrsoft.resx">
+      <DependentUpon>dlrsoft.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\empresa.resx">
+      <DependentUpon>empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\entrada_salida_inventario.resx">
+      <DependentUpon>entrada_salida_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\facturacion.resx">
+      <DependentUpon>facturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\facturacion_flash.resx">
+      <DependentUpon>facturacion_flash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\pedidos.resx">
+      <DependentUpon>pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\movimiento_inventario.resx">
+      <DependentUpon>movimiento_inventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\inventario_entrada_salida.resx">
+      <DependentUpon>inventario_entrada_salida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\observaciones_empleados.resx">
+      <DependentUpon>observaciones_empleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_opciones\cambiar_clave.resx">
+      <DependentUpon>cambiar_clave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\pais.resx">
+      <DependentUpon>pais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\permisos.resx">
+      <DependentUpon>permisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_prestamos\prestamo.resx">
+      <DependentUpon>prestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\producto.resx">
+      <DependentUpon>producto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\productos_ofertas.resx">
+      <DependentUpon>productos_ofertas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\producto_detalle.resx">
+      <DependentUpon>producto_detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\provincia.resx">
+      <DependentUpon>provincia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_inventario\recibir_producto_reparacion.resx">
+      <DependentUpon>recibir_producto_reparacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\region.resx">
+      <DependentUpon>region.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\empleado.resx">
+      <DependentUpon>empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_cobrar\reporte_cliente.resx">
+      <DependentUpon>reporte_cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\reporte_suplidor.resx">
+      <DependentUpon>reporte_suplidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_administracion\reporte_ventas.resx">
+      <DependentUpon>reporte_ventas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\sector.resx">
+      <DependentUpon>sector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\sexo.resx">
+      <DependentUpon>sexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\menu1.resx">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\sistema.resx">
+      <DependentUpon>sistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_nomina\situacion_empleado.resx">
+      <DependentUpon>situacion_empleado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\splashscreen.resx">
+      <DependentUpon>splashscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\sucursal.resx">
+      <DependentUpon>sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_cuentas_por_pagar\suplidores.resx">
+      <DependentUpon>suplidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="modulo_empresa\direccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="modulo_nomina\vendedores.resx">
+      <DependentUpon>vendedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\ventas_de_hoy.resx">
+      <DependentUpon>ventas_de_hoy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_administracion\ventas_mensuales.resx">
+      <DependentUpon>ventas_mensuales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_administracion\ventas_productos.resx">
+      <DependentUpon>ventas_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="modulo_facturacion\reporte_factura_dataset.xsc">
+      <DependentUpon>reporte_factura_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="modulo_facturacion\reporte_factura_dataset.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>reporte_factura_dataset.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="modulo_facturacion\reporte_factura_dataset.xss">
+      <DependentUpon>reporte_factura_dataset.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Graphicloads-Seo-Services-Pay-per-click.ico" />
+    <None Include="Resources\icono_formulario_inscripcixn_diadeporte2015.png" />
+    <None Include="Resources\images.jpg" />
+    <None Include="Resources\Login-icon.png" />
+    <None Include="Resources\logo1.jpg" />
+    <None Include="Resources\dgii.jpg" />
+    <None Include="Resources\logo.jpg" />
+    <None Include="Resources\gifs\kTTdW2l.gif" />
+    <None Include="Resources\gifs\3499424w91v795brv.gif" />
+    <None Include="Resources\8YsAmq3.gif" />
+    <None Include="Resources\icon-estadisticas.png" />
+    <None Include="Resources\icon2.png" />
+    <None Include="Resources\icon.png" />
+    <None Include="Resources\splashscreen.png" />
+    <None Include="Resources\carbon_fiber_background-wallpaper-2560x1600.jpg" />
+    <None Include="Resources\leder_c_gaucho.jpg" />
+    <None Include="Resources\leder_c_family.jpg" />
+    <None Include="Resources\iconDinero.png" />
+    <None Include="Resources\descuentos.png" />
+    <None Include="Resources\bajar.png" />
+    <None Include="Resources\program_icon.png" />
+    <None Include="Resources\sucursal.png" />
+    <None Include="Resources\cohete.png" />
+    <None Include="Resources\recarga.png" />
+    <None Include="Resources\administrador-icon-big.png" />
+    <None Include="Resources\circulo-morado.png" />
+    <None Include="Resources\file-complete.png" />
+    <None Include="Resources\entradaysalida.png" />
+    <None Include="Resources\detalles2.png" />
+    <None Include="Resources\libra.png" />
+    <None Include="Resources\spreadsheet-28205_640.png" />
+    <None Include="Resources\B.png" />
+    <None Include="Resources\mesa.png" />
+    <None Include="Resources\monedas.jpg" />
+    <None Include="Resources\logo_empresa.png" />
+    <None Include="Resources\tiempo.png" />
+    <None Include="Resources\stock.png" />
+    <None Include="Resources\nomina.png" />
+    <None Include="Resources\ventas.png" />
+    <None Include="Resources\vigilar.png" />
+    <None Include="Resources\user-menu-icon.png" />
+    <None Include="Resources\Stock_02.png" />
+    <None Include="Resources\siguiente.png" />
+    <None Include="Resources\shopping-cart-icon-psd-image-2367shopping-cart-icon-515.png" />
+    <None Include="Resources\send-user.png" />
+    <None Include="Resources\retouren.png" />
+    <None Include="Resources\printer_256.png" />
+    <None Include="Resources\print_256.png" />
+    <None Include="Resources\mount.png" />
+    <None Include="Resources\usuario-mujer.png" />
+    <None Include="Resources\users.png" />
+    <None Include="Resources\user-info-icon.png" />
+    <None Include="Resources\unnamed.png" />
+    <None Include="Resources\unlocked-icon.png" />
+    <None Include="Resources\twitter2.png" />
+    <None Include="Resources\twitter.png" />
+    <None Include="Resources\trends-icon.png" />
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\tools-icon.png" />
+    <None Include="Resources\shoeprints-icon.png" />
+    <None Include="Resources\servicios.png" />
+    <None Include="Resources\security-icon.png" />
+    <None Include="Resources\sector_publico_iconos_04.png" />
+    <None Include="Resources\Save-as_37111.png" />
+    <None Include="Resources\red-x-cross-wrong-not-clip-art_f.jpg" />
+    <None Include="Resources\recycle-bin-icon.png" />
+    <None Include="Resources\Orange-User-Authentication-Icon.png" />
+    <None Include="Resources\opciones1.png" />
+    <None Include="Resources\Online-Shopping-icon.png" />
+    <None Include="Resources\name-card-icon.png" />
+    <None Include="Resources\my_files_img_038e98c9cad468676568ea68a4097e2870be99c6.png" />
+    <None Include="Resources\multi_0315_icon_550x550_lpg-multicalculator_nam_eng.png" />
+    <None Include="Resources\mudanza y logistica de carga.png" />
+    <None Include="Resources\money_icon1.png" />
+    <None Include="Resources\mic-icon.png" />
+    <None Include="Resources\mensaje2.png" />
+    <None Include="Resources\mensaje.png" />
+    <None Include="Resources\memorycard-icon.png" />
+    <None Include="Resources\save_file_disk_open_searsh_loading_clipboard_1513.png" />
+    <None Include="Resources\Ok.png" />
+    <None Include="Resources\usuario-hombre.png" />
+    <None Include="Resources\sin-tc3adtulo1.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\Zoom-icon.png" />
+    <None Include="Resources\map-icon.png" />
+    <None Include="Resources\registro.png" />
+    <None Include="Resources\travelerbag-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contabilidad\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

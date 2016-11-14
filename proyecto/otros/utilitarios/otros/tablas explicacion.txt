@@ -1,0 +1,200 @@
+
+if(e.KeyCode==Keys.Enter || e.KeyCode==Keys.Tab)
+            {
+                apellido_txt.Focus();
+            }
+
+
+
+
+
+
+comprobante fiscales
+01 valor credito fiscal
+02 consumidor final
+03 notas de debito
+04 notas de credito
+11 registro de proveedores informales
+12 registro unico ingreso
+13 registro de gastos menores
+14 registro de opraciones para empresas acogidas a reimenes especiales de tributacion
+15 gubernamentales
+
+ejemplo 
+
+A 01 001  001 01 99,999,999 
+A-01-001-001-02-12345678
+la letra va desde la A-J
+hace referencia a formularios para la dgii
+
+los 2 digitos despues son del tipo de empresa
+
+los 3 digitos siguientes son de las divisiones del negocio
+
+los 3 digitos siguientes son del numero de caja
+
+los 2 digitos que siguen son el tipo de comprobante
+
+los demas digitos son de secuencia generada
+
+
+crear perfiles para los permisos ejemplo
+
+cajero--puede facturar, puede ver el precio de los productos, puede consultar el stock
+admin--puede hacer de todo, incluso asignar permisos
+almacen--puede crear productos,cambiar precio a los productos, crear combos, modificar combos
+
+
+
+inventario_entrada_salida
+--> para almacenar un historico de lo que entra y sale en la misma sucursal, guardando asi quien hizo el movimiento y en que fecha se hizo
+
+
+historial_movimientos_inventario
+-->almacena el historial de cuando desde una sucursal mandan mercancia a otra sucursal
+
+factura_detalle_estado
+-->sirve para saber si un producto de la factura todavia esta en la facttura
+o si fue devuelto(devolucion)
+
+
+-->tabla caja_vs_comprobante
+se guardaran los comproantes que maneja cada caja ya con el coprobante hecho que solo falta la numeracion de la factura para
+completarlo
+
+-->los permisos se guardan en tercero_vs_permiso relacionado con tercero y el permiso
+
+
+-->en la parte de hacer el cuadre de caja en el proyecto el cajero no puede ver las fcturas que vendio ya que el mismo podria cuadrar la caja
+a su conveniencia, solo una persona con el permiso dado puede ver las facturas en los cuadres.
+
+
+
+-->factura_tipo_factura es para saber si la factura fue a credito,contado,cotizacion.
+
+-->punto maximo en la tabla de producto es para saber el numero maximo de productos que se podra guardar, y el de reorden para saber en que punto dar la alerta de que
+se debe realizar una compra de ese producto.
+
+
+-->hacer que el mismo sistema automaticamente le de a la empresa una oferta de orden de compra con los productos que faltan calculando la cantidad de venta y el punto maximo
+que se tiene programado.
+
+-->producto_vs_codigobarra es para que si un producto digamos v8 splash de 500ml sabor a fresa pase por el mismo precio del v8 splash 500ml sabor a limon, o sabor a uva
+ya que es el mismo producto lo unico que varia es el sabor del producto.
+
+
+-->transferencia_inventario es para cuando se vaya a sacar productos de una sucursal para llevar a otra
+
+-->entrada_salida_inventario es para dentro de la misma sucursal poder hacer reconteos de inventario para darle salidas o entradas
+
+
+
+
+hacer mantemiento de la direccion con lo de pais,region,provincia,sector
+situacion empleado
+suplidor
+sexo
+
+relacionar el codigo_unidad de detalle de facturas, venta,compra,cotizacion y to esa baina
+
+dar formato a ventana de producto
+
+
+error cargando los combos
+
+
+para la facturacion hacer eliminar los combos y dejarlos como productos normales que se componen de otros productos asi cuando se busque en productos
+se pueda buscar direcamente
+
+
+en la tabla de compras en donde se guarda las compras que como empresa yo hago tiene el campo monto es para presentarlo en el grid por el monto que se tomo la compra,
+y presentar el monto que ha sido pagado de esa factura en el detalle de los pagos
+
+ pruba del query para traer los pagos de las compra que como empresa tengo.
+
+select c.codigo as compra,ct.nombre as tipo_de_compra,c.ncf,c.cod_suplidor,t.nombre as suplidor,c.rnc,c.monto,(select sum(monto) from factura_suplidor_pagos fs where fs.codigo_factura=c.codigo) as pagado from compra c join suplidor s
+on c.cod_suplidor=s.codigo join compra_vs_producto cp on c.codigo=cp.cod_compra join tercero t on t.codigo=s.codigo join compra_tipo ct
+on ct.codigo=c.cod_tipo where c.estado='1'
+
+
+chelo dijo que los datos del empleado debe de crearse un contrato y en base a ese contrato saber lo que se va pagar aparte de que cuando se modifique algun dato del empleado
+tener un historico.
+
+en la parte de tranferencia de mercancia revisar la tabla de historial movimientos que dice chelo que si es una entrada
+no pueden quedarse campos vacios en la tabla como sucursal origen y sucursal destino.
+
+
+
+
+
+
+
+
+
+-Empresa
+-Sucursal
+-Sexo
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+

@@ -1,0 +1,34 @@
+http://inhax.net/download-visual-studio-2015-enterprise-iso-with-serial-key/
+
+
+
+    2XNFG-KFHR8-QV3CP-3W6HT-683CH
+    HM6NR-QXX7C-DFW2Y-8B82K-WTYJV
+
+
+que se pueda consultar los pagos que se han hecho a las facturas que yo como empresa tengo.
+
+que se pueda cobrar y pagar con un solo pago a varias facturas.
+
+que se puedan anular facturas siempre y cuando no tenga movimientos, de ser asi habria que anular los movimientos primero y luego la factura.
+
+que se puedan hacer devoluciones de las facturas, y con sus tipos de devoluciones que se le puede dar la misma mercancia o se le puede dar el dinero
+que valio esa factura o de un produto de la factura.
+
+que se pueda devolver uno o mas  productos de una factura
+
+
+
+
+pendiente
+
+
+facturacion grid
+busqueda de facturas cli/supli
+debe traer el numfac,fecha,monto,quien la hizo, a quien se le hizo,
+
+en componenetes
+los productos de esa factura
+
+y en movimiento
+si se le han hecho pagos, o se han recivido pagos.
