@@ -17,7 +17,7 @@ namespace puntoVenta
 
 
         //objeto
-        
+        Utilidades utilidades=new Utilidades();
 
         public FormBase()
         {
@@ -29,7 +29,7 @@ namespace puntoVenta
 
         public virtual void loadVentana()
         {
-            this.Text = "IrisCont";
+            this.Text = "BC POS:";
             this.tituloLabel.Text = "Esto es un titulo";
             
         }
