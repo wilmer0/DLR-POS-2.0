@@ -18,7 +18,7 @@ namespace puntoVenta
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new menu1());
+            Application.Run(new login());
         }
     }
 }
