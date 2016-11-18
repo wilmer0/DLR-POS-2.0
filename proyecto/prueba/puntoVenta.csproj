@@ -1442,6 +1442,12 @@
   <ItemGroup>
     <Folder Include="Contabilidad\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\puntoVentaModelo\puntoVentaModelo.csproj">
+      <Project>{11593144-ae03-4326-a2a6-edbd7e8a845d}</Project>
+      <Name>puntoVentaModelo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
