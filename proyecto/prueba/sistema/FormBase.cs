@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using puntoVenta.sistema;
-using System.Data.Entity;
 using MySql.Data.Entity;
+using System.Data.Entity;
 
 namespace puntoVenta
 {
@@ -22,16 +22,14 @@ namespace puntoVenta
         public FormBase()
         {
             InitializeComponent();
-            loadVentana();
+            LoadVentana();
         }
 
        
 
-        public virtual void loadVentana()
+        public  void LoadVentana()
         {
-            this.Text = "IrisCont";
-            this.tituloLabel.Text = "Esto es un titulo";
-            
+
         }
 
         public virtual Boolean ValidarCampos()

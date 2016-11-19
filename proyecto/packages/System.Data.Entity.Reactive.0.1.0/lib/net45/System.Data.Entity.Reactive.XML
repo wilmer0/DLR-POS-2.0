@@ -1,0 +1,246 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>System.Data.Entity.Reactive</name>
+    </assembly>
+    <members>
+        <member name="T:System.Data.Entity.Reactive.ChangeDetectionPolicy">
+            <summary>
+            Represents the detection policies for changes in properties of entities. This flag defines whether observables should take care of changes on navigation properties.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ChangeDetectionPolicy.Property">
+            <summary>
+            Changes in simple properties are detected.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ChangeDetectionPolicy.NavigationProperty">
+            <summary>
+            Changes in navigation properties (in a one-to-x relation) are detected.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ChangeDetectionPolicy.CollectionNavigationProperty">
+            <summary>
+            Changes in navigation properties (in a many-to-x relation) are detected.
+            </summary>
+        </member>
+        <member name="T:System.Data.Entity.Reactive.ReactiveDbContext">
+            <summary>
+            Represents a database context with reactive methods to determine changes in the data set.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.#ctor">
+            <summary>
+            Initializes a new <see cref="T:System.Data.Entity.Reactive.ReactiveDbContext"/> instance.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.#ctor(System.String)">
+            <summary>
+            Initializes a new <see cref="T:System.Data.Entity.Reactive.ReactiveDbContext"/> instance.
+            </summary>
+            <param name="nameOrConnectionString">Either the database name or a connection string.</param>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbContext.reactiveDbSets">
+            <summary>
+            Contains all observables for the sets of the database, so that they can be recycled.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbContext.ObjectContext">
+            <summary>
+            Gets the object context of the underlying database context.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.BeforeDetectChangesAsync">
+            <summary>
+            Detects changes to the database before they have been saved.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.DetectChangesAsync">
+            <summary>
+            Detects changes to the database after they have been saved.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.SaveChangesAsync">
+            <summary>
+            Saves all changes back to the database.
+            </summary>
+            <returns>Returns the number of affected rows.</returns>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.SaveChangesAsync(System.Threading.CancellationToken)">
+            <summary>
+            Saves all changes back to the database.
+            </summary>
+            <param name="cancellationToken">The token that can be used to cancel the operation.</param>
+            <returns>Returns the number of affected rows.</returns>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.ObservableFor``1">
+            <summary>
+            Gets an observable object for the specified entity type.
+            </summary>
+            <param name="policy">The detection policy that should be applied to the observable.</param>
+            <typeparam name="T">The entity type.</typeparam>
+            <returns>Returns the observable object that can be used to detect changes.</returns>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbContext.ObservableFor``1(System.Data.Entity.Reactive.ChangeDetectionPolicy)">
+            <summary>
+            Gets an observable object for the specified entity type.
+            </summary>
+            <param name="policy">The detection policy that should be applied to the observable.</param>
+            <typeparam name="T">The entity type.</typeparam>
+            <returns>Returns the observable object that can be used to detect changes.</returns>
+        </member>
+        <member name="T:System.Data.Entity.Reactive.ReactiveDbSet">
+            <summary>
+            Represents an object that provides several properties for the <see cref="T:System.Data.Entity.DbSet"/> that can be observed.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbSet.BeforeDetectChangesAsync">
+            <summary>
+            Detects all changes before saving them to the set.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbSet.DetectChangesAsync">
+            <summary>
+            Detects all changes after saving them to the set.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet.DbContext">
+            <summary>
+            Gets the context for which the observable is generated.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet.Policy">
+            <summary>
+            Gets the change detection policy that is used by the set.
+            </summary>
+        </member>
+        <member name="T:System.Data.Entity.Reactive.ReactiveDbSet`1">
+            <summary>
+            Represents an object that provides several properties for the <see cref="T:System.Data.Entity.DbSet"/> that can be observed.
+            </summary>
+            <typeparam name="T">The entity type.</typeparam>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbSet`1.#ctor(System.Data.Entity.Reactive.ReactiveDbContext,System.Data.Entity.Reactive.ChangeDetectionPolicy)">
+            <summary>
+            Initializes a new <see cref="!:DbSetObservable"/> instance.
+            </summary>
+            <param name="dbContext">The context for which the observable is generated.</param>
+            <param name="policy">The change detection policy that should be used by the set.</param>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.detectedChanges">
+            <summary>
+            Contains all detected changes from the tracker so that they can be stored for the observables that are invoked after the database change.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeDetectChangesAsync">
+            <summary>
+            Detects all changes before saving them to the set.
+            </summary>
+        </member>
+        <member name="M:System.Data.Entity.Reactive.ReactiveDbSet`1.DetectChangesAsync">
+            <summary>
+            Detects all changes after saving them to the set.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.beforeItemChanged">
+            <summary>
+            Contains the object that observes whether an item in the set is to be changed.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeItemChanged">
+            <summary>
+            Gets an object that observes whether an item in the set is to be changed.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.itemChanged">
+            <summary>
+            Contains the object that observes whether an item in the set has been changed.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.ItemChanged">
+            <summary>
+            Gets an object that observes whether an item in the set has been changed.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.beforeItemAdded">
+            <summary>
+            Contains the object that observes whether an item is to be added to the set.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeItemAdded">
+            <summary>
+            Gets an object that observes whether an item is to be added to the set.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.itemAdded">
+            <summary>
+            Contains the object that observes whether an item has been added to the set.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.ItemAdded">
+            <summary>
+            Gets an object that observes whether an item has been added to the set.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.beforeItemRemoved">
+            <summary>
+            Contains the object that observes whether an item is to be removed from the set.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeItemRemoved">
+            <summary>
+            Gets an object that observes whether an item is to be removed from the set.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.itemRemoved">
+            <summary>
+            Contains the object that observes whether an item has been removed from the set.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.ItemRemoved">
+            <summary>
+            Gets an object that observes whether an item has been removed from the set.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.beforeChanged">
+            <summary>
+            Contains the object that observes whether items are to be added or removed.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeChanged">
+            <summary>
+            Gets an object that observes whether items are to be added or removed.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.changed">
+            <summary>
+            Contains the object that observes whether items have been added or removed.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.Changed">
+            <summary>
+            Gets an object that observes whether items have been added or removed.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.beforeAny">
+            <summary>
+            Contains the object that observes whether any changes are to be made.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.BeforeAny">
+            <summary>
+            Gets an object that observes whether any changes are to be made.
+            </summary>
+        </member>
+        <member name="F:System.Data.Entity.Reactive.ReactiveDbSet`1.any">
+            <summary>
+            Contains the object that observes whether any changes have been made.
+            </summary>
+        </member>
+        <member name="P:System.Data.Entity.Reactive.ReactiveDbSet`1.Any">
+            <summary>
+            Gets an object that observes whether any changes have been made.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1441,6 +1441,223 @@ namespace puntoVenta
         }
 
 
+        public String getNombreMaquina()
+        {
+            String nombre = "";
+            nombre = System.Environment.MachineName;
+
+            return nombre;
+
+
+        }
+
+        public Boolean isNumeric(String cadena)
+        {
+            if (cadena == null)
+            {
+
+                return false;
+            }
+            Boolean respuesta = false;
+            Decimal i = 0;
+            respuesta = Decimal.TryParse(cadena, out i);
+
+            return respuesta;
+        }
+
+
+        public Boolean isDecimal(String Cadena)
+        {
+            decimal resul;
+            return decimal.TryParse(Cadena, out resul);
+        }
+
+        public String getRellenarConCarracter(int longitud, Boolean derecha, string caracter, String cadena)
+        {
+            String caracteres = "";
+
+
+            for (int i = cadena.Length; i < longitud; i++)
+            {
+                caracteres = caracteres + caracter;
+
+
+            }
+            if (derecha)
+            {
+                cadena = cadena + caracteres;
+
+            }
+            else
+            {
+                cadena = caracteres + cadena;
+
+            }
+
+
+
+
+
+            return cadena;
+
+        }
+
+
+
+        public Boolean getValidarNCF(Boolean activarMensaje, String ncf)
+        {
+            Boolean respuesta = false;
+            if (ncf.Length == 19)
+            {
+                return true;
+
+            }
+            else
+            {
+                respuesta = false;
+               
+            }
+            return false;
+        }
+
+
+
+        public string getFormaFechaYYYYMMdd(DateTime fecha)
+        {
+
+            return fecha.ToString("yyyyMMdd");
+
+        }
+
+        public string getFormaFechaddMMYYY(DateTime fecha)
+        {
+
+            return fecha.ToString("ddMMyyyy");
+
+        }
+
+        public string getFormaFechaYYYYMM(DateTime fecha)
+        {
+
+            return fecha.ToString("yyyyMM");
+
+        }
+
+        public string getFormaFechaddMMyyyyHHmmss(DateTime fecha)
+        {
+
+            return fecha.ToString("dd-MM-dd-HH-mm-ss");
+
+        }
+
+        public string getFormaFechadd(DateTime fecha)
+        {
+
+            return fecha.ToString("dd");
+
+        }
+
+        public string getFormaFecha(DateTime fecha, string formato)
+        {
+
+            return fecha.ToString(formato);
+
+        }
+
+        public int GetNUmeroDiasRangoFechas(DateTime FechaInicio, DateTime FechaFin)
+        {
+
+            try
+            {
+
+                TimeSpan ts = FechaFin - FechaInicio;
+
+
+                return ts.Days;
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+                return 0;
+
+            }
+            finally
+            {
+                //  Entity = null;
+
+            }
+
+        }
+        public int GetRandon(int tamano)
+        {
+            var seed = Convert.ToInt32(Regex.Match(Guid.NewGuid().ToString(), @"\d+").Value);
+            return new Random(seed).Next(0, tamano);
+
+        }
+        public String GetNumeroRandon(int tamano)
+        {
+            String Trama = "";
+            int j = 0;
+            for (int i = 0; i < 1000; i++)
+            {
+                int numero = GetRandon(9);
+
+                if (j == 0)
+                {
+                    if (numero != 0)
+                    {
+                        Trama = Trama + numero;
+                        j++;
+                    }
+                }
+
+                else
+                {
+                    Trama = Trama + numero;
+                    j++;
+                }
+
+                if (j == 6)
+                {
+                    break;
+                }
+            }
+
+            return Trama;
+
+        }
+
+        public Boolean validarCorreoElectronico(string correo)
+        {
+            try
+            {
+
+                String sFormato;
+                sFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+                if (Regex.IsMatch(correo, sFormato))
+                {
+                    if (Regex.Replace(correo, sFormato, String.Empty).Length == 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error validarCorreoElectronico.:" + ex.ToString());
+                return false;
+            }
+        }
 
     }
 }
