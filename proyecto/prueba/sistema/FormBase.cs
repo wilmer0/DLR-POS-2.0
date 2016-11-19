@@ -22,16 +22,14 @@ namespace puntoVenta
         public FormBase()
         {
             InitializeComponent();
-            loadVentana();
+            LoadVentana();
         }
 
        
 
-        public virtual void loadVentana()
+        public  void LoadVentana()
         {
-            this.Text = "IrisCont";
-            this.tituloLabel.Text = "Esto es un titulo";
-            
+
         }
 
         public virtual Boolean ValidarCampos()
