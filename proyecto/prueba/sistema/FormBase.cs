@@ -74,7 +74,7 @@ namespace puntoVenta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Procesar();
+            GetAcion();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                Procesar();
+                GetAcion();
             }
         }
 
@@ -121,7 +121,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                Procesar();
+                GetAcion();
             }
         }
 

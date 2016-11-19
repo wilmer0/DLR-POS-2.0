@@ -34,6 +34,9 @@ namespace puntoVenta.sistema
 
         public override void LoadVentana()
         {
+            this.tituloLabel.Text = "Inicio sesión";
+            this.Text = tituloLabel.Text;
+            //usuarioText.SelectAll();
             
         }
 
@@ -52,6 +55,7 @@ namespace puntoVenta.sistema
                     MessageBox.Show("Falta el usuario","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     usuarioText.Focus();
                     usuarioText.SelectAll();
+                    usuarioText.BackColor= Color.Red;
                     return false;
                 }
 
@@ -60,6 +64,7 @@ namespace puntoVenta.sistema
                     MessageBox.Show("Falta el clave", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     claveText.Focus();
                     claveText.SelectAll();
+                    claveText.BackColor = Color.Red;
                     return false;
                 }
                 return true;
@@ -77,6 +82,7 @@ namespace puntoVenta.sistema
             if (!ValidarCampos())
                 return;
 
+            empleado=new puntoVentaModelo.empleado();
             empleado.login = usuarioText.Text.Trim();
             empleado.clave = claveText.Text.Trim();
 
@@ -90,6 +96,23 @@ namespace puntoVenta.sistema
             {
                 empleado = null;
                 MessageBox.Show("No existe el usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void usuarioText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                claveText.Focus();
+                claveText.SelectAll();
+            }
+        }
+
+        private void claveText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
             }
         }
     }

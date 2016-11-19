@@ -72,11 +72,11 @@ namespace puntoVentaModelo.modelos
 
                 //        // leer archivo
 
-                    
-                    datosConeccionBd.Servidor = "localhost";
-                    datosConeccionBd.BaseDatos = "puntoventa";
-                    datosConeccionBd.Usuario = "dextroyex";
-                    datosConeccionBd.Contrasena = "123456";
+                datosConeccionBd.Puerto = "3306";
+                datosConeccionBd.Servidor = "localhost";
+                datosConeccionBd.BaseDatos = "punto_venta";
+                    datosConeccionBd.Usuario = "root";
+                    datosConeccionBd.Contrasena = "wilmerlomas1";
 
                     MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
                     return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);

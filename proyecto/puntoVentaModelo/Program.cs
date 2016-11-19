@@ -14,13 +14,7 @@ namespace puntoVentaModelo
     {
         static void Main(string[] args)
         {
-            punto_ventaEntities entity=new punto_ventaEntities();
-            coneccion con=new coneccion();
-            entity = con.getConeccion();
 
-
-            Console.Write(entity.cliente.ToList().Count);
-            Console.ReadLine();
         }
     }
 }
