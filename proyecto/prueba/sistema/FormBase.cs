@@ -25,9 +25,9 @@ namespace puntoVenta
             LoadVentana();
         }
 
-       
 
-        public  void LoadVentana()
+
+        public virtual void LoadVentana()
         {
 
         }
@@ -54,7 +54,7 @@ namespace puntoVenta
             }
         }
 
-        public virtual void Procesar()
+        public virtual void GetAcion()
         {
             if (MessageBox.Show("Desea guardar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {

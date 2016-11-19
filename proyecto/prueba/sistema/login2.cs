@@ -21,7 +21,7 @@ namespace puntoVenta.sistema
 
 
         //objetos
-        public empleado empleado;
+        public puntoVentaModelo.empleado empleado;
 
 
 
@@ -29,7 +29,12 @@ namespace puntoVenta.sistema
         public login2()
         {
             InitializeComponent();
-            loadVentana();
+            LoadVentana();
+        }
+
+        public override void LoadVentana()
+        {
+            
         }
 
         private void login2_Load(object sender, EventArgs e)
@@ -38,13 +43,54 @@ namespace puntoVenta.sistema
         }
 
 
-        public void loadVentana()
+        public override bool ValidarCampos()
         {
-            
+            try
+            {
+                if (usuarioText.Text == "")
+                {
+                    MessageBox.Show("Falta el usuario","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    usuarioText.Focus();
+                    usuarioText.SelectAll();
+                    return false;
+                }
+
+                if (claveText.Text == "")
+                {
+                    MessageBox.Show("Falta el clave", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    claveText.Focus();
+                    claveText.SelectAll();
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ValidarCampos.:", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
-        public void getAction()
+
+        public override void GetAcion()
         {
+            if (!ValidarCampos())
+                return;
+
+            empleado.login = usuarioText.Text.Trim();
+            empleado.clave = claveText.Text.Trim();
+
+            if (modeloEmpleado.validarLogin(empleado))
+            {
+                menu1 ventana = new menu1(empleado);
+                ventana.ShowDialog();
+                this.Hide();
+            }
+            else
+            {
+                empleado = null;
+                MessageBox.Show("No existe el usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
