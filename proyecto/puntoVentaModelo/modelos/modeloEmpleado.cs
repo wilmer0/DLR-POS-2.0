@@ -23,11 +23,15 @@ namespace puntoVentaModelo.modelos
                 entity = con.getConeccion();
 
                 List<empleado> listaEmpleado=new List<empleado>();
+                foreach (var x in listaEmpleado)
+                {
+                    if (x.login == empleado.login && x.clave == empleado.clave)
+                    {
+                        return true;
+                    }
+                }
 
-
-
-
-                return true;
+                return false;
             }
             catch(Exception ex)
             {
