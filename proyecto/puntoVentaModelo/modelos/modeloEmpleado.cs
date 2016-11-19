@@ -18,6 +18,9 @@ namespace puntoVentaModelo.modelos
         {
             try
             {
+                punto_ventaEntities entity=new punto_ventaEntities();
+
+
 
 
                 return true;

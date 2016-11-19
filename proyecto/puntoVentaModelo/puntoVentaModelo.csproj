@@ -95,6 +95,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="modelos\coneccion.cs" />
+    <Compile Include="modelos\DatosConeccionBD.cs" />
     <Compile Include="modelos\modeloEmpleado.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
