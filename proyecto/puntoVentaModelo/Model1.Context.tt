@@ -2,7 +2,7 @@
 <#@ include file="EF.Utility.CS.ttinclude"#><#@
  output extension=".cs"#><#
 
-const string inputFile = @"C:\Users\wilmer\Documents\GitHub\DLR-POS-2.0\proyecto\puntoVentaModelo\Model1.edmx";
+const string inputFile = @"Model1.edmx";
 var textTransform = DynamicTextTransformation.Create(this);
 var code = new CodeGenerationTools(this);
 var ef = new MetadataTools(this);
@@ -81,6 +81,7 @@ if (!loader.IsLazyLoadingEnabled(container))
     <#=codeStringGenerator.DbSet(entitySet)#>
 <#
     }
+	
 
     foreach (var edmFunction in container.FunctionImports)
     {
