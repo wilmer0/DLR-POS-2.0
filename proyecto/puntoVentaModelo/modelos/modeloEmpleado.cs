@@ -14,11 +14,15 @@ namespace puntoVentaModelo.modelos
     {
 
 
-        public Boolean validarLogin()
+        public Boolean validarLogin(empleado empleado)
         {
             try
             {
                 punto_ventaEntities entity=new punto_ventaEntities();
+                coneccion con=new coneccion();
+                entity = con.getConeccion();
+
+                List<empleado> listaEmpleado=new List<empleado>();
 
 
 
