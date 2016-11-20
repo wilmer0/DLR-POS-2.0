@@ -1445,9 +1445,9 @@
     <Folder Include="Contabilidad\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\puntoVentaModelo1\puntoVentaModelo1.csproj">
-      <Project>{F566AE02-7134-4A78-9B92-3F12DCE6022A}</Project>
-      <Name>puntoVentaModelo1</Name>
+    <ProjectReference Include="..\puntoVentaModelo\puntoVentaModelo.csproj">
+      <Project>{3e9d7d81-d8a4-4519-9f49-b6d599ad0fca}</Project>
+      <Name>puntoVentaModelo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

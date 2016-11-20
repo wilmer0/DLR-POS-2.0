@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
-using puntoVentaModelo1.modelos;
+using puntoVentaModelo.modelos;
 
 
 namespace puntoVenta.sistema
