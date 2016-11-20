@@ -139,6 +139,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BC";
             this.Load += new System.EventHandler(this.FormBase_Load_1);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormBase_KeyDown);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

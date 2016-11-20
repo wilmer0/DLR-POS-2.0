@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "puntoVenta", "prueba\puntoVenta.csproj", "{5F92B391-2598-46EB-9651-21468DE7EE70}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "puntoVentaModelo", "puntoVentaModelo\puntoVentaModelo.csproj", "{11593144-AE03-4326-A2A6-EDBD7E8A845D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "puntoVentaModelo1", "puntoVentaModelo1\puntoVentaModelo1.csproj", "{F566AE02-7134-4A78-9B92-3F12DCE6022A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{5F92B391-2598-46EB-9651-21468DE7EE70}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F92B391-2598-46EB-9651-21468DE7EE70}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F92B391-2598-46EB-9651-21468DE7EE70}.Release|Any CPU.Build.0 = Release|Any CPU
-		{11593144-AE03-4326-A2A6-EDBD7E8A845D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{11593144-AE03-4326-A2A6-EDBD7E8A845D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{11593144-AE03-4326-A2A6-EDBD7E8A845D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{11593144-AE03-4326-A2A6-EDBD7E8A845D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F566AE02-7134-4A78-9B92-3F12DCE6022A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F566AE02-7134-4A78-9B92-3F12DCE6022A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F566AE02-7134-4A78-9B92-3F12DCE6022A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F566AE02-7134-4A78-9B92-3F12DCE6022A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

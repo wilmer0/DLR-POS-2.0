@@ -95,7 +95,6 @@ namespace puntoVentaModelo
         public DbSet<sexo> sexo { get; set; }
         public DbSet<sistema> sistema { get; set; }
         public DbSet<sistema_modulo> sistema_modulo { get; set; }
-        public DbSet<sistema_modulo_opciones> sistema_modulo_opciones { get; set; }
         public DbSet<situacion_empleado> situacion_empleado { get; set; }
         public DbSet<subcategoria_producto> subcategoria_producto { get; set; }
         public DbSet<sucursal> sucursal { get; set; }

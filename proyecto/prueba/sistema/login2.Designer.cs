@@ -102,9 +102,9 @@
             this.groupBox1.Controls.Add(this.usuarioText);
             this.groupBox1.Controls.Add(this.claveText);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 79);
+            this.groupBox1.Location = new System.Drawing.Point(12, 67);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 170);
+            this.groupBox1.Size = new System.Drawing.Size(445, 182);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 

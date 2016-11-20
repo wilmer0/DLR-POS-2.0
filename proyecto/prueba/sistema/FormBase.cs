@@ -135,5 +135,23 @@ namespace puntoVenta
 
         }
 
+        private void FormBase_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Salir();
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                limpiar();
+            }
+
+            if (e.KeyCode == Keys.F8)
+            {
+                GetAcion();
+            }
+        }
+
     }
 }

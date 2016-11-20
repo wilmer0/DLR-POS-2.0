@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using puntoVentaModelo1;
 
-namespace puntoVentaModelo.modelos
+namespace puntoVentaModelo1.modelos
 {
     public class coneccion
     {
@@ -52,22 +53,20 @@ namespace puntoVentaModelo.modelos
                 datosConeccionBd = new DatosConeccionBD();
 
 
-                //         public punto_ventaEntities(string servidor, String baseDatos, String user, String pass, String Puerto="3306"): base("name=ADMFICEntities")
-                //        {
+        //      public punto_ventaEntities(string servidor, string baseDatos, string usuario, string contrasena,string puerto="3306")
+        //{
+        //    var connectionString = this.Database.Connection.ConnectionString + ";password=" + contrasena;
+        //    connectionString = "server=" + servidor + ";userid=" + usuario + ";persistsecurityinfo=true;database=" + baseDatos + ";password=" + contrasena + ";Port=" + puerto;
 
+        //    this.Database.Connection.ConnectionString = connectionString;
+        //}
 
-                //    var connectionString = this.Database.Connection.ConnectionString + ";password=" + pass;
-                //    connectionString = "server=" + servidor + ";userid=" + user + ";persistsecurityinfo=true;database=" + baseDatos + ";password=" + pass;
+                        //if (!System.IO.Directory.Exists("Configuracion"))
+                        //{
 
-                //    this.Database.Connection.ConnectionString = connectionString;
-                //}
+                        //    System.IO.Directory.CreateDirectory("Configuracion");
 
-                //        if (!System.IO.Directory.Exists("Configuracion"))
-                //        {
-
-                //            System.IO.Directory.CreateDirectory("Configuracion");
-
-                     //   }
+                        //}
 
               
 
@@ -80,12 +79,12 @@ namespace puntoVentaModelo.modelos
                 datosConeccionBd.Usuario = "root";
                 datosConeccionBd.Contrasena = "wilmerlomas1";
 
-                MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
+                //MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
                 return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
 
             }
             else
-            {
+            {   
                 return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
             }
         }

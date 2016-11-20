@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVentaModelo.modelos;
+using System.Data.Entity.SqlServer;
+using System.Data.Entity;
+using puntoVentaModelo1.modelos;
 
 namespace puntoVenta.sistema
 {
@@ -21,7 +23,7 @@ namespace puntoVenta.sistema
 
 
         //objetos
-        public puntoVentaModelo.empleado empleado;
+        public puntoVentaModelo1.empleado empleado;
 
 
 
@@ -55,7 +57,6 @@ namespace puntoVenta.sistema
                     MessageBox.Show("Falta el usuario","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                     usuarioText.Focus();
                     usuarioText.SelectAll();
-                    usuarioText.BackColor= Color.Red;
                     return false;
                 }
 
@@ -64,7 +65,6 @@ namespace puntoVenta.sistema
                     MessageBox.Show("Falta el clave", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     claveText.Focus();
                     claveText.SelectAll();
-                    claveText.BackColor = Color.Red;
                     return false;
                 }
                 return true;
@@ -82,7 +82,7 @@ namespace puntoVenta.sistema
             if (!ValidarCampos())
                 return;
 
-            empleado=new puntoVentaModelo.empleado();
+            empleado=new puntoVentaModelo1.empleado();
             empleado.login = usuarioText.Text.Trim();
             empleado.clave = claveText.Text.Trim();
 

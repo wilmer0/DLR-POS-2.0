@@ -70,6 +70,9 @@
     <Reference Include="BarcodeLib">
       <HintPath>..\packages\BarcodeLib.1.0.0.22\lib\net20\BarcodeLib.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\..\..\..\Desktop\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\..\..\..\..\..\Documents\GitHub\DLR-POS-2.0\proyecto\prueba\librerias\Ionic.Zip.dll</HintPath>
     </Reference>
@@ -1457,9 +1460,9 @@
     <Folder Include="Contabilidad\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\puntoVentaModelo\puntoVentaModelo.csproj">
-      <Project>{11593144-ae03-4326-a2a6-edbd7e8a845d}</Project>
-      <Name>puntoVentaModelo</Name>
+    <ProjectReference Include="..\puntoVentaModelo1\puntoVentaModelo1.csproj">
+      <Project>{f566ae02-7134-4a78-9b92-3f12dce6022a}</Project>
+      <Name>puntoVentaModelo1</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

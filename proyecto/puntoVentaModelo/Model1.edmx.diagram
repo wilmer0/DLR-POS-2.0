@@ -58,15 +58,14 @@
         <EntityTypeShape EntityType="punto_ventaModel.producto_oferta" Width="1.5" PointX="11.25" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_permisos" Width="1.5" PointX="8.25" PointY="32.125" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_unidad_conversion" Width="1.5" PointX="12.75" PointY="48.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.75" PointX="10.5" PointY="37" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_vs_permisos" Width="1.5" PointX="10.5" PointY="34" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.provincia" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.region" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sector" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sexo" Width="1.5" PointX="6.75" PointY="58.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sistema" Width="1.5" PointX="5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_opciones" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.875" PointX="12.625" PointY="11" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.situacion_empleado" Width="1.5" PointX="6.75" PointY="60.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.subcategoria_producto" Width="1.5" PointX="6" PointY="51.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sucursal" Width="1.5" PointX="0.75" PointY="38.25" IsExpanded="true" />
@@ -75,8 +74,8 @@
         <EntityTypeShape EntityType="punto_ventaModel.tarjetas_credito" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.tipo_comprobante_fiscal" Width="1.5" PointX="11" PointY="31" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.tipo_cuenta_bancaria" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.75" PointX="15" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.transferencia_inventario" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.unidad" Width="1.5" PointX="10.5" PointY="53.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.vendedor" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
@@ -176,6 +175,9 @@
         <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.producto_unidad" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_ventanas" Width="2.125" PointX="0.75" PointY="24.875" />
+        <AssociationConnector Association="punto_ventaModel.empleado_acceso_ventanas" />
+        <AssociationConnector Association="punto_ventaModel.sistema_modulo_ventanas_modulo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
