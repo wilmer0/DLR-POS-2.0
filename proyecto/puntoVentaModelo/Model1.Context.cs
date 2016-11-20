@@ -15,25 +15,20 @@ namespace puntoVentaModelo
     
     public partial class punto_ventaEntities : DbContext
     {
-        private string p1;
-        private string p2;
-        private string p3;
-        private string p4;
-
         public punto_ventaEntities()
             : base("name=punto_ventaEntities")
         {
         }
-
-        public punto_ventaEntities(string p1, string p2, string p3, string p4)
-        {
-            // TODO: Complete member initialization
-            this.p1 = p1;
-            this.p2 = p2;
-            this.p3 = p3;
-            this.p4 = p4;
-        }
     
+    	public punto_ventaEntities(string servidor, string baseDatos, string user, string pass, string Puerto="3306"): base("name=punto_ventaEntities")
+                            {
+    
+    
+                        var connectionString = this.Database.Connection.ConnectionString + ";password=" + pass;
+                        connectionString = "server=" + servidor + ";userid=" + user + ";persistsecurityinfo=true;database=" + baseDatos + ";password=" + pass +";Port=" + Puerto;
+    
+                        this.Database.Connection.ConnectionString = connectionString;
+                    }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
