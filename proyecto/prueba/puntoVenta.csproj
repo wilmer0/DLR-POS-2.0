@@ -1446,7 +1446,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\puntoVentaModelo\puntoVentaModelo.csproj">
-      <Project>{3e9d7d81-d8a4-4519-9f49-b6d599ad0fca}</Project>
+      <Project>{11593144-ae03-4326-a2a6-edbd7e8a845d}</Project>
       <Name>puntoVentaModelo</Name>
     </ProjectReference>
   </ItemGroup>

@@ -23,7 +23,7 @@ namespace puntoVenta.sistema
 
 
         //objetos
-        public puntoVentaModelo1.empleado empleado;
+        public puntoVentaModelo.empleado empleado;
 
 
 
@@ -82,7 +82,7 @@ namespace puntoVenta.sistema
             if (!ValidarCampos())
                 return;
 
-            empleado=new puntoVentaModelo1.empleado();
+            empleado=new puntoVentaModelo.empleado();
             empleado.login = usuarioText.Text.Trim();
             empleado.clave = claveText.Text.Trim();
 
