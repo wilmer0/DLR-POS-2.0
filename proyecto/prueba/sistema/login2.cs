@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Entity.SqlServer;
 using System.Data.Entity;
 using puntoVentaModelo1.modelos;
+
 
 namespace puntoVenta.sistema
 {
