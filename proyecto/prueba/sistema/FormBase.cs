@@ -79,8 +79,7 @@ namespace puntoVenta
 
         private void button4_Click(object sender, EventArgs e)
         {
-            login l = new login();
-            l.Show();
+           
         }
 
         private void FormBase_Load(object sender, EventArgs e)
