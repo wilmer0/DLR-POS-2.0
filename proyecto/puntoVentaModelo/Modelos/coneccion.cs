@@ -43,7 +43,7 @@ namespace puntoVentaModelo.modelos
         }
 
 
-        public punto_ventaEntities getConeccion()
+        public punto_ventaEntities GetConeccion()
         {
             datosConeccionBd = new DatosConeccionBD();
 

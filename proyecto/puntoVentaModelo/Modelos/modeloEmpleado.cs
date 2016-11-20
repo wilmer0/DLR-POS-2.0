@@ -63,6 +63,23 @@ namespace puntoVentaModelo.modelos
             }
         }
 
+        public List<empleado> getListaCompleta()
+        {
+            try
+            {
+                coneccion coneccion=new coneccion();
+                punto_ventaEntities entity = coneccion.getConeccion();
+                List<empleado> listaEmpleado=new List<empleado>();
+                listaEmpleado = (from o in entity.empleado select o).ToList();
+                return listaEmpleado;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Error getListaCompleta.: " + ex.ToString());
+                return null;
+            }
+        }
          
     }
 }

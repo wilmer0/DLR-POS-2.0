@@ -14,10 +14,22 @@ namespace puntoVentaModelo
     {
         static void Main(string[] args)
         {
-            coneccion coneccion=new coneccion();
-            punto_ventaEntities entity = coneccion.getConeccion();
+            try
+            {
+                Console.WriteLine("Entro-->");
+                modeloEmpleado modeloEmpleado=new modeloEmpleado();
+                List<empleado> lista=new List<empleado>();
+                lista = modeloEmpleado.getListaCompleta();
+                lista.ForEach(x =>
+                {
+                    Console.Write(x.nombre+"-"+x.login+"-"+x.clave+"-"+x.cargo);
+                });
 
-            Console.WriteLine(entity.cliente.ToList().Count);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error.: "+ex.ToString());
+            }
             Console.ReadLine();
         }
     }
