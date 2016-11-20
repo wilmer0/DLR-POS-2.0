@@ -832,12 +832,6 @@
       <DependentUpon>sexo.cs</DependentUpon>
     </Compile>
     <Compile Include="clases\singleton.cs" />
-    <Compile Include="sistema\login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sistema\login.Designer.cs">
-      <DependentUpon>login.cs</DependentUpon>
-    </Compile>
     <Compile Include="sistema\login2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1268,9 +1262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_nomina\sexo.resx">
       <DependentUpon>sexo.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sistema\login.resx">
-      <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sistema\login2.resx">
       <DependentUpon>login2.cs</DependentUpon>
