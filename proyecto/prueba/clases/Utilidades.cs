@@ -15,7 +15,6 @@ using System.IO.Compression;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
-using MySql.Data.MySqlClient;
 using System.Windows;
 using BarcodeLib;
 using FontStyle = System.Drawing.FontStyle;

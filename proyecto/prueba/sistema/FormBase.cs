@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using puntoVenta.sistema;
-using MySql.Data.Entity;
-using System.Data.Entity;
+
+
+
 
 namespace puntoVenta
 {

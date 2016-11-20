@@ -16,7 +16,7 @@ namespace puntoVentaModelo
             lista = modeloEmpleado.getListaCompleta();
             lista.ForEach(x =>
             {
-                Console.WriteLine(x.login+"-"+x.clave +"-"+x.cod_cargo);
+                Console.WriteLine(x.login+"-"+x.clave +"-");
             });
             Console.ReadLine();
         }

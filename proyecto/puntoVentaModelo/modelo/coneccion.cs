@@ -43,14 +43,6 @@ namespace puntoVentaModelo.modelos
             return datosConeccionBd;
         }
 
-        public string getConeccionDirecta()
-        {
-            string connectionString = "server=" + datosConeccionBd.Servidor + ";userid=" + datosConeccionBd.Usuario + ";persistsecurityinfo=true;database=" + datosConeccionBd.BaseDatos + ";password=" + datosConeccionBd.Contrasena + ";Port=" + datosConeccionBd.Puerto;
-            MySqlConnection coneccion = new MySqlConnection(connectionString);
-            coneccion.Open();
-            return connectionString;
-            
-        }
         public punto_ventaEntities GetConeccion()
         {
 
@@ -87,7 +79,7 @@ namespace puntoVentaModelo.modelos
                 datosConeccionBd.Usuario = "root";
                 datosConeccionBd.Contrasena = "wilmerlomas1";
 
-                MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
+                //MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
                 return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
 
             }

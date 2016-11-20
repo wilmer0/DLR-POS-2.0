@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
+using System.Data.Objects.DataClasses;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
@@ -26,16 +27,15 @@ namespace puntoVentaModelo.modelos
                 List<empleado> listaEmpleado=new List<empleado>();
                 foreach (var x in listaEmpleado)
                 {
-                    if (x.login == empleado.login && x.clave == empleado.clave)
-                    {
-                        return true;
-                    }
+                    MessageBox.Show(x.login + "-" + x.clave);
+                    
                 }
 
                 return false;
             }
             catch(Exception ex)
             {
+                
                 MessageBox.Show("Error validarLogin.: "+ex.ToString());
                 return false;
             }
