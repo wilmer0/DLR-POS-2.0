@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using puntoVentaModelo;
 using puntoVentaModelo.modelos;
-
 
 namespace puntoVentaModelo
 {
@@ -14,22 +11,13 @@ namespace puntoVentaModelo
     {
         static void Main(string[] args)
         {
-            try
+            List<empleado> lista=new List<empleado>();
+            modeloEmpleado modeloEmpleado=new modeloEmpleado();
+            lista = modeloEmpleado.getListaCompleta();
+            lista.ForEach(x =>
             {
-                Console.WriteLine("Entro-->");
-                modeloEmpleado modeloEmpleado=new modeloEmpleado();
-                List<empleado> lista=new List<empleado>();
-                lista = modeloEmpleado.getListaCompleta();
-                lista.ForEach(x =>
-                {
-                    Console.Write(x.nombre+"-"+x.login+"-"+x.clave+"-"+x.cargo);
-                });
-
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error.: "+ex.ToString());
-            }
+                Console.WriteLine(x.login+"-"+x.clave +"-"+x.cod_cargo);
+            });
             Console.ReadLine();
         }
     }

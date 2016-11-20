@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-
+using MySql.Data.MySqlClient;
 
 
 namespace puntoVentaModelo.modelos
@@ -21,7 +21,7 @@ namespace puntoVentaModelo.modelos
             {
                 
                 coneccion con=new coneccion();
-                punto_ventaEntities entity= con.getConeccion();
+                punto_ventaEntities entity= con.GetConeccion();
 
                 List<empleado> listaEmpleado=new List<empleado>();
                 foreach (var x in listaEmpleado)
@@ -51,7 +51,7 @@ namespace puntoVentaModelo.modelos
                 List<sistema_modulo> listaModulos = new List<sistema_modulo>();
 
                 coneccion con=new coneccion();
-                punto_ventaEntities entity = con.getConeccion();
+                punto_ventaEntities entity = con.GetConeccion();
                 
 
                 return listaModulos;
@@ -68,7 +68,7 @@ namespace puntoVentaModelo.modelos
             try
             {
                 coneccion coneccion=new coneccion();
-                punto_ventaEntities entity = coneccion.getConeccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
                 List<empleado> listaEmpleado=new List<empleado>();
                 listaEmpleado = (from o in entity.empleado select o).ToList();
                 return listaEmpleado;

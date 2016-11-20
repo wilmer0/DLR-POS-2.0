@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0253df84f5254b019cfd54bd29497ed7" Name="Diagram1" ShowGrid="true">
+      <Diagram DiagramId="1e3d5d75b87a471b86a5e862cbb1a5e7" Name="Diagram1">
         <EntityTypeShape EntityType="punto_ventaModel.almacen" Width="1.5" PointX="3" PointY="36.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.caja" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cajero" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cargo" Width="1.5" PointX="1.5" PointY="28.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.cajero" Width="1.5" PointX="4" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.cargo" Width="1.5" PointX="1.5" PointY="27.5" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.categoria_producto" Width="1.5" PointX="6" PointY="33" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.cliente" Width="1.5" PointX="3" PointY="40" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.cliente_categoria" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
@@ -17,30 +17,30 @@
         <EntityTypeShape EntityType="punto_ventaModel.compra" Width="1.5" PointX="5.25" PointY="45.625" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.comprobante_fiscal" Width="1.5" PointX="16.25" PointY="17.625" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.comprobante_serie" Width="1.5" PointX="14" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.comprobante_ventas" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.correo_electronicos" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja_detalles" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuenta_bancaria" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.comprobante_ventas" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.correo_electronicos" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja" Width="1.5" PointX="6.25" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja_detalles" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuenta_bancaria" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.departamento" Width="1.5" PointX="6.75" PointY="25.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.direccion" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.egresos_caja" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.egresos_conceptos" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.empleado" Width="1.5" PointX="0.75" PointY="30.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.empresa" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.direccion" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.egresos_caja" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.egresos_conceptos" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.empleado" Width="1.5" PointX="0.75" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.empresa" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.entrada_salida_inventario" Width="1.5" PointX="5.25" PointY="36.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.estados" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.estados" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.estados_reparacion" Width="1.5" PointX="13.5" PointY="52.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.factura" Width="1.5" PointX="13.25" PointY="28.625" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.grupo_usuarios" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.identificacion" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.ingresos_caja" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.ingresos_conceptos" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.identificacion" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.ingresos_caja" Width="1.5" PointX="9.25" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.ingresos_conceptos" Width="1.5" PointX="7" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.inventario" Width="1.5" PointX="12.75" PointY="44.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.inventario_reparacion" Width="1.5" PointX="15.75" PointY="43.625" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.itebis" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.marcas" Width="1.5" PointX="13.5" PointY="54.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.mesas" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.mesas" Width="1.5" PointX="8.25" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.metodo_pago" Width="1.5" PointX="13.25" PointY="16.125" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.modelo" Width="1.5" PointX="13.5" PointY="57.375" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.moneda" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
@@ -52,40 +52,41 @@
         <EntityTypeShape EntityType="punto_ventaModel.pagos_detalles" Width="1.5" PointX="10.5" PointY="48.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.pais" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.permiso" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.persona" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.persona" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto" Width="1.5" PointX="8.25" PointY="34.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_detalle" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_oferta" Width="1.5" PointX="11.25" PointY="24.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_permisos" Width="1.5" PointX="8.25" PointY="32.125" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_unidad_conversion" Width="1.5" PointX="12.75" PointY="48.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.75" PointX="10.5" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_vs_permisos" Width="1.5" PointX="10.5" PointY="34" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.provincia" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.region" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sector" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sexo" Width="1.5" PointX="6.75" PointY="58.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sistema" Width="1.5" PointX="5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.875" PointX="12.625" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.5" PointX="1.5" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_ventanas" Width="1.5" PointX="1.5" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.situacion_empleado" Width="1.5" PointX="6.75" PointY="60.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.subcategoria_producto" Width="1.5" PointX="6" PointY="51.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.sucursal" Width="1.5" PointX="0.75" PointY="38.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.suplidor" Width="1.5" PointX="3" PointY="54.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tarjetas_credito" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tarjetas_credito" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.tipo_comprobante_fiscal" Width="1.5" PointX="11" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_cuenta_bancaria" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.75" PointX="15" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_cuenta_bancaria" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.transferencia_inventario" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.unidad" Width="1.5" PointX="10.5" PointY="53.875" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.vendedor" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.catalogo_cuentas" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.catalogo_cuentas" Width="1.5" PointX="16.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.compra_detalle" Width="1.5" PointX="12.75" PointY="40.375" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.empleado_historial_datos" Width="1.5" PointX="9" PointY="42.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.factura_detalle" Width="1.5" PointX="15.75" PointY="49.375" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.mesas_detalles" Width="1.5" PointX="10.5" PointY="28" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.nomina_detalle" Width="1.5" PointX="8.25" PointY="48.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_categoria_detalle" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_categoria_detalle" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_detalle" Width="1.5" PointX="13.5" PointY="37" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_codigobarra" Width="1.5" PointX="15.75" PointY="40.125" IsExpanded="true" />
         <EntityTypeShape EntityType="punto_ventaModel.producto_oferta_historial" Width="1.5" PointX="3" PointY="32.5" IsExpanded="true" />
@@ -165,6 +166,7 @@
         <AssociationConnector Association="punto_ventaModel.provincia_region" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.sector_provincia" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.empleado_sexo" ManuallyRouted="false" />
+        <AssociationConnector Association="punto_ventaModel.sistema_modulo_ventanas_modulo" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.empleado_situacion" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.empleado_sucursal" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.producto_oferta_historial_sucursal" ManuallyRouted="false" />
@@ -172,12 +174,10 @@
         <AssociationConnector Association="punto_ventaModel.compra_detalle_unidad" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.factura_detalle_unidad" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.producto_codigobarra_unidad" ManuallyRouted="false" />
+        <AssociationConnector Association="punto_ventaModel.empleado_acceso_ventanas" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.producto_unidad" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_ventanas" Width="2.125" PointX="0.75" PointY="24.875" />
-        <AssociationConnector Association="punto_ventaModel.empleado_acceso_ventanas" />
-        <AssociationConnector Association="punto_ventaModel.sistema_modulo_ventanas_modulo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

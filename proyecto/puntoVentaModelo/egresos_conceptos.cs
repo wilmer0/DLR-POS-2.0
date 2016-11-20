@@ -16,6 +16,6 @@ namespace puntoVentaModelo
     {
         public int codigo { get; set; }
         public string nombre { get; set; }
-        public byte activo { get; set; }
+        public int activo { get; set; }
     }
 }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="punto_ventaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="punto_ventaModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="almacen">
           <Key>
             <PropertyRef Name="codigo" />
@@ -98,7 +98,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="efectivo" Type="decimal" Precision="20" Scale="2" />
           <Property Name="devuelta" Type="decimal" Precision="20" Scale="2" />
           <Property Name="descuento" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="fecha" Type="datetime" Precision="0" />
+          <Property Name="fecha" Type="datetime" />
           <Property Name="detalle" Type="longtext" />
           <Property Name="cod_empleado" Type="int" Nullable="false" />
           <Property Name="activo" Type="utinyint" />
@@ -352,6 +352,15 @@ advertencia 6002: La tabla o vista 'def.punto_venta.empleado_historial_datos' no
           <Property Name="cod_empleado" Type="int" Nullable="false" />
           <Property Name="cod_cargo" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.empleado_vs_conceptos_nomina' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="empleado_vs_conceptos_nomina">
+          <Property Name="cod_nomina" Type="int" />
+          <Property Name="cod_empleado" Type="int" />
+          <Property Name="cod_concepto" Type="int" />
+          <Property Name="monto" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="cod_empleado_modifico" Type="int" />
+        </EntityType>-->
         <EntityType Name="empresa">
           <Key>
             <PropertyRef Name="codigo" />
@@ -398,8 +407,8 @@ advertencia 6002: La tabla o vista 'def.punto_venta.empleado_historial_datos' no
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="num_factura" Type="varchar" MaxLength="50" />
-          <Property Name="fecha" Type="datetime" Precision="0" />
-          <Property Name="fecha_limite" Type="datetime" Precision="0" />
+          <Property Name="fecha" Type="datetime" />
+          <Property Name="fecha_limite" Type="datetime" />
           <Property Name="codigo_empleado" Type="int" />
           <Property Name="codigo_cliente" Type="int" />
           <Property Name="rnc" Type="varchar" MaxLength="50" />
@@ -519,7 +528,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.grupo_usuarios_permisos' no 
           <Property Name="matricula" Type="longtext" />
           <Property Name="serial" Type="longtext" />
           <Property Name="cantidad" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="fecha_entrada" Type="datetime" Precision="0" />
+          <Property Name="fecha_entrada" Type="datetime" />
           <Property Name="cod_empleado" Type="int" />
           <Property Name="cod_cliente_titular" Type="int" />
           <Property Name="estado_reparacion" Type="int" Nullable="false" />
@@ -676,7 +685,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_detalle' no 
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
-          <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="detalle" Type="longtext" />
           <Property Name="cod_empleado" Type="int" Nullable="false" />
           <Property Name="activo" Type="utinyint" />
@@ -795,6 +804,14 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="activo" Type="utinyint" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisitos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="producto_productos_requisitos">
+          <Property Name="codpro_titular" Type="int" />
+          <Property Name="codpro_requisito" Type="int" />
+          <Property Name="cod_unidad" Type="int" />
+          <Property Name="cantidad" Type="decimal" Precision="20" Scale="2" />
+        </EntityType>-->
         <EntityType Name="producto_unidad">
           <Key>
             <PropertyRef Name="cod_producto" />
@@ -946,6 +963,13 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <Property Name="telefono1" Type="varchar" MaxLength="45" />
           <Property Name="telefono2" Type="varchar" MaxLength="45" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="suplidores_dgii">
+          <Property Name="identificacion" Type="longtext" />
+          <Property Name="nombre" Type="longtext" />
+          <Property Name="nombre_comercial" Type="longtext" />
+        </EntityType>-->
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -1294,6 +1318,12 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_vs_conceptos_nomina', pero no se encuentra la tabla.
+        <Association Name="empleado_concepto_nomina_concepto" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_vs_conceptos_nomina', pero no se encuentra la tabla.
+        <Association Name="empleado_concepto_nomina_empelado_modifico" />-->
         <Association Name="empleado_empleado">
           <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
           <End Role="empleado_historial_datos" Type="Self.empleado_historial_datos" Multiplicity="*" />
@@ -1930,6 +1960,15 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_producto_requisito" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_producto_titular" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_unidad" />-->
         <Association Name="producto_subcategoria">
           <End Role="subcategoria_producto" Type="Self.subcategoria_producto" Multiplicity="1" />
           <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -2700,7 +2739,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="suplidor" EntitySet="suplidor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="punto_ventaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -2709,7 +2749,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
           <NavigationProperty Name="sucursal" Relationship="Self.almacen_sucursal" FromRole="almacen" ToRole="sucursal" />
@@ -2721,8 +2761,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="secuencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="secuencia" Type="String" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="cajero" Relationship="Self.cajero_caja" FromRole="caja" ToRole="cajero" />
@@ -2746,7 +2786,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
           <NavigationProperty Name="empleado" Relationship="Self.empleado_vs_cargo" FromRole="cargo" ToRole="empleado" />
         </EntityType>
@@ -2755,7 +2795,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
           <NavigationProperty Name="oferta_producto_categoria_detalle" Relationship="Self.oferta_producto_subcate_detalle_categoria" FromRole="categoria_producto" ToRole="oferta_producto_categoria_detalle" />
           <NavigationProperty Name="producto" Relationship="Self.producto_categoria" FromRole="categoria_producto" ToRole="producto" />
@@ -2766,7 +2806,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="limite_credito" Type="Decimal" />
           <Property Name="cod_categoria" Type="Int32" />
           <Property Name="activo" Type="Byte" Nullable="false" />
@@ -2774,8 +2814,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="abrir_credito" Type="Byte" />
           <Property Name="cod_sucursal_creado" Type="Int32" />
           <Property Name="cliente_contado" Type="Byte" />
-          <Property Name="telefono1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefono2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono1" Type="String" Nullable="false" />
+          <Property Name="telefono2" Type="String" Nullable="false" />
           <NavigationProperty Name="cliente_categoria" Relationship="Self.cliente_categoria_cliente" FromRole="cliente" ToRole="cliente_categoria" />
           <NavigationProperty Name="sucursal" Relationship="Self.cliente_sucursal" FromRole="cliente" ToRole="sucursal" />
           <NavigationProperty Name="factura" Relationship="Self.factura_cliente" FromRole="cliente" ToRole="factura" />
@@ -2786,7 +2826,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="activo" Type="Byte" />
           <NavigationProperty Name="cliente" Relationship="Self.cliente_categoria_cliente" FromRole="cliente_categoria" ToRole="cliente" />
         </EntityType>
@@ -2799,11 +2839,11 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="devuelta" Type="Decimal" />
           <Property Name="descuento" Type="Decimal" />
           <Property Name="fecha" Type="DateTime" />
-          <Property Name="detalle" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="detalle" Type="String" />
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Byte" />
           <Property Name="cod_empleado_anular" Type="Int32" />
-          <Property Name="motivo_anulado" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_anulado" Type="String" />
           <Property Name="cuadrado" Type="Byte" />
           <NavigationProperty Name="cobros_detalles" Relationship="Self.cobro_detalle_cobro" FromRole="cobros" ToRole="cobros_detalles" />
           <NavigationProperty Name="empleado" Relationship="Self.cobro_empleado" FromRole="cobros" ToRole="empleado" />
@@ -2819,7 +2859,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="monto_pagado" Type="Decimal" />
           <Property Name="monto_descontado" Type="Decimal" />
           <Property Name="cod_empleado_anular" Type="Int32" />
-          <Property Name="motivo_anulado" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_anulado" Type="String" />
           <Property Name="estado" Type="Byte" />
           <NavigationProperty Name="cobros" Relationship="Self.cobro_detalle_cobro" FromRole="cobros_detalles" ToRole="cobros" />
           <NavigationProperty Name="metodo_pago" Relationship="Self.cobro_detalle_metodo_pago" FromRole="cobros_detalles" ToRole="metodo_pago" />
@@ -2830,13 +2870,13 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="num_factura" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_factura" Type="String" Nullable="false" />
           <Property Name="cod_suplidor" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" />
           <Property Name="fecha_limite" Type="DateTime" />
-          <Property Name="ncf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="rnc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="cod_tipo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ncf" Type="String" />
+          <Property Name="rnc" Type="String" />
+          <Property Name="cod_tipo" Type="String" Nullable="false" />
           <Property Name="estado" Type="Int32" />
           <Property Name="pagada" Type="Byte" />
           <Property Name="cod_sucursal" Type="Int32" />
@@ -2844,8 +2884,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="devuelta" Type="Decimal" />
           <Property Name="codigo_empleado" Type="Int32" />
           <Property Name="codigo_empleado_anular" Type="Int32" />
-          <Property Name="motivo_anulado" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="compracol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_anulado" Type="String" />
+          <Property Name="compracol" Type="String" />
           <NavigationProperty Name="compra_detalle" Relationship="Self.compra_detalle1" FromRole="compra" ToRole="compra_detalle" />
           <NavigationProperty Name="empleado" Relationship="Self.compra_empleado" FromRole="compra" ToRole="empleado" />
           <NavigationProperty Name="sucursal" Relationship="Self.compra_sucursal" FromRole="compra" ToRole="sucursal" />
@@ -2874,8 +2914,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="serie" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="serie" Type="String" Nullable="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="estado" Type="Int32" />
           <NavigationProperty Name="comprobante_fiscal" Relationship="Self.comprobante_serie1" FromRole="comprobante_serie" ToRole="comprobante_fiscal" />
         </EntityType>
@@ -2893,10 +2933,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="correo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="clave" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="correo" Type="String" />
+          <Property Name="clave" Type="String" Nullable="false" />
           <Property Name="ssl_activo" Type="Byte" Nullable="false" />
-          <Property Name="host" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="host" Type="String" Nullable="false" />
           <Property Name="puerto" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="cuadre_caja">
@@ -2928,8 +2968,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="numero_cuenta" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
+          <Property Name="numero_cuenta" Type="String" />
           <Property Name="cod_tipo" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
           <Property Name="TRIAL_COLUMN6" Type="Int32" />
@@ -2941,7 +2981,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="activo" Type="Byte" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="Self.empleeado_departamento" FromRole="departamento" ToRole="empleado_historial_datos" />
         </EntityType>
@@ -2951,7 +2991,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_sector" Type="Int32" Nullable="false" />
-          <Property Name="detalle" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalle" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="egresos_caja">
@@ -2963,7 +3003,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" Nullable="false" />
           <Property Name="cod_cajero" Type="Int32" Nullable="false" />
           <Property Name="monto" Type="Decimal" Nullable="false" />
-          <Property Name="detalles" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="detalles" Type="String" />
           <Property Name="afecta_cuadre" Type="SByte" Nullable="false" />
           <Property Name="activo" Type="SByte" />
           <Property Name="cuadrado" Type="Int32" />
@@ -2973,17 +3013,17 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="activo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="empleado">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="login" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="login" Type="String" Nullable="false" />
+          <Property Name="clave" Type="String" Nullable="false" />
           <Property Name="sueldo" Type="Decimal" Nullable="false" />
           <Property Name="cod_situacion" Type="Int32" />
           <Property Name="activo" Type="Byte" Nullable="false" />
@@ -2992,10 +3032,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_cargo" Type="Int32" />
           <Property Name="cod_grupo_usuario" Type="Int32" />
           <Property Name="fecha_ingreso" Type="DateTime" />
-          <Property Name="permiso" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="permiso" Type="String" />
           <Property Name="cod_tipo_nomina" Type="Int32" />
-          <Property Name="identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="pasaporte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="identificacion" Type="String" Nullable="false" />
+          <Property Name="pasaporte" Type="String" />
           <NavigationProperty Name="cajero" Relationship="Self.cajero_empleado" FromRole="empleado" ToRole="cajero" />
           <NavigationProperty Name="cobros" Relationship="Self.cobro_empleado" FromRole="empleado" ToRole="cobros" />
           <NavigationProperty Name="compra" Relationship="Self.compra_empleado" FromRole="empleado" ToRole="compra" />
@@ -3006,32 +3046,32 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="nomina" Relationship="Self.nomina_empleado" FromRole="empleado" ToRole="nomina" />
           <NavigationProperty Name="pagos" Relationship="Self.pagos_empleado" FromRole="empleado" ToRole="pagos" />
           <NavigationProperty Name="producto_oferta_historial" Relationship="Self.producto_oferta_historial_empleado" FromRole="empleado" ToRole="producto_oferta_historial" />
+          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="Self.empleado_acceso_ventanas" FromRole="empleado" ToRole="sistema_modulo_ventanas" />
           <NavigationProperty Name="cargo" Relationship="Self.empleado_vs_cargo" FromRole="empleado" ToRole="cargo" />
-          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="punto_ventaModel.empleado_acceso_ventanas" FromRole="empleado" ToRole="sistema_modulo_ventanas" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="secuencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="division" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="secuencia" Type="String" />
+          <Property Name="division" Type="String" />
           <Property Name="estado" Type="Byte" Nullable="false" />
-          <Property Name="rnc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="rnc" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="entrada_salida_inventario">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="tipo_movimiento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_movimiento" Type="String" />
           <Property Name="cod_producto" Type="Int32" Nullable="false" />
           <Property Name="cod_unidad" Type="Int32" Nullable="false" />
           <Property Name="cantidad" Type="Decimal" />
           <Property Name="fecha" Type="DateTime" />
           <Property Name="cod_almacen" Type="Int32" />
           <Property Name="cod_empleado_cambio" Type="Int32" />
-          <Property Name="motivo" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="motivo" Type="String" />
           <NavigationProperty Name="almacen" Relationship="Self.entrada_salida_inventario_almacen" FromRole="entrada_salida_inventario" ToRole="almacen" />
           <NavigationProperty Name="producto" Relationship="Self.entrada_salida_inventario_producto" FromRole="entrada_salida_inventario" ToRole="producto" />
           <NavigationProperty Name="unidad" Relationship="Self.entrada_salida_inventario_unidad" FromRole="entrada_salida_inventario" ToRole="unidad" />
@@ -3041,7 +3081,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="activo" Type="SByte" />
         </EntityType>
         <EntityType Name="estados_reparacion">
@@ -3049,7 +3089,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="inventario_reparacion" Relationship="Self.inventario_reparacion_estado_reparacion" FromRole="estados_reparacion" ToRole="inventario_reparacion" />
         </EntityType>
@@ -3058,14 +3098,14 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="num_factura" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="num_factura" Type="String" />
           <Property Name="fecha" Type="DateTime" />
           <Property Name="fecha_limite" Type="DateTime" />
           <Property Name="codigo_empleado" Type="Int32" />
           <Property Name="codigo_cliente" Type="Int32" />
-          <Property Name="rnc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ncf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="codigo_tipo_factura" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="rnc" Type="String" />
+          <Property Name="ncf" Type="String" />
+          <Property Name="codigo_tipo_factura" Type="String" />
           <Property Name="cod_sucursal" Type="Int32" />
           <Property Name="activo" Type="SByte" />
           <Property Name="pagada" Type="SByte" />
@@ -3073,14 +3113,14 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="devuelta" Type="Decimal" />
           <Property Name="itebis" Type="Decimal" />
           <Property Name="efectivo" Type="Decimal" />
-          <Property Name="motivo_anulada" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_anulada" Type="String" />
           <Property Name="monto_propina" Type="Decimal" />
           <Property Name="cod_vendedor" Type="Int32" />
           <Property Name="despachado" Type="Int32" />
           <Property Name="autorizar_pedido" Type="Int32" />
           <Property Name="cuadrado" Type="Int32" />
           <Property Name="descuento" Type="Decimal" />
-          <Property Name="detalles" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="detalles" Type="String" />
           <Property Name="codigo_comprobante" Type="Int32" />
           <NavigationProperty Name="cliente" Relationship="Self.factura_cliente" FromRole="factura" ToRole="cliente" />
           <NavigationProperty Name="cobros_detalles" Relationship="Self.cobros_detalles_factura" FromRole="factura" ToRole="cobros_detalles" />
@@ -3094,9 +3134,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
-          <Property Name="detalles" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="detalles" Type="String" />
           <NavigationProperty Name="permiso" Relationship="Self.grupo_usuarios_permisos" FromRole="grupo_usuarios" ToRole="permiso" />
         </EntityType>
         <EntityType Name="identificacion">
@@ -3105,7 +3145,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="identificacion1" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="identificacion1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="identificacion1" Type="String" Nullable="false" />
           <Property Name="cod_tipo" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="ingresos_caja">
@@ -3117,7 +3157,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" />
           <Property Name="cod_cajero" Type="Int32" Nullable="false" />
           <Property Name="monto" Type="Decimal" Nullable="false" />
-          <Property Name="detalles" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="detalles" Type="String" />
           <Property Name="afecta_cuadre" Type="SByte" />
           <Property Name="activo" Type="SByte" />
           <Property Name="cuadrado" Type="SByte" />
@@ -3129,7 +3169,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Int32" Nullable="false" />
           <NavigationProperty Name="ingresos_caja" Relationship="Self.ingresos_caja_concepto" FromRole="ingresos_conceptos" ToRole="ingresos_caja" />
         </EntityType>
@@ -3155,15 +3195,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo_unidad" Type="Int32" />
           <Property Name="cod_marca" Type="Int32" />
           <Property Name="cod_modelo" Type="Int32" />
-          <Property Name="imei" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="matricula" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="serial" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="imei" Type="String" />
+          <Property Name="matricula" Type="String" />
+          <Property Name="serial" Type="String" />
           <Property Name="cantidad" Type="Decimal" />
           <Property Name="fecha_entrada" Type="DateTime" />
           <Property Name="cod_empleado" Type="Int32" />
           <Property Name="cod_cliente_titular" Type="Int32" />
           <Property Name="estado_reparacion" Type="Int32" Nullable="false" />
-          <Property Name="detalles" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="detalles" Type="String" />
           <Property Name="activo" Type="SByte" />
           <NavigationProperty Name="cliente" Relationship="Self.inventario_reparacion_cliente" FromRole="inventario_reparacion" ToRole="cliente" />
           <NavigationProperty Name="estados_reparacion" Relationship="Self.inventario_reparacion_estado_reparacion" FromRole="inventario_reparacion" ToRole="estados_reparacion" />
@@ -3177,7 +3217,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="porciento" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="producto" Relationship="Self.producto_itebis" FromRole="itebis" ToRole="producto" />
@@ -3187,7 +3227,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
           <NavigationProperty Name="inventario_reparacion" Relationship="Self.inventario_reparacion_marca" FromRole="marcas" ToRole="inventario_reparacion" />
         </EntityType>
@@ -3196,7 +3236,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="activo" Type="SByte" />
           <Property Name="cod_sucursal" Type="Int32" />
           <NavigationProperty Name="mesas_detalles" Relationship="Self.mesas_detalles_mesa" FromRole="mesas" ToRole="mesas_detalles" />
@@ -3206,8 +3246,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="metodo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="metodo" Type="String" />
+          <Property Name="descripcion" Type="String" />
           <Property Name="activo" Type="Byte" />
           <NavigationProperty Name="cobros_detalles" Relationship="Self.cobro_detalle_metodo_pago" FromRole="metodo_pago" ToRole="cobros_detalles" />
           <NavigationProperty Name="pagos_detalles" Relationship="Self.pagos_detalles_metodo_pago" FromRole="metodo_pago" ToRole="pagos_detalles" />
@@ -3218,7 +3258,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="codigo_marca" Type="Int32" Nullable="false" />
-          <Property Name="nombre_modelo" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre_modelo" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
           <NavigationProperty Name="inventario_reparacion" Relationship="Self.inventario_reparacion_modelo" FromRole="modelo" ToRole="inventario_reparacion" />
         </EntityType>
@@ -3227,10 +3267,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="tasa_actual" Type="Decimal" Nullable="false" />
           <Property Name="activo" Type="SByte" />
-          <Property Name="monedacol" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="monedacol" Type="String" />
           <NavigationProperty Name="moneda_historial" Relationship="Self.moneda_historial_moneda" FromRole="moneda" ToRole="moneda_historial" />
           <NavigationProperty Name="sistema" Relationship="Self.sistema_moneda" FromRole="moneda" ToRole="sistema" />
         </EntityType>
@@ -3255,7 +3295,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_tipo" Type="Int32" Nullable="false" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="SByte" />
-          <Property Name="abierta_cerrada" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="abierta_cerrada" Type="String" />
           <Property Name="cod_empleado_cerrada" Type="Int32" />
           <NavigationProperty Name="empleado" Relationship="Self.nomina_empleado" FromRole="nomina" ToRole="empleado" />
           <NavigationProperty Name="nomina_detalle" Relationship="Self.nomina_detalle_nomina" FromRole="nomina" ToRole="nomina_detalle" />
@@ -3267,7 +3307,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="aumenta_sueldo" Type="SByte" Nullable="false" />
           <Property Name="activo" Type="SByte" />
           <NavigationProperty Name="nomina_detalle" Relationship="Self.nomina_detalle_concepto" FromRole="nomina_conceptos" ToRole="nomina_detalle" />
@@ -3277,7 +3317,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
           <NavigationProperty Name="nomina" Relationship="Self.nomina_tipo_nomina" FromRole="nomina_tipos" ToRole="nomina" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="Self.empleado_tipo_nomina" FromRole="nomina_tipos" ToRole="empleado_historial_datos" />
@@ -3288,11 +3328,11 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" />
-          <Property Name="detalle" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="detalle" Type="String" />
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Byte" />
           <Property Name="cod_empleado_anular" Type="Int32" />
-          <Property Name="motivo_anulado" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="motivo_anulado" Type="String" />
           <Property Name="cuadrado" Type="Byte" />
           <NavigationProperty Name="empleado" Relationship="Self.pagos_empleado" FromRole="pagos" ToRole="empleado" />
           <NavigationProperty Name="pagos_detalles" Relationship="Self.pagos_detalles_pago" FromRole="pagos" ToRole="pagos_detalles" />
@@ -3317,7 +3357,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
           <NavigationProperty Name="region" Relationship="Self.region_pais" FromRole="pais" ToRole="region" />
         </EntityType>
@@ -3326,7 +3366,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="grupo_usuarios" Relationship="Self.grupo_usuarios_permisos" FromRole="permiso" ToRole="grupo_usuarios" />
         </EntityType>
@@ -3335,7 +3375,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" />
           <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
         </EntityType>
@@ -3344,8 +3384,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="referencia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="referencia" Type="String" />
           <Property Name="estado" Type="Boolean" />
           <Property Name="reorden" Type="Decimal" Nullable="false" />
           <Property Name="punto_maximo" Type="Decimal" Nullable="false" />
@@ -3353,7 +3393,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_categoria" Type="Int32" Nullable="false" />
           <Property Name="cod_subcategoria" Type="Int32" Nullable="false" />
           <Property Name="cod_almacen" Type="Int32" Nullable="false" />
-          <Property Name="imagen" Type="String" MaxLength="999" FixedLength="false" Unicode="false" />
+          <Property Name="imagen" Type="String" />
           <Property Name="cod_unidad_minima" Type="Int32" Nullable="false" />
           <NavigationProperty Name="almacen" Relationship="Self.producto_almacen" FromRole="producto" ToRole="almacen" />
           <NavigationProperty Name="categoria_producto" Relationship="Self.producto_categoria" FromRole="producto" ToRole="categoria_producto" />
@@ -3377,7 +3417,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" />
           <NavigationProperty Name="mesas_detalles" Relationship="Self.mesas_detalles_detalle" FromRole="producto_detalle" ToRole="mesas_detalles" />
           <NavigationProperty Name="producto_vs_detalle" Relationship="Self.producto_vs_detalle_producto_Detalle" FromRole="producto_detalle" ToRole="producto_vs_detalle" />
@@ -3387,7 +3427,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="descuento" Type="Single" Nullable="false" />
           <Property Name="fecha_inicial" Type="DateTime" />
           <Property Name="fecha_final" Type="DateTime" />
@@ -3400,7 +3440,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="producto_vs_permisos" Relationship="Self.producto_vs_permisos_permiso" FromRole="producto_permisos" ToRole="producto_vs_permisos" />
         </EntityType>
@@ -3424,7 +3464,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo_producto" Type="Int32" Nullable="false" />
           <Property Name="codigo_detalle" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="16777215" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" />
           <NavigationProperty Name="producto" Relationship="Self.producto_vs_detalle_producto" FromRole="producto_vs_detalle" ToRole="producto" />
           <NavigationProperty Name="producto_detalle" Relationship="Self.producto_vs_detalle_producto_Detalle" FromRole="producto_vs_detalle" ToRole="producto_detalle" />
         </EntityType>
@@ -3444,7 +3484,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_region" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="region" Relationship="Self.provincia_region" FromRole="provincia" ToRole="region" />
           <NavigationProperty Name="sector" Relationship="Self.sector_provincia" FromRole="provincia" ToRole="sector" />
@@ -3455,7 +3495,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_pais" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="pais" Relationship="Self.region_pais" FromRole="region" ToRole="pais" />
           <NavigationProperty Name="provincia" Relationship="Self.provincia_region" FromRole="region" ToRole="provincia" />
@@ -3466,7 +3506,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_provincia" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="provincia" Relationship="Self.sector_provincia" FromRole="sector" ToRole="provincia" />
         </EntityType>
@@ -3475,7 +3515,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="sexo1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sexo1" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="Self.empleado_sexo" FromRole="sexo" ToRole="empleado_historial_datos" />
         </EntityType>
@@ -3484,9 +3524,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ruta_imagen_productos" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ruta_backup" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ruta_logo_empresa" Type="String" MaxLength="999" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ruta_imagen_productos" Type="String" Nullable="false" />
+          <Property Name="ruta_backup" Type="String" Nullable="false" />
+          <Property Name="ruta_logo_empresa" Type="String" Nullable="false" />
           <Property Name="codigo_moneda" Type="Int32" Nullable="false" />
           <Property Name="permisos_por_grupos_usuarios" Type="SByte" Nullable="false" />
           <Property Name="autorizar_pedidos_apartir" Type="Decimal" Nullable="false" />
@@ -3503,17 +3543,30 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="activo" Type="Boolean" />
-          <Property Name="nombre_modulo_proyecto" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo" ToRole="sistema_modulo_ventanas" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="activo" Type="Byte" />
+          <Property Name="nombre_modulo_proyecto" Type="String" Nullable="false" />
+          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="Self.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo" ToRole="sistema_modulo_ventanas" />
+        </EntityType>
+        <EntityType Name="sistema_modulo_ventanas">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" />
+          <Property Name="cod_modulo" Type="Int32" Nullable="false" />
+          <Property Name="nombre_logico" Type="String" Nullable="false" />
+          <Property Name="imagen" Type="String" />
+          <Property Name="activo" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="sistema_modulo" Relationship="Self.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo_ventanas" ToRole="sistema_modulo" />
+          <NavigationProperty Name="empleado" Relationship="Self.empleado_acceso_ventanas" FromRole="sistema_modulo_ventanas" ToRole="empleado" />
         </EntityType>
         <EntityType Name="situacion_empleado">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="Self.empleado_situacion" FromRole="situacion_empleado" ToRole="empleado_historial_datos" />
         </EntityType>
@@ -3522,7 +3575,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="cod_categoria" Type="Int32" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="categoria_producto" Relationship="Self.subcategoria_producto_Categoria" FromRole="subcategoria_producto" ToRole="categoria_producto" />
@@ -3534,9 +3587,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="codigo_empresa" Type="Int32" Nullable="false" />
-          <Property Name="secuencia" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secuencia" Type="String" Nullable="false" />
           <Property Name="activo" Type="Byte" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" />
           <NavigationProperty Name="almacen" Relationship="Self.almacen_sucursal" FromRole="sucursal" ToRole="almacen" />
           <NavigationProperty Name="cliente" Relationship="Self.cliente_sucursal" FromRole="sucursal" ToRole="cliente" />
           <NavigationProperty Name="compra" Relationship="Self.compra_sucursal" FromRole="sucursal" ToRole="compra" />
@@ -3551,15 +3604,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="rnc" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="rnc" Type="String" />
           <Property Name="fecha_creacion" Type="DateTime" Nullable="false" />
           <Property Name="cod_sucursal_creado" Type="Int32" Nullable="false" />
           <Property Name="limite_credito" Type="Decimal" />
           <Property Name="activo" Type="Byte" Nullable="false" />
-          <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="telefono1" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
-          <Property Name="telefono2" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" />
+          <Property Name="telefono1" Type="String" />
+          <Property Name="telefono2" Type="String" />
           <NavigationProperty Name="compra" Relationship="Self.compra_suplidor" FromRole="suplidor" ToRole="compra" />
           <NavigationProperty Name="sucursal" Relationship="Self.suplidor_sucursal" FromRole="suplidor" ToRole="sucursal" />
         </EntityType>
@@ -3568,17 +3621,17 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="diagram_id" />
           </Key>
           <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" />
           <Property Name="principal_id" Type="Int32" Nullable="false" />
           <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="definition" Type="Binary" />
         </EntityType>
         <EntityType Name="tarjetas_credito">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
         </EntityType>
         <EntityType Name="tipo_comprobante_fiscal">
@@ -3586,8 +3639,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="secuencia" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secuencia" Type="String" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
           <NavigationProperty Name="comprobante_fiscal" Relationship="Self.comprobante_tipo" FromRole="tipo_comprobante_fiscal" ToRole="comprobante_fiscal" />
           <NavigationProperty Name="factura" Relationship="Self.factura_comprobante" FromRole="tipo_comprobante_fiscal" ToRole="factura" />
@@ -3597,7 +3650,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="tipo_identificacion">
@@ -3605,15 +3658,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="estado" Type="Byte" />
         </EntityType>
         <EntityType Name="tipo_movimiento_inventario">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
-          <Property Name="codigo" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo" Type="String" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
         </EntityType>
         <EntityType Name="transferencia_inventario">
@@ -3621,7 +3674,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="tipo_movimiento" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_movimiento" Type="String" />
           <Property Name="cod_producto" Type="Int32" Nullable="false" />
           <Property Name="cod_unidad" Type="Int32" Nullable="false" />
           <Property Name="cantidad" Type="Decimal" Nullable="false" />
@@ -3637,9 +3690,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="SByte" Nullable="false" />
-          <Property Name="unidad_abreviada" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="unidad_abreviada" Type="String" />
           <NavigationProperty Name="entrada_salida_inventario" Relationship="Self.entrada_salida_inventario_unidad" FromRole="unidad" ToRole="entrada_salida_inventario" />
           <NavigationProperty Name="inventario" Relationship="Self.inventario_unidad" FromRole="unidad" ToRole="inventario" />
           <NavigationProperty Name="inventario_reparacion" Relationship="Self.inventario_reparacion_unidad" FromRole="unidad" ToRole="inventario_reparacion" />
@@ -3663,8 +3716,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="numero_cuenta" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" />
+          <Property Name="numero_cuenta" Type="String" />
           <Property Name="cuenta_master" Type="SByte" />
           <Property Name="cuenta_sub_master" Type="SByte" />
           <Property Name="cuenta_acumulativa" Type="SByte" />
@@ -3711,11 +3764,11 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="identificacion" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="identificacion" Type="String" Nullable="false" />
           <Property Name="fecha_nacimiento" Type="DateTime" />
-          <Property Name="usuario" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="clave" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="usuario" Type="String" />
+          <Property Name="clave" Type="String" />
           <Property Name="cod_situacion" Type="Int32" Nullable="false" />
           <Property Name="cod_sexo" Type="Int32" />
           <Property Name="cod_cargo" Type="Int32" Nullable="false" />
@@ -3765,7 +3818,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo_mesa" Type="Int32" Nullable="false" />
           <Property Name="cod_detalle" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" />
           <NavigationProperty Name="mesas" Relationship="Self.mesas_detalles_mesa" FromRole="mesas_detalles" ToRole="mesas" />
           <NavigationProperty Name="producto_detalle" Relationship="Self.mesas_detalles_detalle" FromRole="mesas_detalles" ToRole="producto_detalle" />
         </EntityType>
@@ -3817,7 +3870,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="cod_producto" Type="Int32" Nullable="false" />
           <Property Name="cod_unidad" Type="Int32" Nullable="false" />
-          <Property Name="codigo_barra" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="codigo_barra" Type="String" Nullable="false" />
           <NavigationProperty Name="producto" Relationship="Self.producto_codigobarra_producto" FromRole="producto_codigobarra" ToRole="producto" />
           <NavigationProperty Name="unidad" Relationship="Self.producto_codigobarra_unidad" FromRole="producto_codigobarra" ToRole="unidad" />
         </EntityType>
@@ -3827,7 +3880,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="cod_sucursal" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" />
           <Property Name="descuento" Type="Decimal" />
           <Property Name="fecha_inicial" Type="DateTime" />
           <Property Name="fecha_final" Type="DateTime" />
@@ -4750,6 +4803,18 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="sistema_modulo_ventanas_modulo">
+          <End Role="sistema_modulo" Type="Self.sistema_modulo" Multiplicity="1" />
+          <End Role="sistema_modulo_ventanas" Type="Self.sistema_modulo_ventanas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sistema_modulo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sistema_modulo_ventanas">
+              <PropertyRef Name="cod_modulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="empleado_situacion">
           <End Role="situacion_empleado" Type="Self.situacion_empleado" Multiplicity="1" />
           <End Role="empleado_historial_datos" Type="Self.empleado_historial_datos" Multiplicity="*" />
@@ -4834,6 +4899,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="empleado_acceso_ventanas">
+          <End Role="sistema_modulo_ventanas" Type="Self.sistema_modulo_ventanas" Multiplicity="*" />
+          <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
+        </Association>
         <Association Name="empleado_vs_cargo">
           <End Role="cargo" Type="Self.cargo" Multiplicity="*" />
           <End Role="empleado" Type="Self.empleado" Multiplicity="*" />
@@ -4908,6 +4977,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="sexo" EntityType="Self.sexo" />
           <EntitySet Name="sistema" EntityType="Self.sistema" />
           <EntitySet Name="sistema_modulo" EntityType="Self.sistema_modulo" />
+          <EntitySet Name="sistema_modulo_ventanas" EntityType="Self.sistema_modulo_ventanas" />
           <EntitySet Name="situacion_empleado" EntityType="Self.situacion_empleado" />
           <EntitySet Name="subcategoria_producto" EntityType="Self.subcategoria_producto" />
           <EntitySet Name="sucursal" EntityType="Self.sucursal" />
@@ -5235,6 +5305,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="sexo" EntitySet="sexo" />
             <End Role="empleado_historial_datos" EntitySet="empleado_historial_datos" />
           </AssociationSet>
+          <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="Self.sistema_modulo_ventanas_modulo">
+            <End Role="sistema_modulo" EntitySet="sistema_modulo" />
+            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
+          </AssociationSet>
           <AssociationSet Name="empleado_situacion" Association="Self.empleado_situacion">
             <End Role="situacion_empleado" EntitySet="situacion_empleado" />
             <End Role="empleado_historial_datos" EntitySet="empleado_historial_datos" />
@@ -5263,6 +5337,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="unidad" EntitySet="unidad" />
             <End Role="producto_codigobarra" EntitySet="producto_codigobarra" />
           </AssociationSet>
+          <AssociationSet Name="empleado_acceso_ventanas" Association="Self.empleado_acceso_ventanas">
+            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
+            <End Role="empleado" EntitySet="empleado" />
+          </AssociationSet>
           <AssociationSet Name="empleado_vs_cargo" Association="Self.empleado_vs_cargo">
             <End Role="cargo" EntitySet="cargo" />
             <End Role="empleado" EntitySet="empleado" />
@@ -5275,45 +5353,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
             <End Role="permiso" EntitySet="permiso" />
           </AssociationSet>
-          <EntitySet Name="sistema_modulo_ventanas" EntityType="punto_ventaModel.sistema_modulo_ventanas" />
-          <AssociationSet Name="empleado_acceso_ventanas" Association="punto_ventaModel.empleado_acceso_ventanas">
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
-            <End Role="empleado" EntitySet="empleado" />
-          </AssociationSet>
-          <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="punto_ventaModel.sistema_modulo_ventanas_modulo">
-            <End Role="sistema_modulo" EntitySet="sistema_modulo" />
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="sistema_modulo_ventanas">
-          <Key>
-            <PropertyRef Name="codigo" />
-          </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="cod_modulo" Type="Int32" Nullable="false" />
-          <Property Name="nombre_logico" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="imagen" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="empleado" Relationship="punto_ventaModel.empleado_acceso_ventanas" FromRole="sistema_modulo_ventanas" ToRole="empleado" />
-          <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo_ventanas" ToRole="sistema_modulo" />
-        </EntityType>
-        <Association Name="empleado_acceso_ventanas">
-          <End Type="punto_ventaModel.sistema_modulo_ventanas" Role="sistema_modulo_ventanas" Multiplicity="*" />
-          <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="*" />
-        </Association>
-        <Association Name="sistema_modulo_ventanas_modulo">
-          <End Type="punto_ventaModel.sistema_modulo" Role="sistema_modulo" Multiplicity="1" />
-          <End Type="punto_ventaModel.sistema_modulo_ventanas" Role="sistema_modulo_ventanas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sistema_modulo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="sistema_modulo_ventanas">
-              <PropertyRef Name="cod_modulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6054,6 +6094,18 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="sistema_modulo_ventanas">
+            <EntityTypeMapping TypeName="punto_ventaModel.sistema_modulo_ventanas">
+              <MappingFragment StoreEntitySet="sistema_modulo_ventanas">
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cod_modulo" ColumnName="cod_modulo" />
+                <ScalarProperty Name="nombre_logico" ColumnName="nombre_logico" />
+                <ScalarProperty Name="imagen" ColumnName="imagen" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="situacion_empleado">
             <EntityTypeMapping TypeName="punto_ventaModel.situacion_empleado">
               <MappingFragment StoreEntitySet="situacion_empleado">
@@ -6325,6 +6377,14 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <AssociationSetMapping Name="empleado_acceso_ventanas" TypeName="punto_ventaModel.empleado_acceso_ventanas" StoreEntitySet="empleado_acceso_ventanas">
+            <EndProperty Name="sistema_modulo_ventanas">
+              <ScalarProperty Name="codigo" ColumnName="id_ventana" />
+            </EndProperty>
+            <EndProperty Name="empleado">
+              <ScalarProperty Name="codigo" ColumnName="id_empleado" />
+            </EndProperty>
+          </AssociationSetMapping>
           <AssociationSetMapping Name="empleado_vs_cargo" TypeName="punto_ventaModel.empleado_vs_cargo" StoreEntitySet="empleado_vs_cargo">
             <EndProperty Name="cargo">
               <ScalarProperty Name="codigo" ColumnName="cod_cargo" />
@@ -6347,26 +6407,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </EndProperty>
             <EndProperty Name="permiso">
               <ScalarProperty Name="codigo" ColumnName="cod_permiso" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <EntitySetMapping Name="sistema_modulo_ventanas">
-            <EntityTypeMapping TypeName="punto_ventaModel.sistema_modulo_ventanas">
-              <MappingFragment StoreEntitySet="sistema_modulo_ventanas">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="imagen" ColumnName="imagen" />
-                <ScalarProperty Name="nombre_logico" ColumnName="nombre_logico" />
-                <ScalarProperty Name="cod_modulo" ColumnName="cod_modulo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="empleado_acceso_ventanas" TypeName="punto_ventaModel.empleado_acceso_ventanas" StoreEntitySet="empleado_acceso_ventanas">
-            <EndProperty Name="empleado">
-              <ScalarProperty Name="codigo" ColumnName="id_empleado" />
-            </EndProperty>
-            <EndProperty Name="sistema_modulo_ventanas">
-              <ScalarProperty Name="codigo" ColumnName="id_ventana" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

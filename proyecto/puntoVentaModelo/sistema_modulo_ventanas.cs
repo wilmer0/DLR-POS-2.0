@@ -26,7 +26,7 @@ namespace puntoVentaModelo
         public string imagen { get; set; }
         public byte activo { get; set; }
     
-        public virtual ICollection<empleado> empleado { get; set; }
         public virtual sistema_modulo sistema_modulo { get; set; }
+        public virtual ICollection<empleado> empleado { get; set; }
     }
 }

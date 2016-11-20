@@ -15,24 +15,25 @@ namespace puntoVentaModelo
     
     public partial class punto_ventaEntities : DbContext
     {
+        private string p1;
+        private string p2;
+        private string p3;
+        private string p4;
+
         public punto_ventaEntities()
             : base("name=punto_ventaEntities")
         {
         }
-        
-    	public punto_ventaEntities(string servidor, string baseDatos, string user, string pass, string Puerto="3306"): base("name=punto_ventaEntities")
-                            {
-    
-    
-                        //var connectionString = this.Database.Connection.ConnectionString + ";password=" + pass;
-                        //connectionString = "server=localhost;userid=root;persistsecurityinfo=true;database=punto_venta;password=wilmerlomas1;Port=3306";
 
-
-                                var connectionString = this.Database.Connection.ConnectionString + ";password=" + pass;
-                                connectionString = "server=" + servidor + ";userid=" + user + ";persistsecurityinfo=true;database=" + baseDatos + ";password=" + pass + ";Port=" + Puerto;
+        public punto_ventaEntities(string p1, string p2, string p3, string p4)
+        {
+            // TODO: Complete member initialization
+            this.p1 = p1;
+            this.p2 = p2;
+            this.p3 = p3;
+            this.p4 = p4;
+        }
     
-                        this.Database.Connection.ConnectionString = connectionString;
-                    }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -99,6 +100,7 @@ namespace puntoVentaModelo
         public DbSet<sexo> sexo { get; set; }
         public DbSet<sistema> sistema { get; set; }
         public DbSet<sistema_modulo> sistema_modulo { get; set; }
+        public DbSet<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
         public DbSet<situacion_empleado> situacion_empleado { get; set; }
         public DbSet<subcategoria_producto> subcategoria_producto { get; set; }
         public DbSet<sucursal> sucursal { get; set; }
@@ -122,6 +124,5 @@ namespace puntoVentaModelo
         public DbSet<oferta_producto_detalle> oferta_producto_detalle { get; set; }
         public DbSet<producto_codigobarra> producto_codigobarra { get; set; }
         public DbSet<producto_oferta_historial> producto_oferta_historial { get; set; }
-        public DbSet<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
     }
 }

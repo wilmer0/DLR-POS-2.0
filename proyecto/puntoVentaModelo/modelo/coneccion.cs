@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace puntoVentaModelo.modelos
 {
@@ -42,10 +43,16 @@ namespace puntoVentaModelo.modelos
             return datosConeccionBd;
         }
 
-
+        public string getConeccionDirecta()
+        {
+            string connectionString = "server=" + datosConeccionBd.Servidor + ";userid=" + datosConeccionBd.Usuario + ";persistsecurityinfo=true;database=" + datosConeccionBd.BaseDatos + ";password=" + datosConeccionBd.Contrasena + ";Port=" + datosConeccionBd.Puerto;
+            MySqlConnection coneccion = new MySqlConnection(connectionString);
+            coneccion.Open();
+            return connectionString;
+            
+        }
         public punto_ventaEntities GetConeccion()
         {
-            datosConeccionBd = new DatosConeccionBD();
 
             if (datosConeccionBd == null)
             {
