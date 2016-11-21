@@ -14,10 +14,17 @@ namespace puntoVentaModelo
     
     public partial class empresa
     {
+        public empresa()
+        {
+            this.sucursal = new HashSet<sucursal>();
+        }
+    
         public int codigo { get; set; }
         public string secuencia { get; set; }
         public string division { get; set; }
         public byte estado { get; set; }
         public string rnc { get; set; }
+    
+        public virtual ICollection<sucursal> sucursal { get; set; }
     }
 }

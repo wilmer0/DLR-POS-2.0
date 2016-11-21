@@ -17,6 +17,7 @@ namespace puntoVentaModelo
         public cargo()
         {
             this.empleado = new HashSet<empleado>();
+            this.empleado1 = new HashSet<empleado>();
         }
     
         public int codigo { get; set; }
@@ -24,5 +25,6 @@ namespace puntoVentaModelo
         public byte estado { get; set; }
     
         public virtual ICollection<empleado> empleado { get; set; }
+        public virtual ICollection<empleado> empleado1 { get; set; }
     }
 }

@@ -26,7 +26,7 @@ namespace puntoVentaModelo
             this.pagos = new HashSet<pagos>();
             this.producto_oferta_historial = new HashSet<producto_oferta_historial>();
             this.sistema_modulo_ventanas = new HashSet<sistema_modulo_ventanas>();
-            this.cargo = new HashSet<cargo>();
+            this.cargo1 = new HashSet<cargo>();
         }
     
         public int codigo { get; set; }
@@ -47,16 +47,22 @@ namespace puntoVentaModelo
         public string pasaporte { get; set; }
     
         public virtual cajero cajero { get; set; }
+        public virtual cargo cargo { get; set; }
         public virtual ICollection<cobros> cobros { get; set; }
         public virtual ICollection<compra> compra { get; set; }
+        public virtual departamento departamento { get; set; }
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos { get; set; }
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos1 { get; set; }
         public virtual ICollection<factura> factura { get; set; }
+        public virtual situacion_empleado situacion_empleado { get; set; }
+        public virtual sucursal sucursal { get; set; }
+        public virtual nomina_tipos nomina_tipos { get; set; }
         public virtual ICollection<nomina_detalle> nomina_detalle { get; set; }
         public virtual ICollection<nomina> nomina { get; set; }
         public virtual ICollection<pagos> pagos { get; set; }
         public virtual ICollection<producto_oferta_historial> producto_oferta_historial { get; set; }
         public virtual ICollection<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
-        public virtual ICollection<cargo> cargo { get; set; }
+        public virtual ICollection<cargo> cargo1 { get; set; }
+        public virtual vendedor vendedor { get; set; }
     }
 }
