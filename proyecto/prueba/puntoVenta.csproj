@@ -70,6 +70,14 @@
     <Reference Include="BarcodeLib">
       <HintPath>..\packages\BarcodeLib.1.0.0.22\lib\net20\BarcodeLib.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Ionic.Zip">
       <HintPath>..\..\..\..\..\..\Documents\GitHub\DLR-POS-2.0\proyecto\prueba\librerias\Ionic.Zip.dll</HintPath>
     </Reference>

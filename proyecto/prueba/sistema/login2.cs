@@ -81,15 +81,18 @@ namespace puntoVenta.sistema
             if (!ValidarCampos())
                 return;
 
-            empleado=new puntoVentaModelo.empleado();
+            empleado = new puntoVentaModelo.empleado();
             empleado.login = usuarioText.Text.Trim();
             empleado.clave = claveText.Text.Trim();
 
-            if (modeloEmpleado.validarLogin(empleado))
+            bool existe = false;
+            existe = modeloEmpleado.validarLogin(empleado);
+            if (existe==true)
             {
-                menu1 ventana = new menu1(empleado);
-                ventana.ShowDialog();
-                this.Hide();
+            //    menu1 ventana = new menu1(empleado);
+            //    ventana.ShowDialog();
+            //    this.Hide();
+                MessageBox.Show("Existe");
             }
             else
             {

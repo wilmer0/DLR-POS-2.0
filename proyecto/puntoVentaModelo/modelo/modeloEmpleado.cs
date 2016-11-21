@@ -24,13 +24,14 @@ namespace puntoVentaModelo.modelos
                 coneccion con=new coneccion();
                 punto_ventaEntities entity= con.GetConeccion();
 
-                List<empleado> listaEmpleado=new List<empleado>();
-                foreach (var x in listaEmpleado)
-                {
-                    MessageBox.Show(x.login + "-" + x.clave);
-                    
-                }
+                var Lista = (from c in entity.empleado
+                             where c.login == empleado.login && c.clave==empleado.clave
+                             select c).FirstOrDefault();
 
+                if (Lista != null)
+                {
+                    return true;
+                }
                 return false;
             }
             catch(Exception ex)
