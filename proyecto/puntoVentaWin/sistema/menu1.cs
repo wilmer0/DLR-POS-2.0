@@ -44,6 +44,38 @@ namespace puntoVenta.sistema
             Salir();
         }
 
+        public override void Salir()
+        {
+            login2 ventana=new login2();
+            ventana.Show();
+            this.Close();
+        }
+
+        public override void limpiar()
+        {
+            //limpiar para recargar permisos
+        }
+
+        public override void GetAcion()
+        {
+            //cargar todos los modulos y ventanas que el usuario tenga permitido ver
+        }
+
+        public override bool ValidarGetAction()
+        {
+            try
+            {
+                //
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ValidarGetAction.:" + ex.ToString());
+                return false;
+            }
+        }
+
         private void menu1_FormClosed(object sender, FormClosedEventArgs e)
         {
             

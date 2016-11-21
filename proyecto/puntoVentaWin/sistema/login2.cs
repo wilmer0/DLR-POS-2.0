@@ -37,17 +37,26 @@ namespace puntoVenta.sistema
         {
             this.tituloLabel.Text = "Inicio sesión";
             this.Text = tituloLabel.Text;
-            //usuarioText.SelectAll();
-            
+            if (usuarioText != null)
+            {
+                usuarioText.Clear();
+                usuarioText.Focus();
+                usuarioText.SelectAll();
+            }
+            if (claveText != null)
+            {
+                claveText.Clear();
+            }
         }
 
+        
         private void login2_Load(object sender, EventArgs e)
         {
 
         }
 
 
-        public override bool ValidarCampos()
+        public override bool ValidarGetAction()
         {
             try
             {
@@ -78,7 +87,11 @@ namespace puntoVenta.sistema
 
         public override void GetAcion()
         {
-            if (!ValidarCampos())
+            if (MessageBox.Show("Desea procesar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.No)
+            {
+                return;
+            }
+            if (!ValidarGetAction())
                 return;
 
             empleado = new puntoVentaModelo.empleado();
@@ -102,6 +115,24 @@ namespace puntoVenta.sistema
             }
         }
 
+       
+
+        public override void limpiar()
+        {
+            if (MessageBox.Show("Desea limpiar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.Yes)
+            {
+                LoadVentana();
+            }
+        }
+
+        public override void Salir()
+        {
+            if (MessageBox.Show("Desea salir?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
         private void usuarioText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -110,13 +141,17 @@ namespace puntoVenta.sistema
                 claveText.SelectAll();
             }
         }
-
         private void claveText_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 button1.Focus();
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

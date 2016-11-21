@@ -44,23 +44,31 @@ namespace puntoVentaModelo.modelos
         }
 
 
-        public List<sistema_modulo> GetListaModulosDisponibles(empleado empleado)
+        public List<sistema_modulo> GetListaModulosDisponiblesByEmpleado(empleado empleado)
         {
             try
             {
-                //lista
-                List<sistema_modulo> lista=new List<sistema_modulo>();
-                List<sistema_modulo> listaModulos = new List<sistema_modulo>();
 
                 coneccion con=new coneccion();
                 punto_ventaEntities entity = con.GetConeccion();
                 
+                //listas
+                List<sistema_modulo> listaModulos=new List<sistema_modulo>();
+                List<sistema_modulo_ventanas> listaSistemaModulosVentanas  = new List<sistema_modulo_ventanas>();
+                
+
+
+                
+                
+
+
+
 
                 return listaModulos;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error GetListaModulosDisponibles.: " + ex.ToString());
+                MessageBox.Show("Error GetListaModulosDisponiblesByEmpleado.: " + ex.ToString());
                 return null;
             }
         }

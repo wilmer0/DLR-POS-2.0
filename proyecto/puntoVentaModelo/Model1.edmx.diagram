@@ -178,6 +178,11 @@
         <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.producto_unidad" ManuallyRouted="false" />
         <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" ManuallyRouted="false" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_4" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_3" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_1" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_2" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

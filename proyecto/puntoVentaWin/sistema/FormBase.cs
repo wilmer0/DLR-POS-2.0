@@ -33,7 +33,7 @@ namespace puntoVenta
 
         }
 
-        public virtual Boolean ValidarCampos()
+        public virtual Boolean ValidarGetAction()
         {
 
             return true;

@@ -19,9 +19,8 @@ namespace puntoVentaModelo
             : base("name=punto_ventaEntities")
         {
         }
-
-        public punto_ventaEntities(string servidor, string baseDatos, string user, string pass, string Puerto = "3306")
-            : base("name=punto_ventaEntities")
+    
+    	public punto_ventaEntities(string servidor, string baseDatos, string user, string pass, string Puerto="3306"): base("name=punto_ventaEntities")
                             {
     
     
