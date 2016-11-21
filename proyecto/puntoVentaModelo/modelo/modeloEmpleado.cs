@@ -27,6 +27,7 @@ namespace puntoVentaModelo.modelos
                 var Lista = (from c in entity.empleado
                              where c.login == empleado.login && c.clave==empleado.clave
                              select c).FirstOrDefault();
+                
 
                 if (Lista != null)
                 {

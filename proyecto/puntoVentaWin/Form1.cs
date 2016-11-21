@@ -14,6 +14,15 @@ namespace puntoVentaWin
 {
     public partial class Form1 : Form
     {
+
+
+        //objetos
+        public empleado empleado;
+
+
+        //modelos
+        modeloEmpleado modeloEmpleado = new modeloEmpleado();
+
         public Form1()
         {
             InitializeComponent();
@@ -21,15 +30,6 @@ namespace puntoVentaWin
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<empleado> lista=new List<empleado>();
-            modeloEmpleado modeloEmpleado=new modeloEmpleado();
-
-            lista = modeloEmpleado.getListaCompleta();
-
-            foreach (var x in lista)
-            {
-                MessageBox.Show(x.login + "-" + x.clave);
-            }
         }
     }
 }

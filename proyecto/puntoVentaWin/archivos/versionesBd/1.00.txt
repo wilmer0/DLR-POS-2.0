@@ -1,0 +1,1562 @@
+ALTER TABLE `punto_venta`.`sistema_modulo_opciones` 
+CHANGE COLUMN `TRIAL_COLUMN6` `activo` TINYINT(3) UNSIGNED NULL DEFAULT '1' ;
+
+
+
+ALTER TABLE `punto_venta`.`cajero` 
+ADD CONSTRAINT `cajero_empleado`
+  FOREIGN KEY (`codigo`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`cajero` 
+ADD INDEX `cajero_caja_idx` (`cod_caja` ASC);
+ALTER TABLE `punto_venta`.`cajero` 
+ADD CONSTRAINT `cajero_caja`
+  FOREIGN KEY (`cod_caja`)
+  REFERENCES `punto_venta`.`caja` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+                 
+
+
+ALTER TABLE `punto_venta`.`almacen` 
+ADD INDEX `almacen_sucursal_idx` (`cod_sucursal` ASC);
+ALTER TABLE `punto_venta`.`almacen` 
+ADD CONSTRAINT `almacen_sucursal`
+  FOREIGN KEY (`cod_sucursal`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `punto_venta`.`empleado` 
+CHANGE COLUMN `TRIAL_COLUMN6` `estado` TINYINT(3) UNSIGNED NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `cod_sucursal` INT NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `cod_departamento` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cod_cargo` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN10` `cod_cliente` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `cod_grupo_usuario` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN12` `fecha_ingreso` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN13` `permiso` VARCHAR(1) CHARACTER SET 'utf8' NULL DEFAULT 'G' ,
+CHANGE COLUMN `TRIAL_COLUMN14` `cod_tipo_nomina` INT(11) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `punto_venta`.`empleado` 
+ADD INDEX `empleado_cargo_idx` (`cod_cargo` ASC);
+ALTER TABLE `punto_venta`.`empleado` 
+ADD CONSTRAINT `empleado_cargo`
+  FOREIGN KEY (`cod_cargo`)
+  REFERENCES `punto_venta`.`cargo` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`cliente` 
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha_creado` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `abrir_credito` TINYINT(3) UNSIGNED NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN8` `cod_sucursal_creado` INT NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cliente_contado` TINYINT(3) UNSIGNED NULL DEFAULT '0' ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`cliente` 
+ADD INDEX `cliente_categoria_cliente_idx` (`cod_categoria` ASC),
+ADD INDEX `cliente_subcategoria_cliente_idx` (`cod_subcategoria` ASC),
+ADD INDEX `cliente_sucursal_idx` (`cod_sucursal_creado` ASC);
+ALTER TABLE `punto_venta`.`cliente` 
+ADD CONSTRAINT `cliente_categoria_cliente`
+  FOREIGN KEY (`cod_categoria`)
+  REFERENCES `punto_venta`.`cliente_categoria` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `cliente_subcategoria_cliente`
+  FOREIGN KEY (`cod_subcategoria`)
+  REFERENCES `punto_venta`.`cliente_subcategoria` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `cliente_sucursal`
+  FOREIGN KEY (`cod_sucursal_creado`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`cobros` 
+CHANGE COLUMN `TRIAL_COLUMN6` `detalle` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `cod_empleado` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `estado` TINYINT(3) UNSIGNED NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cod_empleado_anular` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN10` `motivo_anulado` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `cuadrado` TINYINT(3) UNSIGNED NULL DEFAULT '0' ;
+
+
+
+
+ALTER TABLE `punto_venta`.`compra_detalle` 
+ADD INDEX `compra_detalle_producto_idx` (`cod_producto` ASC);
+ALTER TABLE `punto_venta`.`compra_detalle` 
+ADD CONSTRAINT `compra_detalle`
+  FOREIGN KEY (`cod_compra`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `compra_detalle_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `compra_detalle_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `compra_detalle_metodo_pago`
+  FOREIGN KEY (`cod_metodo_pago`)
+  REFERENCES `punto_venta`.`metodo_pago` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`cobros_detalles` 
+CHANGE COLUMN `monto_pagado` `monto_pagado` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN6` `monto_descontado` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN7` `cod_empleado_anular` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `motivo_anulado` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `estado` TINYINT(3) UNSIGNED NULL DEFAULT '1' ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`cobros_detalles` 
+ADD INDEX `cobro_detalles_cobro_idx` (`cod_cobro` ASC),
+ADD INDEX `cobros_detalle_factura_idx` (`cod_factura` ASC),
+ADD INDEX `cobro_detalle_metodo_cobro_idx` (`cod_metodo_pago` ASC);
+ALTER TABLE `punto_venta`.`cobros_detalles` 
+ADD CONSTRAINT `cobro_detalles_cobro`
+  FOREIGN KEY (`cod_cobro`)
+  REFERENCES `punto_venta`.`cobros` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `cobros_detalle_factura`
+  FOREIGN KEY (`cod_factura`)
+  REFERENCES `punto_venta`.`factura` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `cobro_detalle_metodo_cobro`
+  FOREIGN KEY (`cod_metodo_pago`)
+  REFERENCES `punto_venta`.`metodo_pago` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`factura` 
+CHANGE COLUMN `codigo` `codigo` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`codigo`);
+
+
+
+
+
+ALTER TABLE `punto_venta`.`cobros_detalles` 
+ADD CONSTRAINT `cobro_detalles_factura`
+  FOREIGN KEY (`cod_factura`)
+  REFERENCES `punto_venta`.`factura` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `punto_venta`.`compra` 
+ADD INDEX `compra_suplidor_idx` (`cod_suplidor` ASC),
+ADD INDEX `compra_sucursal_idx` (`cod_sucursal` ASC),
+ADD INDEX `compra_empleado_idx` (`codigo_empleado` ASC);
+ALTER TABLE `punto_venta`.`compra` 
+ADD CONSTRAINT `compra_suplidor`
+  FOREIGN KEY (`cod_suplidor`)
+  REFERENCES `punto_venta`.`suplidor` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `compra_sucursal`
+  FOREIGN KEY (`cod_sucursal`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `compra_empleado`
+  FOREIGN KEY (`codigo_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`compra_detalle` 
+CHANGE COLUMN `costo` `costo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `venta` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `monto` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `descuento` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `estado` INT(11) NOT NULL DEFAULT '1' ,
+ADD COLUMN `cod_metodo_pago` INT NULL AFTER `estado`;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`cobros_detalles` 
+ADD CONSTRAINT `cobro_detalle_factura`
+  FOREIGN KEY (`cod_factura`)
+  REFERENCES `punto_venta`.`factura` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`factura` 
+DROP COLUMN `monto_orden_compra`,
+DROP COLUMN `cod_orden_compra`,
+DROP COLUMN `tarjeta`,
+DROP COLUMN `deposito`,
+DROP COLUMN `cheque`,
+CHANGE COLUMN `devuelta` `devuelta` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `itebis` `itebis` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `efectivo` `efectivo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `monto_propina` `monto_propina` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `descuento` `descuento` DECIMAL(20,2) NULL DEFAULT NULL ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`compra_detalle` 
+ADD COLUMN `codigo` INT NOT NULL FIRST,
+ADD PRIMARY KEY (`codigo`);
+
+
+
+
+
+ALTER TABLE `punto_venta`.`compra_pago_anulados` 
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha` DATE NULL DEFAULT NULL ,
+ADD INDEX `pago_anulado_compra_idx` (`cod_compra` ASC),
+ADD INDEX `pago_anulado_pago_idx` (`cod_pago` ASC),
+ADD INDEX `pago_anulado_empleado_idx` (`cod_empleado` ASC);
+ALTER TABLE `punto_venta`.`compra_pago_anulados` 
+ADD CONSTRAINT `pago_anulado_compra`
+  FOREIGN KEY (`cod_compra`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `pago_anulado_pago`
+  FOREIGN KEY (`cod_pago`)
+  REFERENCES `punto_venta`.`compra_vs_pagos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `pago_anulado_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`comprobante_fiscal` 
+CHANGE COLUMN `TRIAL_COLUMN6` `hasta_numero` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `contador` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN8` `avisar` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `fecha` DATE NULL DEFAULT NULL ,
+ADD INDEX `comprobante_serie_idx` (`cod_serie` ASC),
+ADD INDEX `comprobante_caja_idx` (`cod_caja` ASC),
+ADD INDEX `comprobante_tipo_idx` (`codigo_tipo` ASC);
+ALTER TABLE `punto_venta`.`comprobante_fiscal` 
+ADD CONSTRAINT `comprobante_serie`
+  FOREIGN KEY (`cod_serie`)
+  REFERENCES `punto_venta`.`comprobante_serie` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `comprobante_caja`
+  FOREIGN KEY (`cod_caja`)
+  REFERENCES `punto_venta`.`caja` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `comprobante_tipo`
+  FOREIGN KEY (`codigo_tipo`)
+  REFERENCES `punto_venta`.`tipo_comprobante_fiscal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NOALTER TABLE `punto_venta`.`correo_electronicos` 
+CHANGE COLUMN `TRIAL_COLUMN6` `puerto` INT(11) NOT NULL ;
+ ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`correo_electronicos` 
+CHANGE COLUMN `TRIAL_COLUMN6` `puerto` INT(11) NOT NULL ;
+
+
+ALTER TABLE `punto_venta`.`cuadre_caja` 
+ADD INDEX `cuadre_cajero_idx` (`cod_cajero` ASC);
+ALTER TABLE `punto_venta`.`cuadre_caja` 
+ADD CONSTRAINT `cuadre_cajero`
+  FOREIGN KEY (`cod_cajero`)
+  REFERENCES `punto_venta`.`cajero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`egresos_caja` 
+CHANGE COLUMN `monto` `monto` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `detalles` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `afecta_cuadre` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN8` `estado` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cuadrado` INT(11) NULL DEFAULT '0' ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`empleado` 
+CHANGE COLUMN `sueldo` `sueldo` DECIMAL(20,2) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `punto_venta`.`empleado_historial_datos` 
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha_nacimiento` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `usuario` VARCHAR(50) CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `clave` VARCHAR(50) CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cod_situacion` INT(11) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN10` `cod_sexo` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `cod_cargo` INT(11) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN12` `cod_sucursal` INT(11) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN13` `cod_departamento` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN14` `sueldo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN15` `cod_empleado_cambio` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN16` `fecha` DATE NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN17` `fecha_ingreso` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN18` `cod_tipo_nomina` INT(11) NULL DEFAULT NULL ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`empleado_historial_datos` 
+ADD CONSTRAINT `empleado_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`empleado_historial_datos` 
+ADD CONSTRAINT `empleado_situacion`
+  FOREIGN KEY (`cod_situacion`)
+  REFERENCES `punto_venta`.`situacion_empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`empleado_historial_datos` 
+ADD CONSTRAINT `empleado_tipo_nomina`
+  FOREIGN KEY (`cod_tipo_nomina`)
+  REFERENCES `punto_venta`.`nomina_tipos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `punto_venta`.`empleado_vs_conceptos_nomina` 
+ADD INDEX `empleado_concepto_nomina_nomina_idx` (`cod_nomina` ASC),
+ADD INDEX `empleado_concepto_nomina_empleado_idx` (`cod_empleado` ASC),
+ADD INDEX `empleado_concepto_nomina_concepto_idx` (`cod_concepto` ASC),
+ADD INDEX `empleado_concepto_nomina_empelado_modifico_idx` (`cod_empleado_modifico` ASC);
+ALTER TABLE `punto_venta`.`empleado_vs_conceptos_nomina` 
+ADD CONSTRAINT `empleado_concepto_nomina_nomina`
+  FOREIGN KEY (`cod_nomina`)
+  REFERENCES `punto_venta`.`nomina` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `empleado_concepto_nomina_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `empleado_concepto_nomina_concepto`
+  FOREIGN KEY (`cod_concepto`)
+  REFERENCES `punto_venta`.`nomina_conceptos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `empleado_concepto_nomina_empelado_modifico`
+  FOREIGN KEY (`cod_empleado_modifico`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`entrada_salida_inventario` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `cod_almacen` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `cod_empleado_cambio` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `motivo` MEDIUMTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`entrada_salida_inventario` 
+ADD INDEX `entrada_salida_inventario_producto_idx` (`cod_producto` ASC),
+ADD INDEX `entrada_salida_inventario_unidad_idx` (`cod_unidad` ASC),
+ADD INDEX `entrada_salida_inventario_almacen_idx` (`cod_almacen` ASC),
+ADD INDEX `entrada_salida_inventario_empleado_idx` (`cod_empleado_cambio` ASC);
+ALTER TABLE `punto_venta`.`entrada_salida_inventario` 
+ADD CONSTRAINT `entrada_salida_inventario_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `entrada_salida_inventario_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `entrada_salida_inventario_almacen`
+  FOREIGN KEY (`cod_almacen`)
+  REFERENCES `punto_venta`.`almacen` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `entrada_salida_inventario_empleado`
+  FOREIGN KEY (`cod_empleado_cambio`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `punto_venta`.`factura_detalle` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `precio` `precio` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `monto` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `itebis` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `descuento` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `estado` INT(11) NOT NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN10` `detalles` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`facturas_anuladas` 
+ADD COLUMN `cod_cajero` INT NOT NULL AFTER `detalle`;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`facturas_anuladas` 
+ADD INDEX `facturas_anuladas_cajero_idx` (`cod_cajero` ASC);
+ALTER TABLE `punto_venta`.`facturas_anuladas` 
+ADD CONSTRAINT `facturas_anuladas_cajero`
+  FOREIGN KEY (`cod_cajero`)
+  REFERENCES `punto_venta`.`cajero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`grupo_usuarios_permisos` 
+ADD INDEX `grupo_usuarios_permisos_grupo_idx` (`cod_grupo` ASC),
+ADD INDEX `grupo_usuarios_permisos_permiso_idx` (`cod_permiso` ASC);
+ALTER TABLE `punto_venta`.`grupo_usuarios_permisos` 
+ADD CONSTRAINT `grupo_usuarios_permisos_grupo`
+  FOREIGN KEY (`cod_grupo`)
+  REFERENCES `punto_venta`.`grupo_usuarios` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `grupo_usuarios_permisos_permiso`
+  FOREIGN KEY (`cod_permiso`)
+  REFERENCES `punto_venta`.`permiso` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`historial_devolucion_compras` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `costo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `fecha` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `codigo_empleado` INT(11) NULL DEFAULT NULL ;
+
+
+
+
+ALTER TABLE `punto_venta`.`historial_devolucion_compras` 
+ADD INDEX `historial_devolucion_compras_compra_idx` (`codigo_compra` ASC),
+ADD INDEX `historial_devolucion_compras_producto_idx` (`codigo_producto` ASC),
+ADD INDEX `historial_devolucion_compras_unidad_idx` (`codigo_unidad` ASC),
+ADD INDEX `historial_devolucion_compras_empleado_idx` (`codigo_empleado` ASC);
+ALTER TABLE `punto_venta`.`historial_devolucion_compras` 
+ADD CONSTRAINT `historial_devolucion_compras_compra`
+  FOREIGN KEY (`codigo_compra`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_producto`
+  FOREIGN KEY (`codigo_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_unidad`
+  FOREIGN KEY (`codigo_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_empleado`
+  FOREIGN KEY (`codigo_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`historial_devolucion_ventas` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `codigo_empleado` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `tipo_devolucion` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL COMMENT 'si fue EFE efectivo' ;
+
+
+
+ALTER TABLE `punto_venta`.`historial_inventario_agotado` 
+CHANGE COLUMN `existencia` `existencia` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `costo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `precio` DECIMAL(20,2) NULL DEFAULT NULL ;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`ingresos_caja` 
+CHANGE COLUMN `monto` `monto` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `detalles` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `afecta_cuadre` TINYINT NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN8` `estado` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cuadrado` TINYINT NULL DEFAULT '0' ;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`ingresos_caja` 
+ADD INDEX `ingresos_caja_cajero_idx` (`cod_cajero` ASC),
+ADD INDEX `ingresos_caja_concepto_idx` (`cod_concepto` ASC);
+ALTER TABLE `punto_venta`.`ingresos_caja` 
+ADD CONSTRAINT `ingresos_caja_cajero`
+  FOREIGN KEY (`cod_cajero`)
+  REFERENCES `punto_venta`.`cajero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `ingresos_caja_concepto`
+  FOREIGN KEY (`cod_concepto`)
+  REFERENCES `punto_venta`.`ingresos_conceptos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`inventario` 
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha_vencimiento` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `costo` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `precio` DECIMAL(20,2) NULL DEFAULT NULL ,
+ADD COLUMN `inventariocol` VARCHAR(45) NULL AFTER `precio`;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`factura_detalle` 
+ADD CONSTRAINT `factura_detalle_factura`
+  FOREIGN KEY (`cod_factura`)
+  REFERENCES `punto_venta`.`factura` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `factura_detalle_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `factura_detalle_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`historial_devolucion_compras` 
+ADD CONSTRAINT `historial_devolucion_compras_compra`
+  FOREIGN KEY (`codigo_compra`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_producto`
+  FOREIGN KEY (`codigo_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_unidad`
+  FOREIGN KEY (`codigo_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_compras_empleado`
+  FOREIGN KEY (`codigo_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`historial_devolucion_ventas` 
+ADD CONSTRAINT `historial_devolucion_ventas_factura`
+  FOREIGN KEY (`codigo_factura`)
+  REFERENCES `punto_venta`.`factura` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_ventas_producto`
+  FOREIGN KEY (`codigo_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_ventas_unidad`
+  FOREIGN KEY (`codigo_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_devolucion_ventas_empleado`
+  FOREIGN KEY (`codigo_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`historial_inventario_agotado` 
+ADD CONSTRAINT `historial_inventario_agotado_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `historial_inventario_agotado_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`inventario_reparacion` 
+CHANGE COLUMN `TRIAL_COLUMN6` `imei` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `matricula` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `serial` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `existencia` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN10` `fecha_entrada` DATETIME NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `cod_empleado_modifico` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN12` `cod_cliente_titular` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN13` `estado_reparacion` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN14` `detalles` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN15` `estado` INT(11) NULL DEFAULT '1' ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`inventario_reparacion` 
+ADD INDEX `inventario_reparacion_producto_idx` (`codigo_producto` ASC),
+ADD INDEX `inventario_reparacion_unidad_idx` (`codigo_unidad` ASC),
+ADD INDEX `inventario_reparacion_marca_idx` (`cod_marca` ASC),
+ADD INDEX `inventario_reparacion_modelo_idx` (`cod_modelo` ASC),
+ADD INDEX `inventario_reparacion_cliente_idx` (`cod_cliente_titular` ASC),
+ADD INDEX `inventario_reparacion_estado_reparacion_idx` (`estado_reparacion` ASC);
+ALTER TABLE `punto_venta`.`inventario_reparacion` 
+ADD CONSTRAINT `inventario_reparacion_producto`
+  FOREIGN KEY (`codigo_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `inventario_reparacion_unidad`
+  FOREIGN KEY (`codigo_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `inventario_reparacion_marca`
+  FOREIGN KEY (`cod_marca`)
+  REFERENCES `punto_venta`.`marcas` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `inventario_reparacion_modelo`
+  FOREIGN KEY (`cod_modelo`)
+  REFERENCES `punto_venta`.`modelo` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `inventario_reparacion_cliente`
+  FOREIGN KEY (`cod_cliente_titular`)
+  REFERENCES `punto_venta`.`cliente` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `inventario_reparacion_estado_reparacion`
+  FOREIGN KEY (`estado_reparacion`)
+  REFERENCES `punto_venta`.`estados_reparacion` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`mesas_detalles` 
+ADD INDEX `mesas_detalles_mesa_idx` (`codigo_mesa` ASC),
+ADD INDEX `mesas_detalles_detalle_idx` (`cod_detalle` ASC);
+ALTER TABLE `punto_venta`.`mesas_detalles` 
+ADD CONSTRAINT `mesas_detalles_mesa`
+  FOREIGN KEY (`codigo_mesa`)
+  REFERENCES `punto_venta`.`mesas` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `mesas_detalles_detalle`
+  FOREIGN KEY (`cod_detalle`)
+  REFERENCES `punto_venta`.`producto_detalle` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`moneda` 
+CHANGE COLUMN `tasa_actual` `tasa_actual` DECIMAL(20,2) NULL DEFAULT '0' ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`moneda_historial` 
+CHANGE COLUMN `tasa` `tasa` DECIMAL(20,2) NOT NULL DEFAULT '0' ,
+ADD INDEX `moneda_historial_moneda_idx` (`cod_moneda` ASC);
+ALTER TABLE `punto_venta`.`moneda_historial` 
+ADD CONSTRAINT `moneda_historial_moneda`
+  FOREIGN KEY (`cod_moneda`)
+  REFERENCES `punto_venta`.`moneda` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`nomina` 
+CHANGE COLUMN `TRIAL_COLUMN6` `cod_sucursal` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `estado` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN8` `abierta_cerrada` VARCHAR(5) CHARACTER SET 'utf8' NULL DEFAULT 'A' COMMENT 'C--> cerrada\nA-->abierta' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cod_empleado_cerrada` INT(11) NULL DEFAULT '0' ,
+ADD INDEX `nomina_tipo_nomina_idx` (`cod_tipo` ASC),
+ADD INDEX `nomina_empleado_idx` (`cod_empleado` ASC),
+ADD INDEX `nomina_sucursal_idx` (`cod_sucursal` ASC);
+ALTER TABLE `punto_venta`.`nomina` 
+ADD CONSTRAINT `nomina_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `nomina_tipo_nomina`
+  FOREIGN KEY (`cod_tipo`)
+  REFERENCES `punto_venta`.`nomina_tipos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `nomina_sucursal`
+  FOREIGN KEY (`cod_sucursal`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`nomina_detalle` 
+CHANGE COLUMN `monto_sueldo` `monto_sueldo` DECIMAL(20,2) NOT NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN6` `estado` INT(11) NULL DEFAULT '1' ,
+ADD INDEX `nomina_detalle_empleado_idx` (`cod_empleado` ASC),
+ADD INDEX `nomina_detalle_concepto_idx` (`cod_concepto` ASC),
+ADD INDEX `nomina_detalle_nomina_idx` (`cod_nomina` ASC);
+ALTER TABLE `punto_venta`.`nomina_detalle` 
+ADD CONSTRAINT `nomina_detalle_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `nomina_detalle_concepto`
+  FOREIGN KEY (`cod_concepto`)
+  REFERENCES `punto_venta`.`nomina_conceptos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `nomina_detalle_nomina`
+  FOREIGN KEY (`cod_nomina`)
+  REFERENCES `punto_venta`.`nomina` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`oferta_producto_detalle` 
+CHANGE COLUMN `cod_oferta` `cod_oferta` INT(11) NOT NULL ,
+CHANGE COLUMN `cod_prod` `cod_prod` INT(11) NOT NULL ;
+
+
+
+ALTER TABLE `punto_venta`.`oferta_producto_detalle` 
+ADD CONSTRAINT `oferta_producto_detalle_producto`
+  FOREIGN KEY (`cod_prod`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+ALTER TABLE `punto_venta`.`oferta_producto_detalle` 
+ADD CONSTRAINT `oferta_producto_detalle_oferta`
+  FOREIGN KEY (`cod_oferta`)
+  REFERENCES `punto_venta`.`producto_oferta` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`oferta_producto_subcate_detalle` 
+CHANGE COLUMN `cod_oferta` `cod_oferta` INT(11) NOT NULL ;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`oferta_producto_subcate_detalle` 
+DROP COLUMN `cod_subcategoria`,
+ADD INDEX `oferta_producto_subcate_detalle_categoria_idx` (`cod_categoria` ASC);
+ALTER TABLE `punto_venta`.`oferta_producto_subcate_detalle` 
+ADD CONSTRAINT `oferta_producto_subcate_detalle_categoria`
+  FOREIGN KEY (`cod_categoria`)
+  REFERENCES `punto_venta`.`categoria_producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`oferta_producto_subcate_detalle` 
+RENAME TO  `punto_venta`.`oferta_producto_categoria_detalle` ;
+
+
+
+ALTER TABLE `punto_venta`.`pagos` 
+CHANGE COLUMN `TRIAL_COLUMN6` `cod_empleado_anular` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN7` `motivo_anulado` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `cuadrado` TINYINT(3) UNSIGNED NULL DEFAULT '0' ;
+
+
+
+ALTER TABLE `punto_venta`.`pagos` 
+ADD INDEX `pagos_empleado_idx` (`cod_empleado` ASC);
+ALTER TABLE `punto_venta`.`pagos` 
+ADD CONSTRAINT `pagos_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+CHANGE COLUMN `monto_pagado` `monto_pagado` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN6` `monto_descontado` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN7` `estado` TINYINT(3) UNSIGNED NULL DEFAULT '1' ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+ADD INDEX `pagos_detalles_pago_idx` (`cod_pago` ASC),
+ADD INDEX `pagos_detalles_factura_idx` (`cod_factura` ASC),
+ADD INDEX `pagos_detalles_metodo_pago_idx` (`cod_metodo_pago` ASC);
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+ADD CONSTRAINT `pagos_detalles_pago`
+  FOREIGN KEY (`cod_pago`)
+  REFERENCES `punto_venta`.`pagos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `pagos_detalles_factura`
+  FOREIGN KEY (`cod_factura`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `pagos_detalles_metodo_pago`
+  FOREIGN KEY (`cod_metodo_pago`)
+  REFERENCES `punto_venta`.`metodo_pago` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+DROP FOREIGN KEY `pagos_detalles_factura`;
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+CHANGE COLUMN `cod_factura` `cod_compra` INT(11) NOT NULL ;
+ALTER TABLE `punto_venta`.`pagos_detalles` 
+ADD CONSTRAINT `pagos_detalles_factura`
+  FOREIGN KEY (`cod_compra`)
+  REFERENCES `punto_venta`.`compra` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`pedido_detalle` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `precio` `precio` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `monto` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `estado` TINYINT(3) UNSIGNED NULL DEFAULT '1' ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`persona` 
+ADD INDEX `persona_sexo_idx` (`cod_sexo` ASC);
+ALTER TABLE `punto_venta`.`persona` 
+ADD CONSTRAINT `persona_tercero`
+  FOREIGN KEY (`codigo`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `persona_sexo`
+  FOREIGN KEY (`cod_sexo`)
+  REFERENCES `punto_venta`.`sexo` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto` 
+CHANGE COLUMN `reorden` `reorden` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `punto_maximo` `punto_maximo` DECIMAL(20,2) NULL DEFAULT NULL ,
+ADD INDEX `producto_categoria_idx` (`cod_categoria` ASC),
+ADD INDEX `producto_subcategoria_idx` (`cod_subcategoria` ASC),
+ADD INDEX `producto_almacen_idx` (`cod_almacen` ASC),
+ADD INDEX `producto_unidad_minima_idx` (`cod_unidad_minima` ASC);
+ALTER TABLE `punto_venta`.`producto` 
+ADD CONSTRAINT `producto_categoria`
+  FOREIGN KEY (`cod_categoria`)
+  REFERENCES `punto_venta`.`categoria_producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_subcategoria`
+  FOREIGN KEY (`cod_subcategoria`)
+  REFERENCES `punto_venta`.`subcategoria_producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_almacen`
+  FOREIGN KEY (`cod_almacen`)
+  REFERENCES `punto_venta`.`almacen` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_unidad_minima`
+  FOREIGN KEY (`cod_unidad_minima`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_codigobarra` 
+ADD INDEX `producto_codigobarra_producto_idx` (`cod_producto` ASC),
+ADD INDEX `producto_codigobarra_unidad_idx` (`cod_unidad` ASC);
+ALTER TABLE `punto_venta`.`producto_codigobarra` 
+ADD CONSTRAINT `producto_codigobarra_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_codigobarra_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_oferta` 
+CHANGE COLUMN `nombre` `nombre` LONGTEXT CHARACTER SET 'utf8' NOT NULL ,
+CHANGE COLUMN `descuento` `descuento` FLOAT NOT NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN6` `estado` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN7` `cod_sucursal` INT(11) NOT NULL ;
+
+
+
+ALTER TABLE `punto_venta`.`producto_oferta_historial` 
+CHANGE COLUMN `descuento` `descuento` DECIMAL(20,2) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN6` `estado` INT(11) NULL DEFAULT '1' ,
+CHANGE COLUMN `TRIAL_COLUMN7` `fecha_actualizada` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `cod_empleado_actualiza` INT(11) NULL DEFAULT '0' ,
+CHANGE COLUMN `TRIAL_COLUMN9` `cod_sucursal` INT(11) NOT NULL ,
+ADD INDEX `producto_oferta_historial_empleado_idx` (`cod_empleado_actualiza` ASC),
+ADD INDEX `producto_oferta_historial_sucursal_idx` (`cod_sucursal` ASC);
+ALTER TABLE `punto_venta`.`producto_oferta_historial` 
+ADD CONSTRAINT `producto_oferta_historial_empleado`
+  FOREIGN KEY (`cod_empleado_actualiza`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_oferta_historial_sucursal`
+  FOREIGN KEY (`cod_sucursal`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_productos_requisitos` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ,
+ADD INDEX `producto_productos_requisitos_producto_titular_idx` (`codpro_titular` ASC),
+ADD INDEX `producto_productos_requisitos_producto_requisito_idx` (`codpro_requisito` ASC),
+ADD INDEX `producto_productos_requisitos_unidad_idx` (`cod_unidad` ASC);
+ALTER TABLE `punto_venta`.`producto_productos_requisitos` 
+ADD CONSTRAINT `producto_productos_requisitos_producto_titular`
+  FOREIGN KEY (`codpro_titular`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_productos_requisitos_producto_requisito`
+  FOREIGN KEY (`codpro_requisito`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_productos_requisitos_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_productos_requisitos` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `punto_venta`.`producto_productos_requisitos` 
+ADD CONSTRAINT `producto_productos_requisitos_producto_requisito`
+  FOREIGN KEY (`codpro_requisito`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_productos_requisitos_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_unidad` 
+ADD INDEX `producto_unidad_producto_idx` (`cod_producto` ASC),
+ADD INDEX `producto_unidad_unidad_idx` (`cod_unidad` ASC);
+ALTER TABLE `punto_venta`.`producto_unidad` 
+ADD CONSTRAINT `producto_unidad_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `producto_unidad_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_unidad` 
+ADD INDEX `producto_unidad_unidad_idx` (`cod_unidad` ASC);
+ALTER TABLE `punto_venta`.`producto_unidad` 
+ADD CONSTRAINT `producto_unidad_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`producto_unidad_conversion` 
+CHANGE COLUMN `cod_producto` `cod_producto` INT(11) NOT NULL ,
+CHANGE COLUMN `cod_unidad` `cod_unidad` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`cod_producto`, `cod_unidad`);
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_unidad_conversion` 
+ADD CONSTRAINT `producto_unidad_conversion_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`producto_unidad_conversion` 
+ADD INDEX `producto_unidad_conversion_unidad_idx` (`cod_unidad` ASC);
+ALTER TABLE `punto_venta`.`producto_unidad_conversion` 
+ADD CONSTRAINT `producto_unidad_conversion_unidad`
+  FOREIGN KEY (`cod_unidad`)
+  REFERENCES `punto_venta`.`unidad` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_vs_detalle` 
+ADD CONSTRAINT `producto_vs_detalle_producto`
+  FOREIGN KEY (`codigo_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_vs_detalle` 
+ADD CONSTRAINT `producto_vs_detalle_producto_Detalle`
+  FOREIGN KEY (`codigo_detalle`)
+  REFERENCES `punto_venta`.`producto_detalle` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_vs_permisos` 
+CHANGE COLUMN `codigo` `codigo` INT(11) NOT NULL ,
+ADD PRIMARY KEY (`codigo`);
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_vs_permisos` 
+ADD INDEX `producto_vs_permisos_permiso_idx` (`cod_permiso` ASC);
+ALTER TABLE `punto_venta`.`producto_vs_permisos` 
+ADD CONSTRAINT `producto_vs_permisos_permiso`
+  FOREIGN KEY (`cod_permiso`)
+  REFERENCES `punto_venta`.`producto_permisos` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`producto_vs_permisos` 
+ADD CONSTRAINT `producto_vs_permisos_producto`
+  FOREIGN KEY (`cod_producto`)
+  REFERENCES `punto_venta`.`producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+ALTER TABLE `punto_venta`.`region` 
+ADD INDEX `region_pais_idx` (`cod_pais` ASC);
+ALTER TABLE `punto_venta`.`region` 
+ADD CONSTRAINT `region_pais`
+  FOREIGN KEY (`cod_pais`)
+  REFERENCES `punto_venta`.`pais` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `punto_venta`.`provincia` 
+ADD INDEX `provincia_region_idx` (`cod_region` ASC);
+ALTER TABLE `punto_venta`.`provincia` 
+ADD CONSTRAINT `provincia_region`
+  FOREIGN KEY (`cod_region`)
+  REFERENCES `punto_venta`.`region` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`sector` 
+ADD INDEX `sector_provincia_idx` (`cod_provincia` ASC);
+ALTER TABLE `punto_venta`.`sector` 
+ADD CONSTRAINT `sector_provincia`
+  FOREIGN KEY (`cod_provincia`)
+  REFERENCES `punto_venta`.`provincia` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`sistema` 
+DROP COLUMN `cod_comprobante_a_credito`,
+CHANGE COLUMN `autorizar_pedidos_apartir` `autorizar_pedidos_apartir` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `limite_egreso_caja` `limite_egreso_caja` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `porciento_propina` `porciento_propina` DECIMAL(20,2) NULL DEFAULT NULL ;
+
+
+ALTER TABLE `punto_venta`.`sistema_historial` 
+DROP COLUMN `TRIAL_COLUMN9`,
+CHANGE COLUMN `TRIAL_COLUMN6` `permisos_por_grupos_usuarios` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `autorizar_pedidos_apartir` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `limite_egreso_caja` DECIMAL(20,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN10` `usar_comprobantes` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `fecha_vencimiento` DATE NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN12` `ip_server` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN13` `base_datos` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN14` `base_datos_usuario` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN15` `base_datos_clave` LONGTEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN16` `ver_imagen_facturacion_touch` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN17` `ver_nombre_facturacion_touch` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN18` `porciento_propina` DECIMAL(2,2) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN19` `cod_empleado_modifico` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN20` `fecha_modifico` DATETIME NULL DEFAULT NULL ;
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`sistema_historial` 
+ADD INDEX `sistema_historial_empleado_modifico_idx` (`cod_empleado_modifico` ASC);
+ALTER TABLE `punto_venta`.`sistema_historial` 
+ADD CONSTRAINT `sistema_historial_empleado_modifico`
+  FOREIGN KEY (`cod_empleado_modifico`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`sistema_historial` 
+ADD INDEX `sistema_historial_moneda_defecto_idx` (`codigo_moneda` ASC);
+ALTER TABLE `punto_venta`.`sistema_historial` 
+ADD CONSTRAINT `sistema_historial_moneda_defecto`
+  FOREIGN KEY (`codigo_moneda`)
+  REFERENCES `punto_venta`.`moneda` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`subcategoria_producto` 
+ADD INDEX `subcategoria_producto_Categoria_idx` (`cod_categoria` ASC);
+ALTER TABLE `punto_venta`.`subcategoria_producto` 
+ADD CONSTRAINT `subcategoria_producto_Categoria`
+  FOREIGN KEY (`cod_categoria`)
+  REFERENCES `punto_venta`.`categoria_producto` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`sucursal_vs_empleado` 
+ADD INDEX `sucursal_vs_empleado_sucursal_idx` (`cod_sucursal` ASC);
+ALTER TABLE `punto_venta`.`sucursal_vs_empleado` 
+ADD CONSTRAINT `sucursal_vs_empleado_sucursal`
+  FOREIGN KEY (`cod_sucursal`)
+  REFERENCES `punto_venta`.`sucursal` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`sucursal_vs_empleado` 
+ADD INDEX `sucursal_vs_empleado_empleado_idx` (`cod_empleado` ASC);
+ALTER TABLE `punto_venta`.`sucursal_vs_empleado` 
+ADD CONSTRAINT `sucursal_vs_empleado_empleado`
+  FOREIGN KEY (`cod_empleado`)
+  REFERENCES `punto_venta`.`empleado` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`suplidor` 
+ADD CONSTRAINT `suplidor_tercero`
+  FOREIGN KEY (`codigo`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`tercero_observaciones` 
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha` DATE NULL DEFAULT NULL ,
+ADD INDEX `tercero_observaciones_tercero_idx` (`cod_tercero` ASC);
+ALTER TABLE `punto_venta`.`tercero_observaciones` 
+ADD CONSTRAINT `tercero_observaciones_tercero`
+  FOREIGN KEY (`cod_tercero`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+
+ALTER TABLE `punto_venta`.`tercero_vs_direccion` 
+ADD INDEX `tercero_vs_direccion_tercero_idx` (`cod_tercero` ASC),
+ADD INDEX `tercero_vs_direccion_direccion_idx` (`cod_direccion` ASC);
+ALTER TABLE `punto_venta`.`tercero_vs_direccion` 
+ADD CONSTRAINT `tercero_vs_direccion_tercero`
+  FOREIGN KEY (`cod_tercero`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION,
+ADD CONSTRAINT `tercero_vs_direccion_direccion`
+  FOREIGN KEY (`cod_direccion`)
+  REFERENCES `punto_venta`.`direccion` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+ALTER TABLE `punto_venta`.`tercero_vs_permiso` 
+ADD INDEX `tercero_vs_permiso_tercero_idx` (`cod_tercero` ASC);
+ALTER TABLE `punto_venta`.`tercero_vs_permiso` 
+ADD CONSTRAINT `tercero_vs_permiso_tercero`
+  FOREIGN KEY (`cod_tercero`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+ALTER TABLE `punto_venta`.`tercero_vs_permiso` 
+ADD INDEX `tercero_vs_permiso_permiso_idx` (`cod_permiso` ASC);
+ALTER TABLE `punto_venta`.`tercero_vs_permiso` 
+ADD CONSTRAINT `tercero_vs_permiso_permiso`
+  FOREIGN KEY (`cod_permiso`)
+  REFERENCES `punto_venta`.`permiso` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`tercero_vs_telefono` 
+ADD INDEX `tercero_vs_telefono_tercero_idx` (`cod_tercero` ASC);
+ALTER TABLE `punto_venta`.`tercero_vs_telefono` 
+ADD CONSTRAINT `tercero_vs_telefono_tercero`
+  FOREIGN KEY (`cod_tercero`)
+  REFERENCES `punto_venta`.`tercero` (`codigo`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`transferencia_inventario` 
+CHANGE COLUMN `cantidad` `cantidad` DECIMAL(20,2) NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN6` `fecha` DATE NOT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN7` `codigo_sucursal_origen` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN8` `codigo_almacen_origen` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN9` `codigo_sucursal_destino` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN10` `codigo_almacen_destino` INT(11) NULL DEFAULT NULL ,
+CHANGE COLUMN `TRIAL_COLUMN11` `codigo_empleado` INT(11) NULL DEFAULT NULL ;
+
+
+
+
+
+ALTER TABLE `punto_venta`.`unidad` 
+CHANGE COLUMN `nombre` `nombre` VARCHAR(150) CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+CHANGE COLUMN `estado` `estado` TINYINT NULL DEFAULT NULL ,
+CHANGE COLUMN `unidad_abreviada` `unidad_abreviada` VARCHAR(10) CHARACTER SET 'utf8' NULL DEFAULT NULL ,
+ADD UNIQUE INDEX `unidad_abreviada_UNIQUE` (`unidad_abreviada` ASC),
+ADD UNIQUE INDEX `nombre_UNIQUE` (`nombre` ASC);
+
+
+
+ALTER TABLE `punto_venta`.`vendedor` 
+CHANGE COLUMN `porciento` `porciento` DECIMAL(2,2) NULL DEFAULT NULL ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
