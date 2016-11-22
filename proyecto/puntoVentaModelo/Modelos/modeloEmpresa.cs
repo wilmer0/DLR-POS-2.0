@@ -44,16 +44,16 @@ namespace puntoVentaModelo.modelos
         }
 
 
-        public bool ModificarEmpresa(empresa empresa)
+        public bool ModificarEmpresa(empresa empresaA)
         {
 
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-
-                var Lista = (from c in entity.empresa
-                             where c.codigo == empresa.codigo
+                empresa empresa=new empresa();
+                empresa = (from c in entity.empresa
+                             where c.codigo == empresaA.codigo
                              select c).FirstOrDefault();
 
                 var listaDivision = (from c in entity.empresa
@@ -85,11 +85,11 @@ namespace puntoVentaModelo.modelos
                     return false;
                 }
 
-                Lista.codigo = empresa.codigo;
-                Lista.division = empresa.division;
-                Lista.rnc = empresa.rnc;
-                Lista.secuencia = empresa.secuencia;
-                Lista.activo = empresa.activo;
+                
+                empresa.division = empresa.division;
+                empresa.rnc = empresa.rnc;
+                empresa.secuencia = empresa.secuencia;
+                empresa.activo = empresa.activo;
 
                 entity.SaveChanges();
                 return true;
