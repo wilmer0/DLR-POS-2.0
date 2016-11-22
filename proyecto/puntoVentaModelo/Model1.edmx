@@ -370,6 +370,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.empleado_vs_conceptos_nomina
           <Property Name="division" Type="varchar" MaxLength="2" />
           <Property Name="estado" Type="utinyint" Nullable="false" />
           <Property Name="rnc" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="entrada_salida_inventario">
           <Key>
@@ -3646,6 +3647,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="estado" Type="Byte" Nullable="false" />
           <Property Name="rnc" Type="String" Nullable="false" />
           <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.FK_sucursal_1" FromRole="empresa" ToRole="sucursal" />
+          <Property Name="nombre" Type="String" Nullable="false" />
         </EntityType>
         <EntityType Name="entrada_salida_inventario">
           <Key>
@@ -5911,6 +5913,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="empresa">
             <EntityTypeMapping TypeName="punto_ventaModel.empresa">
               <MappingFragment StoreEntitySet="empresa">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="rnc" ColumnName="rnc" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="division" ColumnName="division" />
