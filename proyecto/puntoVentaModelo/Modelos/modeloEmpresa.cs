@@ -23,33 +23,12 @@ namespace puntoVentaModelo.modelos
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-
-                var listaDivision = (from c in entity.empresa
-                                     where c.codigo != empresa.codigo && c.division == empresa.division
-                                     select c).FirstOrDefault();
-                if (listaDivision != null)
-                {
-                    MessageBox.Show("No se agregó: se encuentra una empresa con la misma división", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                var listaRnc = (from c in entity.empresa
-                                where c.codigo != empresa.codigo && c.rnc == empresa.rnc
-                                select c).FirstOrDefault();
-                if (listaRnc != null)
-                {
-                    MessageBox.Show("No se agregó: se encuentra una empresa con el mismo rnc", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                var listaSecuencia = (from c in entity.empresa
-                                      where c.codigo != empresa.codigo && c.secuencia == empresa.secuencia
+                var listaEmpresa = (from c in entity.empresa
                                       select c).FirstOrDefault();
-                if (listaSecuencia != null)
+                if (listaEmpresa != null)
                 {
-                    MessageBox.Show("No se agregó: se encuentra una empresa con la misma secuencia", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No se puede agregar la empresa, porque ya existe una", "", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
                     return false;
                 }
                 entity.empresa.Add(empresa);
@@ -110,7 +89,7 @@ namespace puntoVentaModelo.modelos
                 Lista.division = empresa.division;
                 Lista.rnc = empresa.rnc;
                 Lista.secuencia = empresa.secuencia;
-                Lista.estado = empresa.estado;
+                Lista.activo = empresa.activo;
 
                 entity.SaveChanges();
                 return true;
@@ -140,7 +119,6 @@ namespace puntoVentaModelo.modelos
             }
             catch (Exception ex)
             {
-                entity = null;
                 MessageBox.Show("Error: getNext.: "+ex.ToString());
                 return count;
             }

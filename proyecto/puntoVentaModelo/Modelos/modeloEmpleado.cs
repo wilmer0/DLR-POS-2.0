@@ -89,6 +89,24 @@ namespace puntoVentaModelo.modelos
                 return null;
             }
         }
-         
+
+        public empleado getEmpleadoByLogin(empleado e)
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+                empleado empleado;
+                List<empleado> lista = new List<empleado>();
+                lista = getListaCompleta();
+                empleado = lista.FindAll(x => x.login == e.login && x.clave == e.clave).ToList().FirstOrDefault();
+                return empleado;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error getEmpleadoByLogin.: " + ex.ToString());
+                return null;
+            }
+        }
     }
 }

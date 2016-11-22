@@ -35,6 +35,14 @@
             this.button33 = new System.Windows.Forms.Button();
             this.flowLayoutOpciones = new System.Windows.Forms.FlowLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -116,10 +124,19 @@
             this.flowLayoutOpciones.AutoScroll = true;
             this.flowLayoutOpciones.BackColor = System.Drawing.Color.WhiteSmoke;
             this.flowLayoutOpciones.Controls.Add(this.button5);
+            this.flowLayoutOpciones.Controls.Add(this.button6);
+            this.flowLayoutOpciones.Controls.Add(this.button7);
+            this.flowLayoutOpciones.Controls.Add(this.button8);
+            this.flowLayoutOpciones.Controls.Add(this.button9);
+            this.flowLayoutOpciones.Controls.Add(this.button10);
+            this.flowLayoutOpciones.Controls.Add(this.button11);
+            this.flowLayoutOpciones.Controls.Add(this.button12);
+            this.flowLayoutOpciones.Controls.Add(this.button13);
             this.flowLayoutOpciones.Location = new System.Drawing.Point(12, 126);
             this.flowLayoutOpciones.Name = "flowLayoutOpciones";
             this.flowLayoutOpciones.Size = new System.Drawing.Size(796, 248);
             this.flowLayoutOpciones.TabIndex = 10;
+            this.flowLayoutOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutOpciones_Paint);
             // 
             // button5
             // 
@@ -132,6 +149,103 @@
             this.button5.Size = new System.Drawing.Size(93, 77);
             this.button5.TabIndex = 39;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(102, 3);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(93, 77);
+            this.button6.TabIndex = 40;
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
+            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Location = new System.Drawing.Point(201, 3);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(93, 77);
+            this.button7.TabIndex = 41;
+            this.button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button8.BackgroundImage")));
+            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.Location = new System.Drawing.Point(300, 3);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(93, 77);
+            this.button8.TabIndex = 42;
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // button9
+            // 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button9.BackgroundImage")));
+            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button9.Location = new System.Drawing.Point(399, 3);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(93, 77);
+            this.button9.TabIndex = 43;
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button10.BackgroundImage")));
+            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Location = new System.Drawing.Point(498, 3);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(93, 77);
+            this.button10.TabIndex = 44;
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
+            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Location = new System.Drawing.Point(597, 3);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(93, 77);
+            this.button11.TabIndex = 45;
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // button12
+            // 
+            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Location = new System.Drawing.Point(696, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(93, 77);
+            this.button12.TabIndex = 46;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button13
+            // 
+            this.button13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Location = new System.Drawing.Point(3, 86);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(93, 77);
+            this.button13.TabIndex = 47;
+            this.button13.UseVisualStyleBackColor = true;
             // 
             // menu1
             // 
@@ -172,6 +286,14 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutOpciones;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button button13;
 
     }
 }

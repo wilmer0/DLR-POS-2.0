@@ -7,8 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using puntoVenta.sistema;
-
-
+using puntoVentaModelo;
 
 
 namespace puntoVenta
@@ -18,7 +17,8 @@ namespace puntoVenta
 
 
         //objeto
-        
+        utilidades utilidades=new utilidades();
+        private empleado empleado;
 
         public FormBase()
         {
@@ -30,7 +30,8 @@ namespace puntoVenta
 
         public virtual void LoadVentana()
         {
-
+            this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "menú");
+            this.Text = tituloLabel.Text;
         }
 
         public virtual Boolean ValidarGetAction()

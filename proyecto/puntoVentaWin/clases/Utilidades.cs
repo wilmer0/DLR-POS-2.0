@@ -816,7 +816,7 @@ namespace puntoVenta
             {
                 string titulo = "BC-POS";
 
-                titulo = titulo + "-" + tituloVentana.ToString().ToUpper() + "-" + empleado.nombre.ToUpper();
+                //titulo = titulo + "-" + tituloVentana.ToUpper() + "-" + empleado.nombre.ToUpper();
 
                 return titulo;
 

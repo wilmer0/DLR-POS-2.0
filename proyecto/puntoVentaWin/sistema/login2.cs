@@ -100,9 +100,7 @@ namespace puntoVenta.sistema
             empleado.clave = utilidades.encriptar(claveText.Text.Trim());
             
 
-            bool existe = false;
-            existe = modeloEmpleado.validarLogin(empleado);
-            if (existe==true)
+            if ((empleado=modeloEmpleado.getEmpleadoByLogin(empleado))!=null)
             {
                 menu1 ventana = new menu1(empleado);
                 ventana.ShowDialog();

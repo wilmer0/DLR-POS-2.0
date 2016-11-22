@@ -28,7 +28,7 @@ namespace puntoVentaWin.modulo_empresa
 
         public ventana_empresa(empleado empleadoA)
         {
-            this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "empresa");
+            this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana empresa");
             this.Text = tituloLabel.Text;
             InitializeComponent();
             this.empleado = empleadoA;
@@ -37,23 +37,27 @@ namespace puntoVentaWin.modulo_empresa
 
         public override void LoadVentana()
         {
-            if (empresa != null)
+            try
             {
-                empresaText.Text = empresa.nombre;
-                RncText.Text = empresa.rnc;
-                divisionText.Text = empresa.division;
-                activoCheck.Checked = (bool) empresa.activo;
+                if (empresa != null)
+                {
+                    empresaText.Text = empresa.nombre;
+                    RncText.Text = empresa.rnc;
+                    divisionText.Text = empresa.division;
+                    activoCheck.Checked = (bool)empresa.activo;
+                }
+                else
+                {
+                    empresaText.Text = "";
+                    RncText.Text = "";
+                    divisionText.Text = "";
+                    activoCheck.Checked = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                empresaText.Text = "";
-                RncText.Text = "";
-                divisionText.Text = "";
-                activoCheck.Checked = false;
             }
-
-
-
+          
         }
 
         public override bool ValidarGetAction()
@@ -100,6 +104,7 @@ namespace puntoVentaWin.modulo_empresa
                 if (empresa == null)
                 {
                     //agrega
+                    empresa = new empresa();
                     empresa.codigo = modeloEmpresa.getNext();
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();
@@ -125,7 +130,7 @@ namespace puntoVentaWin.modulo_empresa
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error GetAcion.: "+ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error GetAcion .:"+ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

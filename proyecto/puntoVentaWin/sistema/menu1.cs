@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVentaModelo;
 using puntoVentaModelo.modelos;
+using puntoVentaWin.modulo_empresa;
 
 namespace puntoVenta.sistema
 {
@@ -29,9 +30,11 @@ namespace puntoVenta.sistema
         List<sistema_modulo> listaModulos=new List<sistema_modulo>();
         List<sistema_modulo_ventanas> listaModuloVentanas=new List<sistema_modulo_ventanas>(); 
 
-        public menu1(puntoVentaModelo.empleado empleado)
+        public menu1(empleado empleadoA)
         {
+            this.empleado = empleadoA;
             InitializeComponent();
+            LoadVentana();
         }
 
         private void menu1_Load(object sender, EventArgs e)
@@ -82,6 +85,19 @@ namespace puntoVenta.sistema
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            empleado=new empleado();
+            empleado.codigo = 5;
+            ventana_empresa ventana=new ventana_empresa(empleado);
+            ventana.ShowDialog();
+        }
+
+        private void flowLayoutOpciones_Paint(object sender, PaintEventArgs e)
         {
 
         }

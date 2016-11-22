@@ -106,9 +106,9 @@
             this.groupBox1.Controls.Add(this.usuarioText);
             this.groupBox1.Controls.Add(this.claveText);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(12, 122);
+            this.groupBox1.Location = new System.Drawing.Point(12, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(445, 182);
+            this.groupBox1.Size = new System.Drawing.Size(445, 141);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             // 
@@ -116,9 +116,9 @@
             // 
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Location = new System.Drawing.Point(191, 43);
+            this.panel3.Location = new System.Drawing.Point(165, 43);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(103, 82);
+            this.panel3.Size = new System.Drawing.Size(146, 114);
             this.panel3.TabIndex = 14;
             // 
             // label1
