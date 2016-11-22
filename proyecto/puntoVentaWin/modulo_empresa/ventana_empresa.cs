@@ -42,7 +42,7 @@ namespace puntoVentaWin.modulo_empresa
                 empresaText.Text = empresa.nombre;
                 RncText.Text = empresa.rnc;
                 divisionText.Text = empresa.division;
-                activoCheck.Checked = (bool) empresa.estado;
+                activoCheck.Checked = (bool) empresa.activo;
             }
             else
             {
@@ -104,7 +104,7 @@ namespace puntoVentaWin.modulo_empresa
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();
                     empresa.division = divisionText.Text.Trim();
-                    empresa.estado = (bool) activoCheck.Checked;
+                    empresa.activo = (bool) activoCheck.Checked;
                     if (modeloEmpresa.agregarEmpresa(empresa))
                     {
                         MessageBox.Show("Se agrego", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,7 +115,7 @@ namespace puntoVentaWin.modulo_empresa
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();
                     empresa.division = divisionText.Text.Trim();
-                    empresa.estado = (bool)activoCheck.Checked;
+                    empresa.activo = (bool)activoCheck.Checked;
                     if (modeloEmpresa.ModificarEmpresa(empresa))
                     {
                         MessageBox.Show("Se modificó", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

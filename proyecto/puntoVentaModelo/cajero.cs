@@ -25,7 +25,6 @@ namespace puntoVentaModelo
         public Nullable<int> cod_caja { get; set; }
         public Nullable<byte> activo { get; set; }
     
-        public virtual caja caja { get; set; }
         public virtual empleado empleado { get; set; }
         public virtual ICollection<cuadre_caja> cuadre_caja { get; set; }
         public virtual ICollection<ingresos_caja> ingresos_caja { get; set; }

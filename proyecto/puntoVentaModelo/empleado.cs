@@ -25,7 +25,6 @@ namespace puntoVentaModelo
             this.nomina = new HashSet<nomina>();
             this.pagos = new HashSet<pagos>();
             this.producto_oferta_historial = new HashSet<producto_oferta_historial>();
-            this.sistema_modulo_ventanas = new HashSet<sistema_modulo_ventanas>();
             this.cargo1 = new HashSet<cargo>();
         }
     
@@ -62,7 +61,6 @@ namespace puntoVentaModelo
         public virtual ICollection<nomina> nomina { get; set; }
         public virtual ICollection<pagos> pagos { get; set; }
         public virtual ICollection<producto_oferta_historial> producto_oferta_historial { get; set; }
-        public virtual ICollection<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
         public virtual ICollection<cargo> cargo1 { get; set; }
     }
 }
