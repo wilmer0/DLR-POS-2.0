@@ -14,16 +14,6 @@
           <Property Name="cod_sucursal" Type="int" Nullable="false" />
           <Property Name="estado" Type="utinyint" Nullable="false" />
         </EntityType>
-        <EntityType Name="caja">
-          <Key>
-            <PropertyRef Name="codigo" />
-          </Key>
-          <Property Name="codigo" Type="int" Nullable="false" />
-          <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="secuencia" Type="varchar" MaxLength="100" />
-          <Property Name="cod_sucursal" Type="int" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
-        </EntityType>
         <EntityType Name="cajero">
           <Key>
             <PropertyRef Name="codigo" />
@@ -368,7 +358,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.empleado_vs_conceptos_nomina
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="secuencia" Type="varchar" MaxLength="50" />
           <Property Name="division" Type="varchar" MaxLength="2" />
-          <Property Name="estado" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="rnc" Type="varchar" MaxLength="45" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
@@ -1077,18 +1067,6 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="cajero_caja">
-          <End Role="caja" Type="Self.caja" Multiplicity="0..1" />
-          <End Role="cajero" Type="Self.cajero" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="caja">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="cajero">
-              <PropertyRef Name="cod_caja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="cajero_empleado">
           <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
           <End Role="cajero" Type="Self.cajero" Multiplicity="0..1" />
@@ -1242,18 +1220,6 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
             </Principal>
             <Dependent Role="compra">
               <PropertyRef Name="cod_suplidor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="comprobante_caja">
-          <End Role="caja" Type="Self.caja" Multiplicity="0..1" />
-          <End Role="comprobante_fiscal" Type="Self.comprobante_fiscal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="caja">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="comprobante_fiscal">
-              <PropertyRef Name="cod_caja" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2258,7 +2224,6 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
         </Association>
         <EntityContainer Name="punto_ventaModelStoreContainer">
           <EntitySet Name="almacen" EntityType="Self.almacen" Schema="punto_venta" store:Type="Tables" />
-          <EntitySet Name="caja" EntityType="Self.caja" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="cajero" EntityType="Self.cajero" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="cargo" EntityType="Self.cargo" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="categoria_producto" EntityType="Self.categoria_producto" Schema="punto_venta" store:Type="Tables" />
@@ -2458,10 +2423,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="sucursal" EntitySet="sucursal" />
             <End Role="almacen" EntitySet="almacen" />
           </AssociationSet>
-          <AssociationSet Name="cajero_caja" Association="Self.cajero_caja">
-            <End Role="caja" EntitySet="caja" />
-            <End Role="cajero" EntitySet="cajero" />
-          </AssociationSet>
           <AssociationSet Name="cajero_empleado" Association="Self.cajero_empleado">
             <End Role="empleado" EntitySet="empleado" />
             <End Role="cajero" EntitySet="cajero" />
@@ -2513,10 +2474,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="compra_suplidor" Association="Self.compra_suplidor">
             <End Role="suplidor" EntitySet="suplidor" />
             <End Role="compra" EntitySet="compra" />
-          </AssociationSet>
-          <AssociationSet Name="comprobante_caja" Association="Self.comprobante_caja">
-            <End Role="caja" EntitySet="caja" />
-            <End Role="comprobante_fiscal" EntitySet="comprobante_fiscal" />
           </AssociationSet>
           <AssociationSet Name="comprobante_serie1" Association="Self.comprobante_serie1">
             <End Role="comprobante_serie" EntitySet="comprobante_serie" />
@@ -2853,7 +2810,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
       <Schema Namespace="punto_ventaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="punto_ventaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="almacen" EntityType="punto_ventaModel.almacen" />
-          <EntitySet Name="caja" EntityType="punto_ventaModel.caja" />
           <EntitySet Name="cajero" EntityType="punto_ventaModel.cajero" />
           <EntitySet Name="cargo" EntityType="punto_ventaModel.cargo" />
           <EntitySet Name="categoria_producto" EntityType="punto_ventaModel.categoria_producto" />
@@ -2874,6 +2830,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="egresos_caja" EntityType="punto_ventaModel.egresos_caja" />
           <EntitySet Name="egresos_conceptos" EntityType="punto_ventaModel.egresos_conceptos" />
           <EntitySet Name="empleado" EntityType="punto_ventaModel.empleado" />
+          <EntitySet Name="empleado_accesos_ventanas" EntityType="punto_ventaModel.empleado_accesos_ventanas" />
           <EntitySet Name="empresa" EntityType="punto_ventaModel.empresa" />
           <EntitySet Name="entrada_salida_inventario" EntityType="punto_ventaModel.entrada_salida_inventario" />
           <EntitySet Name="estados" EntityType="punto_ventaModel.estados" />
@@ -2922,6 +2879,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="tarjetas_credito" EntityType="punto_ventaModel.tarjetas_credito" />
           <EntitySet Name="tipo_comprobante_fiscal" EntityType="punto_ventaModel.tipo_comprobante_fiscal" />
           <EntitySet Name="tipo_cuenta_bancaria" EntityType="punto_ventaModel.tipo_cuenta_bancaria" />
+          <EntitySet Name="tipo_gasto" EntityType="punto_ventaModel.tipo_gasto" />
           <EntitySet Name="tipo_identificacion" EntityType="punto_ventaModel.tipo_identificacion" />
           <EntitySet Name="tipo_movimiento_inventario" EntityType="punto_ventaModel.tipo_movimiento_inventario" />
           <EntitySet Name="transferencia_inventario" EntityType="punto_ventaModel.transferencia_inventario" />
@@ -2948,14 +2906,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="producto_almacen" Association="punto_ventaModel.producto_almacen">
             <End Role="almacen" EntitySet="almacen" />
             <End Role="producto" EntitySet="producto" />
-          </AssociationSet>
-          <AssociationSet Name="cajero_caja" Association="punto_ventaModel.cajero_caja">
-            <End Role="caja" EntitySet="caja" />
-            <End Role="cajero" EntitySet="cajero" />
-          </AssociationSet>
-          <AssociationSet Name="comprobante_caja" Association="punto_ventaModel.comprobante_caja">
-            <End Role="caja" EntitySet="caja" />
-            <End Role="comprobante_fiscal" EntitySet="comprobante_fiscal" />
           </AssociationSet>
           <AssociationSet Name="cajero_empleado" Association="punto_ventaModel.cajero_empleado">
             <End Role="empleado" EntitySet="empleado" />
@@ -3289,6 +3239,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="sucursal" EntitySet="sucursal" />
             <End Role="suplidor" EntitySet="suplidor" />
           </AssociationSet>
+          <AssociationSet Name="FK_suplidor_2" Association="punto_ventaModel.FK_suplidor_2">
+            <End Role="tipo_gasto" EntitySet="tipo_gasto" />
+            <End Role="suplidor" EntitySet="suplidor" />
+          </AssociationSet>
           <AssociationSet Name="compra_detalle_unidad" Association="punto_ventaModel.compra_detalle_unidad">
             <End Role="unidad" EntitySet="unidad" />
             <End Role="compra_detalle" EntitySet="compra_detalle" />
@@ -3300,10 +3254,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="producto_codigobarra_unidad" Association="punto_ventaModel.producto_codigobarra_unidad">
             <End Role="unidad" EntitySet="unidad" />
             <End Role="producto_codigobarra" EntitySet="producto_codigobarra" />
-          </AssociationSet>
-          <AssociationSet Name="empleado_acceso_ventanas" Association="punto_ventaModel.empleado_acceso_ventanas">
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
-            <End Role="empleado" EntitySet="empleado" />
           </AssociationSet>
           <AssociationSet Name="empleado_vs_cargo" Association="punto_ventaModel.empleado_vs_cargo">
             <End Role="cargo" EntitySet="cargo" />
@@ -3317,12 +3267,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
             <End Role="permiso" EntitySet="permiso" />
           </AssociationSet>
-          <EntitySet Name="tipo_gasto" EntityType="punto_ventaModel.tipo_gasto" />
-          <AssociationSet Name="FK_suplidor_2" Association="punto_ventaModel.FK_suplidor_2">
-            <End Role="tipo_gasto" EntitySet="tipo_gasto" />
-            <End Role="suplidor" EntitySet="suplidor" />
-          </AssociationSet>
-          <EntitySet Name="empleado_accesos_ventanas" EntityType="punto_ventaModel.empleado_accesos_ventanas" />
         </EntityContainer>
         <EntityType Name="almacen">
           <Key>
@@ -3336,18 +3280,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="entrada_salida_inventario" Relationship="punto_ventaModel.entrada_salida_inventario_almacen" FromRole="almacen" ToRole="entrada_salida_inventario" />
           <NavigationProperty Name="producto" Relationship="punto_ventaModel.producto_almacen" FromRole="almacen" ToRole="producto" />
         </EntityType>
-        <EntityType Name="caja">
-          <Key>
-            <PropertyRef Name="codigo" />
-          </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="secuencia" Type="String" />
-          <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="cajero" Relationship="punto_ventaModel.cajero_caja" FromRole="caja" ToRole="cajero" />
-          <NavigationProperty Name="comprobante_fiscal" Relationship="punto_ventaModel.comprobante_caja" FromRole="caja" ToRole="comprobante_fiscal" />
-        </EntityType>
         <EntityType Name="cajero">
           <Key>
             <PropertyRef Name="codigo" />
@@ -3356,7 +3288,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_empleado" Type="Int32" />
           <Property Name="cod_caja" Type="Int32" />
           <Property Name="activo" Type="Byte" />
-          <NavigationProperty Name="caja" Relationship="punto_ventaModel.cajero_caja" FromRole="cajero" ToRole="caja" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.cajero_empleado" FromRole="cajero" ToRole="empleado" />
           <NavigationProperty Name="cuadre_caja" Relationship="punto_ventaModel.cuadre_cajero" FromRole="cajero" ToRole="cuadre_caja" />
           <NavigationProperty Name="ingresos_caja" Relationship="punto_ventaModel.ingresos_caja_cajero" FromRole="cajero" ToRole="ingresos_caja" />
@@ -3486,7 +3417,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="contador" Type="Int32" />
           <Property Name="avisar" Type="Int32" />
           <Property Name="fecha" Type="DateTime" />
-          <NavigationProperty Name="caja" Relationship="punto_ventaModel.comprobante_caja" FromRole="comprobante_fiscal" ToRole="caja" />
           <NavigationProperty Name="comprobante_serie" Relationship="punto_ventaModel.comprobante_serie1" FromRole="comprobante_fiscal" ToRole="comprobante_serie" />
           <NavigationProperty Name="tipo_comprobante_fiscal" Relationship="punto_ventaModel.comprobante_tipo" FromRole="comprobante_fiscal" ToRole="tipo_comprobante_fiscal" />
         </EntityType>
@@ -3634,8 +3564,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="nomina" Relationship="punto_ventaModel.nomina_empleado" FromRole="empleado" ToRole="nomina" />
           <NavigationProperty Name="pagos" Relationship="punto_ventaModel.pagos_empleado" FromRole="empleado" ToRole="pagos" />
           <NavigationProperty Name="producto_oferta_historial" Relationship="punto_ventaModel.producto_oferta_historial_empleado" FromRole="empleado" ToRole="producto_oferta_historial" />
-          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="punto_ventaModel.empleado_acceso_ventanas" FromRole="empleado" ToRole="sistema_modulo_ventanas" />
           <NavigationProperty Name="cargo1" Relationship="punto_ventaModel.empleado_vs_cargo" FromRole="empleado" ToRole="cargo" />
+        </EntityType>
+        <EntityType Name="empleado_accesos_ventanas">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+            <PropertyRef Name="id_ventana_sistema" />
+          </Key>
+          <Property Name="id_empleado" Type="Int64" Nullable="false" />
+          <Property Name="id_ventana_sistema" Type="Int64" Nullable="false" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
@@ -3644,10 +3581,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="secuencia" Type="String" />
           <Property Name="division" Type="String" />
-          <Property Name="estado" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="rnc" Type="String" Nullable="false" />
-          <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.FK_sucursal_1" FromRole="empresa" ToRole="sucursal" />
           <Property Name="nombre" Type="String" Nullable="false" />
+          <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.FK_sucursal_1" FromRole="empresa" ToRole="sucursal" />
         </EntityType>
         <EntityType Name="entrada_salida_inventario">
           <Key>
@@ -4150,7 +4087,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="imagen" Type="String" />
           <Property Name="activo" Type="Byte" Nullable="false" />
           <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo_ventanas" ToRole="sistema_modulo" />
-          <NavigationProperty Name="empleado" Relationship="punto_ventaModel.empleado_acceso_ventanas" FromRole="sistema_modulo_ventanas" ToRole="empleado" />
         </EntityType>
         <EntityType Name="situacion_empleado">
           <Key>
@@ -4207,10 +4143,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="direccion" Type="String" />
           <Property Name="telefono1" Type="String" />
           <Property Name="telefono2" Type="String" />
-          <NavigationProperty Name="compra" Relationship="punto_ventaModel.compra_suplidor" FromRole="suplidor" ToRole="compra" />
-          <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.suplidor_sucursal" FromRole="suplidor" ToRole="sucursal" />
           <Property Name="tipo_gasto" Type="Int64" />
           <Property Name="fecha_modificacion" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="compra" Relationship="punto_ventaModel.compra_suplidor" FromRole="suplidor" ToRole="compra" />
+          <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.suplidor_sucursal" FromRole="suplidor" ToRole="sucursal" />
           <NavigationProperty Name="tipo_gasto1" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="suplidor" ToRole="tipo_gasto" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -4249,6 +4185,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="estado" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_gasto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="activo" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="suplidor" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="tipo_gasto" ToRole="suplidor" />
         </EntityType>
         <EntityType Name="tipo_identificacion">
           <Key>
@@ -4522,30 +4467,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Principal>
             <Dependent Role="producto">
               <PropertyRef Name="cod_almacen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="cajero_caja">
-          <End Type="punto_ventaModel.caja" Role="caja" Multiplicity="0..1" />
-          <End Type="punto_ventaModel.cajero" Role="cajero" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="caja">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="cajero">
-              <PropertyRef Name="cod_caja" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="comprobante_caja">
-          <End Type="punto_ventaModel.caja" Role="caja" Multiplicity="0..1" />
-          <End Type="punto_ventaModel.comprobante_fiscal" Role="comprobante_fiscal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="caja">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="comprobante_fiscal">
-              <PropertyRef Name="cod_caja" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5545,6 +5466,18 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_suplidor_2">
+          <End Type="punto_ventaModel.tipo_gasto" Role="tipo_gasto" Multiplicity="0..1" />
+          <End Type="punto_ventaModel.suplidor" Role="suplidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_gasto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suplidor">
+              <PropertyRef Name="tipo_gasto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="compra_detalle_unidad">
           <End Type="punto_ventaModel.unidad" Role="unidad" Multiplicity="1" />
           <End Type="punto_ventaModel.compra_detalle" Role="compra_detalle" Multiplicity="*" />
@@ -5581,10 +5514,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="empleado_acceso_ventanas">
-          <End Type="punto_ventaModel.sistema_modulo_ventanas" Role="sistema_modulo_ventanas" Multiplicity="*" />
-          <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="*" />
-        </Association>
         <Association Name="empleado_vs_cargo">
           <End Type="punto_ventaModel.cargo" Role="cargo" Multiplicity="*" />
           <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="*" />
@@ -5597,35 +5526,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <End Type="punto_ventaModel.grupo_usuarios" Role="grupo_usuarios" Multiplicity="*" />
           <End Type="punto_ventaModel.permiso" Role="permiso" Multiplicity="*" />
         </Association>
-        <EntityType Name="tipo_gasto">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
-          <NavigationProperty Name="suplidor" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="tipo_gasto" ToRole="suplidor" />
-        </EntityType>
-        <Association Name="FK_suplidor_2">
-          <End Type="punto_ventaModel.tipo_gasto" Role="tipo_gasto" Multiplicity="0..1" />
-          <End Type="punto_ventaModel.suplidor" Role="suplidor" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="tipo_gasto">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="suplidor">
-              <PropertyRef Name="tipo_gasto" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="empleado_accesos_ventanas">
-          <Key>
-            <PropertyRef Name="id_empleado" />
-            <PropertyRef Name="id_ventana_sistema" />
-          </Key>
-          <Property Name="id_empleado" Type="Int64" Nullable="false" />
-          <Property Name="id_ventana_sistema" Type="Int64" Nullable="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -5637,17 +5537,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               <MappingFragment StoreEntitySet="almacen">
                 <ScalarProperty Name="estado" ColumnName="estado" />
                 <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="caja">
-            <EntityTypeMapping TypeName="punto_ventaModel.caja">
-              <MappingFragment StoreEntitySet="caja">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
-                <ScalarProperty Name="secuencia" ColumnName="secuencia" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
@@ -5910,12 +5799,20 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="empleado_accesos_ventanas">
+            <EntityTypeMapping TypeName="punto_ventaModel.empleado_accesos_ventanas">
+              <MappingFragment StoreEntitySet="empleado_accesos_ventanas">
+                <ScalarProperty Name="id_ventana_sistema" ColumnName="id_ventana_sistema" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="empresa">
             <EntityTypeMapping TypeName="punto_ventaModel.empresa">
               <MappingFragment StoreEntitySet="empresa">
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="rnc" ColumnName="rnc" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="division" ColumnName="division" />
                 <ScalarProperty Name="secuencia" ColumnName="secuencia" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -6466,6 +6363,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tipo_gasto">
+            <EntityTypeMapping TypeName="punto_ventaModel.tipo_gasto">
+              <MappingFragment StoreEntitySet="tipo_gasto">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tipo_identificacion">
             <EntityTypeMapping TypeName="punto_ventaModel.tipo_identificacion">
               <MappingFragment StoreEntitySet="tipo_identificacion">
@@ -6676,23 +6582,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               <ScalarProperty Name="codigo" ColumnName="cod_grupo" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="tipo_gasto">
-            <EntityTypeMapping TypeName="punto_ventaModel.tipo_gasto">
-              <MappingFragment StoreEntitySet="tipo_gasto">
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="empleado_accesos_ventanas">
-            <EntityTypeMapping TypeName="punto_ventaModel.empleado_accesos_ventanas">
-              <MappingFragment StoreEntitySet="empleado_accesos_ventanas">
-                <ScalarProperty Name="id_ventana_sistema" ColumnName="id_ventana_sistema" />
-                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
