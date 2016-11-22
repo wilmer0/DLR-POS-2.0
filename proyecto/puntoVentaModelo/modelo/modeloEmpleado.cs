@@ -20,15 +20,14 @@ namespace puntoVentaModelo.modelos
         {
             try
             {
-                
+               
                 coneccion con=new coneccion();
                 punto_ventaEntities entity= con.GetConeccion();
-
                 var Lista = (from c in entity.empleado
                              where c.login == empleado.login && c.clave==empleado.clave
                              select c).FirstOrDefault();
                 
-
+               
                 if (Lista != null)
                 {
                     return true;

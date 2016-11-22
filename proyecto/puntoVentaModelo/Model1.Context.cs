@@ -119,9 +119,5 @@ namespace puntoVentaModelo
         public DbSet<oferta_producto_detalle> oferta_producto_detalle { get; set; }
         public DbSet<producto_codigobarra> producto_codigobarra { get; set; }
         public DbSet<producto_oferta_historial> producto_oferta_historial { get; set; }
-
-      
     }
-
-   
 }

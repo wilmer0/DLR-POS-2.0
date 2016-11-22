@@ -199,6 +199,8 @@
     <Compile Include="modelo\coneccion.cs" />
     <Compile Include="modelo\DatosConeccionBD.cs" />
     <Compile Include="modelo\modeloEmpleado.cs" />
+    <Compile Include="modelo\modeloEmpresa.cs" />
+    <Compile Include="modelo\modeloSucursal.cs" />
     <Compile Include="moneda.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

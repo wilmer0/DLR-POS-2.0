@@ -37,11 +37,11 @@ namespace puntoVentaModelo
         public virtual ICollection<cliente> cliente { get; set; }
         public virtual ICollection<compra> compra { get; set; }
         public virtual ICollection<empleado> empleado { get; set; }
+        public virtual empresa empresa { get; set; }
         public virtual ICollection<factura> factura { get; set; }
         public virtual ICollection<nomina> nomina { get; set; }
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos { get; set; }
         public virtual ICollection<producto_oferta_historial> producto_oferta_historial { get; set; }
         public virtual ICollection<suplidor> suplidor { get; set; }
-        public virtual empresa empresa { get; set; }
     }
 }

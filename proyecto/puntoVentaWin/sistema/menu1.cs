@@ -18,7 +18,7 @@ namespace puntoVenta.sistema
 
         //objetos
         private empleado empleado;
-
+        
 
 
         //modelos
@@ -79,6 +79,11 @@ namespace puntoVenta.sistema
         private void menu1_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
         
     }

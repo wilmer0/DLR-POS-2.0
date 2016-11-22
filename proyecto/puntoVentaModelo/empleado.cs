@@ -57,12 +57,12 @@ namespace puntoVentaModelo
         public virtual situacion_empleado situacion_empleado { get; set; }
         public virtual sucursal sucursal { get; set; }
         public virtual nomina_tipos nomina_tipos { get; set; }
+        public virtual vendedor vendedor { get; set; }
         public virtual ICollection<nomina_detalle> nomina_detalle { get; set; }
         public virtual ICollection<nomina> nomina { get; set; }
         public virtual ICollection<pagos> pagos { get; set; }
         public virtual ICollection<producto_oferta_historial> producto_oferta_historial { get; set; }
         public virtual ICollection<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
         public virtual ICollection<cargo> cargo1 { get; set; }
-        public virtual vendedor vendedor { get; set; }
     }
 }

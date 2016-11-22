@@ -962,6 +962,8 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           <Property Name="direccion" Type="varchar" MaxLength="200" />
           <Property Name="telefono1" Type="varchar" MaxLength="45" />
           <Property Name="telefono2" Type="varchar" MaxLength="45" />
+          <Property Name="tipo_gasto" Type="uint" />
+          <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
@@ -1004,6 +1006,14 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="estado" Type="utinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipo_gasto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="activo" Type="utinyint" Nullable="false" />
         </EntityType>
         <EntityType Name="tipo_identificacion">
           <Key>
@@ -1609,6 +1619,18 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_v
             </Principal>
             <Dependent Role="sucursal">
               <PropertyRef Name="codigo_empresa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_suplidor_2">
+          <End Role="tipo_gasto" Type="Self.tipo_gasto" Multiplicity="0..1" />
+          <End Role="suplidor" Type="Self.suplidor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipo_gasto">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="suplidor">
+              <PropertyRef Name="tipo_gasto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2331,6 +2353,7 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
           <EntitySet Name="tarjetas_credito" EntityType="Self.tarjetas_credito" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_comprobante_fiscal" EntityType="Self.tipo_comprobante_fiscal" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_cuenta_bancaria" EntityType="Self.tipo_cuenta_bancaria" Schema="punto_venta" store:Type="Tables" />
+          <EntitySet Name="tipo_gasto" EntityType="Self.tipo_gasto" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_identificacion" EntityType="Self.tipo_identificacion" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_movimiento_inventario" EntityType="Self.tipo_movimiento_inventario" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="transferencia_inventario" EntityType="Self.transferencia_inventario" Schema="punto_venta" store:Type="Tables" />
@@ -2637,6 +2660,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="FK_sucursal_1" Association="Self.FK_sucursal_1">
             <End Role="empresa" EntitySet="empresa" />
             <End Role="sucursal" EntitySet="sucursal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_suplidor_2" Association="Self.FK_suplidor_2">
+            <End Role="tipo_gasto" EntitySet="tipo_gasto" />
+            <End Role="suplidor" EntitySet="suplidor" />
           </AssociationSet>
           <AssociationSet Name="FK_vendedor_1" Association="Self.FK_vendedor_1">
             <End Role="empleado" EntitySet="empleado" />
@@ -3081,6 +3108,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="nomina_tipos" EntitySet="nomina_tipos" />
             <End Role="empleado" EntitySet="empleado" />
           </AssociationSet>
+          <AssociationSet Name="FK_vendedor_1" Association="punto_ventaModel.FK_vendedor_1">
+            <End Role="empleado" EntitySet="empleado" />
+            <End Role="vendedor" EntitySet="vendedor" />
+          </AssociationSet>
           <AssociationSet Name="nomina_detalle_empleado" Association="punto_ventaModel.nomina_detalle_empleado">
             <End Role="empleado" EntitySet="empleado" />
             <End Role="nomina_detalle" EntitySet="nomina_detalle" />
@@ -3096,6 +3127,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="producto_oferta_historial_empleado" Association="punto_ventaModel.producto_oferta_historial_empleado">
             <End Role="empleado" EntitySet="empleado" />
             <End Role="producto_oferta_historial" EntitySet="producto_oferta_historial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_sucursal_1" Association="punto_ventaModel.FK_sucursal_1">
+            <End Role="empresa" EntitySet="empresa" />
+            <End Role="sucursal" EntitySet="sucursal" />
           </AssociationSet>
           <AssociationSet Name="entrada_salida_inventario_producto" Association="punto_ventaModel.entrada_salida_inventario_producto">
             <End Role="producto" EntitySet="producto" />
@@ -3313,13 +3348,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
             <End Role="permiso" EntitySet="permiso" />
           </AssociationSet>
-          <AssociationSet Name="FK_vendedor_1" Association="punto_ventaModel.FK_vendedor_1">
-            <End Role="empleado" EntitySet="empleado" />
-            <End Role="vendedor" EntitySet="vendedor" />
-          </AssociationSet>
-          <AssociationSet Name="FK_sucursal_1" Association="punto_ventaModel.FK_sucursal_1">
-            <End Role="empresa" EntitySet="empresa" />
-            <End Role="sucursal" EntitySet="sucursal" />
+          <EntitySet Name="tipo_gasto" EntityType="punto_ventaModel.tipo_gasto" />
+          <AssociationSet Name="FK_suplidor_2" Association="punto_ventaModel.FK_suplidor_2">
+            <End Role="tipo_gasto" EntitySet="tipo_gasto" />
+            <End Role="suplidor" EntitySet="suplidor" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="almacen">
@@ -3627,13 +3659,13 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="situacion_empleado" Relationship="punto_ventaModel.FK_empleado_1" FromRole="empleado" ToRole="situacion_empleado" />
           <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.FK_empleado_2" FromRole="empleado" ToRole="sucursal" />
           <NavigationProperty Name="nomina_tipos" Relationship="punto_ventaModel.FK_empleado_5" FromRole="empleado" ToRole="nomina_tipos" />
+          <NavigationProperty Name="vendedor" Relationship="punto_ventaModel.FK_vendedor_1" FromRole="empleado" ToRole="vendedor" />
           <NavigationProperty Name="nomina_detalle" Relationship="punto_ventaModel.nomina_detalle_empleado" FromRole="empleado" ToRole="nomina_detalle" />
           <NavigationProperty Name="nomina" Relationship="punto_ventaModel.nomina_empleado" FromRole="empleado" ToRole="nomina" />
           <NavigationProperty Name="pagos" Relationship="punto_ventaModel.pagos_empleado" FromRole="empleado" ToRole="pagos" />
           <NavigationProperty Name="producto_oferta_historial" Relationship="punto_ventaModel.producto_oferta_historial_empleado" FromRole="empleado" ToRole="producto_oferta_historial" />
           <NavigationProperty Name="sistema_modulo_ventanas" Relationship="punto_ventaModel.empleado_acceso_ventanas" FromRole="empleado" ToRole="sistema_modulo_ventanas" />
           <NavigationProperty Name="cargo1" Relationship="punto_ventaModel.empleado_vs_cargo" FromRole="empleado" ToRole="cargo" />
-          <NavigationProperty Name="vendedor" Relationship="punto_ventaModel.FK_vendedor_1" FromRole="empleado" ToRole="vendedor" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
@@ -4183,12 +4215,12 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="cliente" Relationship="punto_ventaModel.cliente_sucursal" FromRole="sucursal" ToRole="cliente" />
           <NavigationProperty Name="compra" Relationship="punto_ventaModel.compra_sucursal" FromRole="sucursal" ToRole="compra" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_empleado_2" FromRole="sucursal" ToRole="empleado" />
+          <NavigationProperty Name="empresa" Relationship="punto_ventaModel.FK_sucursal_1" FromRole="sucursal" ToRole="empresa" />
           <NavigationProperty Name="factura" Relationship="punto_ventaModel.factura_sucursal" FromRole="sucursal" ToRole="factura" />
           <NavigationProperty Name="nomina" Relationship="punto_ventaModel.nomina_sucursal" FromRole="sucursal" ToRole="nomina" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="punto_ventaModel.empleado_sucursal" FromRole="sucursal" ToRole="empleado_historial_datos" />
           <NavigationProperty Name="producto_oferta_historial" Relationship="punto_ventaModel.producto_oferta_historial_sucursal" FromRole="sucursal" ToRole="producto_oferta_historial" />
           <NavigationProperty Name="suplidor" Relationship="punto_ventaModel.suplidor_sucursal" FromRole="sucursal" ToRole="suplidor" />
-          <NavigationProperty Name="empresa" Relationship="punto_ventaModel.FK_sucursal_1" FromRole="sucursal" ToRole="empresa" />
         </EntityType>
         <EntityType Name="suplidor">
           <Key>
@@ -4206,6 +4238,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="telefono2" Type="String" />
           <NavigationProperty Name="compra" Relationship="punto_ventaModel.compra_suplidor" FromRole="suplidor" ToRole="compra" />
           <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.suplidor_sucursal" FromRole="suplidor" ToRole="sucursal" />
+          <Property Name="tipo_gasto" Type="Int64" />
+          <Property Name="fecha_modificacion" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="tipo_gasto1" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="suplidor" ToRole="tipo_gasto" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -4903,6 +4938,18 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_vendedor_1">
+          <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="1" />
+          <End Type="punto_ventaModel.vendedor" Role="vendedor" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="empleado">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="vendedor">
+              <PropertyRef Name="codigo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="nomina_detalle_empleado">
           <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="1" />
           <End Type="punto_ventaModel.nomina_detalle" Role="nomina_detalle" Multiplicity="*" />
@@ -4948,6 +4995,18 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Principal>
             <Dependent Role="producto_oferta_historial">
               <PropertyRef Name="cod_empleado_actualiza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_sucursal_1">
+          <End Type="punto_ventaModel.empresa" Role="empresa" Multiplicity="1" />
+          <End Type="punto_ventaModel.sucursal" Role="sucursal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="empresa">
+              <PropertyRef Name="codigo" />
+            </Principal>
+            <Dependent Role="sucursal">
+              <PropertyRef Name="codigo_empresa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -5567,27 +5626,24 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <End Type="punto_ventaModel.grupo_usuarios" Role="grupo_usuarios" Multiplicity="*" />
           <End Type="punto_ventaModel.permiso" Role="permiso" Multiplicity="*" />
         </Association>
-        <Association Name="FK_vendedor_1">
-          <End Type="punto_ventaModel.empleado" Role="empleado" Multiplicity="1" />
-          <End Type="punto_ventaModel.vendedor" Role="vendedor" Multiplicity="0..1" />
+        <EntityType Name="tipo_gasto">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" />
+          <Property Name="nombre" Type="String" Nullable="false" />
+          <Property Name="activo" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="suplidor" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="tipo_gasto" ToRole="suplidor" />
+        </EntityType>
+        <Association Name="FK_suplidor_2">
+          <End Type="punto_ventaModel.tipo_gasto" Role="tipo_gasto" Multiplicity="0..1" />
+          <End Type="punto_ventaModel.suplidor" Role="suplidor" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="empleado">
-              <PropertyRef Name="codigo" />
+            <Principal Role="tipo_gasto">
+              <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="vendedor">
-              <PropertyRef Name="codigo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_sucursal_1">
-          <End Type="punto_ventaModel.empresa" Role="empresa" Multiplicity="1" />
-          <End Type="punto_ventaModel.sucursal" Role="sucursal" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empresa">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="sucursal">
-              <PropertyRef Name="codigo_empresa" />
+            <Dependent Role="suplidor">
+              <PropertyRef Name="tipo_gasto" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -6376,6 +6432,8 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="suplidor">
             <EntityTypeMapping TypeName="punto_ventaModel.suplidor">
               <MappingFragment StoreEntitySet="suplidor">
+                <ScalarProperty Name="fecha_modificacion" ColumnName="fecha_modificacion" />
+                <ScalarProperty Name="tipo_gasto" ColumnName="tipo_gasto" />
                 <ScalarProperty Name="telefono2" ColumnName="telefono2" />
                 <ScalarProperty Name="telefono1" ColumnName="telefono1" />
                 <ScalarProperty Name="direccion" ColumnName="direccion" />
@@ -6646,6 +6704,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               <ScalarProperty Name="codigo" ColumnName="cod_grupo" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="tipo_gasto">
+            <EntityTypeMapping TypeName="punto_ventaModel.tipo_gasto">
+              <MappingFragment StoreEntitySet="tipo_gasto">
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -6660,7 +6727,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="true" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 
 
@@ -24,7 +25,7 @@ namespace puntoVenta.sistema
         //objetos
         public puntoVentaModelo.empleado empleado;
         utilidades utilidades = new utilidades();
-
+        
 
 
         public login2()
@@ -52,7 +53,7 @@ namespace puntoVenta.sistema
         
         private void login2_Load(object sender, EventArgs e)
         {
-
+            
         }
 
 
