@@ -17,6 +17,7 @@ namespace puntoVentaModelo
         public departamento()
         {
             this.empleado_historial_datos = new HashSet<empleado_historial_datos>();
+            this.empleado = new HashSet<empleado>();
         }
     
         public int codigo { get; set; }
@@ -25,5 +26,6 @@ namespace puntoVentaModelo
         public Nullable<byte> activo { get; set; }
     
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos { get; set; }
+        public virtual ICollection<empleado> empleado { get; set; }
     }
 }

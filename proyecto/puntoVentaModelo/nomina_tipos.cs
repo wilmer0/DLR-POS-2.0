@@ -16,6 +16,7 @@ namespace puntoVentaModelo
     {
         public nomina_tipos()
         {
+            this.empleado = new HashSet<empleado>();
             this.nomina = new HashSet<nomina>();
             this.empleado_historial_datos = new HashSet<empleado_historial_datos>();
         }
@@ -24,6 +25,7 @@ namespace puntoVentaModelo
         public string nombre { get; set; }
         public sbyte activo { get; set; }
     
+        public virtual ICollection<empleado> empleado { get; set; }
         public virtual ICollection<nomina> nomina { get; set; }
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos { get; set; }
     }

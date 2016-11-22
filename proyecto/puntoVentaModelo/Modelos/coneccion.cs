@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 
 namespace puntoVentaModelo.modelos
 {
@@ -14,6 +16,7 @@ namespace puntoVentaModelo.modelos
 
         public static coneccion Instance
         {
+           
             get
             {
                 if (instance == null)
@@ -40,10 +43,8 @@ namespace puntoVentaModelo.modelos
             return datosConeccionBd;
         }
 
-
-        public punto_ventaEntities getConeccion()
+        public punto_ventaEntities GetConeccion()
         {
-            datosConeccionBd = new DatosConeccionBD();
 
             if (datosConeccionBd == null)
             {
@@ -72,15 +73,15 @@ namespace puntoVentaModelo.modelos
 
                 //        // leer archivo
 
-                    
-                    datosConeccionBd.Servidor = "localhost";
-                    datosConeccionBd.BaseDatos = "puntoventa";
-                    datosConeccionBd.Usuario = "dextroyex";
-                    datosConeccionBd.Contrasena = "123456";
+                //datosConeccionBd.Puerto = "3306";
+                datosConeccionBd.Servidor = "localhost";
+                datosConeccionBd.BaseDatos = "punto_venta";
+                datosConeccionBd.Usuario = "root";
+                datosConeccionBd.Contrasena = "wilmerlomas1";
 
-                    MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
-                    return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
-               
+                //MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
+                return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
+
             }
             else
             {

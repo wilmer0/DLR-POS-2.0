@@ -17,5 +17,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public Nullable<decimal> porciento { get; set; }
         public Nullable<sbyte> activo { get; set; }
+    
+        public virtual empleado empleado { get; set; }
     }
 }

@@ -4,178 +4,186 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0253df84f5254b019cfd54bd29497ed7" Name="Diagram1" ShowGrid="true">
-        <EntityTypeShape EntityType="punto_ventaModel.almacen" Width="1.5" PointX="3" PointY="36.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.caja" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cajero" Width="1.5" PointX="3" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cargo" Width="1.5" PointX="1.5" PointY="28.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.categoria_producto" Width="1.5" PointX="6" PointY="33" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cliente" Width="1.5" PointX="3" PointY="40" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cliente_categoria" Width="1.5" PointX="0.75" PointY="43.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cobros" Width="1.5" PointX="13.25" PointY="19.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cobros_detalles" Width="1.5" PointX="15.5" PointY="30.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.compra" Width="1.5" PointX="5.25" PointY="45.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.comprobante_fiscal" Width="1.5" PointX="16.25" PointY="17.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.comprobante_serie" Width="1.5" PointX="14" PointY="13.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.comprobante_ventas" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.correo_electronicos" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja" Width="1.5" PointX="5.25" PointY="20" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja_detalles" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.cuenta_bancaria" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.departamento" Width="1.5" PointX="6.75" PointY="25.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.direccion" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.egresos_caja" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.egresos_conceptos" Width="1.5" PointX="7.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.empleado" Width="1.5" PointX="0.75" PointY="30.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.empresa" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.entrada_salida_inventario" Width="1.5" PointX="5.25" PointY="36.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.estados" Width="1.5" PointX="2.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.estados_reparacion" Width="1.5" PointX="13.5" PointY="52.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.factura" Width="1.5" PointX="13.25" PointY="28.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.grupo_usuarios" Width="1.5" PointX="7.75" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.identificacion" Width="1.5" PointX="12.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.ingresos_caja" Width="1.5" PointX="8.25" PointY="19.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.ingresos_conceptos" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.inventario" Width="1.5" PointX="12.75" PointY="44.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.inventario_reparacion" Width="1.5" PointX="15.75" PointY="43.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.itebis" Width="1.5" PointX="6" PointY="30" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.marcas" Width="1.5" PointX="13.5" PointY="54.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.mesas" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.metodo_pago" Width="1.5" PointX="13.25" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.modelo" Width="1.5" PointX="13.5" PointY="57.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.moneda" Width="1.5" PointX="2.75" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.moneda_historial" Width="1.5" PointX="5" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.nomina" Width="1.5" PointX="6" PointY="41.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.nomina_conceptos" Width="1.5" PointX="6" PointY="55" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.nomina_tipos" Width="1.5" PointX="3.75" PointY="52" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.pagos" Width="1.5" PointX="8.25" PointY="52.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.pagos_detalles" Width="1.5" PointX="10.5" PointY="48.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.pais" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.permiso" Width="1.5" PointX="10" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.persona" Width="1.5" PointX="4.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto" Width="1.5" PointX="8.25" PointY="34.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_detalle" Width="1.5" PointX="8.25" PointY="29" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_oferta" Width="1.5" PointX="11.25" PointY="24.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_permisos" Width="1.5" PointX="8.25" PointY="32.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_unidad_conversion" Width="1.5" PointX="12.75" PointY="48.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.5" PointX="10.5" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_permisos" Width="1.5" PointX="10.5" PointY="34" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.provincia" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.region" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sector" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sexo" Width="1.5" PointX="6.75" PointY="58.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema" Width="1.5" PointX="5" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.5" PointX="12.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_opciones" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.situacion_empleado" Width="1.5" PointX="6.75" PointY="60.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.subcategoria_producto" Width="1.5" PointX="6" PointY="51.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sucursal" Width="1.5" PointX="0.75" PointY="38.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.suplidor" Width="1.5" PointX="3" PointY="54.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tarjetas_credito" Width="1.5" PointX="10.75" PointY="13.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_comprobante_fiscal" Width="1.5" PointX="11" PointY="31" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_cuenta_bancaria" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.transferencia_inventario" Width="1.5" PointX="0.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.unidad" Width="1.5" PointX="10.5" PointY="53.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.vendedor" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.catalogo_cuentas" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.compra_detalle" Width="1.5" PointX="12.75" PointY="40.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.empleado_historial_datos" Width="1.5" PointX="9" PointY="42.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.factura_detalle" Width="1.5" PointX="15.75" PointY="49.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.mesas_detalles" Width="1.5" PointX="10.5" PointY="28" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.nomina_detalle" Width="1.5" PointX="8.25" PointY="48.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_categoria_detalle" Width="1.5" PointX="8.25" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_detalle" Width="1.5" PointX="13.5" PointY="37" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_codigobarra" Width="1.5" PointX="15.75" PointY="40.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="punto_ventaModel.producto_oferta_historial" Width="1.5" PointX="3" PointY="32.5" IsExpanded="true" />
-        <AssociationConnector Association="punto_ventaModel.almacen_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_almacen" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_almacen" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cajero_caja" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.comprobante_caja" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cajero_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cuadre_cajero" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.ingresos_caja_cajero" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.oferta_producto_subcate_detalle_categoria" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_categoria" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.subcategoria_producto_Categoria" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cliente_categoria_cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cliente_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_cliente" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cobro_detalle_cobro" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cobro_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cobro_detalle_metodo_pago" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.cobros_detalles_factura" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_detalle1" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_suplidor" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.pagos_detalles_factura" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.comprobante_serie1" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.comprobante_tipo" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleeado_departamento" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_empleado_cambio" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_detalle_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.pagos_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_oferta_historial_empleado" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_estado_reparacion" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_comprobante" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_detalle_factura" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.ingresos_caja_concepto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_marca" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_modelo" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_itebis" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.mesas_detalles_mesa" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.pagos_detalles_metodo_pago" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.moneda_historial_moneda" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.sistema_moneda" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_detalle_nomina" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_tipo_nomina" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.nomina_detalle_concepto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_tipo_nomina" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.pagos_detalles_pago" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.region_pais" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_detalle_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_detalle_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.oferta_producto_detalle_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_codigobarra_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_subcategoria" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_unidad_conversion_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_unidad_minima" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_vs_detalle_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_vs_permisos_producto" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.mesas_detalles_detalle" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_vs_detalle_producto_Detalle" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.oferta_producto_detalle_oferta" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_vs_permisos_permiso" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_unidad_conversion_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.provincia_region" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.sector_provincia" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_sexo" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_situacion" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_oferta_historial_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.suplidor_sucursal" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.compra_detalle_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.factura_detalle_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_codigobarra_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.producto_unidad" ManuallyRouted="false" />
-        <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" ManuallyRouted="false" />
+      <Diagram DiagramId="1e3d5d75b87a471b86a5e862cbb1a5e7" Name="Diagram1" ZoomLevel="95">
+        <EntityTypeShape EntityType="punto_ventaModel.almacen" Width="1.5" PointX="9" PointY="14.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.cajero" Width="1.5" PointX="5.25" PointY="64.875" />
+        <EntityTypeShape EntityType="punto_ventaModel.cargo" Width="1.5" PointX="0.75" PointY="19.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.categoria_producto" Width="1.5" PointX="9" PointY="17.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.cliente" Width="1.5" PointX="3" PointY="42.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.cliente_categoria" Width="1.5" PointX="0.75" PointY="43.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.cobros" Width="1.5" PointX="5.25" PointY="60.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.cobros_detalles" Width="1.5" PointX="7.5" PointY="43.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.compra" Width="1.5" PointX="8.25" PointY="26.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.comprobante_fiscal" Width="1.5" PointX="16.25" PointY="28.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.comprobante_serie" Width="1.5" PointX="14" PointY="35.75" />
+        <EntityTypeShape EntityType="punto_ventaModel.comprobante_ventas" Width="1.5" PointX="5.75" PointY="4.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.correo_electronicos" Width="1.5" PointX="5.75" PointY="7.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja" Width="1.5" PointX="7.5" PointY="64.75" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuadre_caja_detalles" Width="1.5" PointX="5.75" PointY="10.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.cuenta_bancaria" Width="1.5" PointX="0.75" PointY="13.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.departamento" Width="1.5" PointX="0.75" PointY="31.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.direccion" Width="1.5" PointX="2.75" PointY="17.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.egresos_caja" Width="1.5" PointX="18.75" PointY="1.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.egresos_conceptos" Width="1.5" PointX="18.75" PointY="5.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.empleado" Width="1.5" PointX="3" PointY="25.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.empleado_accesos_ventanas" Width="1.5" PointX="18.75" PointY="8.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.empresa" Width="1.5" PointX="1.5" PointY="39" />
+        <EntityTypeShape EntityType="punto_ventaModel.entrada_salida_inventario" Width="1.5" PointX="16.5" PointY="14.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.estados" Width="1.5" PointX="18.75" PointY="11.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.estados_reparacion" Width="1.5" PointX="14.25" PointY="21.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.factura" Width="1.5" PointX="5.25" PointY="25.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.grupo_usuarios" Width="1.5" PointX="5.75" PointY="1.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.identificacion" Width="1.5" PointX="18.75" PointY="14.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.ingresos_caja" Width="1.5" PointX="10.5" PointY="64.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.ingresos_conceptos" Width="1.5" PointX="8.25" PointY="62.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.inventario" Width="1.5" PointX="13.5" PointY="4.75" />
+        <EntityTypeShape EntityType="punto_ventaModel.inventario_reparacion" Width="1.5" PointX="16.5" PointY="22.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.itebis" Width="1.5" PointX="9" PointY="7.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.marcas" Width="1.5" PointX="14.25" PointY="32.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.mesas" Width="1.5" PointX="14.25" PointY="17" />
+        <EntityTypeShape EntityType="punto_ventaModel.metodo_pago" Width="1.5" PointX="8.25" PointY="36.75" />
+        <EntityTypeShape EntityType="punto_ventaModel.modelo" Width="1.5" PointX="14.25" PointY="23.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.moneda" Width="1.5" PointX="0.75" PointY="3.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.moneda_historial" Width="1.5" PointX="3" PointY="6" />
+        <EntityTypeShape EntityType="punto_ventaModel.nomina" Width="1.5" PointX="5.25" PointY="21.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.nomina_conceptos" Width="1.5" PointX="6" PointY="18" />
+        <EntityTypeShape EntityType="punto_ventaModel.nomina_tipos" Width="1.5" PointX="0.75" PointY="28" />
+        <EntityTypeShape EntityType="punto_ventaModel.pagos" Width="1.5" PointX="5.25" PointY="36.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.pagos_detalles" Width="1.5" PointX="10.5" PointY="33.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.pais" Width="1.5" PointX="16.75" PointY="18.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.permiso" Width="1.5" PointX="8" PointY="1.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.persona" Width="1.5" PointX="20.75" PointY="1.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto" Width="1.5" PointX="11.25" PointY="8.875" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_detalle" Width="1.5" PointX="11.25" PointY="3" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_oferta" Width="1.5" PointX="14.25" PointY="0.75" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_permisos" Width="1.5" PointX="11.25" PointY="6.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_unidad_conversion" Width="1.5" PointX="16.5" PointY="10.875" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_detalle" Width="1.5" PointX="13.5" PointY="11" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_vs_permisos" Width="1.5" PointX="13.5" PointY="8" />
+        <EntityTypeShape EntityType="punto_ventaModel.provincia" Width="1.5" PointX="21.25" PointY="18.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.region" Width="1.5" PointX="19" PointY="18.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.sector" Width="1.5" PointX="23.5" PointY="18.5" />
+        <EntityTypeShape EntityType="punto_ventaModel.sexo" Width="1.5" PointX="9" PointY="40.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema" Width="1.5" PointX="3" PointY="1.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo" Width="1.5" PointX="0.75" PointY="9.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.sistema_modulo_ventanas" Width="1.5" PointX="3" PointY="9.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.situacion_empleado" Width="1.5" PointX="0.75" PointY="22.875" />
+        <EntityTypeShape EntityType="punto_ventaModel.subcategoria_producto" Width="1.5" PointX="9" PointY="4.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.sucursal" Width="1.5" PointX="0.75" PointY="34.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.suplidor" Width="1.5" PointX="6" PointY="13.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.sysdiagrams" Width="1.5" PointX="20.75" PointY="4.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.tarjetas_credito" Width="1.5" PointX="20.75" PointY="7.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_comprobante_fiscal" Width="1.5" PointX="3" PointY="21.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_cuenta_bancaria" Width="1.5" PointX="20.75" PointY="10.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_gasto" Width="1.5" PointX="3.75" PointY="14.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_identificacion" Width="1.5" PointX="20.75" PointY="13.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.tipo_movimiento_inventario" Width="1.5" PointX="18.75" PointY="22.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.transferencia_inventario" Width="1.5" PointX="20.75" PointY="22.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.unidad" Width="1.5" PointX="9" PointY="10.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.vendedor" Width="1.5" PointX="5.25" PointY="54.125" />
+        <EntityTypeShape EntityType="punto_ventaModel.catalogo_cuentas" Width="1.5" PointX="22.75" PointY="1.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.compra_detalle" Width="1.5" PointX="13.5" PointY="27.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.empleado_historial_datos" Width="1.5" PointX="11.25" PointY="26.25" />
+        <EntityTypeShape EntityType="punto_ventaModel.factura_detalle" Width="1.5" PointX="10.5" PointY="21.375" />
+        <EntityTypeShape EntityType="punto_ventaModel.mesas_detalles" Width="1.5" PointX="16.5" PointY="3" />
+        <EntityTypeShape EntityType="punto_ventaModel.nomina_detalle" Width="1.5" PointX="8.25" PointY="22.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_categoria_detalle" Width="1.5" PointX="11.25" PointY="17.625" />
+        <EntityTypeShape EntityType="punto_ventaModel.oferta_producto_detalle" Width="1.5" PointX="16.5" PointY="8" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_codigobarra" Width="1.5" PointX="13.5" PointY="14" />
+        <EntityTypeShape EntityType="punto_ventaModel.producto_oferta_historial" Width="1.5" PointX="8.25" PointY="32.5" />
+        <AssociationConnector Association="punto_ventaModel.almacen_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_almacen" />
+        <AssociationConnector Association="punto_ventaModel.producto_almacen" />
+        <AssociationConnector Association="punto_ventaModel.cajero_empleado" />
+        <AssociationConnector Association="punto_ventaModel.cuadre_cajero" />
+        <AssociationConnector Association="punto_ventaModel.ingresos_caja_cajero" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_4" />
+        <AssociationConnector Association="punto_ventaModel.oferta_producto_subcate_detalle_categoria" />
+        <AssociationConnector Association="punto_ventaModel.producto_categoria" />
+        <AssociationConnector Association="punto_ventaModel.subcategoria_producto_Categoria" />
+        <AssociationConnector Association="punto_ventaModel.cliente_categoria_cliente" />
+        <AssociationConnector Association="punto_ventaModel.cliente_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.factura_cliente" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_cliente" />
+        <AssociationConnector Association="punto_ventaModel.cobro_detalle_cobro" />
+        <AssociationConnector Association="punto_ventaModel.cobro_empleado" />
+        <AssociationConnector Association="punto_ventaModel.cobro_detalle_metodo_pago" />
+        <AssociationConnector Association="punto_ventaModel.cobros_detalles_factura" />
+        <AssociationConnector Association="punto_ventaModel.compra_detalle1" />
+        <AssociationConnector Association="punto_ventaModel.compra_empleado" />
+        <AssociationConnector Association="punto_ventaModel.compra_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.compra_suplidor" />
+        <AssociationConnector Association="punto_ventaModel.pagos_detalles_factura" />
+        <AssociationConnector Association="punto_ventaModel.comprobante_serie1" />
+        <AssociationConnector Association="punto_ventaModel.comprobante_tipo" />
+        <AssociationConnector Association="punto_ventaModel.empleeado_departamento" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_3" />
+        <AssociationConnector Association="punto_ventaModel.empleado_empleado" />
+        <AssociationConnector Association="punto_ventaModel.empleado_empleado_cambio" />
+        <AssociationConnector Association="punto_ventaModel.factura_empleado" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_1" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_2" />
+        <AssociationConnector Association="punto_ventaModel.FK_empleado_5" />
+        <AssociationConnector Association="punto_ventaModel.FK_vendedor_1" />
+        <AssociationConnector Association="punto_ventaModel.nomina_detalle_empleado" />
+        <AssociationConnector Association="punto_ventaModel.nomina_empleado" />
+        <AssociationConnector Association="punto_ventaModel.pagos_empleado" />
+        <AssociationConnector Association="punto_ventaModel.producto_oferta_historial_empleado" />
+        <AssociationConnector Association="punto_ventaModel.FK_sucursal_1" />
+        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_producto" />
+        <AssociationConnector Association="punto_ventaModel.entrada_salida_inventario_unidad" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_estado_reparacion" />
+        <AssociationConnector Association="punto_ventaModel.factura_comprobante" />
+        <AssociationConnector Association="punto_ventaModel.factura_detalle_factura" />
+        <AssociationConnector Association="punto_ventaModel.factura_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.ingresos_caja_concepto" />
+        <AssociationConnector Association="punto_ventaModel.inventario_producto" />
+        <AssociationConnector Association="punto_ventaModel.inventario_unidad" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_marca" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_modelo" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_producto" />
+        <AssociationConnector Association="punto_ventaModel.inventario_reparacion_unidad" />
+        <AssociationConnector Association="punto_ventaModel.producto_itebis" />
+        <AssociationConnector Association="punto_ventaModel.mesas_detalles_mesa" />
+        <AssociationConnector Association="punto_ventaModel.pagos_detalles_metodo_pago" />
+        <AssociationConnector Association="punto_ventaModel.moneda_historial_moneda" />
+        <AssociationConnector Association="punto_ventaModel.sistema_moneda" />
+        <AssociationConnector Association="punto_ventaModel.nomina_detalle_nomina" />
+        <AssociationConnector Association="punto_ventaModel.nomina_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.nomina_tipo_nomina" />
+        <AssociationConnector Association="punto_ventaModel.nomina_detalle_concepto" />
+        <AssociationConnector Association="punto_ventaModel.empleado_tipo_nomina" />
+        <AssociationConnector Association="punto_ventaModel.pagos_detalles_pago" />
+        <AssociationConnector Association="punto_ventaModel.region_pais" />
+        <AssociationConnector Association="punto_ventaModel.compra_detalle_producto" />
+        <AssociationConnector Association="punto_ventaModel.factura_detalle_producto" />
+        <AssociationConnector Association="punto_ventaModel.oferta_producto_detalle_producto" />
+        <AssociationConnector Association="punto_ventaModel.producto_codigobarra_producto" />
+        <AssociationConnector Association="punto_ventaModel.producto_subcategoria" />
+        <AssociationConnector Association="punto_ventaModel.producto_unidad_conversion_producto" />
+        <AssociationConnector Association="punto_ventaModel.producto_unidad_minima" />
+        <AssociationConnector Association="punto_ventaModel.producto_vs_detalle_producto" />
+        <AssociationConnector Association="punto_ventaModel.producto_vs_permisos_producto" />
+        <AssociationConnector Association="punto_ventaModel.mesas_detalles_detalle" />
+        <AssociationConnector Association="punto_ventaModel.producto_vs_detalle_producto_Detalle" />
+        <AssociationConnector Association="punto_ventaModel.oferta_producto_detalle_oferta" />
+        <AssociationConnector Association="punto_ventaModel.producto_vs_permisos_permiso" />
+        <AssociationConnector Association="punto_ventaModel.producto_unidad_conversion_unidad" />
+        <AssociationConnector Association="punto_ventaModel.provincia_region" />
+        <AssociationConnector Association="punto_ventaModel.sector_provincia" />
+        <AssociationConnector Association="punto_ventaModel.empleado_sexo" />
+        <AssociationConnector Association="punto_ventaModel.sistema_modulo_ventanas_modulo" />
+        <AssociationConnector Association="punto_ventaModel.empleado_situacion" />
+        <AssociationConnector Association="punto_ventaModel.empleado_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.producto_oferta_historial_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.suplidor_sucursal" />
+        <AssociationConnector Association="punto_ventaModel.FK_suplidor_2" />
+        <AssociationConnector Association="punto_ventaModel.compra_detalle_unidad" />
+        <AssociationConnector Association="punto_ventaModel.factura_detalle_unidad" />
+        <AssociationConnector Association="punto_ventaModel.producto_codigobarra_unidad" />
+        <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" />
+        <AssociationConnector Association="punto_ventaModel.producto_unidad" />
+        <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

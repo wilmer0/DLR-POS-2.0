@@ -35,7 +35,6 @@ namespace puntoVentaModelo
         }
     
         public DbSet<almacen> almacen { get; set; }
-        public DbSet<caja> caja { get; set; }
         public DbSet<cajero> cajero { get; set; }
         public DbSet<cargo> cargo { get; set; }
         public DbSet<categoria_producto> categoria_producto { get; set; }
@@ -56,6 +55,7 @@ namespace puntoVentaModelo
         public DbSet<egresos_caja> egresos_caja { get; set; }
         public DbSet<egresos_conceptos> egresos_conceptos { get; set; }
         public DbSet<empleado> empleado { get; set; }
+        public DbSet<empleado_accesos_ventanas> empleado_accesos_ventanas { get; set; }
         public DbSet<empresa> empresa { get; set; }
         public DbSet<entrada_salida_inventario> entrada_salida_inventario { get; set; }
         public DbSet<estados> estados { get; set; }
@@ -95,7 +95,7 @@ namespace puntoVentaModelo
         public DbSet<sexo> sexo { get; set; }
         public DbSet<sistema> sistema { get; set; }
         public DbSet<sistema_modulo> sistema_modulo { get; set; }
-        public DbSet<sistema_modulo_opciones> sistema_modulo_opciones { get; set; }
+        public DbSet<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
         public DbSet<situacion_empleado> situacion_empleado { get; set; }
         public DbSet<subcategoria_producto> subcategoria_producto { get; set; }
         public DbSet<sucursal> sucursal { get; set; }
@@ -104,6 +104,7 @@ namespace puntoVentaModelo
         public DbSet<tarjetas_credito> tarjetas_credito { get; set; }
         public DbSet<tipo_comprobante_fiscal> tipo_comprobante_fiscal { get; set; }
         public DbSet<tipo_cuenta_bancaria> tipo_cuenta_bancaria { get; set; }
+        public DbSet<tipo_gasto> tipo_gasto { get; set; }
         public DbSet<tipo_identificacion> tipo_identificacion { get; set; }
         public DbSet<tipo_movimiento_inventario> tipo_movimiento_inventario { get; set; }
         public DbSet<transferencia_inventario> transferencia_inventario { get; set; }

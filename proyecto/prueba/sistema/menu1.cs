@@ -12,7 +12,7 @@ namespace puntoVenta.sistema
 {
     public partial class menu1 : FormBase
     {
-        public menu1()
+        public menu1(puntoVentaModelo.empleado empleado)
         {
             InitializeComponent();
         }

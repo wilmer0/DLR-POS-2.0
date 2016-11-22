@@ -24,7 +24,6 @@ namespace puntoVentaModelo
         public Nullable<int> avisar { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
     
-        public virtual caja caja { get; set; }
         public virtual comprobante_serie comprobante_serie { get; set; }
         public virtual tipo_comprobante_fiscal tipo_comprobante_fiscal { get; set; }
     }

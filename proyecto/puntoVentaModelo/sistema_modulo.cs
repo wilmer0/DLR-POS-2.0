@@ -14,9 +14,16 @@ namespace puntoVentaModelo
     
     public partial class sistema_modulo
     {
+        public sistema_modulo()
+        {
+            this.sistema_modulo_ventanas = new HashSet<sistema_modulo_ventanas>();
+        }
+    
         public int id { get; set; }
         public string nombre { get; set; }
-        public Nullable<sbyte> activo { get; set; }
+        public Nullable<byte> activo { get; set; }
         public string nombre_modulo_proyecto { get; set; }
+    
+        public virtual ICollection<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
     }
 }

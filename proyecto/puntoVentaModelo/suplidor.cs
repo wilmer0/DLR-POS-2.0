@@ -29,8 +29,11 @@ namespace puntoVentaModelo
         public string direccion { get; set; }
         public string telefono1 { get; set; }
         public string telefono2 { get; set; }
+        public Nullable<long> tipo_gasto { get; set; }
+        public System.DateTime fecha_modificacion { get; set; }
     
         public virtual ICollection<compra> compra { get; set; }
         public virtual sucursal sucursal { get; set; }
+        public virtual tipo_gasto tipo_gasto1 { get; set; }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVentaModelo.modelos;
 
+
 namespace puntoVenta.sistema
 {
     public partial class login2 : FormBase
@@ -21,7 +22,7 @@ namespace puntoVenta.sistema
 
 
         //objetos
-        public empleado empleado;
+        public puntoVentaModelo.empleado empleado;
 
 
 
@@ -29,7 +30,15 @@ namespace puntoVenta.sistema
         public login2()
         {
             InitializeComponent();
-            loadVentana();
+            LoadVentana();
+        }
+
+        public override void LoadVentana()
+        {
+            this.tituloLabel.Text = "Inicio sesión";
+            this.Text = tituloLabel.Text;
+            //usuarioText.SelectAll();
+            
         }
 
         private void login2_Load(object sender, EventArgs e)
@@ -38,13 +47,75 @@ namespace puntoVenta.sistema
         }
 
 
-        public void loadVentana()
+        public override bool ValidarCampos()
         {
-            
+            try
+            {
+                if (usuarioText.Text == "")
+                {
+                    MessageBox.Show("Falta el usuario","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                    usuarioText.Focus();
+                    usuarioText.SelectAll();
+                    return false;
+                }
+
+                if (claveText.Text == "")
+                {
+                    MessageBox.Show("Falta el clave", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    claveText.Focus();
+                    claveText.SelectAll();
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error ValidarCampos.:", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
 
-        public void getAction()
+
+        public override void GetAcion()
         {
+            if (!ValidarCampos())
+                return;
+
+            empleado = new puntoVentaModelo.empleado();
+            empleado.login = usuarioText.Text.Trim();
+            empleado.clave = claveText.Text.Trim();
+
+            bool existe = false;
+            existe = modeloEmpleado.validarLogin(empleado);
+            if (existe==true)
+            {
+            //    menu1 ventana = new menu1(empleado);
+            //    ventana.ShowDialog();
+            //    this.Hide();
+                MessageBox.Show("Existe");
+            }
+            else
+            {
+                empleado = null;
+                MessageBox.Show("No existe el usuario", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void usuarioText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                claveText.Focus();
+                claveText.SelectAll();
+            }
+        }
+
+        private void claveText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.Focus();
+            }
         }
     }
 }
