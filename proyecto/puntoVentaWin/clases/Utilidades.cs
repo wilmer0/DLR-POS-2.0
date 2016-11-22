@@ -20,6 +20,7 @@ using BarcodeLib;
 using FontStyle = System.Drawing.FontStyle;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Ionic.Zip;
+using puntoVentaModelo;
 using CompressionLevel = Ionic.Zlib.CompressionLevel;
 
 namespace puntoVenta
@@ -809,15 +810,15 @@ namespace puntoVenta
             }
         }
 
-        public string GetTituloVentana(string usuario, string tituloVentana)
+        public string GetTituloVentana(empleado empleado, string tituloVentana)
         {
             try
             {
                 string titulo = "BC-POS";
 
-                titulo = titulo + "-" + tituloVentana.ToString().ToUpper() + "-" + usuario.ToString().ToUpper();
+                titulo = titulo + "-" + tituloVentana.ToString().ToUpper() + "-" + empleado.nombre.ToUpper();
 
-                return titulo.ToString();
+                return titulo;
 
             }
             catch (Exception ex)
