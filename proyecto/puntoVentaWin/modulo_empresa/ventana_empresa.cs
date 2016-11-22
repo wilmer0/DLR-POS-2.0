@@ -39,6 +39,7 @@ namespace puntoVentaWin.modulo_empresa
         {
             try
             {
+                empresa = modeloEmpresa.getListaCompleta().ToList().FirstOrDefault();
                 if (empresa != null)
                 {
                     empresaText.Text = empresa.nombre;
@@ -97,6 +98,11 @@ namespace puntoVentaWin.modulo_empresa
         {
             try
             {
+                if (MessageBox.Show("Desea guardar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==
+                    DialogResult.No)
+                {
+                    return;
+                }
                 if (!ValidarGetAction())
                     return;
 
@@ -105,6 +111,7 @@ namespace puntoVentaWin.modulo_empresa
                 {
                     //agrega
                     empresa = new empresa();
+                    empresaIdText.Text = empresa.codigo.ToString();
                     empresa.codigo = modeloEmpresa.getNext();
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();
@@ -140,6 +147,11 @@ namespace puntoVentaWin.modulo_empresa
         }
 
         private void empresa_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }

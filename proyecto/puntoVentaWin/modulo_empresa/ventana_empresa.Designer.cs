@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ventana_empresa));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.empresaIdText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.empresaText = new System.Windows.Forms.TextBox();
             this.RncText = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@
             this.divisionText = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.activoCheck = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -66,24 +66,12 @@
             // 
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.empresaIdText);
             this.groupBox1.Location = new System.Drawing.Point(12, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(508, 80);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(270, 26);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(49, 34);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -95,14 +83,14 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Empresa";
             // 
-            // textBox1
+            // empresaIdText
             // 
-            this.textBox1.BackColor = System.Drawing.Color.SkyBlue;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(127, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(137, 26);
-            this.textBox1.TabIndex = 0;
+            this.empresaIdText.BackColor = System.Drawing.Color.SkyBlue;
+            this.empresaIdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empresaIdText.Location = new System.Drawing.Point(127, 31);
+            this.empresaIdText.Name = "empresaIdText";
+            this.empresaIdText.Size = new System.Drawing.Size(200, 26);
+            this.empresaIdText.TabIndex = 0;
             // 
             // label2
             // 
@@ -176,7 +164,20 @@
             this.activoCheck.Text = "Activo";
             this.activoCheck.UseVisualStyleBackColor = true;
             // 
-            // empresa
+            // button4
+            // 
+            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(334, 26);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(49, 34);
+            this.button4.TabIndex = 3;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // ventana_empresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -189,7 +190,7 @@
             this.Controls.Add(this.empresaText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Name = "empresa";
+            this.Name = "ventana_empresa";
             this.Text = "empresa";
             this.Load += new System.EventHandler(this.empresa_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
@@ -216,8 +217,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox empresaIdText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox empresaText;
         private System.Windows.Forms.TextBox RncText;
@@ -225,5 +225,6 @@
         private System.Windows.Forms.TextBox divisionText;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.CheckBox activoCheck;
+        private System.Windows.Forms.Button button4;
     }
 }

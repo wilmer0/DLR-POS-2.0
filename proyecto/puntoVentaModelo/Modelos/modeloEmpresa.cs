@@ -44,7 +44,7 @@ namespace puntoVentaModelo.modelos
         }
 
 
-        public bool ModificarEmpresa(empresa empresaA)
+        public bool ModificarEmpresa(empresa objeto)
         {
 
             coneccion coneccion = new coneccion();
@@ -53,43 +53,13 @@ namespace puntoVentaModelo.modelos
             {
                 empresa empresa=new empresa();
                 empresa = (from c in entity.empresa
-                             where c.codigo == empresaA.codigo
+                             where c.codigo == objeto.codigo
                              select c).FirstOrDefault();
 
-                var listaDivision = (from c in entity.empresa
-                                     where c.codigo != empresa.codigo && c.division==empresa.division 
-                                     select c).FirstOrDefault();
-                if (listaDivision != null)
-                {
-                    MessageBox.Show("No se modifico: se encuentra una empresa con la misma división", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-                var listaRnc = (from c in entity.empresa
-                                     where c.codigo != empresa.codigo && c.rnc == empresa.rnc
-                                     select c).FirstOrDefault();
-                if (listaRnc != null)
-                {
-                    MessageBox.Show("No se modifico: se encuentra una empresa con el mismo rnc", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                var listaSecuencia = (from c in entity.empresa
-                                      where c.codigo != empresa.codigo && c.secuencia == empresa.secuencia
-                                     select c).FirstOrDefault();
-                if (listaSecuencia != null)
-                {
-                    MessageBox.Show("No se modifico: se encuentra una empresa con la misma secuencia", "",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                
-                empresa.division = empresa.division;
-                empresa.rnc = empresa.rnc;
-                empresa.secuencia = empresa.secuencia;
-                empresa.activo = empresa.activo;
+                empresa.division = objeto.division;
+                empresa.rnc = objeto.rnc;
+                empresa.secuencia = objeto.secuencia;
+                empresa.activo = objeto.activo;
 
                 entity.SaveChanges();
                 return true;
