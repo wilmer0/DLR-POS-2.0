@@ -24,6 +24,7 @@ namespace puntoVentaModelo
         public string division { get; set; }
         public byte estado { get; set; }
         public string rnc { get; set; }
+        public string nombre { get; set; }
     
         public virtual ICollection<sucursal> sucursal { get; set; }
     }
