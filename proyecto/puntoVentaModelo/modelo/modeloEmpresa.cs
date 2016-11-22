@@ -52,7 +52,6 @@ namespace puntoVentaModelo.modelos
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-
                 entity.empresa.Add(empresa);
                 entity.SaveChanges();
                 return true;

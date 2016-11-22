@@ -187,6 +187,7 @@
         <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" />
         <EntityTypeShape EntityType="punto_ventaModel.tipo_gasto" Width="1.5" PointX="18.375" PointY="8.875" />
         <AssociationConnector Association="punto_ventaModel.FK_suplidor_2" />
+        <EntityTypeShape EntityType="punto_ventaModel.empleado_accesos_ventanas" Width="1.5" PointX="18.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

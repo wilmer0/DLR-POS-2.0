@@ -305,13 +305,13 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="identificacion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="pasaporte" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="empleado_acceso_ventanas">
+        <EntityType Name="empleado_accesos_ventanas">
           <Key>
             <PropertyRef Name="id_empleado" />
-            <PropertyRef Name="id_ventana" />
+            <PropertyRef Name="id_ventana_sistema" />
           </Key>
-          <Property Name="id_empleado" Type="int" Nullable="false" />
-          <Property Name="id_ventana" Type="int" Nullable="false" />
+          <Property Name="id_empleado" Type="uint" Nullable="false" />
+          <Property Name="id_ventana_sistema" Type="uint" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'def.punto_venta.empleado_historial_datos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -1292,18 +1292,6 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="empleado_acceso_ventanas_ventana">
-          <End Role="sistema_modulo_ventanas" Type="Self.sistema_modulo_ventanas" Multiplicity="1" />
-          <End Role="empleado_acceso_ventanas" Type="Self.empleado_acceso_ventanas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sistema_modulo_ventanas">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="empleado_acceso_ventanas">
-              <PropertyRef Name="id_ventana" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="empleado_cargo_cargo">
           <End Role="cargo" Type="Self.cargo" Multiplicity="1" />
           <End Role="empleado_vs_cargo" Type="Self.empleado_vs_cargo" Multiplicity="*" />
@@ -1355,18 +1343,6 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_v
             </Principal>
             <Dependent Role="empleado_historial_datos">
               <PropertyRef Name="cod_empleado_cambio" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="empleado_permisos_empleado">
-          <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
-          <End Role="empleado_acceso_ventanas" Type="Self.empleado_acceso_ventanas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="empleado">
-              <PropertyRef Name="codigo" />
-            </Principal>
-            <Dependent Role="empleado_acceso_ventanas">
-              <PropertyRef Name="id_empleado" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -2302,7 +2278,7 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
           <EntitySet Name="egresos_caja" EntityType="Self.egresos_caja" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="egresos_conceptos" EntityType="Self.egresos_conceptos" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="empleado" EntityType="Self.empleado" Schema="punto_venta" store:Type="Tables" />
-          <EntitySet Name="empleado_acceso_ventanas" EntityType="Self.empleado_acceso_ventanas" Schema="punto_venta" store:Type="Tables" />
+          <EntitySet Name="empleado_accesos_ventanas" EntityType="Self.empleado_accesos_ventanas" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="empleado_vs_cargo" EntityType="Self.empleado_vs_cargo" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="empresa" EntityType="Self.empresa" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="entrada_salida_inventario" EntityType="Self.entrada_salida_inventario" Schema="punto_venta" store:Type="Tables" />
@@ -2553,10 +2529,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="cajero" EntitySet="cajero" />
             <End Role="cuadre_caja" EntitySet="cuadre_caja" />
           </AssociationSet>
-          <AssociationSet Name="empleado_acceso_ventanas_ventana" Association="Self.empleado_acceso_ventanas_ventana">
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
-            <End Role="empleado_acceso_ventanas" EntitySet="empleado_acceso_ventanas" />
-          </AssociationSet>
           <AssociationSet Name="empleado_cargo_cargo" Association="Self.empleado_cargo_cargo">
             <End Role="cargo" EntitySet="cargo" />
             <End Role="empleado_vs_cargo" EntitySet="empleado_vs_cargo" />
@@ -2572,10 +2544,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="empleado_empleado_cambio" Association="Self.empleado_empleado_cambio">
             <End Role="empleado" EntitySet="empleado" />
             <End Role="empleado_historial_datos" EntitySet="empleado_historial_datos" />
-          </AssociationSet>
-          <AssociationSet Name="empleado_permisos_empleado" Association="Self.empleado_permisos_empleado">
-            <End Role="empleado" EntitySet="empleado" />
-            <End Role="empleado_acceso_ventanas" EntitySet="empleado_acceso_ventanas" />
           </AssociationSet>
           <AssociationSet Name="empleado_sexo" Association="Self.empleado_sexo">
             <End Role="sexo" EntitySet="sexo" />
@@ -3353,6 +3321,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="tipo_gasto" EntitySet="tipo_gasto" />
             <End Role="suplidor" EntitySet="suplidor" />
           </AssociationSet>
+          <EntitySet Name="empleado_accesos_ventanas" EntityType="punto_ventaModel.empleado_accesos_ventanas" />
         </EntityContainer>
         <EntityType Name="almacen">
           <Key>
@@ -5647,6 +5616,14 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="empleado_accesos_ventanas">
+          <Key>
+            <PropertyRef Name="id_empleado" />
+            <PropertyRef Name="id_ventana_sistema" />
+          </Key>
+          <Property Name="id_empleado" Type="Int64" Nullable="false" />
+          <Property Name="id_ventana_sistema" Type="Int64" Nullable="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6672,14 +6649,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="empleado_acceso_ventanas" TypeName="punto_ventaModel.empleado_acceso_ventanas" StoreEntitySet="empleado_acceso_ventanas">
-            <EndProperty Name="empleado">
-              <ScalarProperty Name="codigo" ColumnName="id_empleado" />
-            </EndProperty>
-            <EndProperty Name="sistema_modulo_ventanas">
-              <ScalarProperty Name="codigo" ColumnName="id_ventana" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="empleado_vs_cargo" TypeName="punto_ventaModel.empleado_vs_cargo" StoreEntitySet="empleado_vs_cargo">
             <EndProperty Name="empleado">
               <ScalarProperty Name="codigo" ColumnName="cod_empleado" />
@@ -6710,6 +6679,14 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="empleado_accesos_ventanas">
+            <EntityTypeMapping TypeName="punto_ventaModel.empleado_accesos_ventanas">
+              <MappingFragment StoreEntitySet="empleado_accesos_ventanas">
+                <ScalarProperty Name="id_ventana_sistema" ColumnName="id_ventana_sistema" />
+                <ScalarProperty Name="id_empleado" ColumnName="id_empleado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

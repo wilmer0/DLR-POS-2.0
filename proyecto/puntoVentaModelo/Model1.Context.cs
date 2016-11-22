@@ -120,5 +120,6 @@ namespace puntoVentaModelo
         public DbSet<producto_codigobarra> producto_codigobarra { get; set; }
         public DbSet<producto_oferta_historial> producto_oferta_historial { get; set; }
         public DbSet<tipo_gasto> tipo_gasto { get; set; }
+        public DbSet<empleado_accesos_ventanas> empleado_accesos_ventanas { get; set; }
     }
 }
