@@ -30,9 +30,10 @@ namespace puntoVentaWin.modulo_facturacion
             this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
+            cajaIdText.Select();
         }
 
-        public override void LoadVentana()
+        public  void LoadVentana()
         {
             try
             {

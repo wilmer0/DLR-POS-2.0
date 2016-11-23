@@ -34,6 +34,7 @@ namespace puntoVentaWin.modulo_empresa
             this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
+            sucursalIdText.Select();
         }
 
         private void ventana_sucursal_Load(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace puntoVentaWin.modulo_empresa
 
         }
 
-        public override void LoadVentana()
+        public  void LoadVentana()
         {
             try
             {

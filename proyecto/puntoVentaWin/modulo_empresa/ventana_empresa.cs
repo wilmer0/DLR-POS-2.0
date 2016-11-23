@@ -34,9 +34,10 @@ namespace puntoVentaWin.modulo_empresa
             this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
+            empresaIdText.Select();
         }
 
-        public override void LoadVentana()
+        public void LoadVentana()
         {
             try
             {

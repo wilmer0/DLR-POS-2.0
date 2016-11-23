@@ -815,7 +815,11 @@ namespace puntoVenta
             try
             {
                 this.empleado=empleadoA;
-                string titulo = "IRIS-"+tituloVentana.ToUpper()+"-"+this.empleado.nombre.ToUpper();
+                string titulo = "Iris-";
+                if (empleado != null)
+                {
+                    titulo += tituloVentana.ToUpper() + "-" + empleado.nombre.ToUpper();
+                }
                 return titulo;
             }
             catch (Exception ex)

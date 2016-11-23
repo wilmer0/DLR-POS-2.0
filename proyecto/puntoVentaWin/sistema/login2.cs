@@ -34,11 +34,12 @@ namespace puntoVenta.sistema
             this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
+            usuarioText.Select();
         }
 
         public override void LoadVentana()
         {
-           
+            
         }
 
         
