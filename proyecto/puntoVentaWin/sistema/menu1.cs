@@ -37,6 +37,12 @@ namespace puntoVenta.sistema
             LoadVentana();
         }
 
+        public override void LoadVentana()
+        {
+            empleado = new empleado();
+            empleado.codigo = 5;
+        }
+
         private void menu1_Load(object sender, EventArgs e)
         {
 
@@ -91,8 +97,7 @@ namespace puntoVenta.sistema
 
         private void button5_Click(object sender, EventArgs e)
         {
-            empleado=new empleado();
-            empleado.codigo = 5;
+            
             ventana_empresa ventana=new ventana_empresa(empleado);
             ventana.ShowDialog();
         }

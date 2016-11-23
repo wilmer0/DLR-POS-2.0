@@ -12,22 +12,21 @@ namespace puntoVentaModelo
     using System;
     using System.Collections.Generic;
     
-    public partial class cajero
+    public partial class caja
     {
-        public cajero()
+        public caja()
         {
-            this.cuadre_caja = new HashSet<cuadre_caja>();
-            this.ingresos_caja = new HashSet<ingresos_caja>();
+            this.cajero = new HashSet<cajero>();
+            this.comprobante_fiscal = new HashSet<comprobante_fiscal>();
         }
     
         public int codigo { get; set; }
-        public Nullable<int> cod_empleado { get; set; }
-        public Nullable<int> cod_caja { get; set; }
-        public Nullable<byte> activo { get; set; }
+        public string nombre { get; set; }
+        public string secuencia { get; set; }
+        public int cod_sucursal { get; set; }
+        public byte activo { get; set; }
     
-        public virtual caja caja { get; set; }
-        public virtual empleado empleado { get; set; }
-        public virtual ICollection<cuadre_caja> cuadre_caja { get; set; }
-        public virtual ICollection<ingresos_caja> ingresos_caja { get; set; }
+        public virtual ICollection<cajero> cajero { get; set; }
+        public virtual ICollection<comprobante_fiscal> comprobante_fiscal { get; set; }
     }
 }

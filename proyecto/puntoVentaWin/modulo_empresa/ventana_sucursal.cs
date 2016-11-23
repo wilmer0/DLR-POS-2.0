@@ -19,7 +19,7 @@ namespace puntoVentaWin.modulo_empresa
 
         //modelos
         modeloSucursal modeloSucursal=new modeloSucursal();
-
+        modeloEmpresa modeloEmpresa=new modeloEmpresa();
 
         //empleado
         private empleado empleado;
@@ -107,13 +107,21 @@ namespace puntoVentaWin.modulo_empresa
                 if (sucursal == null)
                 {
                     //agrega
+                    sucursal.codigo = modeloSucursal.getNext();
                     sucursal = new sucursal();
                     sucursal.secuencia = secuenciaText.Text.Trim();
-
+                    sucursal.codigo_empresa = 1;
+                    modeloSucursal.agregarSucursal(sucursal);
+                    MessageBox.Show("Se agregó la sucursal ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     //modifica
+                    sucursal.secuencia = secuenciaText.Text.Trim();
+                    sucursal.codigo_empresa = 1;
+                    modeloSucursal.agregarSucursal(sucursal);
+                    modeloSucursal.ModificarSucursal(sucursal);
+                    MessageBox.Show("Se modificó la sucursal ", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
