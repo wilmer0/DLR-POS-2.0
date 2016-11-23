@@ -43,31 +43,45 @@ namespace puntoVentaModelo.modelos
         }
 
 
-        public List<sistema_modulo> GetListaModulosDisponiblesByEmpleado(empleado empleado)
+       
+
+        public List<sistema_modulo_ventanas> GetListaVentanasByEmpleado(empleado empleado)
         {
             try
             {
 
-                coneccion con=new coneccion();
+                coneccion con = new coneccion();
                 punto_ventaEntities entity = con.GetConeccion();
-                
+
                 //listas
-                List<sistema_modulo> listaModulos=new List<sistema_modulo>();
-                List<sistema_modulo_ventanas> listaSistemaModulosVentanas  = new List<sistema_modulo_ventanas>();
-                
+                List<empleado_accesos_ventanas> listaAccesoVentanas = new List<empleado_accesos_ventanas>();
+                List<sistema_modulo_ventanas> listaSistemaModulosVentanas = new List<sistema_modulo_ventanas>();
+                 List<sistema_modulo_ventanas> ListaVentanas = new List<sistema_modulo_ventanas>();
+                listaAccesoVentanas = (from c in entity.empleado_accesos_ventanas
+                             where c.id_empleado == empleado.codigo
+                             select c).ToList();
 
 
-                
-                
+                listaSistemaModulosVentanas = (from c in entity.sistema_modulo_ventanas
+                                               select c).ToList();
+
+                foreach (var acceso in listaAccesoVentanas)
+                {
+                    foreach (var ventana in listaSistemaModulosVentanas)
+                    {
+                        if (acceso.id_ventana_sistema == ventana.codigo)
+                        {
+                            ListaVentanas.Add(ventana);
+                        }
+                    }
+                }
 
 
-
-
-                return listaModulos;
+                return ListaVentanas;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error GetListaModulosDisponiblesByEmpleado.: " + ex.ToString());
+                MessageBox.Show("Error GetListaVentanasByEmpleado.: " + ex.ToString());
                 return null;
             }
         }
@@ -105,6 +119,33 @@ namespace puntoVentaModelo.modelos
             catch (Exception ex)
             {
                 MessageBox.Show("Error getEmpleadoByLogin.: " + ex.ToString());
+                return null;
+            }
+        }
+
+        public List<sistema_modulo> GetListaModulosByEmpleado(empleado empleado)
+        {
+            try
+            {
+
+                coneccion con = new coneccion();
+                punto_ventaEntities entity = con.GetConeccion();
+
+                
+                //listas
+               
+                List<sistema_modulo> listaModulos = new List<sistema_modulo>();
+
+
+
+                listaModulos = (from e in entity.sistema_modulo 
+                                select e).ToList();
+
+                return listaModulos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error GetListaModulosByEmpleado.: " + ex.ToString());
                 return null;
             }
         }

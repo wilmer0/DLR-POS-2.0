@@ -30,6 +30,7 @@ namespace puntoVenta.sistema
         //listas
         List<sistema_modulo> listaModulos=new List<sistema_modulo>();
         List<sistema_modulo_ventanas> listaModuloVentanas=new List<sistema_modulo_ventanas>(); 
+        List<empleado_accesos_ventanas> listaEmpleadoVentanas=new List<empleado_accesos_ventanas>(); 
 
         public menu1(empleado empleadoA)
         {
@@ -40,9 +41,15 @@ namespace puntoVenta.sistema
             LoadVentana();
         }
 
-        public override void LoadVentana()
+        public  void LoadVentana()
         {
             //cargar todos los modulos que tiene habilitados el empleado con todas las ventanas que tiene habilitadas
+            listaModuloVentanas = modeloEmpleado.GetListaVentanasByEmpleado(empleado);
+
+            listaModuloVentanas.ForEach(x =>
+            {
+                
+            });
 
         }
 
