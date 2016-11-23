@@ -28,6 +28,8 @@ namespace puntoVentaWin.modulo_empresa
 
         public ventana_empresa(empleado empleadoA)
         {
+
+            this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana empresa");
             this.Text = tituloLabel.Text;
             InitializeComponent();
@@ -39,24 +41,32 @@ namespace puntoVentaWin.modulo_empresa
         {
             try
             {
-                empresa = modeloEmpresa.getListaCompleta().ToList().FirstOrDefault();
+                empresaText = new TextBox();
+                RncText = new TextBox();
+                divisionText = new TextBox();
+                activoCheck = new CheckBox();
+               
+                empresa = new empresa();
+                empresa = modeloEmpresa.getEmpresaById(1);
                 if (empresa != null)
                 {
-                    empresaText.Text = empresa.nombre;
-                    RncText.Text = empresa.rnc;
-                    divisionText.Text = empresa.division;
+                    empresaText.Text = empresa.nombre.ToString();
+                    RncText.Text = empresa.rnc.ToString();
+                    divisionText.Text = empresa.division.ToString();
                     activoCheck.Checked = (bool)empresa.activo;
                 }
                 else
                 {
-                    empresaText.Text = "";
-                    RncText.Text = "";
+                    empresaText.Text = "hola";
+                    RncText.Text = "mundo";
                     divisionText.Text = "";
                     activoCheck.Checked = false;
+
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show("Error LoadVentana.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
           
         }

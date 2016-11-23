@@ -113,11 +113,11 @@
             // tituloLabel
             // 
             this.tituloLabel.AutoSize = true;
-            this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloLabel.ForeColor = System.Drawing.Color.White;
-            this.tituloLabel.Location = new System.Drawing.Point(20, 6);
+            this.tituloLabel.Location = new System.Drawing.Point(8, 10);
             this.tituloLabel.Name = "tituloLabel";
-            this.tituloLabel.Size = new System.Drawing.Size(66, 25);
+            this.tituloLabel.Size = new System.Drawing.Size(49, 17);
             this.tituloLabel.TabIndex = 8;
             this.tituloLabel.Text = "Titulo";
             // 

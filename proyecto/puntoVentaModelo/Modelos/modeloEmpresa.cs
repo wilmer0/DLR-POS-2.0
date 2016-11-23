@@ -143,7 +143,6 @@ namespace puntoVentaModelo.modelos
             {
                List<empresa> Lista=new List<empresa>(); 
                Lista = (from c in entity.empresa
-                         
                            select c).ToList();
 
                 return Lista;

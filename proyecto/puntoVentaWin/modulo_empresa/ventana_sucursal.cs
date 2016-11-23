@@ -43,18 +43,30 @@ namespace puntoVentaWin.modulo_empresa
 
         public override void LoadVentana()
         {
-            if (sucursal != null)
+            try
             {
-                secuenciaText.Text = sucursal.secuencia;
-                direccionText.Text = sucursal.direccion;
-                activoCheck.Checked = (bool) sucursal.activo;
+                secuenciaText=new TextBox();
+                direccionText = new TextBox();
+                activoCheck=new CheckBox();
+                if (sucursal != null)
+                {
+                    secuenciaText.Text = sucursal.secuencia;
+                    direccionText.Text = sucursal.direccion;
+                    activoCheck.Checked = (bool)sucursal.activo;
+                }
+                else
+                {
+
+                    secuenciaText.Clear();
+                    direccionText.Text = "";
+                    activoCheck.Checked = false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                secuenciaText.Text = "";
-                direccionText.Text = "";
-                activoCheck.Checked = false;
+                MessageBox.Show("Error LoadVentana.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+          
         }
 
         public override bool ValidarGetAction()

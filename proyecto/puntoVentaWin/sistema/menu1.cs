@@ -19,7 +19,7 @@ namespace puntoVenta.sistema
 
         //objetos
         private empleado empleado;
-        
+        private utilidades utilidades = new utilidades();
 
 
         //modelos
@@ -33,14 +33,16 @@ namespace puntoVenta.sistema
         public menu1(empleado empleadoA)
         {
             this.empleado = empleadoA;
+            this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "menú");
+            this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
         }
 
         public override void LoadVentana()
         {
-            empleado = new empleado();
-            empleado.codigo = 5;
+            //cargar todos los modulos que tiene habilitados el empleado con todas las ventanas que tiene habilitadas
+
         }
 
         private void menu1_Load(object sender, EventArgs e)
