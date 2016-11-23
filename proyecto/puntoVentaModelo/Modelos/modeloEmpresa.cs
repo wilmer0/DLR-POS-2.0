@@ -56,6 +56,7 @@ namespace puntoVentaModelo.modelos
                              where c.codigo == objeto.codigo
                              select c).FirstOrDefault();
 
+                empresa.nombre = objeto.nombre;
                 empresa.division = objeto.division;
                 empresa.rnc = objeto.rnc;
                 empresa.secuencia = objeto.secuencia;

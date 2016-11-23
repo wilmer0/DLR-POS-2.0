@@ -77,6 +77,12 @@
     <Compile Include="modulo_empresa\ventana_sucursal.Designer.cs">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </Compile>
+    <Compile Include="modulo_facturacion\ventana_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventana_caja.Designer.cs">
+      <DependentUpon>ventana_caja.cs</DependentUpon>
+    </Compile>
     <Compile Include="modulo_opciones\ventana_configuracion_modulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_empresa\ventana_sucursal.resx">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\ventana_caja.resx">
+      <DependentUpon>ventana_caja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_configuracion_modulos.resx">
       <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
@@ -450,7 +459,6 @@
     <Folder Include="modulo_administracion\" />
     <Folder Include="modulo_cuentas_por_cobrar\" />
     <Folder Include="modulo_cuentas_por_pagar\" />
-    <Folder Include="modulo_facturacion\" />
     <Folder Include="modulo_inventario\" />
     <Folder Include="modulo_nomina\" />
   </ItemGroup>

@@ -30,24 +30,15 @@ namespace puntoVenta.sistema
 
         public login2()
         {
+            this.tituloLabel.Text = "Inicio sesión";
+            this.Text = tituloLabel.Text;
             InitializeComponent();
             LoadVentana();
         }
 
         public override void LoadVentana()
         {
-            this.tituloLabel.Text = "Inicio sesión";
-            this.Text = tituloLabel.Text;
-            if (usuarioText != null)
-            {
-                usuarioText.Clear();
-                usuarioText.Focus();
-                usuarioText.SelectAll();
-            }
-            if (claveText != null)
-            {
-                claveText.Clear();
-            }
+           
         }
 
         
@@ -120,7 +111,8 @@ namespace puntoVenta.sistema
         {
             if (MessageBox.Show("Desea limpiar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.Yes)
             {
-                LoadVentana();
+                usuarioText.Text = "";
+                claveText.Text = "";
             }
         }
 
@@ -150,7 +142,6 @@ namespace puntoVenta.sistema
 
         private void button3_Click(object sender, EventArgs e)
         {
-            limpiar();
         }
     }
 }

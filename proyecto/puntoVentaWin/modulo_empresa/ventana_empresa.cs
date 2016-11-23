@@ -33,7 +33,6 @@ namespace puntoVentaWin.modulo_empresa
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana empresa");
             this.Text = tituloLabel.Text;
             InitializeComponent();
-            this.empleado = empleadoA;
             LoadVentana();
         }
 
@@ -41,24 +40,25 @@ namespace puntoVentaWin.modulo_empresa
         {
             try
             {
-                empresaText = new TextBox();
-                RncText = new TextBox();
-                divisionText = new TextBox();
-                activoCheck = new CheckBox();
                
-                empresa = new empresa();
-                empresa = modeloEmpresa.getEmpresaById(1);
+               
+                //empresa = new empresa();
+                empresa = modeloEmpresa.getListaCompleta().ToList().FirstOrDefault();
                 if (empresa != null)
                 {
-                    empresaText.Text = empresa.nombre.ToString();
-                    RncText.Text = empresa.rnc.ToString();
-                    divisionText.Text = empresa.division.ToString();
+                    empresaText.Text = empresa.nombre;
+                    RncText.Text = empresa.rnc;
+                    divisionText.Text = empresa.division;
                     activoCheck.Checked = (bool)empresa.activo;
                 }
                 else
                 {
-                    empresaText.Text = "hola";
-                    RncText.Text = "mundo";
+                    empresaText = new TextBox();
+                    RncText = new TextBox();
+                    divisionText = new TextBox();
+                    activoCheck = new CheckBox();
+                    empresaText.Text = "";
+                    RncText.Text = "";
                     divisionText.Text = "";
                     activoCheck.Checked = false;
 
@@ -129,7 +129,6 @@ namespace puntoVentaWin.modulo_empresa
                 {
                     //agrega
                     empresa = new empresa();
-                    empresaIdText.Text = empresa.codigo.ToString();
                     empresa.codigo = modeloEmpresa.getNext();
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();
