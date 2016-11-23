@@ -29,7 +29,7 @@ namespace puntoVenta
     public  class utilidades
     {
         //objetos
-        //public utilidades utilidade = new utilidades();
+        private empleado empleado;
 
 
         //variables fijas
@@ -810,20 +810,21 @@ namespace puntoVenta
             }
         }
 
-        public string GetTituloVentana(empleado empleado, string tituloVentana)
+        public string GetTituloVentana(empleado empleadoA, string tituloVentana)
         {
             try
             {
-                string titulo = "BC-POS";
-
-                //titulo = titulo + "-" + tituloVentana.ToUpper() + "-" + empleado.nombre.ToUpper();
-
+                this.empleado=empleadoA;
+                string titulo = "Iris-";
+                if (empleado != null)
+                {
+                    titulo += tituloVentana.ToUpper() + "-" + empleado.nombre.ToUpper();
+                }
                 return titulo;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error GetTituloVentana.: " + ex.ToString());
+                MessageBox.Show("Error GetTituloVentana.: " + ex.ToString(),"",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return null;
             }
         }

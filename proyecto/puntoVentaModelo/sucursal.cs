@@ -30,7 +30,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public int codigo_empresa { get; set; }
         public string secuencia { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
         public string direccion { get; set; }
     
         public virtual ICollection<almacen> almacen { get; set; }

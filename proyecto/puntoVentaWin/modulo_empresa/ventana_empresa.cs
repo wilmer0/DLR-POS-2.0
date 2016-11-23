@@ -28,17 +28,22 @@ namespace puntoVentaWin.modulo_empresa
 
         public ventana_empresa(empleado empleadoA)
         {
+
+            this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana empresa");
             this.Text = tituloLabel.Text;
             InitializeComponent();
-            this.empleado = empleadoA;
             LoadVentana();
+            empresaIdText.Select();
         }
 
-        public override void LoadVentana()
+        public void LoadVentana()
         {
             try
             {
+               
+               
+                //empresa = new empresa();
                 empresa = modeloEmpresa.getListaCompleta().ToList().FirstOrDefault();
                 if (empresa != null)
                 {
@@ -49,14 +54,20 @@ namespace puntoVentaWin.modulo_empresa
                 }
                 else
                 {
+                    empresaText = new TextBox();
+                    RncText = new TextBox();
+                    divisionText = new TextBox();
+                    activoCheck = new CheckBox();
                     empresaText.Text = "";
                     RncText.Text = "";
                     divisionText.Text = "";
                     activoCheck.Checked = false;
+
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                MessageBox.Show("Error LoadVentana.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
           
         }
@@ -86,6 +97,14 @@ namespace puntoVentaWin.modulo_empresa
                     divisionText.SelectAll();
                     return false;
                 }
+
+                if (divisionText.Text.Length!=2)
+                {
+                    MessageBox.Show("La división no esta completa ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    divisionText.Focus();
+                    divisionText.SelectAll();
+                    return false;
+                }
                 return true;
             }
             catch (Exception)
@@ -111,7 +130,6 @@ namespace puntoVentaWin.modulo_empresa
                 {
                     //agrega
                     empresa = new empresa();
-                    empresaIdText.Text = empresa.codigo.ToString();
                     empresa.codigo = modeloEmpresa.getNext();
                     empresa.nombre = empresaText.Text.Trim();
                     empresa.rnc = RncText.Text.Trim();

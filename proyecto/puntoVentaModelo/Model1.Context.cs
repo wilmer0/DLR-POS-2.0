@@ -35,6 +35,7 @@ namespace puntoVentaModelo
         }
     
         public DbSet<almacen> almacen { get; set; }
+        public DbSet<caja> caja { get; set; }
         public DbSet<cajero> cajero { get; set; }
         public DbSet<cargo> cargo { get; set; }
         public DbSet<categoria_producto> categoria_producto { get; set; }
