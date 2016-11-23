@@ -101,6 +101,12 @@ namespace puntoVenta.sistema
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ventana_sucursal ventana=new ventana_sucursal(empleado);
+            ventana.ShowDialog();
+        }
         
     }
 }

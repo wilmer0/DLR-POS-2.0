@@ -86,6 +86,14 @@ namespace puntoVentaWin.modulo_empresa
                     divisionText.SelectAll();
                     return false;
                 }
+
+                if (divisionText.Text.Length!=2)
+                {
+                    MessageBox.Show("La división no esta completa ", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    divisionText.Focus();
+                    divisionText.SelectAll();
+                    return false;
+                }
                 return true;
             }
             catch (Exception)
