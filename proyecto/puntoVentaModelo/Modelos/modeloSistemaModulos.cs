@@ -88,5 +88,29 @@ namespace puntoVentaModelo.Modelos
                 return count;
             }
         }
+
+
+        public List<sistema_modulo> getListaSistemaModulos()
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+
+                List<sistema_modulo> lista=new List<sistema_modulo>();
+
+                lista = (from c in entity.sistema_modulo
+                            where c.activo==true
+                            select c).FirstOrDefault();
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getListaSistemaModulos.: " + ex.ToString());
+                return null;
+            }
+        }
     }
 }

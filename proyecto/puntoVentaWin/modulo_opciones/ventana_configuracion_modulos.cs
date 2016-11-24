@@ -20,7 +20,7 @@ namespace puntoVentaWin.modulo_opciones
         
         //modelos
         modeloSistemaModulos modeloSistemaModulos=new modeloSistemaModulos();
-
+        
 
         //objetos
         private empleado empleado;
@@ -28,12 +28,22 @@ namespace puntoVentaWin.modulo_opciones
         private sistema_modulo sistemaModulo;
         private sistema_modulo_ventanas sistemaVentana;
 
+
+        //listas
+        List<sistema_modulo_ventanas> listaVentanas=new List<sistema_modulo_ventanas>();
+        List<sistema_modulo> listaModulos=new List<sistema_modulo>(); 
+
+
+
+
+
         public ventana_configuracion_modulos(empleado empleadoA)
         {
             this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana configuración móodulos");
             this.Text = tituloLabel.Text;
             InitializeComponent();
+            loadVentana();
         }
 
         private void ventana_configuracion_modulos_Load(object sender, EventArgs e)
@@ -46,7 +56,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-
+                
             }
             catch (Exception ex)
             {
