@@ -916,7 +916,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
-          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+          <Property Name="nombre_ventana" Type="varchar" MaxLength="200" />
           <Property Name="cod_modulo" Type="int" Nullable="false" />
           <Property Name="nombre_logico" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="imagen" Type="longtext" />
@@ -4147,7 +4147,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" />
+          <Property Name="nombre_ventana" Type="String" />
           <Property Name="cod_modulo" Type="Int32" Nullable="false" />
           <Property Name="nombre_logico" Type="String" Nullable="false" />
           <Property Name="imagen" Type="String" />
@@ -6372,7 +6372,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="nombre_logico" ColumnName="nombre_logico" />
                 <ScalarProperty Name="cod_modulo" ColumnName="cod_modulo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="nombre_ventana" ColumnName="nombre_ventana" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
             </EntityTypeMapping>

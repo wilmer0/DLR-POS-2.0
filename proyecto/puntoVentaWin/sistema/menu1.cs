@@ -45,12 +45,9 @@ namespace puntoVenta.sistema
         public  void LoadVentana()
         {
             //cargar todos los modulos que tiene habilitados el empleado con todas las ventanas que tiene habilitadas
-            listaModuloVentanas = modeloEmpleado.GetListaVentanasByEmpleado(empleado);
+            //listaModuloVentanas = modeloEmpleado.GetListaVentanasByEmpleado(empleado);
 
-            listaModuloVentanas.ForEach(x =>
-            {
-                
-            });
+            
 
         }
 

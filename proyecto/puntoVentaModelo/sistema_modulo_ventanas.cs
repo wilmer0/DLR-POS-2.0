@@ -15,7 +15,7 @@ namespace puntoVentaModelo
     public partial class sistema_modulo_ventanas
     {
         public int codigo { get; set; }
-        public string descripcion { get; set; }
+        public string nombre_ventana { get; set; }
         public int cod_modulo { get; set; }
         public string nombre_logico { get; set; }
         public string imagen { get; set; }
