@@ -11,6 +11,7 @@ using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 using puntoVentaWin.modulo_empresa;
 using puntoVentaWin.modulo_facturacion;
+using puntoVentaWin.pruebas;
 
 namespace puntoVenta.sistema
 {
@@ -127,6 +128,13 @@ namespace puntoVenta.sistema
         private void button7_Click(object sender, EventArgs e)
         {
             ventana_caja ventana=new ventana_caja(empleado);
+            ventana.Owner = this;
+            ventana.ShowDialog();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ventana_mapa ventana=new ventana_mapa();
             ventana.Owner = this;
             ventana.ShowDialog();
         }
