@@ -17,7 +17,6 @@ namespace puntoVenta.sistema
     public partial class menu1 : FormBase
     {
 
-
         //objetos
         private empleado empleado;
         private utilidades utilidades = new utilidades();
