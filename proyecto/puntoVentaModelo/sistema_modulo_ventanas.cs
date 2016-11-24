@@ -19,7 +19,7 @@ namespace puntoVentaModelo
         public int cod_modulo { get; set; }
         public string nombre_logico { get; set; }
         public string imagen { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual sistema_modulo sistema_modulo { get; set; }
     }

@@ -24,7 +24,7 @@ namespace puntoVentaModelo
         public string nombre { get; set; }
         public string secuencia { get; set; }
         public int cod_sucursal { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual ICollection<cajero> cajero { get; set; }
         public virtual ICollection<comprobante_fiscal> comprobante_fiscal { get; set; }

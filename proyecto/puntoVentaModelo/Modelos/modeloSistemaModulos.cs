@@ -89,6 +89,30 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
+        public List<sistema_modulo_ventanas> getListaSistemaVentanas()
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+
+                List<sistema_modulo_ventanas> lista = new List<sistema_modulo_ventanas>();
+
+                lista = (from c in entity.sistema_modulo_ventanas
+                         where c.activo == true
+                         select c).ToList();
+
+
+                return lista;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getListaSistemaVentanas.: " + ex.ToString());
+                return null;
+            }
+        }
 
         public List<sistema_modulo> getListaSistemaModulos()
         {
@@ -101,8 +125,10 @@ namespace puntoVentaModelo.Modelos
 
                 lista = (from c in entity.sistema_modulo
                             where c.activo==true
-                            select c).FirstOrDefault();
+                            select c).ToList();
 
+
+                return lista;
 
 
             }
@@ -110,6 +136,41 @@ namespace puntoVentaModelo.Modelos
             {
                 MessageBox.Show("Error: getListaSistemaModulos.: " + ex.ToString());
                 return null;
+            }
+        }
+
+        public Boolean agregarModulosVentanas(List<sistema_modulo_ventanas> lista)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                //eliminando las ventans viejas
+                List<sistema_modulo_ventanas> listaVieja = getListaSistemaVentanas();
+                listaVieja.ForEach(x =>
+                {
+                    entity.sistema_modulo_ventanas.Remove(x);
+                });
+
+                //agregando las ventanas nuevas
+                lista.ForEach(x =>
+                {
+                    entity.sistema_modulo_ventanas.Add(x);
+                });
+
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                entity = null;
             }
         }
     }
