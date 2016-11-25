@@ -149,8 +149,8 @@ namespace puntoVentaModelo.modelos
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                List<sucursal> Lista = new List<sucursal>();
-                Lista = (from c in entity.sucursal
+              
+                var Lista = (from c in entity.sucursal
                          select c).ToList();
 
                 return Lista;

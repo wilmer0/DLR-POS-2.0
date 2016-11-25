@@ -24,10 +24,10 @@ namespace puntoVentaWin.modulo_facturacion.caja
 
         public ventana_busqueda_caja(empleado empleadoA)
         {
+            InitializeComponent();
             this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana busqueda caja");
             this.Text = tituloLabel.Text;
-            InitializeComponent();
             LoadVentana();
            
         }

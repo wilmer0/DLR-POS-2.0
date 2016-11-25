@@ -73,6 +73,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.Designer.cs">
+      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
+    </Compile>
     <Compile Include="modulo_empresa\ventana_empresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <EmbeddedResource Include="archivos\Idioma-es\idioma-es.resx" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\ventana_busqueda_sucursal.resx">
+      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_empresa\ventana_empresa.resx">
       <DependentUpon>ventana_empresa.cs</DependentUpon>

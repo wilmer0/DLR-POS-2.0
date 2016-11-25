@@ -45,7 +45,7 @@ namespace puntoVentaModelo.modelos
 
        
 
-        public List<sistema_modulo_ventanas> GetListaVentanasByEmpleado(empleado empleado)
+        public List<sistema_modulo> GetListaVentanasByEmpleado(empleado empleado)
         {
             try
             {
@@ -55,21 +55,22 @@ namespace puntoVentaModelo.modelos
 
                 //listas
                 List<empleado_accesos_ventanas> listaAccesoVentanas = new List<empleado_accesos_ventanas>();
-                List<sistema_modulo_ventanas> listaSistemaModulosVentanas = new List<sistema_modulo_ventanas>();
-                 List<sistema_modulo_ventanas> ListaVentanas = new List<sistema_modulo_ventanas>();
+                List<sistema_modulo> listaSistemaModulosVentanas = new List<sistema_modulo>();
+                List<sistema_modulo> ListaVentanas = new List<sistema_modulo>();
+                
                 listaAccesoVentanas = (from c in entity.empleado_accesos_ventanas
                              where c.id_empleado == empleado.codigo
                              select c).ToList();
 
 
-                listaSistemaModulosVentanas = (from c in entity.sistema_modulo_ventanas
+                listaSistemaModulosVentanas = (from c in entity.sistema_modulo
                                                select c).ToList();
 
                 foreach (var acceso in listaAccesoVentanas)
                 {
                     foreach (var ventana in listaSistemaModulosVentanas)
                     {
-                        if (acceso.id_ventana_sistema == ventana.codigo)
+                        if (acceso.id_ventana_sistema == ventana.id)
                         {
                             ListaVentanas.Add(ventana);
                         }

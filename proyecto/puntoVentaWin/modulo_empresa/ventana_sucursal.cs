@@ -120,8 +120,8 @@ namespace puntoVentaWin.modulo_empresa
                 if (sucursal == null)
                 {
                     //agrega
-                    sucursal.codigo = modeloSucursal.getNext();
                     sucursal = new sucursal();
+                    sucursal.codigo = modeloSucursal.getNext();
                     sucursal.secuencia = secuenciaText.Text.Trim();
                     sucursal.codigo_empresa = 1;
                     modeloSucursal.agregarSucursal(sucursal);
@@ -143,6 +143,22 @@ namespace puntoVentaWin.modulo_empresa
                 MessageBox.Show("Error GetAcion.: " + ex.ToString(), "", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
                 
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ventana_busqueda_sucursal ventana=new ventana_busqueda_sucursal(empleado);
+            ventana.Owner = this;
+            ventana.ShowDialog();
+            if((sucursal=ventana.getObjeto())!=null)
+            {
+                LoadVentana();
             }
         }
     }

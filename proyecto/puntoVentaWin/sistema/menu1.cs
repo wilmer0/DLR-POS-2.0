@@ -30,7 +30,7 @@ namespace puntoVenta.sistema
 
         //listas
         List<sistema_modulo> listaModulos=new List<sistema_modulo>();
-        List<sistema_modulo_ventanas> listaModuloVentanas=new List<sistema_modulo_ventanas>(); 
+        List<sistema_ventanas> listaModuloVentanas = new List<sistema_ventanas>(); 
         List<empleado_accesos_ventanas> listaEmpleadoVentanas=new List<empleado_accesos_ventanas>(); 
 
         public menu1(empleado empleadoA)

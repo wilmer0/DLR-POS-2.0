@@ -129,9 +129,9 @@ namespace puntoVentaModelo.Modelos
                 coneccion coneccion = new coneccion();
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
-                List<sistema_modulo> lista = new List<sistema_modulo>();
+               
 
-                lista = (from c in entity.sistema_modulo
+               var lista = (from c in entity.sistema_modulo
                          where c.activo == true
                          select c).ToList();
 

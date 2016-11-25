@@ -46,6 +46,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(517, 5);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -109,17 +110,18 @@
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(409, 19);
+            this.button4.Location = new System.Drawing.Point(367, 14);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(49, 34);
             this.button4.TabIndex = 3;
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(116, 26);
+            this.label1.Location = new System.Drawing.Point(74, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 1;
@@ -129,7 +131,7 @@
             // 
             this.sucursalIdText.BackColor = System.Drawing.Color.SkyBlue;
             this.sucursalIdText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sucursalIdText.Location = new System.Drawing.Point(202, 24);
+            this.sucursalIdText.Location = new System.Drawing.Point(160, 19);
             this.sucursalIdText.Name = "sucursalIdText";
             this.sucursalIdText.Size = new System.Drawing.Size(200, 26);
             this.sucursalIdText.TabIndex = 0;
