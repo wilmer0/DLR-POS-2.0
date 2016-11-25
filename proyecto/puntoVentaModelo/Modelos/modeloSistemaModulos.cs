@@ -147,7 +147,7 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_modulo> getListaSistemaModulos()
+        public List<sistema_modulo> GetListaCompleta()
         {
             try
             {
@@ -167,7 +167,7 @@ namespace puntoVentaModelo.Modelos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: getListaSistemaModulos.: " + ex.ToString());
+                MessageBox.Show("Error: GetListaCompleta.: " + ex.ToString());
                 return null;
             }
         }

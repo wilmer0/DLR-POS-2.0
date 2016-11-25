@@ -57,13 +57,19 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                dataGridViewModulos.Rows.Clear();
-                listaModulos = modeloModulos.getListaSistemaModulos();
-                listaModulos.ForEach(x =>
-                {
-                    //id-nombre modulo
-                    dataGridViewModulos.Rows.Add(x.id, x.nombre);
-                });
+                //dataGridViewModulos.Rows.Clear();
+                //listaModulos = modeloModulos.getListaSistemaModulos();
+                //listaModulos.ForEach(x =>
+                //{
+                //    //id-nombre modulo
+                //    dataGridViewModulos.Rows.Add(x.id, x.nombre);
+                //});
+
+                listaModulos = modeloModulos.GetListaCompleta();
+                moduloCombo.DisplayMember = "nombre";
+                moduloCombo.SelectedValue = "id";
+                moduloCombo.DataSource = listaModulos.ToList();
+                moduloCombo.SelectedValue = 0;
             }
             catch (Exception ex)
             {
@@ -74,16 +80,22 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                if (dataGridViewVentanas.Rows.Count>0)
-                {
-                    dataGridViewVentanas.Rows.Clear();
-                }
+                //if (dataGridViewVentanas.Rows.Count>0)
+                //{
+                //    dataGridViewVentanas.Rows.Clear();
+                //}
+                //listaVentanas = modeloVentana.getListaCompleta();
+                //listaVentanas.ForEach(x =>
+                //{
+                //    //id-nombre modulo
+                //    dataGridViewVentanas.Rows.Add(x.codigo, x.nombre_ventana);
+                //});
+
                 listaVentanas = modeloVentana.getListaCompleta();
-                listaVentanas.ForEach(x =>
-                {
-                    //id-nombre modulo
-                    dataGridViewVentanas.Rows.Add(x.codigo, x.nombre_ventana);
-                });
+                ventanaCombo.DisplayMember = "nombre_ventana";
+                ventanaCombo.SelectedValue = "codigo";
+                ventanaCombo.DataSource = listaVentanas.ToList();
+                ventanaCombo.SelectedValue = 0;
             }
             catch (Exception ex)
             {
@@ -95,6 +107,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
+                listaVentanasGuardar = modeloVentana.getListaCompleta();
                 loadModulosList();
                 loadVentanasList();
 
@@ -154,13 +167,28 @@ namespace puntoVentaWin.modulo_opciones
         }
         private void button4_Click(object sender, EventArgs e)
         {
-           
+            try
+            {
+                //if (!validarAgregarVentana())
+                    //return;
+
+                modulo=moduloCombo.SelectedItem as sistema_modulo;
+                ventana=ventanaCombo.SelectedItem as sistema_ventanas;
+
+                MessageBox.Show("modulo->"+modulo.nombre+"-- ventana->"+ventana.nombre_ventana);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error agregando.: " + ex.ToString());
+            }
         }
 
         public bool validarAgregarVentana()
         {
             try
             {
+
                 if (modulo == null)
                 {
                     MessageBox.Show("Debe seleccionar un módulo", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -179,14 +207,25 @@ namespace puntoVentaWin.modulo_opciones
                     return false;
                 }
 
-                if (dataGridViewVentanas.Rows.Count == 0)
+                
+
+               bool existe = false;
+               listaVentanasGuardar.ForEach(ven =>
+               {
+                   MessageBox.Show(ven.sistema_modulo.nombre + "-" + ven.nombre_ventana);
+                   if (ven.codigo == ventana.codigo && ven.cod_modulo == modulo.id)
+                   {
+                       existe = true;
+                   }
+               });
+
+                if (existe == true)
                 {
-                    MessageBox.Show("No hay ventanas que agregar", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ya existe el modulo->" + modulo.nombre + "-  y la ventana-->" +
+                                    ventana.nombre_ventana);
                     return false;
                 }
 
-               
-                
                 return true;
             }
             catch (Exception ex)
@@ -217,41 +256,15 @@ namespace puntoVentaWin.modulo_opciones
 
         private void dataGridViewModulos_SelectionChanged(object sender, EventArgs e)
         {
-            //modulo
-            GetVentanaSistema();
+           //modulo
+           loadModulosList();
 
         }
 
         private void dataGridViewVentanas_SelectionChanged(object sender, EventArgs e)
         {
             //ventana
-            GetVentanaSistema();
-            
-        }
-
-        public void GetVentanaSistema()
-        {
-
-            try
-            {
-                //modulo
-                int index = dataGridViewModulos.CurrentRow.Index;
-                if (index < 0)
-                    return;
-
-                modulo = listaModulos[index];
-
-                //ventana
-                index = dataGridViewVentanas.CurrentRow.Index;
-                if (index < 0)
-                    return;
-
-                ventana = listaVentanas[index];
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error GetVentanaSistema.:" + ex.ToString());
-            }
+            loadVentanasList(); 
         }
     }
 }
