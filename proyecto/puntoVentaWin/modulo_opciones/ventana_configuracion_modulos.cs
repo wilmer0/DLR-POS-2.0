@@ -200,17 +200,19 @@ namespace puntoVentaWin.modulo_opciones
                     {
                         existe = true;
                     }
-                    else
-                    {
-                        listaSistemaModulosVentanasGuardar.Add(sistemaVentana);
-                    }
+                   
                 });
 
                 if (existe)
                 {
-                    MessageBox.Show("Ya esta agregado el módulo:" + sistemaModulo.nombre + " seleccionado con la ventana:" +
+                    MessageBox.Show(
+                        "Ya esta agregado el módulo:" + sistemaModulo.nombre + " seleccionado con la ventana:" +
                         sistemaVentana.nombre_ventana + ".", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
+                }
+                else
+                {
+                    listaSistemaModulosVentanasGuardar.Add(sistemaVentana);
                 }
                 
                 return true;
