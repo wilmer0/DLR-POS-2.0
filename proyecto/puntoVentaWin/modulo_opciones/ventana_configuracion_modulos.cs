@@ -167,12 +167,24 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
+
+                if (sistemaModulo == null)
+                {
+                    MessageBox.Show("Debe seleccionar un módulo", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                if (sistemaVentana == null)
+                {
+                    MessageBox.Show("Debe seleccionar una ventana", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
                 if (listaModulos.ToList().Count==0)
                 {
                     MessageBox.Show("No hay Módulos para agregar ventanas", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
-
 
                 if (dataGridViewVentanas.Rows.Count == 0)
                 {
@@ -182,21 +194,22 @@ namespace puntoVentaWin.modulo_opciones
 
 
                 bool existe = false;
-                listaSistemaModulosVentanasGuardar.ForEach(x =>
+                listaSistemaModulosVentanasGuardar.ForEach(ventana =>
                 {
-                    if (x.codigo == sistemaVentana.codigo && x.cod_modulo == sistemaModulo.id)
+                    if (ventana.codigo == sistemaVentana.codigo && ventana.cod_modulo == sistemaModulo.id)
                     {
-                        //existe = true;
-                        MessageBox.Show("existe--> " + sistemaModulo.nombre + "-" + sistemaVentana.nombre_ventana);
-
+                        existe = true;
+                    }
+                    else
+                    {
+                        listaSistemaModulosVentanasGuardar.Add(sistemaVentana);
                     }
                 });
 
-
-
                 if (existe)
                 {
-                    MessageBox.Show("Ya esta agregado el modulo seleccionado con la ventana seleccionada", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Ya esta agregado el módulo:" + sistemaModulo.nombre + " seleccionado con la ventana:" +
+                        sistemaVentana.nombre_ventana + ".", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
                 
@@ -217,21 +230,6 @@ namespace puntoVentaWin.modulo_opciones
                 if (!validarAgregarVentana())
                     return;
 
-
-                //modulo
-                int index = dataGridViewModulos.CurrentRow.Index;
-                sistemaModulo=new sistema_modulo();
-                sistemaModulo = listaModulos[index];
-                MessageBox.Show("index modulo->" + index.ToString());
-                MessageBox.Show("modulo--> " + sistemaModulo.id + "-" + sistemaModulo.nombre);
-
-                //ventana
-                index = dataGridViewVentanas.CurrentRow.Index;
-                sistemaVentana = new sistema_modulo_ventanas();
-                sistemaVentana = listaVentanas[index];
-                MessageBox.Show("index ventana->" + index.ToString());
-                MessageBox.Show("ventana--> " + sistemaVentana.codigo + "-" + sistemaVentana.nombre_ventana);
-
                 listaSistemaModulosVentanasGuardar.Add(sistemaVentana);
                 loadListVentanasGuardar();
                
@@ -240,6 +238,37 @@ namespace puntoVentaWin.modulo_opciones
             {
                 MessageBox.Show("Error agregarVentana.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dataGridViewModulos_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void dataGridViewModulos_SelectionChanged(object sender, EventArgs e)
+        {
+            //modulo
+            int index = dataGridViewModulos.CurrentRow.Index;
+            if (index < 0)
+                return;
+
+            sistemaModulo = new sistema_modulo();
+            sistemaModulo = listaModulos[index];
+            MessageBox.Show("modulo->" + index.ToString() + "-" + sistemaModulo.nombre);
+
+        }
+
+        private void dataGridViewVentanas_SelectionChanged(object sender, EventArgs e)
+        {
+            //ventana
+            int index = dataGridViewVentanas.CurrentRow.Index;
+            if (index < 0)
+                return;
+
+            sistemaVentana = new sistema_modulo_ventanas();
+            sistemaVentana = listaVentanas[index];
+            MessageBox.Show("ventana->" + index.ToString() + "-" + sistemaVentana.nombre_ventana);
+
         }
     }
 }

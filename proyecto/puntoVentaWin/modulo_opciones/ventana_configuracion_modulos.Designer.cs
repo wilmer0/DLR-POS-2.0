@@ -42,9 +42,9 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.dataGridViewVentanasGuardar = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -120,6 +120,8 @@
             this.dataGridViewModulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewModulos.Size = new System.Drawing.Size(399, 171);
             this.dataGridViewModulos.TabIndex = 12;
+            this.dataGridViewModulos.SelectionChanged += new System.EventHandler(this.dataGridViewModulos_SelectionChanged);
+            this.dataGridViewModulos.Leave += new System.EventHandler(this.dataGridViewModulos_Leave);
             // 
             // Column1
             // 
@@ -153,6 +155,7 @@
             this.dataGridViewVentanas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewVentanas.Size = new System.Drawing.Size(404, 171);
             this.dataGridViewVentanas.TabIndex = 14;
+            this.dataGridViewVentanas.SelectionChanged += new System.EventHandler(this.dataGridViewVentanas_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -232,16 +235,6 @@
             this.dataGridViewVentanasGuardar.Size = new System.Drawing.Size(832, 183);
             this.dataGridViewVentanasGuardar.TabIndex = 16;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 315);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(211, 20);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Lista modulos y ventanas";
-            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "Módulo";
@@ -253,6 +246,16 @@
             this.Column3.HeaderText = "Ventana";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 315);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(211, 20);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Lista módulos y ventanas";
             // 
             // ventana_configuracion_modulos
             // 
