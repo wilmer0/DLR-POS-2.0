@@ -19,36 +19,37 @@ namespace puntoVentaWin.modulo_opciones
 
         
         //modelos
-        modeloSistemaModulos modeloSistemaModulos=new modeloSistemaModulos();
-        
+        modeloSistemaModulos modeloModulos=new modeloSistemaModulos();
+        modeloSistemaVentana modeloVentana=new modeloSistemaVentana();
+
 
         //objetos
         private empleado empleado;
         utilidades utilidades=new utilidades();
-        private sistema_modulo sistemaModulo;
-        private sistema_modulo sistemaVentana;
+        private sistema_modulo modulo;
+        private sistema_ventanas ventana;
 
 
         //listas
-        List<sistema_modulo> listaVentanas=new List<sistema_modulo>();
-        List<sistema_modulo> listaModulos=new List<sistema_modulo>(); 
-        List<sistema_modulo> listaSistemaModulosVentanasGuardar=new List<sistema_modulo>(); 
+        List<sistema_ventanas> listaVentanas = new List<sistema_ventanas>();
+        List<sistema_modulo> listaModulos=new List<sistema_modulo>();
+        List<sistema_ventanas> listaVentanasGuardar = new List<sistema_ventanas>(); 
 
 
 
 
         public ventana_configuracion_modulos(empleado empleadoA)
         {
+            InitializeComponent();
             this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "ventana configuración módulos");
             this.Text = tituloLabel.Text;
-            InitializeComponent();
             loadVentana();
         }
 
         private void ventana_configuracion_modulos_Load(object sender, EventArgs e)
         {
-
+            loadListVentanasGuardar();
         }
         
 
@@ -57,7 +58,7 @@ namespace puntoVentaWin.modulo_opciones
             try
             {
                 dataGridViewModulos.Rows.Clear();
-                listaModulos = modeloSistemaModulos.getListaSistemaModulos();
+                listaModulos = modeloModulos.getListaSistemaModulos();
                 listaModulos.ForEach(x =>
                 {
                     //id-nombre modulo
@@ -73,7 +74,16 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-               
+                if (dataGridViewVentanas.Rows.Count>0)
+                {
+                    dataGridViewVentanas.Rows.Clear();
+                }
+                listaVentanas = modeloVentana.getListaCompleta();
+                listaVentanas.ForEach(x =>
+                {
+                    //id-nombre modulo
+                    dataGridViewVentanas.Rows.Add(x.codigo, x.nombre_ventana);
+                });
             }
             catch (Exception ex)
             {
@@ -135,7 +145,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-               
+
             }
             catch (Exception ex)
             {
@@ -151,13 +161,13 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                if (sistemaModulo == null)
+                if (modulo == null)
                 {
                     MessageBox.Show("Debe seleccionar un módulo", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
                 }
 
-                if (sistemaVentana == null)
+                if (ventana == null)
                 {
                     MessageBox.Show("Debe seleccionar una ventana", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -221,18 +231,27 @@ namespace puntoVentaWin.modulo_opciones
 
         public void GetVentanaSistema()
         {
-            //modulo
-            int index = dataGridViewModulos.CurrentRow.Index;
-            if (index < 0)
-                return;
 
-            sistemaModulo = listaModulos[index];
-            
-            //ventana
-            index = dataGridViewVentanas.CurrentRow.Index;
-            if (index < 0)
-                return;
+            try
+            {
+                //modulo
+                int index = dataGridViewModulos.CurrentRow.Index;
+                if (index < 0)
+                    return;
 
+                modulo = listaModulos[index];
+
+                //ventana
+                index = dataGridViewVentanas.CurrentRow.Index;
+                if (index < 0)
+                    return;
+
+                ventana = listaVentanas[index];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error GetVentanaSistema.:" + ex.ToString());
+            }
         }
     }
 }
