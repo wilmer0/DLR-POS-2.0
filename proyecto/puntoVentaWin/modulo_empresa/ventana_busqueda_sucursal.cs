@@ -64,7 +64,7 @@ namespace puntoVentaWin.modulo_empresa
 
             
             sucursal = lista[index];
-            MessageBox.Show(sucursal.codigo + "-" + sucursal.secuencia + "-" + sucursal.empresa.nombre);
+            //MessageBox.Show(sucursal.codigo + "-" + sucursal.secuencia + "-" + sucursal.empresa.nombre);
             return sucursal;
             this.Close();
         }
