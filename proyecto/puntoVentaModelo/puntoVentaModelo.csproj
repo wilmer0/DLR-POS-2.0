@@ -217,9 +217,11 @@
     </Compile>
     <Compile Include="Modelos\coneccion.cs" />
     <Compile Include="Modelos\DatosConeccionBD.cs" />
+    <Compile Include="Modelos\modeloComputadora.cs" />
     <Compile Include="Modelos\modeloEmpleado.cs" />
     <Compile Include="Modelos\modeloEmpresa.cs" />
     <Compile Include="Modelos\modeloSistemaModulos.cs" />
+    <Compile Include="Modelos\modeloSistemaVentana.cs" />
     <Compile Include="Modelos\modeloSucursal.cs" />
     <Compile Include="moneda.cs">
       <DependentUpon>Model1.tt</DependentUpon>

@@ -8,61 +8,25 @@ using puntoVentaModelo.modelos;
 
 namespace puntoVentaModelo.Modelos
 {
-    public class modeloSistemaModulos
+    public class modeloSistemaVentana
     {
-        public Boolean agregarModulos(List<sistema_modulo> listaModulos)
+        public Boolean agregarVentana(sistema_modulo_ventanas ventana)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                listaModulos.ForEach(x =>
-                {
-                    entity.sistema_modulo.Add(x); 
-                });
-                
-                entity.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                entity = null;
-                MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return false;
-            }
-            finally
-            {
-                entity = null;
-            }
-        }
-
-
-        public Boolean modificarModulo(sistema_modulo modulo)
-        {
-            coneccion coneccion = new coneccion();
-            punto_ventaEntities entity = coneccion.GetConeccion();
-            try
-            {
-
-                var lista = (from c in entity.sistema_modulo
-                             where c.id == modulo.id
+                var lista = (from c in entity.sistema_modulo_ventanas
+                             where c.codigo == ventana.codigo
                              select c).FirstOrDefault();
 
-
-                lista.nombre = modulo.nombre;
-                lista.activo = modulo.activo;
-                lista.nombre_modulo_proyecto = modulo.nombre_modulo_proyecto;
-                lista.sistema_modulo_ventanas = modulo.sistema_modulo_ventanas;
-
-
                 entity.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
                 entity = null;
-                MessageBox.Show("Error modificarModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                MessageBox.Show("Error agregarVentana.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
@@ -72,17 +36,27 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public Boolean modificarModulos(List<sistema_modulo> listaModulos)
+
+
+        public Boolean modificarVentanas(sistema_modulo_ventanas ventana)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
+               
 
-                listaModulos.ForEach(x =>
-                {
-                    entity.sistema_modulo.Add(x);
-                });
+               var lista = (from c in entity.sistema_modulo_ventanas
+                         where c.codigo == ventana.codigo
+                         select c).ToList().FirstOrDefault();
+
+
+                lista.cod_modulo = ventana.cod_modulo;
+                lista.nombre_ventana = ventana.nombre_ventana;
+                lista.nombre_logico = ventana.nombre_logico;
+                lista.imagen = ventana.imagen;
+                lista.activo = ventana.activo;
+
 
                 entity.SaveChanges();
                 return true;
@@ -90,7 +64,7 @@ namespace puntoVentaModelo.Modelos
             catch (Exception ex)
             {
                 entity = null;
-                MessageBox.Show("Error agregarListaModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                MessageBox.Show("Error modificarVentanas.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
@@ -108,10 +82,10 @@ namespace puntoVentaModelo.Modelos
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                count = entity.sistema_modulo.Count();
+                count = entity.sistema_modulo_ventanas.Count();
                 if (count > 0)
                 {
-                    count = entity.sistema_modulo.Max(c => c.id);
+                    count = entity.sistema_modulo_ventanas.Max(c => c.codigo);
                 }
                 return count + 1;
             }
@@ -122,7 +96,7 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_modulo_ventanas> getListaSistemaVentanas()
+        public List<sistema_modulo_ventanas> getListaCompleta()
         {
             try
             {
@@ -154,11 +128,11 @@ namespace puntoVentaModelo.Modelos
                 coneccion coneccion = new coneccion();
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
-                List<sistema_modulo> lista=new List<sistema_modulo>();
+                List<sistema_modulo> lista = new List<sistema_modulo>();
 
                 lista = (from c in entity.sistema_modulo
-                            where c.activo==true
-                            select c).ToList();
+                         where c.activo == true
+                         select c).ToList();
 
 
                 return lista;
@@ -179,7 +153,7 @@ namespace puntoVentaModelo.Modelos
             try
             {
                 //eliminando las ventans viejas
-                List<sistema_modulo_ventanas> listaVieja = getListaSistemaVentanas();
+                List<sistema_modulo_ventanas> listaVieja = getListaCompleta();
                 listaVieja.ForEach(x =>
                 {
                     entity.sistema_modulo_ventanas.Remove(x);
@@ -206,5 +180,7 @@ namespace puntoVentaModelo.Modelos
                 entity = null;
             }
         }
+
+
     }
 }
