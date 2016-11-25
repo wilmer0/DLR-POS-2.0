@@ -12,7 +12,7 @@
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" />
           <Property Name="cod_sucursal" Type="int" Nullable="false" />
-          <Property Name="estado" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="caja">
           <Key>
@@ -39,7 +39,7 @@
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="estado" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -56,7 +56,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="cuenta_movimiento" Type="tinyint" />
           <Property Name="origen_credito" Type="tinyint" />
           <Property Name="origen_debito" Type="tinyint" />
-          <Property Name="estado" Type="tinyint" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <EntityType Name="categoria_producto">
           <Key>
@@ -64,7 +64,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="estado" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="cliente">
           <Key>
@@ -74,7 +74,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="nombre" Type="varchar" MaxLength="100" />
           <Property Name="limite_credito" Type="decimal" Precision="20" Scale="2" />
           <Property Name="cod_categoria" Type="int" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="fecha_creado" Type="date" />
           <Property Name="abrir_credito" Type="utinyint" />
           <Property Name="cod_sucursal_creado" Type="int" />
@@ -88,7 +88,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" />
-          <Property Name="activo" Type="utinyint" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <EntityType Name="cobros">
           <Key>
@@ -101,7 +101,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="fecha" Type="datetime" />
           <Property Name="detalle" Type="longtext" />
           <Property Name="cod_empleado" Type="int" Nullable="false" />
-          <Property Name="activo" Type="utinyint" />
+          <Property Name="activo" Type="bool" />
           <Property Name="cod_empleado_anular" Type="int" />
           <Property Name="motivo_anulado" Type="longtext" />
           <Property Name="cuadrado" Type="utinyint" />
@@ -118,7 +118,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="monto_descontado" Type="decimal" Precision="20" Scale="2" />
           <Property Name="cod_empleado_anular" Type="int" />
           <Property Name="motivo_anulado" Type="longtext" />
-          <Property Name="estado" Type="utinyint" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <EntityType Name="compra">
           <Key>
@@ -132,7 +132,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.catalogo_cuentas' no tiene d
           <Property Name="ncf" Type="varchar" MaxLength="50" />
           <Property Name="rnc" Type="varchar" MaxLength="50" />
           <Property Name="cod_tipo" Type="varchar" MaxLength="5" Nullable="false" />
-          <Property Name="estado" Type="int" />
+          <Property Name="activo" Type="bool" />
           <Property Name="pagada" Type="utinyint" />
           <Property Name="cod_sucursal" Type="int" />
           <Property Name="efectivo" Type="decimal" Precision="20" Scale="5" />
@@ -154,7 +154,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
             <PropertyRef Name="cantidad" />
             <PropertyRef Name="monto" />
             <PropertyRef Name="descuento" />
-            <PropertyRef Name="estado" />
+            <PropertyRef Name="activo" />
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="cod_compra" Type="int" Nullable="false" />
@@ -164,20 +164,20 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="cantidad" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="monto" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="descuento" Type="decimal" Precision="20" Scale="2" Nullable="false" />
-          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="comprobante_fiscal">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
-          <Property Name="cod_serie" Type="int" />
-          <Property Name="cod_caja" Type="int" />
-          <Property Name="codigo_tipo" Type="int" />
-          <Property Name="desde_numero" Type="int" />
-          <Property Name="hasta_numero" Type="int" />
-          <Property Name="contador" Type="int" />
-          <Property Name="avisar" Type="int" />
+          <Property Name="cod_serie" Type="int" Nullable="false" />
+          <Property Name="cod_caja" Type="int" Nullable="false" />
+          <Property Name="codigo_tipo" Type="int" Nullable="false" />
+          <Property Name="desde_numero" Type="int" Nullable="false" />
+          <Property Name="hasta_numero" Type="int" Nullable="false" />
+          <Property Name="contador" Type="int" Nullable="false" />
+          <Property Name="avisar" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" />
         </EntityType>
         <EntityType Name="comprobante_serie">
@@ -187,7 +187,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="serie" Type="varchar" MaxLength="1" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="100" />
-          <Property Name="estado" Type="int" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <EntityType Name="comprobante_ventas">
           <Key>
@@ -197,17 +197,6 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="cod_tipo_comprobante" Type="int" />
           <Property Name="cod_caja" Type="int" />
           <Property Name="contador" Type="int" />
-        </EntityType>
-        <EntityType Name="correo_electronicos">
-          <Key>
-            <PropertyRef Name="codigo" />
-          </Key>
-          <Property Name="codigo" Type="int" Nullable="false" />
-          <Property Name="correo" Type="longtext" />
-          <Property Name="clave" Type="longtext" Nullable="false" />
-          <Property Name="ssl_activo" Type="utinyint" Nullable="false" />
-          <Property Name="host" Type="longtext" Nullable="false" />
-          <Property Name="puerto" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="cuadre_caja">
           <Key>
@@ -220,7 +209,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="cod_cajero" Type="int" Nullable="false" />
           <Property Name="fecha" Type="date" Nullable="false" />
           <Property Name="turno" Type="int" Nullable="false" />
-          <Property Name="activo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="faltante" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="sobrante" Type="decimal" Precision="20" Scale="2" Nullable="false" />
         </EntityType>
@@ -240,7 +229,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="numero_cuenta" Type="longtext" />
           <Property Name="cod_tipo" Type="int" Nullable="false" />
-          <Property Name="estado" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="TRIAL_COLUMN6" Type="int" />
           <Property Name="TRIAL_COLUMN7" Type="int" />
         </EntityType>
@@ -251,7 +240,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="cod_sucursal" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="200" />
-          <Property Name="activo" Type="utinyint" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <EntityType Name="direccion">
           <Key>
@@ -294,7 +283,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.compra_detalle' no tiene def
           <Property Name="clave" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="sueldo" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="cod_situacion" Type="int" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="cod_sucursal" Type="int" />
           <Property Name="cod_departamento" Type="int" />
           <Property Name="cod_cargo" Type="int" />
@@ -461,7 +450,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.factura_detalle' no tiene de
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="detalles" Type="varchar" MaxLength="200" />
         </EntityType>
         <!--Errores durante la generación:
@@ -493,9 +482,9 @@ advertencia 6002: La tabla o vista 'def.punto_venta.grupo_usuarios_permisos' no 
           <Property Name="cod_cajero" Type="int" Nullable="false" />
           <Property Name="monto" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="detalles" Type="longtext" />
-          <Property Name="afecta_cuadre" Type="tinyint" />
-          <Property Name="activo" Type="tinyint" />
-          <Property Name="cuadrado" Type="tinyint" />
+          <Property Name="afecta_cuadre" Type="bool" />
+          <Property Name="activo" Type="bool" />
+          <Property Name="cuadrado" Type="bool" />
         </EntityType>
         <EntityType Name="ingresos_conceptos">
           <Key>
@@ -503,7 +492,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.grupo_usuarios_permisos' no 
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="longtext" Nullable="false" />
-          <Property Name="estado" Type="int" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="inventario">
           <Key>
@@ -543,7 +532,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.grupo_usuarios_permisos' no 
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="porciento" Type="int" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="marcas">
           <Key>
@@ -551,7 +540,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.grupo_usuarios_permisos' no 
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="longtext" Nullable="false" />
-          <Property Name="activo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="mesas">
           <Key>
@@ -589,7 +578,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.mesas_detalles' no tiene def
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="codigo_marca" Type="int" Nullable="false" />
           <Property Name="nombre_modelo" Type="longtext" Nullable="false" />
-          <Property Name="activo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="moneda">
           <Key>
@@ -598,7 +587,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.mesas_detalles' no tiene def
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="longtext" Nullable="false" />
           <Property Name="tasa_actual" Type="decimal" Precision="20" Scale="2" Nullable="false" />
-          <Property Name="activo" Type="tinyint" />
+          <Property Name="activo" Type="bool" />
           <Property Name="monedacol" Type="varchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="moneda_historial">
@@ -620,7 +609,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.mesas_detalles' no tiene def
           <Property Name="cod_empleado" Type="int" Nullable="false" />
           <Property Name="cod_tipo" Type="int" Nullable="false" />
           <Property Name="cod_sucursal" Type="int" Nullable="false" />
-          <Property Name="activo" Type="tinyint" />
+          <Property Name="activo" Type="bool" />
           <Property Name="abierta_cerrada" Type="varchar" MaxLength="5" />
           <Property Name="cod_empleado_cerrada" Type="int" />
         </EntityType>
@@ -655,7 +644,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.nomina_detalle' no tiene def
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="longtext" Nullable="false" />
-          <Property Name="activo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_categoria_detalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -689,7 +678,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_detalle' no 
           <Property Name="fecha" Type="datetime" Nullable="false" />
           <Property Name="detalle" Type="longtext" />
           <Property Name="cod_empleado" Type="int" Nullable="false" />
-          <Property Name="activo" Type="utinyint" />
+          <Property Name="activo" Type="bool" />
           <Property Name="cod_empleado_anular" Type="int" />
           <Property Name="motivo_anulado" Type="longtext" />
           <Property Name="cuadrado" Type="utinyint" />
@@ -720,7 +709,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_detalle' no 
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="persona">
           <Key>
@@ -729,7 +718,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_detalle' no 
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="apellido" Type="varchar" MaxLength="50" />
           <Property Name="fecha_nacimiento" Type="date" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="producto">
           <Key>
@@ -738,7 +727,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_detalle' no 
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="300" Nullable="false" />
           <Property Name="referencia" Type="varchar" MaxLength="50" />
-          <Property Name="estado" Type="bit" />
+          <Property Name="activo" Type="bool" />
           <Property Name="reorden" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="punto_maximo" Type="decimal" Precision="20" Scale="2" Nullable="false" />
           <Property Name="cod_itebis" Type="int" Nullable="false" />
@@ -792,7 +781,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <Property Name="descuento" Type="decimal" Precision="20" Scale="2" />
           <Property Name="fecha_inicial" Type="date" />
           <Property Name="fecha_final" Type="date" />
-          <Property Name="estado" Type="int" />
+          <Property Name="activo" Type="bool" />
           <Property Name="fecha_actualizada" Type="date" />
           <Property Name="cod_empleado_actualiza" Type="int" />
           <Property Name="cod_sucursal" Type="int" Nullable="false" />
@@ -803,7 +792,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisitos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
@@ -865,7 +854,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="cod_pais" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="sector">
           <Key>
@@ -911,7 +900,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           <Property Name="activo" Type="bool" />
           <Property Name="nombre_modulo_proyecto" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <EntityType Name="sistema_modulo_ventanas">
+        <EntityType Name="sistema_ventanas">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
@@ -928,7 +917,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="50" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="subcategoria_producto">
           <Key>
@@ -959,7 +948,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           <Property Name="fecha_creacion" Type="date" Nullable="false" />
           <Property Name="cod_sucursal_creado" Type="int" Nullable="false" />
           <Property Name="limite_credito" Type="decimal" Precision="20" Scale="2" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="direccion" Type="varchar" MaxLength="200" />
           <Property Name="telefono1" Type="varchar" MaxLength="45" />
           <Property Name="telefono2" Type="varchar" MaxLength="45" />
@@ -1000,6 +989,15 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="activo" Type="tinyint" Nullable="false" />
         </EntityType>
+        <EntityType Name="tipo_correo_electronico">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="int" Nullable="false" />
+          <Property Name="ssl_activo" Type="utinyint" Nullable="false" />
+          <Property Name="host" Type="longtext" Nullable="false" />
+          <Property Name="puerto" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="tipo_cuenta_bancaria">
           <Key>
             <PropertyRef Name="codigo" />
@@ -1014,7 +1012,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </Key>
           <Property Name="id" Type="uint" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="activo" Type="utinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="tipo_identificacion">
           <Key>
@@ -1054,7 +1052,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="activo" Type="tinyint" Nullable="false" />
+          <Property Name="activo" Type="bool" Nullable="false" />
           <Property Name="unidad_abreviada" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="vendedor">
@@ -1063,7 +1061,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </Key>
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="porciento" Type="decimal" Precision="2" Scale="2" />
-          <Property Name="activo" Type="tinyint" />
+          <Property Name="activo" Type="bool" />
         </EntityType>
         <Association Name="almacen_sucursal">
           <End Role="sucursal" Type="Self.sucursal" Multiplicity="1" />
@@ -1246,7 +1244,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_caja">
-          <End Role="caja" Type="Self.caja" Multiplicity="0..1" />
+          <End Role="caja" Type="Self.caja" Multiplicity="1" />
           <End Role="comprobante_fiscal" Type="Self.comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="caja">
@@ -1258,7 +1256,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_serie1">
-          <End Role="comprobante_serie" Type="Self.comprobante_serie" Multiplicity="0..1" />
+          <End Role="comprobante_serie" Type="Self.comprobante_serie" Multiplicity="1" />
           <End Role="comprobante_fiscal" Type="Self.comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="comprobante_serie">
@@ -1270,7 +1268,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene de
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_tipo">
-          <End Role="tipo_comprobante_fiscal" Type="Self.tipo_comprobante_fiscal" Multiplicity="0..1" />
+          <End Role="tipo_comprobante_fiscal" Type="Self.tipo_comprobante_fiscal" Multiplicity="1" />
           <End Role="comprobante_fiscal" Type="Self.comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipo_comprobante_fiscal">
@@ -2210,12 +2208,12 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
         </Association>
         <Association Name="sistema_modulo_ventanas_modulo">
           <End Role="sistema_modulo" Type="Self.sistema_modulo" Multiplicity="1" />
-          <End Role="sistema_modulo_ventanas" Type="Self.sistema_modulo_ventanas" Multiplicity="*" />
+          <End Role="sistema_ventanas" Type="Self.sistema_ventanas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="sistema_modulo">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="sistema_modulo_ventanas">
+            <Dependent Role="sistema_ventanas">
               <PropertyRef Name="cod_modulo" />
             </Dependent>
           </ReferentialConstraint>
@@ -2270,7 +2268,6 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
           <EntitySet Name="comprobante_fiscal" EntityType="Self.comprobante_fiscal" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="comprobante_serie" EntityType="Self.comprobante_serie" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="comprobante_ventas" EntityType="Self.comprobante_ventas" Schema="punto_venta" store:Type="Tables" />
-          <EntitySet Name="correo_electronicos" EntityType="Self.correo_electronicos" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="cuadre_caja" EntityType="Self.cuadre_caja" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="cuadre_caja_detalles" EntityType="Self.cuadre_caja_detalles" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="cuenta_bancaria" EntityType="Self.cuenta_bancaria" Schema="punto_venta" store:Type="Tables" />
@@ -2321,7 +2318,7 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
           <EntitySet Name="sexo" EntityType="Self.sexo" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="sistema" EntityType="Self.sistema" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="sistema_modulo" EntityType="Self.sistema_modulo" Schema="punto_venta" store:Type="Tables" />
-          <EntitySet Name="sistema_modulo_ventanas" EntityType="Self.sistema_modulo_ventanas" Schema="punto_venta" store:Type="Tables" />
+          <EntitySet Name="sistema_ventanas" EntityType="Self.sistema_ventanas" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="situacion_empleado" EntityType="Self.situacion_empleado" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="subcategoria_producto" EntityType="Self.subcategoria_producto" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="sucursal" EntityType="Self.sucursal" Schema="punto_venta" store:Type="Tables" />
@@ -2329,6 +2326,7 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tarjetas_credito" EntityType="Self.tarjetas_credito" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_comprobante_fiscal" EntityType="Self.tipo_comprobante_fiscal" Schema="punto_venta" store:Type="Tables" />
+          <EntitySet Name="tipo_correo_electronico" EntityType="Self.tipo_correo_electronico" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_cuenta_bancaria" EntityType="Self.tipo_cuenta_bancaria" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_gasto" EntityType="Self.tipo_gasto" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="tipo_identificacion" EntityType="Self.tipo_identificacion" Schema="punto_venta" store:Type="Tables" />
@@ -2347,7 +2345,7 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
 `catalogo_cuentas`.`cuenta_movimiento`, 
 `catalogo_cuentas`.`origen_credito`, 
 `catalogo_cuentas`.`origen_debito`, 
-`catalogo_cuentas`.`estado`
+`catalogo_cuentas`.`activo`
 FROM `catalogo_cuentas` AS `catalogo_cuentas`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="compra_detalle" EntityType="Self.compra_detalle" store:Type="Tables" store:Schema="punto_venta">
@@ -2360,7 +2358,7 @@ FROM `catalogo_cuentas` AS `catalogo_cuentas`</DefiningQuery>
 `compra_detalle`.`cantidad`, 
 `compra_detalle`.`monto`, 
 `compra_detalle`.`descuento`, 
-`compra_detalle`.`estado`
+`compra_detalle`.`activo`
 FROM `compra_detalle` AS `compra_detalle`</DefiningQuery>
           </EntitySet>
           <EntitySet Name="empleado_historial_datos" EntityType="Self.empleado_historial_datos" store:Type="Tables" store:Schema="punto_venta">
@@ -2448,7 +2446,7 @@ FROM `producto_codigobarra` AS `producto_codigobarra`</DefiningQuery>
 `producto_oferta_historial`.`descuento`, 
 `producto_oferta_historial`.`fecha_inicial`, 
 `producto_oferta_historial`.`fecha_final`, 
-`producto_oferta_historial`.`estado`, 
+`producto_oferta_historial`.`activo`, 
 `producto_oferta_historial`.`fecha_actualizada`, 
 `producto_oferta_historial`.`cod_empleado_actualiza`, 
 `producto_oferta_historial`.`cod_sucursal`
@@ -2832,7 +2830,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="Self.sistema_modulo_ventanas_modulo">
             <End Role="sistema_modulo" EntitySet="sistema_modulo" />
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
+            <End Role="sistema_ventanas" EntitySet="sistema_ventanas" />
           </AssociationSet>
           <AssociationSet Name="sistema_moneda" Association="Self.sistema_moneda">
             <End Role="moneda" EntitySet="moneda" />
@@ -2865,7 +2863,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="comprobante_fiscal" EntityType="punto_ventaModel.comprobante_fiscal" />
           <EntitySet Name="comprobante_serie" EntityType="punto_ventaModel.comprobante_serie" />
           <EntitySet Name="comprobante_ventas" EntityType="punto_ventaModel.comprobante_ventas" />
-          <EntitySet Name="correo_electronicos" EntityType="punto_ventaModel.correo_electronicos" />
           <EntitySet Name="cuadre_caja" EntityType="punto_ventaModel.cuadre_caja" />
           <EntitySet Name="cuadre_caja_detalles" EntityType="punto_ventaModel.cuadre_caja_detalles" />
           <EntitySet Name="cuenta_bancaria" EntityType="punto_ventaModel.cuenta_bancaria" />
@@ -2914,7 +2911,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="sexo" EntityType="punto_ventaModel.sexo" />
           <EntitySet Name="sistema" EntityType="punto_ventaModel.sistema" />
           <EntitySet Name="sistema_modulo" EntityType="punto_ventaModel.sistema_modulo" />
-          <EntitySet Name="sistema_modulo_ventanas" EntityType="punto_ventaModel.sistema_modulo_ventanas" />
+          <EntitySet Name="sistema_ventanas" EntityType="punto_ventaModel.sistema_ventanas" />
           <EntitySet Name="situacion_empleado" EntityType="punto_ventaModel.situacion_empleado" />
           <EntitySet Name="subcategoria_producto" EntityType="punto_ventaModel.subcategoria_producto" />
           <EntitySet Name="sucursal" EntityType="punto_ventaModel.sucursal" />
@@ -2922,6 +2919,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySet Name="sysdiagrams" EntityType="punto_ventaModel.sysdiagrams" />
           <EntitySet Name="tarjetas_credito" EntityType="punto_ventaModel.tarjetas_credito" />
           <EntitySet Name="tipo_comprobante_fiscal" EntityType="punto_ventaModel.tipo_comprobante_fiscal" />
+          <EntitySet Name="tipo_correo_electronico" EntityType="punto_ventaModel.tipo_correo_electronico" />
           <EntitySet Name="tipo_cuenta_bancaria" EntityType="punto_ventaModel.tipo_cuenta_bancaria" />
           <EntitySet Name="tipo_gasto" EntityType="punto_ventaModel.tipo_gasto" />
           <EntitySet Name="tipo_identificacion" EntityType="punto_ventaModel.tipo_identificacion" />
@@ -3273,7 +3271,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </AssociationSet>
           <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="punto_ventaModel.sistema_modulo_ventanas_modulo">
             <End Role="sistema_modulo" EntitySet="sistema_modulo" />
-            <End Role="sistema_modulo_ventanas" EntitySet="sistema_modulo_ventanas" />
+            <End Role="sistema_ventanas" EntitySet="sistema_ventanas" />
           </AssociationSet>
           <AssociationSet Name="empleado_situacion" Association="punto_ventaModel.empleado_situacion">
             <End Role="situacion_empleado" EntitySet="situacion_empleado" />
@@ -3327,7 +3325,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
-          <Property Name="estado" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="sucursal" Relationship="punto_ventaModel.almacen_sucursal" FromRole="almacen" ToRole="sucursal" />
           <NavigationProperty Name="entrada_salida_inventario" Relationship="punto_ventaModel.entrada_salida_inventario_almacen" FromRole="almacen" ToRole="entrada_salida_inventario" />
           <NavigationProperty Name="producto" Relationship="punto_ventaModel.producto_almacen" FromRole="almacen" ToRole="producto" />
@@ -3363,7 +3361,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="estado" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_empleado_4" FromRole="cargo" ToRole="empleado" />
           <NavigationProperty Name="empleado1" Relationship="punto_ventaModel.empleado_vs_cargo" FromRole="cargo" ToRole="empleado" />
         </EntityType>
@@ -3373,7 +3371,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="estado" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="oferta_producto_categoria_detalle" Relationship="punto_ventaModel.oferta_producto_subcate_detalle_categoria" FromRole="categoria_producto" ToRole="oferta_producto_categoria_detalle" />
           <NavigationProperty Name="producto" Relationship="punto_ventaModel.producto_categoria" FromRole="categoria_producto" ToRole="producto" />
           <NavigationProperty Name="subcategoria_producto" Relationship="punto_ventaModel.subcategoria_producto_Categoria" FromRole="categoria_producto" ToRole="subcategoria_producto" />
@@ -3386,7 +3384,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="nombre" Type="String" />
           <Property Name="limite_credito" Type="Decimal" />
           <Property Name="cod_categoria" Type="Int32" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="fecha_creado" Type="DateTime" />
           <Property Name="abrir_credito" Type="Byte" />
           <Property Name="cod_sucursal_creado" Type="Int32" />
@@ -3404,7 +3402,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" />
-          <Property Name="activo" Type="Byte" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="cliente" Relationship="punto_ventaModel.cliente_categoria_cliente" FromRole="cliente_categoria" ToRole="cliente" />
         </EntityType>
         <EntityType Name="cobros">
@@ -3418,7 +3416,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" />
           <Property Name="detalle" Type="String" />
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="Byte" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="cod_empleado_anular" Type="Int32" />
           <Property Name="motivo_anulado" Type="String" />
           <Property Name="cuadrado" Type="Byte" />
@@ -3437,7 +3435,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="monto_descontado" Type="Decimal" />
           <Property Name="cod_empleado_anular" Type="Int32" />
           <Property Name="motivo_anulado" Type="String" />
-          <Property Name="estado" Type="Byte" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="cobros" Relationship="punto_ventaModel.cobro_detalle_cobro" FromRole="cobros_detalles" ToRole="cobros" />
           <NavigationProperty Name="metodo_pago" Relationship="punto_ventaModel.cobro_detalle_metodo_pago" FromRole="cobros_detalles" ToRole="metodo_pago" />
           <NavigationProperty Name="factura" Relationship="punto_ventaModel.cobros_detalles_factura" FromRole="cobros_detalles" ToRole="factura" />
@@ -3454,7 +3452,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="ncf" Type="String" />
           <Property Name="rnc" Type="String" />
           <Property Name="cod_tipo" Type="String" Nullable="false" />
-          <Property Name="estado" Type="Int32" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="pagada" Type="Byte" />
           <Property Name="cod_sucursal" Type="Int32" />
           <Property Name="efectivo" Type="Decimal" />
@@ -3474,13 +3472,13 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="codigo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="cod_serie" Type="Int32" />
-          <Property Name="cod_caja" Type="Int32" />
-          <Property Name="codigo_tipo" Type="Int32" />
-          <Property Name="desde_numero" Type="Int32" />
-          <Property Name="hasta_numero" Type="Int32" />
-          <Property Name="contador" Type="Int32" />
-          <Property Name="avisar" Type="Int32" />
+          <Property Name="cod_serie" Type="Int32" Nullable="false" />
+          <Property Name="cod_caja" Type="Int32" Nullable="false" />
+          <Property Name="codigo_tipo" Type="Int32" Nullable="false" />
+          <Property Name="desde_numero" Type="Int32" Nullable="false" />
+          <Property Name="hasta_numero" Type="Int32" Nullable="false" />
+          <Property Name="contador" Type="Int32" Nullable="false" />
+          <Property Name="avisar" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" />
           <NavigationProperty Name="caja" Relationship="punto_ventaModel.comprobante_caja" FromRole="comprobante_fiscal" ToRole="caja" />
           <NavigationProperty Name="comprobante_serie" Relationship="punto_ventaModel.comprobante_serie1" FromRole="comprobante_fiscal" ToRole="comprobante_serie" />
@@ -3493,7 +3491,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="serie" Type="String" Nullable="false" />
           <Property Name="nombre" Type="String" />
-          <Property Name="estado" Type="Int32" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="comprobante_fiscal" Relationship="punto_ventaModel.comprobante_serie1" FromRole="comprobante_serie" ToRole="comprobante_fiscal" />
         </EntityType>
         <EntityType Name="comprobante_ventas">
@@ -3504,17 +3502,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_tipo_comprobante" Type="Int32" />
           <Property Name="cod_caja" Type="Int32" />
           <Property Name="contador" Type="Int32" />
-        </EntityType>
-        <EntityType Name="correo_electronicos">
-          <Key>
-            <PropertyRef Name="codigo" />
-          </Key>
-          <Property Name="codigo" Type="Int32" Nullable="false" />
-          <Property Name="correo" Type="String" />
-          <Property Name="clave" Type="String" Nullable="false" />
-          <Property Name="ssl_activo" Type="Byte" Nullable="false" />
-          <Property Name="host" Type="String" Nullable="false" />
-          <Property Name="puerto" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="cuadre_caja">
           <Key>
@@ -3527,7 +3514,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_cajero" Type="Int32" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" />
           <Property Name="turno" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="SByte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="faltante" Type="Decimal" Nullable="false" />
           <Property Name="sobrante" Type="Decimal" Nullable="false" />
           <NavigationProperty Name="cajero" Relationship="punto_ventaModel.cuadre_cajero" FromRole="cuadre_caja" ToRole="cajero" />
@@ -3548,7 +3535,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="numero_cuenta" Type="String" />
           <Property Name="cod_tipo" Type="Int32" Nullable="false" />
-          <Property Name="estado" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="TRIAL_COLUMN6" Type="Int32" />
           <Property Name="TRIAL_COLUMN7" Type="Int32" />
         </EntityType>
@@ -3559,7 +3546,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" />
-          <Property Name="activo" Type="Byte" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="punto_ventaModel.empleeado_departamento" FromRole="departamento" ToRole="empleado_historial_datos" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_empleado_3" FromRole="departamento" ToRole="empleado" />
         </EntityType>
@@ -3604,7 +3591,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="clave" Type="String" Nullable="false" />
           <Property Name="sueldo" Type="Decimal" Nullable="false" />
           <Property Name="cod_situacion" Type="Int32" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="cod_sucursal" Type="Int32" />
           <Property Name="cod_departamento" Type="Int32" />
           <Property Name="cod_cargo" Type="Int32" />
@@ -3728,7 +3715,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="detalles" Type="String" />
           <NavigationProperty Name="permiso" Relationship="punto_ventaModel.grupo_usuarios_permisos" FromRole="grupo_usuarios" ToRole="permiso" />
         </EntityType>
@@ -3751,9 +3738,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_cajero" Type="Int32" Nullable="false" />
           <Property Name="monto" Type="Decimal" Nullable="false" />
           <Property Name="detalles" Type="String" />
-          <Property Name="afecta_cuadre" Type="SByte" />
-          <Property Name="activo" Type="SByte" />
-          <Property Name="cuadrado" Type="SByte" />
+          <Property Name="afecta_cuadre" Type="Boolean" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="cuadrado" Type="Boolean" />
           <NavigationProperty Name="cajero" Relationship="punto_ventaModel.ingresos_caja_cajero" FromRole="ingresos_caja" ToRole="cajero" />
           <NavigationProperty Name="ingresos_conceptos" Relationship="punto_ventaModel.ingresos_caja_concepto" FromRole="ingresos_caja" ToRole="ingresos_conceptos" />
         </EntityType>
@@ -3763,7 +3750,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="ingresos_caja" Relationship="punto_ventaModel.ingresos_caja_concepto" FromRole="ingresos_conceptos" ToRole="ingresos_caja" />
         </EntityType>
         <EntityType Name="inventario">
@@ -3812,7 +3799,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" Nullable="false" />
           <Property Name="porciento" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="producto" Relationship="punto_ventaModel.producto_itebis" FromRole="itebis" ToRole="producto" />
         </EntityType>
         <EntityType Name="marcas">
@@ -3821,7 +3808,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="SByte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="inventario_reparacion" Relationship="punto_ventaModel.inventario_reparacion_marca" FromRole="marcas" ToRole="inventario_reparacion" />
         </EntityType>
         <EntityType Name="mesas">
@@ -3852,7 +3839,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="codigo_marca" Type="Int32" Nullable="false" />
           <Property Name="nombre_modelo" Type="String" Nullable="false" />
-          <Property Name="activo" Type="SByte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="inventario_reparacion" Relationship="punto_ventaModel.inventario_reparacion_modelo" FromRole="modelo" ToRole="inventario_reparacion" />
         </EntityType>
         <EntityType Name="moneda">
@@ -3862,7 +3849,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="tasa_actual" Type="Decimal" Nullable="false" />
-          <Property Name="activo" Type="SByte" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="monedacol" Type="String" />
           <NavigationProperty Name="moneda_historial" Relationship="punto_ventaModel.moneda_historial_moneda" FromRole="moneda" ToRole="moneda_historial" />
           <NavigationProperty Name="sistema" Relationship="punto_ventaModel.sistema_moneda" FromRole="moneda" ToRole="sistema" />
@@ -3887,7 +3874,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
           <Property Name="cod_tipo" Type="Int32" Nullable="false" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="SByte" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="abierta_cerrada" Type="String" />
           <Property Name="cod_empleado_cerrada" Type="Int32" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.nomina_empleado" FromRole="nomina" ToRole="empleado" />
@@ -3911,7 +3898,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="SByte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_empleado_5" FromRole="nomina_tipos" ToRole="empleado" />
           <NavigationProperty Name="nomina" Relationship="punto_ventaModel.nomina_tipo_nomina" FromRole="nomina_tipos" ToRole="nomina" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="punto_ventaModel.empleado_tipo_nomina" FromRole="nomina_tipos" ToRole="empleado_historial_datos" />
@@ -3924,7 +3911,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="fecha" Type="DateTime" Nullable="false" />
           <Property Name="detalle" Type="String" />
           <Property Name="cod_empleado" Type="Int32" Nullable="false" />
-          <Property Name="activo" Type="Byte" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="cod_empleado_anular" Type="Int32" />
           <Property Name="motivo_anulado" Type="String" />
           <Property Name="cuadrado" Type="Byte" />
@@ -3961,7 +3948,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="grupo_usuarios" Relationship="punto_ventaModel.grupo_usuarios_permisos" FromRole="permiso" ToRole="grupo_usuarios" />
         </EntityType>
         <EntityType Name="persona">
@@ -3971,7 +3958,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="apellido" Type="String" />
           <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="producto">
           <Key>
@@ -3980,7 +3967,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="referencia" Type="String" />
-          <Property Name="estado" Type="Boolean" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="reorden" Type="Decimal" Nullable="false" />
           <Property Name="punto_maximo" Type="Decimal" Nullable="false" />
           <Property Name="cod_itebis" Type="Int32" Nullable="false" />
@@ -4035,7 +4022,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="producto_vs_permisos" Relationship="punto_ventaModel.producto_vs_permisos_permiso" FromRole="producto_permisos" ToRole="producto_vs_permisos" />
         </EntityType>
         <EntityType Name="producto_unidad_conversion">
@@ -4090,7 +4077,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_pais" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="pais" Relationship="punto_ventaModel.region_pais" FromRole="region" ToRole="pais" />
           <NavigationProperty Name="provincia" Relationship="punto_ventaModel.provincia_region" FromRole="region" ToRole="provincia" />
         </EntityType>
@@ -4140,9 +4127,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Boolean" />
           <Property Name="nombre_modulo_proyecto" Type="String" Nullable="false" />
-          <NavigationProperty Name="sistema_modulo_ventanas" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo" ToRole="sistema_modulo_ventanas" />
+          <NavigationProperty Name="sistema_ventanas" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo" ToRole="sistema_ventanas" />
         </EntityType>
-        <EntityType Name="sistema_modulo_ventanas">
+        <EntityType Name="sistema_ventanas">
           <Key>
             <PropertyRef Name="codigo" />
           </Key>
@@ -4152,7 +4139,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="nombre_logico" Type="String" Nullable="false" />
           <Property Name="imagen" Type="String" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo_ventanas" ToRole="sistema_modulo" />
+          <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_ventanas" ToRole="sistema_modulo" />
         </EntityType>
         <EntityType Name="situacion_empleado">
           <Key>
@@ -4160,7 +4147,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_empleado_1" FromRole="situacion_empleado" ToRole="empleado" />
           <NavigationProperty Name="empleado_historial_datos" Relationship="punto_ventaModel.empleado_situacion" FromRole="situacion_empleado" ToRole="empleado_historial_datos" />
         </EntityType>
@@ -4205,7 +4192,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="fecha_creacion" Type="DateTime" Nullable="false" />
           <Property Name="cod_sucursal_creado" Type="Int32" Nullable="false" />
           <Property Name="limite_credito" Type="Decimal" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="direccion" Type="String" />
           <Property Name="telefono1" Type="String" />
           <Property Name="telefono2" Type="String" />
@@ -4244,6 +4231,15 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <NavigationProperty Name="comprobante_fiscal" Relationship="punto_ventaModel.comprobante_tipo" FromRole="tipo_comprobante_fiscal" ToRole="comprobante_fiscal" />
           <NavigationProperty Name="factura" Relationship="punto_ventaModel.factura_comprobante" FromRole="tipo_comprobante_fiscal" ToRole="factura" />
         </EntityType>
+        <EntityType Name="tipo_correo_electronico">
+          <Key>
+            <PropertyRef Name="codigo" />
+          </Key>
+          <Property Name="codigo" Type="Int32" Nullable="false" />
+          <Property Name="ssl_activo" Type="Byte" Nullable="false" />
+          <Property Name="host" Type="String" Nullable="false" />
+          <Property Name="puerto" Type="Int32" Nullable="false" />
+        </EntityType>
         <EntityType Name="tipo_cuenta_bancaria">
           <Key>
             <PropertyRef Name="codigo" />
@@ -4258,7 +4254,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="id" Type="Int64" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Byte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="suplidor" Relationship="punto_ventaModel.FK_suplidor_2" FromRole="tipo_gasto" ToRole="suplidor" />
         </EntityType>
         <EntityType Name="tipo_identificacion">
@@ -4299,7 +4295,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" Nullable="false" />
-          <Property Name="activo" Type="SByte" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <Property Name="unidad_abreviada" Type="String" />
           <NavigationProperty Name="entrada_salida_inventario" Relationship="punto_ventaModel.entrada_salida_inventario_unidad" FromRole="unidad" ToRole="entrada_salida_inventario" />
           <NavigationProperty Name="inventario" Relationship="punto_ventaModel.inventario_unidad" FromRole="unidad" ToRole="inventario" />
@@ -4317,7 +4313,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="porciento" Type="Decimal" />
-          <Property Name="activo" Type="SByte" />
+          <Property Name="activo" Type="Boolean" />
           <NavigationProperty Name="empleado" Relationship="punto_ventaModel.FK_vendedor_1" FromRole="vendedor" ToRole="empleado" />
         </EntityType>
         <EntityType Name="catalogo_cuentas">
@@ -4333,7 +4329,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cuenta_movimiento" Type="SByte" />
           <Property Name="origen_credito" Type="SByte" />
           <Property Name="origen_debito" Type="SByte" />
-          <Property Name="estado" Type="SByte" />
+          <Property Name="activo" Type="Boolean" />
         </EntityType>
         <EntityType Name="compra_detalle">
           <Key>
@@ -4345,7 +4341,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <PropertyRef Name="cantidad" />
             <PropertyRef Name="monto" />
             <PropertyRef Name="descuento" />
-            <PropertyRef Name="estado" />
+            <PropertyRef Name="activo" />
           </Key>
           <Property Name="codigo" Type="Int32" Nullable="false" />
           <Property Name="cod_compra" Type="Int32" Nullable="false" />
@@ -4355,7 +4351,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="cantidad" Type="Decimal" Nullable="false" />
           <Property Name="monto" Type="Decimal" Nullable="false" />
           <Property Name="descuento" Type="Decimal" Nullable="false" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="activo" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="compra" Relationship="punto_ventaModel.compra_detalle1" FromRole="compra_detalle" ToRole="compra" />
           <NavigationProperty Name="producto" Relationship="punto_ventaModel.compra_detalle_producto" FromRole="compra_detalle" ToRole="producto" />
           <NavigationProperty Name="unidad" Relationship="punto_ventaModel.compra_detalle_unidad" FromRole="compra_detalle" ToRole="unidad" />
@@ -4493,7 +4489,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="descuento" Type="Decimal" />
           <Property Name="fecha_inicial" Type="DateTime" />
           <Property Name="fecha_final" Type="DateTime" />
-          <Property Name="estado" Type="Int32" />
+          <Property Name="activo" Type="Boolean" />
           <Property Name="fecha_actualizada" Type="DateTime" />
           <Property Name="cod_empleado_actualiza" Type="Int32" />
           <Property Name="cod_sucursal" Type="Int32" Nullable="false" />
@@ -4549,7 +4545,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_caja">
-          <End Type="punto_ventaModel.caja" Role="caja" Multiplicity="0..1" />
+          <End Type="punto_ventaModel.caja" Role="caja" Multiplicity="1" />
           <End Type="punto_ventaModel.comprobante_fiscal" Role="comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="caja">
@@ -4801,7 +4797,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_serie1">
-          <End Type="punto_ventaModel.comprobante_serie" Role="comprobante_serie" Multiplicity="0..1" />
+          <End Type="punto_ventaModel.comprobante_serie" Role="comprobante_serie" Multiplicity="1" />
           <End Type="punto_ventaModel.comprobante_fiscal" Role="comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="comprobante_serie">
@@ -4813,7 +4809,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           </ReferentialConstraint>
         </Association>
         <Association Name="comprobante_tipo">
-          <End Type="punto_ventaModel.tipo_comprobante_fiscal" Role="tipo_comprobante_fiscal" Multiplicity="0..1" />
+          <End Type="punto_ventaModel.tipo_comprobante_fiscal" Role="tipo_comprobante_fiscal" Multiplicity="1" />
           <End Type="punto_ventaModel.comprobante_fiscal" Role="comprobante_fiscal" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tipo_comprobante_fiscal">
@@ -5498,12 +5494,12 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
         </Association>
         <Association Name="sistema_modulo_ventanas_modulo">
           <End Type="punto_ventaModel.sistema_modulo" Role="sistema_modulo" Multiplicity="1" />
-          <End Type="punto_ventaModel.sistema_modulo_ventanas" Role="sistema_modulo_ventanas" Multiplicity="*" />
+          <End Type="punto_ventaModel.sistema_ventanas" Role="sistema_ventanas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="sistema_modulo">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="sistema_modulo_ventanas">
+            <Dependent Role="sistema_ventanas">
               <PropertyRef Name="cod_modulo" />
             </Dependent>
           </ReferentialConstraint>
@@ -5625,7 +5621,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="almacen">
             <EntityTypeMapping TypeName="punto_ventaModel.almacen">
               <MappingFragment StoreEntitySet="almacen">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -5656,7 +5652,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="cargo">
             <EntityTypeMapping TypeName="punto_ventaModel.cargo">
               <MappingFragment StoreEntitySet="cargo">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
@@ -5665,7 +5661,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="categoria_producto">
             <EntityTypeMapping TypeName="punto_ventaModel.categoria_producto">
               <MappingFragment StoreEntitySet="categoria_producto">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
@@ -5717,7 +5713,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="cobros_detalles">
             <EntityTypeMapping TypeName="punto_ventaModel.cobros_detalles">
               <MappingFragment StoreEntitySet="cobros_detalles">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="motivo_anulado" ColumnName="motivo_anulado" />
                 <ScalarProperty Name="cod_empleado_anular" ColumnName="cod_empleado_anular" />
                 <ScalarProperty Name="monto_descontado" ColumnName="monto_descontado" />
@@ -5740,7 +5736,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="efectivo" ColumnName="efectivo" />
                 <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
                 <ScalarProperty Name="pagada" ColumnName="pagada" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="cod_tipo" ColumnName="cod_tipo" />
                 <ScalarProperty Name="rnc" ColumnName="rnc" />
                 <ScalarProperty Name="ncf" ColumnName="ncf" />
@@ -5770,7 +5766,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="comprobante_serie">
             <EntityTypeMapping TypeName="punto_ventaModel.comprobante_serie">
               <MappingFragment StoreEntitySet="comprobante_serie">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="serie" ColumnName="serie" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -5783,18 +5779,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="contador" ColumnName="contador" />
                 <ScalarProperty Name="cod_caja" ColumnName="cod_caja" />
                 <ScalarProperty Name="cod_tipo_comprobante" ColumnName="cod_tipo_comprobante" />
-                <ScalarProperty Name="codigo" ColumnName="codigo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="correo_electronicos">
-            <EntityTypeMapping TypeName="punto_ventaModel.correo_electronicos">
-              <MappingFragment StoreEntitySet="correo_electronicos">
-                <ScalarProperty Name="puerto" ColumnName="puerto" />
-                <ScalarProperty Name="host" ColumnName="host" />
-                <ScalarProperty Name="ssl_activo" ColumnName="ssl_activo" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="correo" ColumnName="correo" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -5826,7 +5810,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               <MappingFragment StoreEntitySet="cuenta_bancaria">
                 <ScalarProperty Name="TRIAL_COLUMN7" ColumnName="TRIAL_COLUMN7" />
                 <ScalarProperty Name="TRIAL_COLUMN6" ColumnName="TRIAL_COLUMN6" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="cod_tipo" ColumnName="cod_tipo" />
                 <ScalarProperty Name="numero_cuenta" ColumnName="numero_cuenta" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -6021,7 +6005,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="ingresos_conceptos">
             <EntityTypeMapping TypeName="punto_ventaModel.ingresos_conceptos">
               <MappingFragment StoreEntitySet="ingresos_conceptos">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
               </MappingFragment>
@@ -6230,7 +6214,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="cod_itebis" ColumnName="cod_itebis" />
                 <ScalarProperty Name="punto_maximo" ColumnName="punto_maximo" />
                 <ScalarProperty Name="reorden" ColumnName="reorden" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="referencia" ColumnName="referencia" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="codigo" ColumnName="codigo" />
@@ -6365,9 +6349,9 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sistema_modulo_ventanas">
-            <EntityTypeMapping TypeName="punto_ventaModel.sistema_modulo_ventanas">
-              <MappingFragment StoreEntitySet="sistema_modulo_ventanas">
+          <EntitySetMapping Name="sistema_ventanas">
+            <EntityTypeMapping TypeName="punto_ventaModel.sistema_ventanas">
+              <MappingFragment StoreEntitySet="sistema_ventanas">
                 <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="imagen" ColumnName="imagen" />
                 <ScalarProperty Name="nombre_logico" ColumnName="nombre_logico" />
@@ -6455,6 +6439,16 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="tipo_correo_electronico">
+            <EntityTypeMapping TypeName="punto_ventaModel.tipo_correo_electronico">
+              <MappingFragment StoreEntitySet="tipo_correo_electronico">
+                <ScalarProperty Name="puerto" ColumnName="puerto" />
+                <ScalarProperty Name="host" ColumnName="host" />
+                <ScalarProperty Name="ssl_activo" ColumnName="ssl_activo" />
+                <ScalarProperty Name="codigo" ColumnName="codigo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="tipo_cuenta_bancaria">
             <EntityTypeMapping TypeName="punto_ventaModel.tipo_cuenta_bancaria">
               <MappingFragment StoreEntitySet="tipo_cuenta_bancaria">
@@ -6530,7 +6524,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="catalogo_cuentas">
             <EntityTypeMapping TypeName="punto_ventaModel.catalogo_cuentas">
               <MappingFragment StoreEntitySet="catalogo_cuentas">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="origen_debito" ColumnName="origen_debito" />
                 <ScalarProperty Name="origen_credito" ColumnName="origen_credito" />
                 <ScalarProperty Name="cuenta_movimiento" ColumnName="cuenta_movimiento" />
@@ -6546,7 +6540,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <EntitySetMapping Name="compra_detalle">
             <EntityTypeMapping TypeName="punto_ventaModel.compra_detalle">
               <MappingFragment StoreEntitySet="compra_detalle">
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="descuento" ColumnName="descuento" />
                 <ScalarProperty Name="monto" ColumnName="monto" />
                 <ScalarProperty Name="cantidad" ColumnName="cantidad" />
@@ -6650,7 +6644,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
                 <ScalarProperty Name="cod_sucursal" ColumnName="cod_sucursal" />
                 <ScalarProperty Name="cod_empleado_actualiza" ColumnName="cod_empleado_actualiza" />
                 <ScalarProperty Name="fecha_actualizada" ColumnName="fecha_actualizada" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
                 <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
                 <ScalarProperty Name="fecha_inicial" ColumnName="fecha_inicial" />
                 <ScalarProperty Name="descuento" ColumnName="descuento" />

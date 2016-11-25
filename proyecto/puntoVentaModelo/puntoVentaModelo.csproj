@@ -113,9 +113,6 @@
     <Compile Include="comprobante_ventas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="correo_electronicos.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="cuadre_caja.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -309,7 +306,7 @@
     <Compile Include="sistema_modulo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="sistema_modulo_ventanas.cs">
+    <Compile Include="sistema_ventanas.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="situacion_empleado.cs">
@@ -331,6 +328,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tipo_comprobante_fiscal.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tipo_correo_electronico.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="tipo_cuenta_bancaria.cs">

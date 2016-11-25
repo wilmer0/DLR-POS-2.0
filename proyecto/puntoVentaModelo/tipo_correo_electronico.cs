@@ -12,11 +12,9 @@ namespace puntoVentaModelo
     using System;
     using System.Collections.Generic;
     
-    public partial class correo_electronicos
+    public partial class tipo_correo_electronico
     {
         public int codigo { get; set; }
-        public string correo { get; set; }
-        public string clave { get; set; }
         public byte ssl_activo { get; set; }
         public string host { get; set; }
         public int puerto { get; set; }

@@ -47,7 +47,6 @@ namespace puntoVentaModelo
         public DbSet<comprobante_fiscal> comprobante_fiscal { get; set; }
         public DbSet<comprobante_serie> comprobante_serie { get; set; }
         public DbSet<comprobante_ventas> comprobante_ventas { get; set; }
-        public DbSet<correo_electronicos> correo_electronicos { get; set; }
         public DbSet<cuadre_caja> cuadre_caja { get; set; }
         public DbSet<cuadre_caja_detalles> cuadre_caja_detalles { get; set; }
         public DbSet<cuenta_bancaria> cuenta_bancaria { get; set; }
@@ -96,7 +95,7 @@ namespace puntoVentaModelo
         public DbSet<sexo> sexo { get; set; }
         public DbSet<sistema> sistema { get; set; }
         public DbSet<sistema_modulo> sistema_modulo { get; set; }
-        public DbSet<sistema_modulo_ventanas> sistema_modulo_ventanas { get; set; }
+        public DbSet<sistema_ventanas> sistema_ventanas { get; set; }
         public DbSet<situacion_empleado> situacion_empleado { get; set; }
         public DbSet<subcategoria_producto> subcategoria_producto { get; set; }
         public DbSet<sucursal> sucursal { get; set; }
@@ -104,6 +103,7 @@ namespace puntoVentaModelo
         public DbSet<sysdiagrams> sysdiagrams { get; set; }
         public DbSet<tarjetas_credito> tarjetas_credito { get; set; }
         public DbSet<tipo_comprobante_fiscal> tipo_comprobante_fiscal { get; set; }
+        public DbSet<tipo_correo_electronico> tipo_correo_electronico { get; set; }
         public DbSet<tipo_cuenta_bancaria> tipo_cuenta_bancaria { get; set; }
         public DbSet<tipo_gasto> tipo_gasto { get; set; }
         public DbSet<tipo_identificacion> tipo_identificacion { get; set; }

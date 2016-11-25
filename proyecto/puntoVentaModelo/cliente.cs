@@ -24,7 +24,7 @@ namespace puntoVentaModelo
         public string nombre { get; set; }
         public Nullable<decimal> limite_credito { get; set; }
         public Nullable<int> cod_categoria { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
         public Nullable<System.DateTime> fecha_creado { get; set; }
         public Nullable<byte> abrir_credito { get; set; }
         public Nullable<int> cod_sucursal_creado { get; set; }

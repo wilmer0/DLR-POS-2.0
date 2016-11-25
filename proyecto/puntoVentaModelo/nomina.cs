@@ -25,7 +25,7 @@ namespace puntoVentaModelo
         public int cod_empleado { get; set; }
         public int cod_tipo { get; set; }
         public int cod_sucursal { get; set; }
-        public Nullable<sbyte> activo { get; set; }
+        public Nullable<bool> activo { get; set; }
         public string abierta_cerrada { get; set; }
         public Nullable<int> cod_empleado_cerrada { get; set; }
     

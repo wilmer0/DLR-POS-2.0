@@ -25,7 +25,7 @@ namespace puntoVentaModelo
         public System.DateTime fecha_creacion { get; set; }
         public int cod_sucursal_creado { get; set; }
         public Nullable<decimal> limite_credito { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
         public string direccion { get; set; }
         public string telefono1 { get; set; }
         public string telefono2 { get; set; }

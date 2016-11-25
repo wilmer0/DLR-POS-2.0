@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public decimal cantidad { get; set; }
         public decimal monto { get; set; }
         public decimal descuento { get; set; }
-        public int estado { get; set; }
+        public bool activo { get; set; }
     
         public virtual compra compra { get; set; }
         public virtual producto producto { get; set; }

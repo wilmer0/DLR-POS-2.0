@@ -21,7 +21,7 @@ namespace puntoVentaModelo
     
         public int codigo { get; set; }
         public string descripcion { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual ICollection<grupo_usuarios> grupo_usuarios { get; set; }
     }

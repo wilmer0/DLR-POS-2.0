@@ -21,7 +21,7 @@ namespace puntoVentaModelo
     
         public int codigo { get; set; }
         public string nombre { get; set; }
-        public int estado { get; set; }
+        public bool activo { get; set; }
     
         public virtual ICollection<ingresos_caja> ingresos_caja { get; set; }
     }

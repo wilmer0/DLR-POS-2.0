@@ -53,7 +53,7 @@ namespace puntoVentaModelo.Modelos
                 lista.nombre = modulo.nombre;
                 lista.activo = modulo.activo;
                 lista.nombre_modulo_proyecto = modulo.nombre_modulo_proyecto;
-                lista.sistema_modulo_ventanas = modulo.sistema_modulo_ventanas;
+                lista.sistema_ventanas = modulo.sistema_ventanas;
 
 
                 entity.SaveChanges();
@@ -122,16 +122,16 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_modulo_ventanas> getListaSistemaVentanas()
+        public List<sistema_modulo> getListaSistemaVentanas()
         {
             try
             {
                 coneccion coneccion = new coneccion();
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
-                List<sistema_modulo_ventanas> lista = new List<sistema_modulo_ventanas>();
+                List<sistema_modulo> lista = new List<sistema_modulo>();
 
-                lista = (from c in entity.sistema_modulo_ventanas
+                lista = (from c in entity.sistema_modulo
                          where c.activo == true
                          select c).ToList();
 
@@ -172,23 +172,23 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public Boolean agregarModulosVentanas(List<sistema_modulo_ventanas> lista)
+        public Boolean agregarModulosVentanas(List<sistema_modulo> lista)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
                 //eliminando las ventans viejas
-                List<sistema_modulo_ventanas> listaVieja = getListaSistemaVentanas();
+                List<sistema_modulo> listaVieja = getListaSistemaVentanas();
                 listaVieja.ForEach(x =>
                 {
-                    entity.sistema_modulo_ventanas.Remove(x);
+                    entity.sistema_modulo.Remove(x);
                 });
 
                 //agregando las ventanas nuevas
                 lista.ForEach(x =>
                 {
-                    entity.sistema_modulo_ventanas.Add(x);
+                    entity.sistema_modulo.Add(x);
                 });
 
                 entity.SaveChanges();

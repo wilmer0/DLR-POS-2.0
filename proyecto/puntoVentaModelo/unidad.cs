@@ -29,7 +29,7 @@ namespace puntoVentaModelo
     
         public int codigo { get; set; }
         public string nombre { get; set; }
-        public sbyte activo { get; set; }
+        public bool activo { get; set; }
         public string unidad_abreviada { get; set; }
     
         public virtual ICollection<entrada_salida_inventario> entrada_salida_inventario { get; set; }

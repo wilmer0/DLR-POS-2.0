@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public string serie { get; set; }
         public string nombre { get; set; }
-        public Nullable<int> estado { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         public virtual ICollection<comprobante_fiscal> comprobante_fiscal { get; set; }
     }

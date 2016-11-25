@@ -23,7 +23,7 @@ namespace puntoVentaModelo
         public System.DateTime fecha { get; set; }
         public string detalle { get; set; }
         public int cod_empleado { get; set; }
-        public Nullable<byte> activo { get; set; }
+        public Nullable<bool> activo { get; set; }
         public Nullable<int> cod_empleado_anular { get; set; }
         public string motivo_anulado { get; set; }
         public Nullable<byte> cuadrado { get; set; }

@@ -20,9 +20,9 @@ namespace puntoVentaModelo
         public int cod_cajero { get; set; }
         public decimal monto { get; set; }
         public string detalles { get; set; }
-        public Nullable<sbyte> afecta_cuadre { get; set; }
-        public Nullable<sbyte> activo { get; set; }
-        public Nullable<sbyte> cuadrado { get; set; }
+        public Nullable<bool> afecta_cuadre { get; set; }
+        public Nullable<bool> activo { get; set; }
+        public Nullable<bool> cuadrado { get; set; }
     
         public virtual cajero cajero { get; set; }
         public virtual ingresos_conceptos ingresos_conceptos { get; set; }

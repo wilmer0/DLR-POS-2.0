@@ -18,7 +18,7 @@ namespace puntoVentaModelo
         public int cod_cajero { get; set; }
         public System.DateTime fecha { get; set; }
         public int turno { get; set; }
-        public sbyte activo { get; set; }
+        public bool activo { get; set; }
         public decimal faltante { get; set; }
         public decimal sobrante { get; set; }
     

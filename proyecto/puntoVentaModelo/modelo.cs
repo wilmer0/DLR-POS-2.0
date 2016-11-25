@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public int codigo_marca { get; set; }
         public string nombre_modelo { get; set; }
-        public sbyte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual ICollection<inventario_reparacion> inventario_reparacion { get; set; }
     }

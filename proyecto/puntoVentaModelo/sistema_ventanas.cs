@@ -12,7 +12,7 @@ namespace puntoVentaModelo
     using System;
     using System.Collections.Generic;
     
-    public partial class sistema_modulo_ventanas
+    public partial class sistema_ventanas
     {
         public int codigo { get; set; }
         public string nombre_ventana { get; set; }

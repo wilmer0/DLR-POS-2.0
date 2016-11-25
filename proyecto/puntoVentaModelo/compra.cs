@@ -28,7 +28,7 @@ namespace puntoVentaModelo
         public string ncf { get; set; }
         public string rnc { get; set; }
         public string cod_tipo { get; set; }
-        public Nullable<int> estado { get; set; }
+        public Nullable<bool> activo { get; set; }
         public Nullable<byte> pagada { get; set; }
         public Nullable<int> cod_sucursal { get; set; }
         public Nullable<decimal> efectivo { get; set; }

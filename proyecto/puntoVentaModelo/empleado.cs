@@ -34,7 +34,7 @@ namespace puntoVentaModelo
         public string clave { get; set; }
         public decimal sueldo { get; set; }
         public Nullable<int> cod_situacion { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
         public Nullable<int> cod_sucursal { get; set; }
         public Nullable<int> cod_departamento { get; set; }
         public Nullable<int> cod_cargo { get; set; }

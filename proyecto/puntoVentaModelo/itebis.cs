@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public string descripcion { get; set; }
         public int porciento { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual ICollection<producto> producto { get; set; }
     }

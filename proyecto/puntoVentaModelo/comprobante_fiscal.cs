@@ -15,13 +15,13 @@ namespace puntoVentaModelo
     public partial class comprobante_fiscal
     {
         public int codigo { get; set; }
-        public Nullable<int> cod_serie { get; set; }
-        public Nullable<int> cod_caja { get; set; }
-        public Nullable<int> codigo_tipo { get; set; }
-        public Nullable<int> desde_numero { get; set; }
-        public Nullable<int> hasta_numero { get; set; }
-        public Nullable<int> contador { get; set; }
-        public Nullable<int> avisar { get; set; }
+        public int cod_serie { get; set; }
+        public int cod_caja { get; set; }
+        public int codigo_tipo { get; set; }
+        public int desde_numero { get; set; }
+        public int hasta_numero { get; set; }
+        public int contador { get; set; }
+        public int avisar { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
     
         public virtual caja caja { get; set; }

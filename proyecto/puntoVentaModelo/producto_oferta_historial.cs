@@ -19,7 +19,7 @@ namespace puntoVentaModelo
         public Nullable<decimal> descuento { get; set; }
         public Nullable<System.DateTime> fecha_inicial { get; set; }
         public Nullable<System.DateTime> fecha_final { get; set; }
-        public Nullable<int> estado { get; set; }
+        public Nullable<bool> activo { get; set; }
         public Nullable<System.DateTime> fecha_actualizada { get; set; }
         public Nullable<int> cod_empleado_actualiza { get; set; }
         public int cod_sucursal { get; set; }

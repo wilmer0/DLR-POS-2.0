@@ -10,13 +10,13 @@ namespace puntoVentaModelo.Modelos
 {
     public class modeloSistemaVentana
     {
-        public Boolean agregarVentana(sistema_modulo_ventanas ventana)
+        public Boolean agregarVentana(sistema_ventanas ventana)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                var lista = (from c in entity.sistema_modulo_ventanas
+                var lista = (from c in entity.sistema_ventanas
                              where c.codigo == ventana.codigo
                              select c).FirstOrDefault();
 
@@ -38,7 +38,7 @@ namespace puntoVentaModelo.Modelos
 
 
 
-        public Boolean modificarVentanas(sistema_modulo_ventanas ventana)
+        public Boolean modificarVentanas(sistema_ventanas ventana)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
@@ -46,7 +46,7 @@ namespace puntoVentaModelo.Modelos
             {
                
 
-               var lista = (from c in entity.sistema_modulo_ventanas
+               var lista = (from c in entity.sistema_ventanas
                          where c.codigo == ventana.codigo
                          select c).ToList().FirstOrDefault();
 
@@ -82,10 +82,10 @@ namespace puntoVentaModelo.Modelos
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                count = entity.sistema_modulo_ventanas.Count();
+                count = entity.sistema_ventanas.Count();
                 if (count > 0)
                 {
-                    count = entity.sistema_modulo_ventanas.Max(c => c.codigo);
+                    count = entity.sistema_ventanas.Max(c => c.codigo);
                 }
                 return count + 1;
             }
@@ -96,16 +96,16 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_modulo_ventanas> getListaCompleta()
+        public List<sistema_ventanas> getListaCompleta()
         {
             try
             {
                 coneccion coneccion = new coneccion();
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
-                List<sistema_modulo_ventanas> lista = new List<sistema_modulo_ventanas>();
+                List<sistema_ventanas> lista = new List<sistema_ventanas>();
 
-                lista = (from c in entity.sistema_modulo_ventanas
+                lista = (from c in entity.sistema_ventanas
                          where c.activo == true
                          select c).ToList();
 
@@ -146,23 +146,23 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public Boolean agregarModulosVentanas(List<sistema_modulo_ventanas> lista)
+        public Boolean agregarModulosVentanas(List<sistema_ventanas> lista)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
                 //eliminando las ventans viejas
-                List<sistema_modulo_ventanas> listaVieja = getListaCompleta();
+                List<sistema_ventanas> listaVieja = getListaCompleta();
                 listaVieja.ForEach(x =>
                 {
-                    entity.sistema_modulo_ventanas.Remove(x);
+                    entity.sistema_ventanas.Remove(x);
                 });
 
                 //agregando las ventanas nuevas
                 lista.ForEach(x =>
                 {
-                    entity.sistema_modulo_ventanas.Add(x);
+                    entity.sistema_ventanas.Add(x);
                 });
 
                 entity.SaveChanges();

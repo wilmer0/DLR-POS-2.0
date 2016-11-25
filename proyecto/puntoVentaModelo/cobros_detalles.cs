@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public Nullable<decimal> monto_descontado { get; set; }
         public Nullable<int> cod_empleado_anular { get; set; }
         public string motivo_anulado { get; set; }
-        public Nullable<byte> estado { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         public virtual cobros cobros { get; set; }
         public virtual metodo_pago metodo_pago { get; set; }

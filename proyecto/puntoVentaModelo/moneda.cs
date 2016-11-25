@@ -23,7 +23,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public string nombre { get; set; }
         public decimal tasa_actual { get; set; }
-        public Nullable<sbyte> activo { get; set; }
+        public Nullable<bool> activo { get; set; }
         public string monedacol { get; set; }
     
         public virtual ICollection<moneda_historial> moneda_historial { get; set; }

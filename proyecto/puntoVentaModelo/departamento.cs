@@ -23,7 +23,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public int cod_sucursal { get; set; }
         public string nombre { get; set; }
-        public Nullable<byte> activo { get; set; }
+        public Nullable<bool> activo { get; set; }
     
         public virtual ICollection<empleado_historial_datos> empleado_historial_datos { get; set; }
         public virtual ICollection<empleado> empleado { get; set; }

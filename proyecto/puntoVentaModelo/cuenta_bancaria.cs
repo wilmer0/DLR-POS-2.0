@@ -18,7 +18,7 @@ namespace puntoVentaModelo
         public string descripcion { get; set; }
         public string numero_cuenta { get; set; }
         public int cod_tipo { get; set; }
-        public byte estado { get; set; }
+        public bool activo { get; set; }
         public Nullable<int> TRIAL_COLUMN6 { get; set; }
         public Nullable<int> TRIAL_COLUMN7 { get; set; }
     }

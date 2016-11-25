@@ -23,7 +23,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public string nombre { get; set; }
         public int cod_sucursal { get; set; }
-        public byte estado { get; set; }
+        public bool activo { get; set; }
     
         public virtual sucursal sucursal { get; set; }
         public virtual ICollection<entrada_salida_inventario> entrada_salida_inventario { get; set; }

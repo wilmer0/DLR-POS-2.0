@@ -23,6 +23,6 @@ namespace puntoVentaModelo
         public Nullable<sbyte> cuenta_movimiento { get; set; }
         public Nullable<sbyte> origen_credito { get; set; }
         public Nullable<sbyte> origen_debito { get; set; }
-        public Nullable<sbyte> estado { get; set; }
+        public Nullable<bool> activo { get; set; }
     }
 }

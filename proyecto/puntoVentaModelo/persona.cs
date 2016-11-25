@@ -17,6 +17,6 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public string apellido { get; set; }
         public System.DateTime fecha_nacimiento { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     }
 }

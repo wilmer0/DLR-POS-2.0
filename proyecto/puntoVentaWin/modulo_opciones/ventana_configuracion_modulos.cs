@@ -26,13 +26,13 @@ namespace puntoVentaWin.modulo_opciones
         private empleado empleado;
         utilidades utilidades=new utilidades();
         private sistema_modulo sistemaModulo;
-        private sistema_modulo_ventanas sistemaVentana;
+        private sistema_modulo sistemaVentana;
 
 
         //listas
-        List<sistema_modulo_ventanas> listaVentanas=new List<sistema_modulo_ventanas>();
+        List<sistema_modulo> listaVentanas=new List<sistema_modulo>();
         List<sistema_modulo> listaModulos=new List<sistema_modulo>(); 
-        List<sistema_modulo_ventanas> listaSistemaModulosVentanasGuardar=new List<sistema_modulo_ventanas>(); 
+        List<sistema_modulo> listaSistemaModulosVentanasGuardar=new List<sistema_modulo>(); 
 
 
 
@@ -78,7 +78,7 @@ namespace puntoVentaWin.modulo_opciones
                 listaVentanas.ForEach(x =>
                 {
                     //id-nombre ventana
-                    dataGridViewVentanas.Rows.Add(x.codigo, x.nombre_ventana);
+                    dataGridViewVentanas.Rows.Add(x.id, x.nombre_modulo_proyecto);
                 });
             }
             catch (Exception ex)
@@ -150,7 +150,7 @@ namespace puntoVentaWin.modulo_opciones
                 listaSistemaModulosVentanasGuardar.ForEach(x =>
                 {
                     //nombre modulo-nombre ventana
-                    dataGridViewVentanasGuardar.Rows.Add(x.sistema_modulo.nombre, x.nombre_ventana);
+                    dataGridViewVentanasGuardar.Rows.Add(x.nombre_modulo_proyecto, x.sistema_ventanas);
                 });
             }
             catch (Exception ex)

@@ -22,7 +22,7 @@ namespace puntoVentaModelo
         public int codigo { get; set; }
         public int cod_pais { get; set; }
         public string nombre { get; set; }
-        public byte activo { get; set; }
+        public bool activo { get; set; }
     
         public virtual pais pais { get; set; }
         public virtual ICollection<provincia> provincia { get; set; }
