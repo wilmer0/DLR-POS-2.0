@@ -16,8 +16,6 @@ namespace puntoVenta.sistema
     public partial class login2 : FormBase
     {
 
-
-
         //modelos
         private modeloEmpleado modeloEmpleado = new modeloEmpleado();
 
