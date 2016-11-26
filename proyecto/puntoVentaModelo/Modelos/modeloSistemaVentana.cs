@@ -116,7 +116,7 @@ namespace puntoVentaModelo.Modelos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: getListaSistemaVentanas.: " + ex.ToString());
+                MessageBox.Show("Error: getListaCompleta.: " + ex.ToString());
                 return null;
             }
         }

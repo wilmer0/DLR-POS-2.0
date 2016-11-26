@@ -35,15 +35,16 @@
             this.ventanaCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.dataGridViewVentanasGuardar = new System.Windows.Forms.DataGridView();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVentanasGuardar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -83,6 +84,7 @@
             this.moduloCombo.Name = "moduloCombo";
             this.moduloCombo.Size = new System.Drawing.Size(304, 24);
             this.moduloCombo.TabIndex = 17;
+            this.moduloCombo.TextChanged += new System.EventHandler(this.moduloCombo_TextChanged);
             // 
             // label1
             // 
@@ -114,6 +116,7 @@
             this.ventanaCombo.Name = "ventanaCombo";
             this.ventanaCombo.Size = new System.Drawing.Size(304, 24);
             this.ventanaCombo.TabIndex = 18;
+            this.ventanaCombo.TextChanged += new System.EventHandler(this.ventanaCombo_TextChanged);
             // 
             // label2
             // 
@@ -140,25 +143,25 @@
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // dataGridViewVentanasGuardar
+            // dataGridView
             // 
-            this.dataGridViewVentanasGuardar.AllowUserToAddRows = false;
-            this.dataGridViewVentanasGuardar.AllowUserToDeleteRows = false;
-            this.dataGridViewVentanasGuardar.AllowUserToResizeColumns = false;
-            this.dataGridViewVentanasGuardar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewVentanasGuardar.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewVentanasGuardar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVentanasGuardar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.AllowUserToResizeColumns = false;
+            this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn4,
             this.Column3});
-            this.dataGridViewVentanasGuardar.Location = new System.Drawing.Point(16, 162);
-            this.dataGridViewVentanasGuardar.MultiSelect = false;
-            this.dataGridViewVentanasGuardar.Name = "dataGridViewVentanasGuardar";
-            this.dataGridViewVentanasGuardar.ReadOnly = true;
-            this.dataGridViewVentanasGuardar.RowHeadersVisible = false;
-            this.dataGridViewVentanasGuardar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewVentanasGuardar.Size = new System.Drawing.Size(832, 395);
-            this.dataGridViewVentanasGuardar.TabIndex = 16;
+            this.dataGridView.Location = new System.Drawing.Point(16, 162);
+            this.dataGridView.MultiSelect = false;
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersVisible = false;
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView.Size = new System.Drawing.Size(832, 395);
+            this.dataGridView.TabIndex = 16;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -182,13 +185,29 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Lista módulos y ventanas";
             // 
+            // button5
+            // 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button5.BackColor = System.Drawing.Color.Red;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Location = new System.Drawing.Point(563, 114);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(138, 42);
+            this.button5.TabIndex = 17;
+            this.button5.Text = "Eliminar";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
             // ventana_configuracion_modulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(860, 629);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.dataGridViewVentanasGuardar);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -200,8 +219,9 @@
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.button4, 0);
-            this.Controls.SetChildIndex(this.dataGridViewVentanasGuardar, 0);
+            this.Controls.SetChildIndex(this.dataGridView, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.button5, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -209,7 +229,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVentanasGuardar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -222,11 +242,12 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button button4;
-        private System.Windows.Forms.DataGridView dataGridViewVentanasGuardar;
+        private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.ComboBox moduloCombo;
         private System.Windows.Forms.ComboBox ventanaCombo;
+        public System.Windows.Forms.Button button5;
     }
 }
