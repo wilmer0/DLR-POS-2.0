@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using puntoVenta.sistema;
-using System.Data.Entity;
-using MySql.Data.Entity;
+
+
+
 
 namespace puntoVenta
 {
@@ -22,16 +23,14 @@ namespace puntoVenta
         public FormBase()
         {
             InitializeComponent();
-            loadVentana();
+            LoadVentana();
         }
 
-       
 
-        public virtual void loadVentana()
+
+        public virtual void LoadVentana()
         {
-            this.Text = "IrisCont";
-            this.tituloLabel.Text = "Esto es un titulo";
-            
+
         }
 
         public virtual Boolean ValidarCampos()
@@ -56,7 +55,7 @@ namespace puntoVenta
             }
         }
 
-        public virtual void Procesar()
+        public virtual void GetAcion()
         {
             if (MessageBox.Show("Desea guardar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -76,13 +75,12 @@ namespace puntoVenta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Procesar();
+            GetAcion();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            login l = new login();
-            l.Show();
+           
         }
 
         private void FormBase_Load(object sender, EventArgs e)
@@ -105,7 +103,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                Procesar();
+                GetAcion();
             }
         }
 
@@ -123,7 +121,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                Procesar();
+                GetAcion();
             }
         }
 
@@ -135,6 +133,24 @@ namespace puntoVenta
         private void FormBase_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void FormBase_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                Salir();
+            }
+
+            if (e.KeyCode == Keys.F6)
+            {
+                limpiar();
+            }
+
+            if (e.KeyCode == Keys.F8)
+            {
+                GetAcion();
+            }
         }
 
     }

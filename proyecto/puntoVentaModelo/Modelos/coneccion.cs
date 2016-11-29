@@ -2,21 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.Entity;
-using puntoVentaModelo.Modelos;
-using System.Data.EntityClient;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-namespace puntoVentaModelo.Modelos
+namespace puntoVentaModelo.modelos
 {
     public class coneccion
     {
+
         private static coneccion instance;
-
-
 
         public static coneccion Instance
         {
+           
             get
             {
                 if (instance == null)
@@ -26,8 +26,11 @@ namespace puntoVentaModelo.Modelos
                 return instance;
             }
         }
+        public coneccion()
+        {
 
-        public static DatosConeccionBD datosConeccionBd;
+        }
+        public static DatosConeccionBD datosConeccionBd { get; set; }
 
         public coneccion(DatosConeccionBD datosConeccion)
         {
@@ -35,23 +38,21 @@ namespace puntoVentaModelo.Modelos
         }
 
 
-        public coneccion()
+        public DatosConeccionBD GetDatos()
         {
-
+            return datosConeccionBd;
         }
 
-        public puntoVentaEntities getConeccion()
+        public punto_ventaEntities GetConeccion()
         {
+
             if (datosConeccionBd == null)
             {
                 datosConeccionBd = new DatosConeccionBD();
 
-               
 
-
-                //         public ADMFICEntities(string servidor, String baseDatos, String user, String pass)
-                //    : base("name=ADMFICEntities")
-                //{
+                //         public punto_ventaEntities(string servidor, String baseDatos, String user, String pass, String Puerto="3306"): base("name=ADMFICEntities")
+                //        {
 
 
                 //    var connectionString = this.Database.Connection.ConnectionString + ";password=" + pass;
@@ -65,31 +66,27 @@ namespace puntoVentaModelo.Modelos
 
                 //            System.IO.Directory.CreateDirectory("Configuracion");
 
-                //        }
+                     //   }
 
-
+              
 
 
                 //        // leer archivo
 
-               
+                //datosConeccionBd.Puerto = "3306";
                 datosConeccionBd.Servidor = "localhost";
                 datosConeccionBd.BaseDatos = "punto_venta";
                 datosConeccionBd.Usuario = "root";
                 datosConeccionBd.Contrasena = "wilmerlomas1";
-                return new puntoVentaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos,
-                    datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
+
+                //MessageBox.Show("BD: " + datosConeccionBd.BaseDatos);
+                return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
 
             }
-
             else
             {
-                return new puntoVentaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos,
-                    datosConeccionBd.Usuario,
-                    datosConeccionBd.Contrasena);
+                return new punto_ventaEntities(datosConeccionBd.Servidor, datosConeccionBd.BaseDatos, datosConeccionBd.Usuario, datosConeccionBd.Contrasena);
             }
-
         }
     }
-
 }

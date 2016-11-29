@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{43B8C09B-5CEE-43A8-8A55-24B138F1791D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>puntoVentaWin</RootNamespace>
+    <AssemblyName>puntoVentaWin</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>librerias\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.1\lib\net40\GMap.NET.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WindowsForms.1.7.1\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>librerias\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="archivos\Idioma-en\idioma-en.Designer.cs" />
+    <Compile Include="archivos\Idioma-es\idioma-es.Designer.cs" />
+    <Compile Include="clases\reporte_facturacion_rollo.cs" />
+    <Compile Include="clases\singleton.cs" />
+    <Compile Include="clases\Utilidades.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.Designer.cs">
+      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_empresa.Designer.cs">
+      <DependentUpon>ventana_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_sucursal.Designer.cs">
+      <DependentUpon>ventana_sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.Designer.cs">
+      <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja\ventana_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\caja\ventana_caja.Designer.cs">
+      <DependentUpon>ventana_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_configuracion_modulos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_configuracion_modulos.Designer.cs">
+      <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="moduloPruebas\ventana_mapa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="moduloPruebas\ventana_mapa.Designer.cs">
+      <DependentUpon>ventana_mapa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\login2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\login2.Designer.cs">
+      <DependentUpon>login2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sistema\menu1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="sistema\menu1.Designer.cs">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="archivos\Idioma-en\idioma-en.resx" />
+    <EmbeddedResource Include="archivos\Idioma-es\idioma-es.resx" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\ventana_busqueda_sucursal.resx">
+      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\ventana_empresa.resx">
+      <DependentUpon>ventana_empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\ventana_sucursal.resx">
+      <DependentUpon>ventana_sucursal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja\ventana_busqueda_caja.resx">
+      <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_facturacion\caja\ventana_caja.resx">
+      <DependentUpon>ventana_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_opciones\ventana_configuracion_modulos.resx">
+      <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="moduloPruebas\ventana_mapa.resx">
+      <DependentUpon>ventana_mapa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\login2.resx">
+      <DependentUpon>login2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="sistema\menu1.resx">
+      <DependentUpon>menu1.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\puntoVentaModelo\puntoVentaModelo.csproj">
+      <Project>{77dbfd31-35bf-4297-9449-e9e64c3353fa}</Project>
+      <Name>puntoVentaModelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="archivos\versionesBd\1.00.txt" />
+    <Content Include="librerias\BarcodeLib.dll" />
+    <Content Include="librerias\Ionic.Zip.dll" />
+    <Content Include="Resources\004.png" />
+    <Content Include="Resources\1351296727icono_avion.png" />
+    <Content Include="Resources\13903213_1042534115800468_2791184830658061128_n.png" />
+    <Content Include="Resources\13906880_1043988452321701_8234076818093472343_n.png" />
+    <Content Include="Resources\13939476_1053419711378575_224179634427920563_n.png" />
+    <Content Include="Resources\14141575_1058030157584197_433446380078347822_n.png" />
+    <Content Include="Resources\17850-NRJ5DH.jpg" />
+    <Content Include="Resources\1c7MHYz.png" />
+    <Content Include="Resources\30104-NXXV35.jpg" />
+    <Content Include="Resources\4060408-desk-wallpapers.png" />
+    <Content Include="Resources\450_1000.jpg" />
+    <Content Include="Resources\478508248.jpg" />
+    <Content Include="Resources\546183.jpg" />
+    <Content Include="Resources\7585445_orig.png" />
+    <Content Include="Resources\7875.wifipass.PNG" />
+    <Content Include="Resources\8YsAmq3.gif" />
+    <Content Include="Resources\about us.png" />
+    <Content Include="Resources\aceiteAltoleico2848484.jpg" />
+    <Content Include="Resources\acerca de nosotros.png" />
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\administrador-icon-big.png" />
+    <Content Include="Resources\affiliate_programs_icon.png" />
+    <Content Include="Resources\Alerta.png" />
+    <Content Include="Resources\antes.png" />
+    <Content Include="Resources\atencion_cliente_icon.png" />
+    <Content Include="Resources\avatar1.jpg" />
+    <Content Include="Resources\B.png" />
+    <Content Include="Resources\bajar.png" />
+    <Content Include="Resources\barcode_scanner.png" />
+    <Content Include="Resources\beawesome-wallpaper.jpg" />
+    <Content Include="Resources\beneficios.png" />
+    <Content Include="Resources\Blue-Backup-W-icon.png" />
+    <Content Include="Resources\Bus-icon.png" />
+    <Content Include="Resources\buscar_factura.png" />
+    <Content Include="Resources\cache_18779312.png" />
+    <Content Include="Resources\cajera.png" />
+    <Content Include="Resources\calculadora.png" />
+    <Content Include="Resources\camara1.png" />
+    <Content Include="Resources\camera-icon.png" />
+    <Content Include="Resources\cancel.png" />
+    <Content Include="Resources\carbon_fiber_background-wallpaper-2560x1600.jpg" />
+    <Content Include="Resources\cashier_icon-icons.com_53075.png" />
+    <Content Include="Resources\cashier_icon-icons.com_53629.png" />
+    <Content Include="Resources\categoria.png" />
+    <Content Include="Resources\cH_KdU0WeXhuBOTIt6EFC2mSuLqj0CjVTu7Bc0oQJ8812NB1kGlVkCca3pGmejG6Z5I=w300.png" />
+    <Content Include="Resources\circulo-morado.png" />
+    <Content Include="Resources\CLIENTES-ICONO.png" />
+    <Content Include="Resources\cloud-icon.png" />
+    <Content Include="Resources\codigo-de-barras_318-41866.jpg" />
+    <Content Include="Resources\cohete.png" />
+    <Content Include="Resources\components_fp_12_state1.png" />
+    <Content Include="Resources\comprobantes-fiscales-cfdi-1.jpg" />
+    <Content Include="Resources\Computer-Desk-Wallpaper-HD-For-Desktop.jpg" />
+    <Content Include="Resources\construction_worker_37654.jpg" />
+    <Content Include="Resources\contactos.png" />
+    <Content Include="Resources\Cost-per-Click-%28CPC%29_icon-icons.com_53723.png" />
+    <Content Include="Resources\Cydia-Package.png" />
+    <Content Include="Resources\código-de-barras.jpg" />
+    <Content Include="Resources\delete-file.png" />
+    <Content Include="Resources\delivery.png" />
+    <Content Include="Resources\descuentos.png" />
+    <Content Include="Resources\detalles.png" />
+    <Content Include="Resources\detalles2.png" />
+    <Content Include="Resources\devolucion.png" />
+    <Content Include="Resources\dgii.jpg" />
+    <Content Include="Resources\dinero-icono-01.png" />
+    <Content Include="Resources\dinero.png" />
+    <Content Include="Resources\direccion-icono.png" />
+    <Content Include="Resources\direccion.png" />
+    <Content Include="Resources\disco duro.png" />
+    <Content Include="Resources\DiscusionRespuesta.png" />
+    <Content Include="Resources\diseño-web-forcehosting.jpg" />
+    <Content Include="Resources\doc2.png" />
+    <Content Include="Resources\document-edit-icon.png" />
+    <Content Include="Resources\down-yellow-arrow-icon-clip-art.png" />
+    <Content Include="Resources\e4f93fb1cafa581a322423e3ac2c9d94.png" />
+    <Content Include="Resources\e9a9428046093.560b65f4e2bf3.jpg" />
+    <Content Include="Resources\easel-icon.png" />
+    <Content Include="Resources\edit-not-validated.png" />
+    <Content Include="Resources\edit-validated.png" />
+    <Content Include="Resources\elegir-carrera-universitaria.jpg" />
+    <Content Include="Resources\empresa.jpg" />
+    <Content Include="Resources\empresa.png" />
+    <Content Include="Resources\entradaysalida.png" />
+    <Content Include="Resources\es-site-app-icon-fraude.png" />
+    <Content Include="Resources\estado cliente.png" />
+    <Content Include="Resources\evelb_rrhh2.png" />
+    <Content Include="Resources\Event-Icons-vendors.png" />
+    <Content Include="Resources\facebook.png" />
+    <Content Include="Resources\facebook2.png" />
+    <Content Include="Resources\faq.ico" />
+    <Content Include="Resources\file-complete.png" />
+    <Content Include="Resources\file-info.png" />
+    <Content Include="Resources\file-warning.png" />
+    <Content Include="Resources\find-icon.png" />
+    <Content Include="Resources\flow-market-icon.png" />
+    <Content Include="Resources\folder_invoices_91734.jpg" />
+    <Content Include="Resources\follower-icon-4.png" />
+    <Content Include="Resources\follower-icon-5.png" />
+    <Content Include="Resources\fondo_blanco.gif" />
+    <Content Include="Resources\furgon-2.jpg" />
+    <Content Include="Resources\gaq.png" />
+    <Content Include="Resources\gear-icon.png" />
+    <Content Include="Resources\geometric_narwhal___wallpaper_by_plusjack-d88tngn.png" />
+    <Content Include="Resources\gifs\3499424w91v795brv.gif" />
+    <Content Include="Resources\gifs\8YsAmq3.gif" />
+    <Content Include="Resources\gifs\Cento-Lodigiani-animated-GIFs-10.gif" />
+    <Content Include="Resources\gifs\dribbbleloading.gif" />
+    <Content Include="Resources\gifs\giphy.gif" />
+    <Content Include="Resources\gifs\hex-loader2.gif" />
+    <Content Include="Resources\gifs\kTTdW2l.gif" />
+    <Content Include="Resources\gifs\tumblr_n2eccv6Dev1rgpzseo1_1280.gif" />
+    <Content Include="Resources\gifs\tumblr_n3d222ytYM1s32c21o1_400.gif" />
+    <Content Include="Resources\Goals-Icon.png" />
+    <Content Include="Resources\Google sheets.png" />
+    <Content Include="Resources\Google-Fit-Icon.png" />
+    <Content Include="Resources\google.png" />
+    <Content Include="Resources\google2.png" />
+    <Content Include="Resources\graphic-design-icon.png" />
+    <Content Include="Resources\Graphicloads-Seo-Services-Pay-per-click.ico" />
+    <Content Include="Resources\hourglass-icon.png" />
+    <Content Include="Resources\icon-estadisticas.png" />
+    <Content Include="Resources\Icon-Nomina.png" />
+    <Content Include="Resources\icon-pedidos.png" />
+    <Content Include="Resources\icon.jpg" />
+    <Content Include="Resources\icon.png" />
+    <Content Include="Resources\icon2.jpg" />
+    <Content Include="Resources\icon2.png" />
+    <Content Include="Resources\iconAut21.png" />
+    <Content Include="Resources\iconDinero.png" />
+    <Content Include="Resources\icono-almacen2.png" />
+    <Content Include="Resources\icono-cifras-m6fpesfpwtsexxb6xl81a2g9qlf30op23rjlfizpq4.png" />
+    <Content Include="Resources\icono-cuentas.png" />
+    <Content Include="Resources\icono-datos1.png" />
+    <Content Include="Resources\icono-el-tiempo-estadio-deportivo.png" />
+    <Content Include="Resources\icono-empresas.png" />
+    <Content Include="Resources\icono-gris-camara.png" />
+    <Content Include="Resources\icono-pasarela-pagos.png" />
+    <Content Include="Resources\icono-perfil.png" />
+    <Content Include="Resources\icono-tarjetas.png" />
+    <Content Include="Resources\icono02.png" />
+    <Content Include="Resources\icono03_externalizacion_ventas.png" />
+    <Content Include="Resources\icono05.png" />
+    <Content Include="Resources\icono06.png" />
+    <Content Include="Resources\icono07.png" />
+    <Content Include="Resources\Iconos Pago.png" />
+    <Content Include="Resources\Iconos-clientes-01.png" />
+    <Content Include="Resources\Iconos-de-consultor-de-nómina-reducir-costos-1.png" />
+    <Content Include="Resources\icono_3a.png" />
+    <Content Include="Resources\icono_correo.png" />
+    <Content Include="Resources\icono_formulario_inscripcixn_diadeporte2015.png" />
+    <Content Include="Resources\icono_nosotros-300x300.png" />
+    <Content Include="Resources\icono_paquetes.png" />
+    <Content Include="Resources\icono_pdf.png" />
+    <Content Include="Resources\icono_producto2.png" />
+    <Content Include="Resources\icono_puntoventa.png" />
+    <Content Include="Resources\icono_retail01-170x169.png" />
+    <Content Include="Resources\icono_servicios1.png" />
+    <Content Include="Resources\icono_ventas.png" />
+    <Content Include="Resources\icons-01-640x420.png" />
+    <Content Include="Resources\icon_carritus.png" />
+    <Content Include="Resources\icon_image.png" />
+    <Content Include="Resources\icon_magicinfo.png" />
+    <Content Include="Resources\icon_manufacturer.png" />
+    <Content Include="Resources\ico_estrategias.png" />
+    <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\inicio-sesion.png" />
+    <Content Include="Resources\inventario.png" />
+    <Content Include="Resources\Inventario3.png" />
+    <Content Include="Resources\inventory-maintenance.png" />
+    <Content Include="Resources\itebis.png" />
+    <Content Include="Resources\leder_c_family.jpg" />
+    <Content Include="Resources\leder_c_gaucho.jpg" />
+    <Content Include="Resources\lg-employees-business-labor-icon.png" />
+    <Content Include="Resources\lg-red-green-OK-not-OK-Icons.png" />
+    <Content Include="Resources\libra.png" />
+    <Content Include="Resources\libro y manzana.png" />
+    <Content Include="Resources\Login-icon.png" />
+    <Content Include="Resources\logo.jpg" />
+    <Content Include="Resources\logo1.jpg" />
+    <Content Include="Resources\logoDeveloper.jpg" />
+    <Content Include="Resources\logout.png" />
+    <Content Include="Resources\logo_empresa.png" />
+    <Content Include="Resources\mail.png" />
+    <Content Include="Resources\managed-services-icon.png" />
+    <Content Include="Resources\map-icon.png" />
+    <Content Include="Resources\mcm_icon.png" />
+    <Content Include="Resources\meeting-point-98586_960_720.png" />
+    <Content Include="Resources\memorycard-icon.png" />
+    <Content Include="Resources\mensaje.png" />
+    <Content Include="Resources\mensaje2.png" />
+    <Content Include="Resources\mensaje3.png" />
+    <Content Include="Resources\mercadeo-estrategico-icon.png" />
+    <Content Include="Resources\mesa.png" />
+    <Content Include="Resources\mic-icon.png" />
+    <Content Include="Resources\Microscope-icon.png" />
+    <Content Include="Resources\monedas.jpg" />
+    <Content Include="Resources\money.png" />
+    <Content Include="Resources\money_icon1.png" />
+    <Content Include="Resources\Moto2.png" />
+    <Content Include="Resources\mount.png" />
+    <Content Include="Resources\msg_message_14385.png" />
+    <Content Include="Resources\mudanza y logistica de carga.png" />
+    <Content Include="Resources\multi_0315_icon_550x550_lpg-multicalculator_nam_eng.png" />
+    <Content Include="Resources\my_files_img_038e98c9cad468676568ea68a4097e2870be99c6.png" />
+    <Content Include="Resources\name-card-icon.png" />
+    <Content Include="Resources\news-184931.jpg" />
+    <Content Include="Resources\nomina5151515151.png" />
+    <Content Include="Resources\nomina65462486426542946548948949284894289.png" />
+    <Content Include="Resources\nuestros-servicios-manejo-de-inventario-icono.jpg" />
+    <Content Include="Resources\Ok.png" />
+    <Content Include="Resources\Online-Shopping-icon.png" />
+    <Content Include="Resources\opciones1.png" />
+    <Content Include="Resources\Orange-User-Authentication-Icon.png" />
+    <Content Include="Resources\pdf-icon-1.png" />
+    <Content Include="Resources\pedidos.jpg" />
+    <Content Include="Resources\pedidos.png" />
+    <Content Include="Resources\photo.png" />
+    <Content Include="Resources\pixel77-free-vector-gift-icon-1106.jpg" />
+    <Content Include="Resources\pixel77-free-vector-wifi-icon-2006.jpg" />
+    <Content Include="Resources\Preguntas_Frecuentes.png" />
+    <Content Include="Resources\printer_256.png" />
+    <Content Include="Resources\print_256.png" />
+    <Content Include="Resources\proceso.png" />
+    <Content Include="Resources\products-icon.png" />
+    <Content Include="Resources\program_icon.png" />
+    <Content Include="Resources\project+.png" />
+    <Content Include="Resources\proveedores.png" />
+    <Content Include="Resources\PYHfK0sebYRi_SZ9RtAJr9Rc4EilckYAjGlix0GV0Ov08dPEoLOFcbLXgUhxBlLODPg=w300.png" />
+    <Content Include="Resources\question-mark-310100_960_720.png" />
+    <Content Include="Resources\qYInGu86.jpg" />
+    <Content Include="Resources\QZSUosSSy44Vmm5J6CEvycQs5Gb7_2qZKmxjijeRwlbhQcV-sR9FJcbzS_AAPLWbaVY=w300.png" />
+    <Content Include="Resources\recarga.png" />
+    <Content Include="Resources\recycle-bin-icon.png" />
+    <Content Include="Resources\red-x-cross-wrong-not-clip-art_f.jpg" />
+    <Content Include="Resources\registro.png" />
+    <Content Include="Resources\retouren.png" />
+    <Content Include="Resources\RXSJ798lme1nxJshWxjRz5FArDg9YrwX_UuR3Qx6Ni61GJcs01z2lElzHWFNgf7j7_A=w300.png" />
+    <Content Include="Resources\Save-as_37111.png" />
+    <Content Include="Resources\save_file_disk_open_searsh_loading_clipboard_1513.png" />
+    <Content Include="Resources\scan_icon.png" />
+    <Content Include="Resources\sector_publico_iconos_04.png" />
+    <Content Include="Resources\security-icon.png" />
+    <Content Include="Resources\send-user.png" />
+    <Content Include="Resources\servicios.png" />
+    <Content Include="Resources\Sexo.png" />
+    <Content Include="Resources\shoeprints-icon.png" />
+    <Content Include="Resources\shopping-cart-icon-psd-image-2367shopping-cart-icon-515.png" />
+    <Content Include="Resources\siguiente.png" />
+    <Content Include="Resources\sin-tc3adtulo1.png" />
+    <Content Include="Resources\slider-agencia-seo-choy-icono.png" />
+    <Content Include="Resources\splashscreen.png" />
+    <Content Include="Resources\SportsLine-600x600.jpg" />
+    <Content Include="Resources\spreadsheet-28205_640.png" />
+    <Content Include="Resources\statistics-market-icon.png" />
+    <Content Include="Resources\Status-mail-task-icon.png" />
+    <Content Include="Resources\stock.png" />
+    <Content Include="Resources\Stock_02.png" />
+    <Content Include="Resources\sucursal.png" />
+    <Content Include="Resources\switch-turn-off-icon.png" />
+    <Content Include="Resources\T21zEV5fkzuezlzlIE6pn2loRzVBsd1RVFysblCbs7abrS7EEdDGoOeRQVLEisQtCRdz=w300.png" />
+    <Content Include="Resources\tabs-3-2.png" />
+    <Content Include="Resources\tb-tesoreria.png" />
+    <Content Include="Resources\teammember_avatar_f.jpg" />
+    <Content Include="Resources\teeth-icon.png" />
+    <Content Include="Resources\tiempo.png" />
+    <Content Include="Resources\tools-icon.png" />
+    <Content Include="Resources\transfer_money_around_the_world_icon.png" />
+    <Content Include="Resources\trash.png" />
+    <Content Include="Resources\travelerbag-icon.png" />
+    <Content Include="Resources\trends-icon.png" />
+    <Content Include="Resources\twitter.png" />
+    <Content Include="Resources\twitter2.png" />
+    <Content Include="Resources\unlocked-icon.png" />
+    <Content Include="Resources\unnamed.png" />
+    <Content Include="Resources\user-info-icon.png" />
+    <Content Include="Resources\user-interface-login-icon--12.png" />
+    <Content Include="Resources\user-menu-icon.png" />
+    <Content Include="Resources\users.png" />
+    <Content Include="Resources\usuario-hombre.png" />
+    <Content Include="Resources\usuario-mujer.png" />
+    <Content Include="Resources\ventas.png" />
+    <Content Include="Resources\vigilar.png" />
+    <Content Include="Resources\wallet_46876.png" />
+    <Content Include="Resources\wallet_money_cash_purse_business_finance_financial_shopping_payment_flat_design_icon-512.png" />
+    <Content Include="Resources\web_developer_wallpaper__code__by_plusjack-d7bmt54.jpg" />
+    <Content Include="Resources\Zoom-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="modulo_administracion\" />
+    <Folder Include="modulo_cuentas_por_cobrar\" />
+    <Folder Include="modulo_cuentas_por_pagar\" />
+    <Folder Include="modulo_inventario\" />
+    <Folder Include="modulo_nomina\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
