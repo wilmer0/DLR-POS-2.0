@@ -908,7 +908,7 @@ advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisito
           <Property Name="nombre_ventana" Type="varchar" MaxLength="200" />
           <Property Name="cod_modulo" Type="int" Nullable="false" />
           <Property Name="nombre_logico" Type="varchar" MaxLength="200" Nullable="false" />
-          <Property Name="imagen" Type="longtext" />
+          <Property Name="imagen" Type="varchar" MaxLength="999" />
           <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
         <EntityType Name="situacion_empleado">
@@ -1585,6 +1585,18 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_v
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_sistema_ventanas_1">
+          <End Role="sistema_modulo" Type="Self.sistema_modulo" Multiplicity="1" />
+          <End Role="sistema_ventanas" Type="Self.sistema_ventanas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sistema_modulo">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="sistema_ventanas">
+              <PropertyRef Name="cod_modulo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_sucursal_1">
           <End Role="empresa" Type="Self.empresa" Multiplicity="1" />
           <End Role="sucursal" Type="Self.sucursal" Multiplicity="*" />
@@ -2206,18 +2218,6 @@ error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_p
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="sistema_modulo_ventanas_modulo">
-          <End Role="sistema_modulo" Type="Self.sistema_modulo" Multiplicity="1" />
-          <End Role="sistema_ventanas" Type="Self.sistema_ventanas" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="sistema_modulo">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="sistema_ventanas">
-              <PropertyRef Name="cod_modulo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="sistema_moneda">
           <End Role="moneda" Type="Self.moneda" Multiplicity="1" />
           <End Role="sistema" Type="Self.sistema" Multiplicity="*" />
@@ -2624,6 +2624,10 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="nomina_tipos" EntitySet="nomina_tipos" />
             <End Role="empleado" EntitySet="empleado" />
           </AssociationSet>
+          <AssociationSet Name="FK_sistema_ventanas_1" Association="Self.FK_sistema_ventanas_1">
+            <End Role="sistema_modulo" EntitySet="sistema_modulo" />
+            <End Role="sistema_ventanas" EntitySet="sistema_ventanas" />
+          </AssociationSet>
           <AssociationSet Name="FK_sucursal_1" Association="Self.FK_sucursal_1">
             <End Role="empresa" EntitySet="empresa" />
             <End Role="sucursal" EntitySet="sucursal" />
@@ -2827,10 +2831,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <AssociationSet Name="sector_provincia" Association="Self.sector_provincia">
             <End Role="provincia" EntitySet="provincia" />
             <End Role="sector" EntitySet="sector" />
-          </AssociationSet>
-          <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="Self.sistema_modulo_ventanas_modulo">
-            <End Role="sistema_modulo" EntitySet="sistema_modulo" />
-            <End Role="sistema_ventanas" EntitySet="sistema_ventanas" />
           </AssociationSet>
           <AssociationSet Name="sistema_moneda" Association="Self.sistema_moneda">
             <End Role="moneda" EntitySet="moneda" />
@@ -3269,7 +3269,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="sexo" EntitySet="sexo" />
             <End Role="empleado_historial_datos" EntitySet="empleado_historial_datos" />
           </AssociationSet>
-          <AssociationSet Name="sistema_modulo_ventanas_modulo" Association="punto_ventaModel.sistema_modulo_ventanas_modulo">
+          <AssociationSet Name="FK_sistema_ventanas_1" Association="punto_ventaModel.FK_sistema_ventanas_1">
             <End Role="sistema_modulo" EntitySet="sistema_modulo" />
             <End Role="sistema_ventanas" EntitySet="sistema_ventanas" />
           </AssociationSet>
@@ -4127,7 +4127,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="nombre" Type="String" Nullable="false" />
           <Property Name="activo" Type="Boolean" />
           <Property Name="nombre_modulo_proyecto" Type="String" Nullable="false" />
-          <NavigationProperty Name="sistema_ventanas" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_modulo" ToRole="sistema_ventanas" />
+          <NavigationProperty Name="sistema_ventanas" Relationship="punto_ventaModel.FK_sistema_ventanas_1" FromRole="sistema_modulo" ToRole="sistema_ventanas" />
         </EntityType>
         <EntityType Name="sistema_ventanas">
           <Key>
@@ -4139,7 +4139,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <Property Name="nombre_logico" Type="String" Nullable="false" />
           <Property Name="imagen" Type="String" />
           <Property Name="activo" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.sistema_modulo_ventanas_modulo" FromRole="sistema_ventanas" ToRole="sistema_modulo" />
+          <NavigationProperty Name="sistema_modulo" Relationship="punto_ventaModel.FK_sistema_ventanas_1" FromRole="sistema_ventanas" ToRole="sistema_modulo" />
         </EntityType>
         <EntityType Name="situacion_empleado">
           <Key>
@@ -5492,7 +5492,7 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="sistema_modulo_ventanas_modulo">
+        <Association Name="FK_sistema_ventanas_1">
           <End Type="punto_ventaModel.sistema_modulo" Role="sistema_modulo" Multiplicity="1" />
           <End Type="punto_ventaModel.sistema_ventanas" Role="sistema_ventanas" Multiplicity="*" />
           <ReferentialConstraint>
