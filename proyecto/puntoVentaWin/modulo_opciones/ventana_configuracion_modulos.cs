@@ -132,16 +132,14 @@ namespace puntoVentaWin.modulo_opciones
                 listaVentanasGuardar.ForEach(x =>
                 {
                     MessageBox.Show("1");
-                    if (x.sistema_modulo.nombre == null || x.sistema_modulo.nombre == "")
-                    {
-                        MessageBox.Show("x.sistema_modulo.nombre");
-                    }
-                    if (x.nombre_ventana == null || x.nombre_ventana == "")
-                    {
-                        MessageBox.Show("x.nombre_ventana" );
-                    }
-                    MessageBox.Show("modulo->"+x.cod_modulo + "- ventana->" +x.codigo);
-                    dataGridView.Rows.Add(x.sistema_modulo.nombre,x.nombre_ventana);
+                    MessageBox.Show("modulo->"+x.cod_modulo + "- ventana->" +x.nombre_ventana);
+                    //if (x.sistema_modulo.nombre == null && x.nombre_ventana!=null)
+                    //{
+                    //dataGridView.Rows.Add(x.sistema_modulo.nombre, x.nombre_ventana);
+                    //eploto poniendo el nombre del modulo
+                   
+                        dataGridView.Rows.Add(x.sistema_modulo.nombre_modulo_proyecto, x.nombre_ventana);
+                    //}
                 });
             }
             catch (Exception ex)
