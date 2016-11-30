@@ -206,5 +206,30 @@ namespace puntoVentaModelo.Modelos
                 entity = null;
             }
         }
+
+        public sistema_modulo getModuloById(int id)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                var lista = (from c in entity.sistema_modulo
+                             where c.id == id
+                             select c).ToList().FirstOrDefault();
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
     }
 }
