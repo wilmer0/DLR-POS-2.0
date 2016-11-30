@@ -84,7 +84,11 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-              
+                if (listaVentanasGuardar == null)
+                {
+                    MessageBox.Show("Debe crear uns lista de modulos y ventanas", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
                 return true;
             }
             catch (Exception ex)
@@ -98,12 +102,18 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                if (!validarAgregarVentana())
+                if (!ValidarGetAction())
                     return;
 
-                //listaVentanasGuardar.Add(ventanaAgregar);
-                //loadList();
-
+                //agregar o modificar
+                if ((modeloVentana.agregarModulosVentanas(listaVentanasGuardar)) == true)
+                {
+                    MessageBox.Show("Se realizó correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No realizó correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -328,6 +338,11 @@ namespace puntoVentaWin.modulo_opciones
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

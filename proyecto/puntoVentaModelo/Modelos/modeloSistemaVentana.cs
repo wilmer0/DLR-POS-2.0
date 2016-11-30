@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Objects;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVentaModelo.modelos;
@@ -106,8 +108,7 @@ namespace puntoVentaModelo.Modelos
                 List<sistema_ventanas> lista = new List<sistema_ventanas>();
 
                 lista = (from c in entity.sistema_ventanas
-                         where c.activo == true
-                         select c).ToList();
+                        select c).ToList();
 
 
                 return lista;
@@ -148,30 +149,40 @@ namespace puntoVentaModelo.Modelos
 
         public Boolean agregarModulosVentanas(List<sistema_ventanas> lista)
         {
+            modeloSistemaVentana modeloVentana=new modeloSistemaVentana();
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
                 //eliminando las ventans viejas
                 List<sistema_ventanas> listaVieja = getListaCompleta();
-                listaVieja.ForEach(x =>
-                {
-                    entity.sistema_ventanas.Remove(x);
-                });
-
+                //MessageBox.Show("eliminar");
+                //listaVieja.ForEach(x =>
+                //{
+                //    entity.sistema_ventanas.Include("sistema_ventanas");
+                //    entity.sistema_ventanas.Attach(x);
+                //    entity.sistema_ventanas.Remove(x);
+                //    //entity.sistema_ventanas.Remove(ventana);
+                //});
+                //MessageBox.Show("eliminadas todas");
                 //agregando las ventanas nuevas
+
+                MessageBox.Show("agregar");
                 lista.ForEach(x =>
                 {
-                    entity.sistema_ventanas.Add(x);
+                    sistema_ventanas ventana=new sistema_ventanas();
+                    ventana = modeloVentana.getSistemaVentanaById(x.codigo);
+                    entity.sistema_ventanas.Attach(ventana);
+                    entity.sistema_ventanas.Add(ventana);
                 });
-
+                MessageBox.Show("agregadas");
                 entity.SaveChanges();
                 return true;
             }
             catch (Exception ex)
             {
                 entity = null;
-                MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                MessageBox.Show("Error agregarModulosVentanas.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }
@@ -181,6 +192,24 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
+        private sistema_ventanas getSistemaVentanaById(int id)
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+                var lista = (from c in entity.sistema_ventanas
+                                   where c.codigo==id
+                         select c).ToList().FirstOrDefault();
 
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getSistemaVentanaById.: " + ex.ToString(),"",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return null;
+            }
+        }
     }
 }
