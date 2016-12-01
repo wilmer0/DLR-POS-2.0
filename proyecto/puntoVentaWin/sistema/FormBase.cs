@@ -56,7 +56,7 @@ namespace puntoVenta
             }
         }
 
-        public virtual void GetAcion()
+        public virtual void GetAction()
         {
             if (MessageBox.Show("Desea guardar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -76,7 +76,7 @@ namespace puntoVenta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetAcion();
+            GetAction();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
         }
 
@@ -122,7 +122,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
         }
 
@@ -150,7 +150,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
         }
 

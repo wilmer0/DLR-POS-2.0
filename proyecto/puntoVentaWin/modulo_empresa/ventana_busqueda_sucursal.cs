@@ -45,10 +45,10 @@ namespace puntoVentaWin.modulo_empresa
 
         private void ventana_busqueda_sucursal_Load(object sender, EventArgs e)
         {
-            GetAcion();
+            GetAction();
         }
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             getObjeto();
 
@@ -110,12 +110,12 @@ namespace puntoVentaWin.modulo_empresa
 
         private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            GetAcion();
+            GetAction();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetAcion();
+            GetAction();
         }
 
         private void button4_Click(object sender, EventArgs e)

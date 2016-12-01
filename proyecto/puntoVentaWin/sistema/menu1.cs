@@ -73,7 +73,7 @@ namespace puntoVenta.sistema
             //limpiar para recargar permisos
         }
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             //cargar todos los modulos y ventanas que el usuario tenga permitido ver
         }
@@ -140,6 +140,13 @@ namespace puntoVenta.sistema
         private void button9_Click(object sender, EventArgs e)
         {
             ventana_configuracion_modulos ventana=new ventana_configuracion_modulos(empleado);
+            ventana.Owner = this;
+            ventana.ShowDialog();
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            ventana_crear_ventana ventana=new ventana_crear_ventana(empleado);
             ventana.Owner = this;
             ventana.ShowDialog();
         }

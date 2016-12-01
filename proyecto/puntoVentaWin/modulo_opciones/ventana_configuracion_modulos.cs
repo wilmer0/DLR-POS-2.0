@@ -98,7 +98,7 @@ namespace puntoVentaWin.modulo_opciones
             }
         }
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             try
             {

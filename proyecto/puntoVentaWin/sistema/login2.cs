@@ -76,7 +76,7 @@ namespace puntoVenta.sistema
         }
 
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             if (MessageBox.Show("Desea procesar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.No)
             {

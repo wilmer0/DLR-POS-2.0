@@ -113,7 +113,7 @@ namespace puntoVentaWin.modulo_empresa
             }
         }
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             try
             {
