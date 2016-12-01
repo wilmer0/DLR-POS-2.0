@@ -47,7 +47,6 @@ namespace puntoVentaModelo.Modelos
             try
             {
                
-
                var lista = (from c in entity.sistema_ventanas
                          where c.codigo == ventana.codigo
                          select c).ToList().FirstOrDefault();
@@ -149,33 +148,40 @@ namespace puntoVentaModelo.Modelos
 
         public Boolean agregarModulosVentanas(List<sistema_ventanas> lista)
         {
-            modeloSistemaVentana modeloVentana=new modeloSistemaVentana();
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
+                modeloSistemaVentana modeloVentana = new modeloSistemaVentana();
                 //eliminando las ventans viejas
-                List<sistema_ventanas> listaVieja = getListaCompleta();
+                List<sistema_ventanas> listaVieja = modeloVentana.getListaCompleta();
+                
+                
+                
                 //MessageBox.Show("eliminar");
-                //listaVieja.ForEach(x =>
-                //{
-                //    entity.sistema_ventanas.Include("sistema_ventanas");
-                //    entity.sistema_ventanas.Attach(x);
-                //    entity.sistema_ventanas.Remove(x);
-                //    //entity.sistema_ventanas.Remove(ventana);
-                //});
-                //MessageBox.Show("eliminadas todas");
-                //agregando las ventanas nuevas
+                listaVieja.ForEach(x =>
+                {
+                    //sistema_ventanas ventana = new sistema_ventanas();
+                    //ventana = modeloVentana.getSistemaVentanaById(x.codigo);
+                    //MessageBox.Show("eliminado->" + ventana.nombre_ventana);
+                    //entity.sistema_ventanas.Attach(ventana);
+                    entity.sistema_ventanas.Remove(x);
 
-                MessageBox.Show("agregar");
+                });
+                //MessageBox.Show("eliminadas todas");
+                entity.SaveChanges();
+                
+                
+                //agregando las ventanas nuevas
+                //MessageBox.Show("agregar");
                 lista.ForEach(x =>
                 {
-                    sistema_ventanas ventana=new sistema_ventanas();
-                    ventana = modeloVentana.getSistemaVentanaById(x.codigo);
-                    entity.sistema_ventanas.Attach(ventana);
-                    entity.sistema_ventanas.Add(ventana);
+                //    sistema_ventanas ventana=new sistema_ventanas();
+                //    ventana = modeloVentana.getSistemaVentanaById(x.codigo);
+                    //entity.sistema_ventanas.Attach(ventana);
+                    entity.sistema_ventanas.Add(x);
                 });
-                MessageBox.Show("agregadas");
+                //MessageBox.Show("agregadas");
                 entity.SaveChanges();
                 return true;
             }

@@ -63,7 +63,7 @@
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(38, 134);
+            this.panel1.Location = new System.Drawing.Point(33, 231);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(400, 54);
             this.panel1.TabIndex = 1;
@@ -140,7 +140,6 @@
             this.MinimizeBox = false;
             this.Name = "FormBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BC";
             this.Load += new System.EventHandler(this.FormBase_Load_1);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormBase_KeyDown);
             this.panel1.ResumeLayout(false);

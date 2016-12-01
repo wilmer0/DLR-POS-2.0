@@ -35,10 +35,10 @@ namespace puntoVenta.sistema
 
         public menu1(empleado empleadoA)
         {
+            InitializeComponent();
             this.empleado = empleadoA;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "menú");
             this.Text = tituloLabel.Text;
-            InitializeComponent();
             LoadVentana();
         }
 

@@ -28,9 +28,9 @@ namespace puntoVenta.sistema
 
         public login2()
         {
+            InitializeComponent();
             this.tituloLabel.Text = "Inicio sesión";
             this.Text = tituloLabel.Text;
-            InitializeComponent();
             LoadVentana();
             usuarioText.Select();
         }

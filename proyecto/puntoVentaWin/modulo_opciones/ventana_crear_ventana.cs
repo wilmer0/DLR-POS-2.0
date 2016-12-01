@@ -213,5 +213,12 @@ namespace puntoVentaWin.modulo_opciones
                 imagenRutaText.Focus();
             }
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ventana_buscar_ventana ventana=new ventana_buscar_ventana();
+            ventana.Owner = this;
+            ventana.ShowDialog();
+        }
     }
 }

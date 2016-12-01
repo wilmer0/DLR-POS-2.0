@@ -105,7 +105,7 @@ namespace puntoVentaWin.modulo_opciones
                 if (!ValidarGetAction())
                     return;
 
-                //agregar o modificar
+                //agregar y modificar
                 if ((modeloVentana.agregarModulosVentanas(listaVentanasGuardar)) == true)
                 {
                     MessageBox.Show("Se realizó correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -344,7 +344,7 @@ namespace puntoVentaWin.modulo_opciones
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            GetAction();
         }
         
     }
