@@ -26,7 +26,7 @@ namespace puntoVentaWin.modulo_opciones
 
 
         //modelos
-        private modeloSistemaVentana modeloVentana=new modeloSistemaVentana();
+        private modeloVentana modeloVentana=new modeloVentana();
 
 
 
@@ -56,6 +56,8 @@ namespace puntoVentaWin.modulo_opciones
                     ventanaText.Text = ventana_sistema.nombre_ventana;
                     nombreLogicoText.Text = ventana_sistema.nombre_logico;
                     imagenRutaText.Text = ventana_sistema.imagen;
+                    idModuloText.Text = ventana_sistema.cod_modulo.ToString();
+                    nombreModuloLabel.Text = ventana_sistema.sistema_modulo.nombre;
                     activoCheck.Checked = (bool) ventana_sistema.activo;
                 }
                 else
@@ -66,6 +68,8 @@ namespace puntoVentaWin.modulo_opciones
                     ventanaText.Text = "";
                     nombreLogicoText.Text = "";
                     imagenRutaText.Text = "";
+                    idModuloText.Text = "";
+                    nombreModuloLabel.Text = "";
                     activoCheck.Checked = false;
                 }
             }
@@ -216,9 +220,13 @@ namespace puntoVentaWin.modulo_opciones
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ventana_buscar_ventana ventana=new ventana_buscar_ventana();
+            ventana_buscar_ventana ventana=new ventana_buscar_ventana(empleado);
             ventana.Owner = this;
             ventana.ShowDialog();
+            if ((ventana_sistema=ventana.getObjeto()) != null)
+            {
+                loadVentana();
+            }
         }
     }
 }

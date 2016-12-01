@@ -10,7 +10,7 @@ using puntoVentaModelo.modelos;
 
 namespace puntoVentaModelo.Modelos
 {
-    public class modeloSistemaVentana
+    public class modeloVentana
     {
         public Boolean agregarVentana(sistema_ventanas ventana)
         {
@@ -97,6 +97,29 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
+        public sistema_ventanas getVentanaById(int id)
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+
+
+                var lista = (from c in entity.sistema_ventanas
+                             where c.codigo==id
+                         select c).ToList().FirstOrDefault();
+
+
+                return lista;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getVentanaById.: " + ex.ToString());
+                return null;
+            }
+        }
         public List<sistema_ventanas> getListaCompleta()
         {
             try
@@ -136,8 +159,6 @@ namespace puntoVentaModelo.Modelos
 
 
                 return lista;
-
-
             }
             catch (Exception ex)
             {
@@ -145,14 +166,33 @@ namespace puntoVentaModelo.Modelos
                 return null;
             }
         }
+        public List<modulos_vs_ventanas> getListaCompletaModulosVsVentanas()
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
 
+                List<modulos_vs_ventanas> lista = new List<modulos_vs_ventanas>();
+
+                lista = (from c in entity.modulos_vs_ventanas
+                         select c).ToList();
+                
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getListaCompletaModulosVsVentanas.: " + ex.ToString());
+                return null;
+            }
+        }
         public Boolean agregarModulosVentanas(List<sistema_ventanas> lista)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                modeloSistemaVentana modeloVentana = new modeloSistemaVentana();
+                modeloVentana modeloVentana = new modeloVentana();
                 //eliminando las ventans viejas
                 List<sistema_ventanas> listaVieja = modeloVentana.getListaCompleta();
                 
@@ -217,5 +257,55 @@ namespace puntoVentaModelo.Modelos
                 return null;
             }
         }
+
+
+        public Boolean agregarModuloVsVentana(List<modulos_vs_ventanas> lista)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                //eliminando las vieja
+                List<modulos_vs_ventanas> listaVieja =new List<modulos_vs_ventanas>();
+                //listaVieja = getListaCompletaModulosVsVentanas();
+                listaVieja = (entity.modulos_vs_ventanas.Where(x => x.id_modulo > 0)).ToList();
+                if (listaVieja.ToList().Count > 0)
+                {
+                    listaVieja.ForEach(x =>
+                    {
+                        entity.modulos_vs_ventanas.Remove(x);
+                    });
+                }
+                
+                //agregando
+                if (lista.ToList().Count > 0)
+                {
+                    lista.ForEach(x =>
+                    {
+                        modulos_vs_ventanas moduloVsVentana=new modulos_vs_ventanas();
+                        moduloVsVentana.id_modulo = x.id_modulo;
+                        moduloVsVentana.id_ventana = x.id_ventana;
+                        entity.modulos_vs_ventanas.Add(moduloVsVentana);
+                    });
+                }
+                entity.SaveChanges();
+                
+                return true;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error agregarModuloVsVentana.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+
+
     }
 }

@@ -8,7 +8,7 @@ using puntoVentaModelo.modelos;
 
 namespace puntoVentaModelo.Modelos
 {
-    public class modeloSistemaModulos
+    public class modeloModulos
     {
         public Boolean agregarModulos(List<sistema_modulo> listaModulos)
         {
@@ -140,8 +140,6 @@ namespace puntoVentaModelo.Modelos
 
 
                 return lista;
-
-
             }
             catch (Exception ex)
             {
@@ -150,6 +148,26 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
+
+        public List<modulos_vs_ventanas> getModulosVentanasCompleta()
+        {
+            try
+            {
+                coneccion coneccion = new coneccion();
+                punto_ventaEntities entity = coneccion.GetConeccion();
+
+                var lista = (from c in entity.modulos_vs_ventanas
+                             select c).ToList();
+
+
+                return lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: getModulosVentanasCompleta.: " + ex.ToString());
+                return null;
+            }
+        }
         public List<sistema_modulo> GetListaCompleta()
         {
             try
@@ -165,7 +183,6 @@ namespace puntoVentaModelo.Modelos
 
 
                 return lista;
-
 
             }
             catch (Exception ex)
@@ -201,6 +218,43 @@ namespace puntoVentaModelo.Modelos
             {
                 entity = null;
                 MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+
+
+        public Boolean agregarModulosVentanas(List<modulos_vs_ventanas> lista)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                //eliminando las ventans viejas
+                List<modulos_vs_ventanas> listaVieja = getModulosVentanasCompleta();
+                listaVieja.ForEach(x =>
+                {
+                    entity.modulos_vs_ventanas.Remove(x);
+                });
+
+                //agregando las ventanas nuevas
+                lista.ForEach(x =>
+                {
+                    entity.modulos_vs_ventanas.Add(x);
+                });
+
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error agregarModulosVentanas.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return false;
             }

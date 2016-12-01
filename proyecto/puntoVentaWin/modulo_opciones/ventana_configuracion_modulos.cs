@@ -19,8 +19,8 @@ namespace puntoVentaWin.modulo_opciones
 
         
         //modelos
-        modeloSistemaModulos modeloModulos=new modeloSistemaModulos();
-        modeloSistemaVentana modeloVentana=new modeloSistemaVentana();
+        modeloModulos modeloModulos=new modeloModulos();
+        modeloVentana modeloVentana=new modeloVentana();
 
 
         //objetos
@@ -28,12 +28,12 @@ namespace puntoVentaWin.modulo_opciones
         utilidades utilidades=new utilidades();
         private sistema_modulo modulo;
         private sistema_ventanas ventana;
-        private sistema_ventanas ventanaAgregar;
+        private modulos_vs_ventanas moduloVsVentana;
 
         //listas
         private List<sistema_ventanas> listaVentanas=new List<sistema_ventanas>();
         private List<sistema_modulo> listaModulos =new List<sistema_modulo>();
-        private List<sistema_ventanas> listaVentanasGuardar=new List<sistema_ventanas>();
+        private List<modulos_vs_ventanas> listaModuloVentanaGuardar = new List<modulos_vs_ventanas>();
         
 
         public ventana_configuracion_modulos(empleado empleadoA)
@@ -56,7 +56,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                listaVentanasGuardar = modeloVentana.getListaCompleta();
+                listaModuloVentanaGuardar = modeloVentana.getListaCompletaModulosVsVentanas();
                 loadModulosList();
                 loadVentanasList();
                 loadList();
@@ -76,7 +76,7 @@ namespace puntoVentaWin.modulo_opciones
 
         public override void limpiar()
         {
-            listaVentanasGuardar = null;
+            listaModuloVentanaGuardar = null;
             loadVentana();
         }
 
@@ -84,7 +84,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                if (listaVentanasGuardar == null)
+                if (listaModuloVentanaGuardar == null)
                 {
                     MessageBox.Show("Debe crear uns lista de modulos y ventanas", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;
@@ -106,7 +106,7 @@ namespace puntoVentaWin.modulo_opciones
                     return;
 
                 //agregar y modificar
-                if ((modeloVentana.agregarModulosVentanas(listaVentanasGuardar)) == true)
+                if ((modeloVentana.agregarModuloVsVentana(listaModuloVentanaGuardar)) == true)
                 {
                     MessageBox.Show("Se realizó correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -126,37 +126,23 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-
                 //MessageBox.Show("nueva cantidad items-->" + listaVentanasGuardar.ToList().Count);
                 if (dataGridView.Rows.Count > 0)
                 {
                     dataGridView.Rows.Clear();
                 }
 
-                if (listaVentanas == null)
-                    return;
-
-                if (listaVentanasGuardar == null)
+                if (listaModuloVentanaGuardar == null)
                 {
-                    listaVentanasGuardar = new List<sistema_ventanas>();
-                    listaVentanasGuardar = modeloVentana.getListaCompleta();
+                    listaModuloVentanaGuardar = new List<modulos_vs_ventanas>();
+                    listaModuloVentanaGuardar = modeloVentana.getListaCompletaModulosVsVentanas();
                 }
 
-                listaVentanasGuardar.ForEach(x =>
+
+                listaModuloVentanaGuardar.ForEach(x =>
                 {
-                    //MessageBox.Show("1");
-                    //MessageBox.Show("modulo->" + x.sistema_modulo.nombre_modulo_proyecto + "- ventana->" + x.nombre_ventana);
-                    //if (x.sistema_modulo.nombre == null && x.nombre_ventana!=null)
-                    //{
-                    //dataGridView.Rows.Add(x.sistema_modulo.nombre, x.nombre_ventana);
-                    //eploto poniendo el nombre del modulo
-                    modulo = new sistema_modulo();
-                    if (x.cod_modulo != null)
-                    {
-                        modulo = modeloModulos.getModuloById(x.cod_modulo);
-                    }
-                    dataGridView.Rows.Add(modulo.nombre, x.nombre_ventana);
-                    //}
+                    //MessageBox.Show("modulo->"+x.id_modulo+"     ventana-> "+x.id_ventana);
+                    //dataGridView.Rows.Add(x.sistema_modulo.nombre,x.sistema_ventanas.nombre_ventana);                   
                 });
             }
             catch (Exception ex)
@@ -170,8 +156,6 @@ namespace puntoVentaWin.modulo_opciones
             {
                 if (!validarAgregarVentana())
                     return;
-
-               
 
             }
             catch (Exception ex)
@@ -200,10 +184,10 @@ namespace puntoVentaWin.modulo_opciones
                 }
 
                 bool existe = false;
-                listaVentanasGuardar.ForEach(ven =>
+                listaModuloVentanaGuardar.ForEach(ven =>
                 {
                     //MessageBox.Show("insertar: modulo-->"+modulo.id+"   ventana-->"+ventana.codigo+"    actual: modulo-->"+ven.cod_modulo+"  ventana--> "+ven.codigo);
-                    if (ven.cod_modulo==modulo.id && ven.codigo==ventana.codigo)
+                    if (ven.id_modulo==modulo.id && ven.id_ventana==ventana.codigo)
                     {
                         existe = true;
                     }
@@ -214,15 +198,11 @@ namespace puntoVentaWin.modulo_opciones
                     MessageBox.Show("Ya existe el modulo->" + modulo.nombre + "-  y la ventana-->" + ventana.nombre_ventana);
                     return false;
                 }
-                ventanaAgregar=new sistema_ventanas();
-                ventanaAgregar.codigo = ventana.codigo;
-                ventanaAgregar.nombre_ventana = ventana.nombre_ventana;
-                ventanaAgregar.cod_modulo = modulo.id;
-                ventanaAgregar.nombre_logico = ventana.nombre_logico;
-                ventanaAgregar.imagen = ventana.imagen;
-                ventanaAgregar.activo = ventana.activo;
 
-                listaVentanasGuardar.Add(ventanaAgregar);
+                moduloVsVentana=new modulos_vs_ventanas();
+                moduloVsVentana.id_modulo = modulo.id;
+                moduloVsVentana.id_ventana = ventana.codigo;
+                listaModuloVentanaGuardar.Add(moduloVsVentana);
                 loadList();
                 return true;
             }
@@ -230,23 +210,6 @@ namespace puntoVentaWin.modulo_opciones
             {
                 MessageBox.Show("Error validarAgregarVentana.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }
-        }
-
-        public void agregarItem()
-        {
-            try
-            {
-                if (!validarAgregarVentana())
-                    return;
-
-
-               
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error agregarItem.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -286,7 +249,7 @@ namespace puntoVentaWin.modulo_opciones
                     return;
 
 
-                listaVentanasGuardar.RemoveAt(index);
+                listaModuloVentanaGuardar.RemoveAt(index);
                 loadList();
             }
             catch (Exception ex)
