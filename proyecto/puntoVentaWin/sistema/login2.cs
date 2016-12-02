@@ -28,9 +28,9 @@ namespace puntoVenta.sistema
 
         public login2()
         {
+            InitializeComponent();
             this.tituloLabel.Text = "Inicio sesión";
             this.Text = tituloLabel.Text;
-            InitializeComponent();
             LoadVentana();
             usuarioText.Select();
         }
@@ -76,7 +76,7 @@ namespace puntoVenta.sistema
         }
 
 
-        public override void GetAcion()
+        public override void GetAction()
         {
             if (MessageBox.Show("Desea procesar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) ==DialogResult.No)
             {
@@ -93,7 +93,7 @@ namespace puntoVenta.sistema
             if ((empleado=modeloEmpleado.getEmpleadoByLogin(empleado))!=null)
             {
                 menu1 ventana = new menu1(empleado);
-                ventana.ShowDialog();
+                ventana.Show();
                 this.Hide();
                 //MessageBox.Show("Existe");
             }
@@ -141,6 +141,11 @@ namespace puntoVenta.sistema
 
         private void button3_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

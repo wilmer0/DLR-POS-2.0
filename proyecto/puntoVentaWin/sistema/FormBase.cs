@@ -8,14 +8,19 @@ using System.Text;
 using System.Windows.Forms;
 using puntoVenta.sistema;
 using puntoVentaModelo;
-
+using System.Runtime.InteropServices;
 
 namespace puntoVenta
 {
     public partial class FormBase : Form
     {
 
+        //mover form
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
 
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         //objeto
         utilidades utilidades=new utilidades();
         private empleado empleado;
@@ -56,7 +61,7 @@ namespace puntoVenta
             }
         }
 
-        public virtual void GetAcion()
+        public virtual void GetAction()
         {
             if (MessageBox.Show("Desea guardar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -76,7 +81,7 @@ namespace puntoVenta
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GetAcion();
+            GetAction();
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -104,7 +109,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
         }
 
@@ -122,7 +127,7 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
         }
 
@@ -150,8 +155,23 @@ namespace puntoVenta
 
             if (e.KeyCode == Keys.F8)
             {
-                GetAcion();
+                GetAction();
             }
+            //mover form sin borde
+            //ReleaseCapture();
+            //SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void tituloLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
     }

@@ -1048,5 +1048,42 @@ namespace puntoVenta
             }
         }
 
+        public static void EliminarARchivo(string fullPath)
+        {
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.FileInfo info = new System.IO.FileInfo(fullPath);
+                info.Attributes = System.IO.FileAttributes.Normal;
+                System.IO.File.Delete(fullPath);
+            }
+        }
+        public bool copiarPegarArchivo(string origPath, string destPath, bool overwrite)
+        {
+            try
+            {
+                if (System.IO.Path.GetExtension(destPath) == "")
+                {
+                    destPath = System.IO.Path.Combine(destPath, System.IO.Path.GetFileName(origPath));
+                }
+                
+                if (!System.IO.File.Exists(destPath))
+                {
+                    System.IO.File.Copy(origPath, destPath, true);
+                }
+                else
+                {
+                    if (overwrite == true)
+                    {
+                        EliminarARchivo(destPath);
+                        System.IO.File.Copy(origPath, destPath, true);
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

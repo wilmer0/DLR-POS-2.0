@@ -43,21 +43,28 @@
             // 
             // button1
             // 
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.Location = new System.Drawing.Point(304, 5);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
             this.panel1.Location = new System.Drawing.Point(12, 325);
             this.panel1.Size = new System.Drawing.Size(445, 54);
             // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            // 
             // button3
             // 
+            this.button3.FlatAppearance.BorderSize = 0;
             this.button3.Location = new System.Drawing.Point(153, 5);
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(697, 37);
+            this.panel2.Size = new System.Drawing.Size(469, 27);
             // 
             // label2
             // 

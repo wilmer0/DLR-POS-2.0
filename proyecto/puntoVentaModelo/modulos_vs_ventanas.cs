@@ -12,19 +12,12 @@ namespace puntoVentaModelo
     using System;
     using System.Collections.Generic;
     
-    public partial class sistema_modulo
+    public partial class modulos_vs_ventanas
     {
-        public sistema_modulo()
-        {
-            this.sistema_ventanas = new HashSet<sistema_ventanas>();
-        }
+        public int id_modulo { get; set; }
+        public Nullable<int> id_ventana { get; set; }
     
-        public int id { get; set; }
-        public string nombre { get; set; }
-        public Nullable<bool> activo { get; set; }
-        public string nombre_modulo_proyecto { get; set; }
-    
-        public virtual modulos_vs_ventanas modulos_vs_ventanas { get; set; }
-        public virtual ICollection<sistema_ventanas> sistema_ventanas { get; set; }
+        public virtual sistema_modulo sistema_modulo { get; set; }
+        public virtual sistema_ventanas sistema_ventanas { get; set; }
     }
 }
