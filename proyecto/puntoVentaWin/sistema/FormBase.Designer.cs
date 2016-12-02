@@ -103,15 +103,15 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.AutoSize = true;
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.tituloLabel);
-            this.panel2.Location = new System.Drawing.Point(-3, 0);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(526, 37);
+            this.panel2.Size = new System.Drawing.Size(518, 27);
             this.panel2.TabIndex = 7;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
             // tituloLabel
             // 
@@ -123,6 +123,7 @@
             this.tituloLabel.Size = new System.Drawing.Size(49, 17);
             this.tituloLabel.TabIndex = 8;
             this.tituloLabel.Text = "Titulo";
+            this.tituloLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.tituloLabel_MouseDown);
             // 
             // FormBase
             // 
@@ -134,7 +135,7 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

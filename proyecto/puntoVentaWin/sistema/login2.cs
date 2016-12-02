@@ -93,7 +93,7 @@ namespace puntoVenta.sistema
             if ((empleado=modeloEmpleado.getEmpleadoByLogin(empleado))!=null)
             {
                 menu1 ventana = new menu1(empleado);
-                ventana.ShowDialog();
+                ventana.Show();
                 this.Hide();
                 //MessageBox.Show("Existe");
             }
@@ -141,6 +141,11 @@ namespace puntoVenta.sistema
 
         private void button3_Click(object sender, EventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -55,6 +55,7 @@
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.Location = new System.Drawing.Point(517, 5);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel1
             // 
@@ -72,7 +73,7 @@
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(910, 37);
+            this.panel2.Size = new System.Drawing.Size(682, 27);
             // 
             // groupBox1
             // 
@@ -116,6 +117,7 @@
             this.idText.Name = "idText";
             this.idText.Size = new System.Drawing.Size(382, 26);
             this.idText.TabIndex = 0;
+            this.idText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idText_KeyDown);
             // 
             // label2
             // 
@@ -168,6 +170,7 @@
             this.activoCheck.TabIndex = 15;
             this.activoCheck.Text = "Activo";
             this.activoCheck.UseVisualStyleBackColor = true;
+            this.activoCheck.KeyDown += new System.Windows.Forms.KeyEventHandler(this.activoCheck_KeyDown);
             // 
             // button5
             // 
@@ -180,6 +183,7 @@
             this.button5.Size = new System.Drawing.Size(49, 34);
             this.button5.TabIndex = 5;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // idModuloText
             // 
@@ -189,6 +193,7 @@
             this.idModuloText.Name = "idModuloText";
             this.idModuloText.Size = new System.Drawing.Size(129, 26);
             this.idModuloText.TabIndex = 4;
+            this.idModuloText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.idModuloText_KeyDown);
             // 
             // label4
             // 
@@ -209,6 +214,7 @@
             this.ventanaText.Name = "ventanaText";
             this.ventanaText.Size = new System.Drawing.Size(342, 26);
             this.ventanaText.TabIndex = 17;
+            this.ventanaText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ventanaText_KeyDown);
             // 
             // nombreLogicoText
             // 
@@ -219,6 +225,7 @@
             this.nombreLogicoText.Name = "nombreLogicoText";
             this.nombreLogicoText.Size = new System.Drawing.Size(342, 26);
             this.nombreLogicoText.TabIndex = 18;
+            this.nombreLogicoText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nombreLogicoText_KeyDown);
             // 
             // button6
             // 
@@ -242,6 +249,7 @@
             this.imagenRutaText.ReadOnly = true;
             this.imagenRutaText.Size = new System.Drawing.Size(342, 26);
             this.imagenRutaText.TabIndex = 19;
+            this.imagenRutaText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.imagenRutaText_KeyDown);
             // 
             // panel3
             // 

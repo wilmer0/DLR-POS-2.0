@@ -13,28 +13,31 @@ using puntoVentaModelo.Modelos;
 
 namespace puntoVentaWin.modulo_opciones
 {
-    public partial class ventana_buscar_ventana : FormBase
+    public partial class ventana_buscar_modulo : FormBase
     {
 
         //objetos
-        public sistema_ventanas Getventana;
+        public sistema_modulo GetModulo;
         private empleado empleado;
-        utilidades utilidades=new utilidades();
+        utilidades utilidades = new utilidades();
 
 
         //listas
-        private List<sistema_ventanas> lista; 
+        private List<sistema_modulo> lista;
 
 
         //modelos
-        modeloVentana modeloVentana=new modeloVentana();
+        modeloModulos modeloModulo = new modeloModulos();
 
-        public ventana_buscar_ventana(empleado empleadoApp)
+
+
+        public ventana_buscar_modulo(empleado empleadoApp)
         {
             InitializeComponent();
             this.empleado = empleadoApp;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "buscar ventanas");
             this.Text = tituloLabel.Text;
+            loadList();
             loadList();
         }
 
@@ -42,15 +45,15 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                lista=new List<sistema_ventanas>();
-                lista = modeloVentana.getListaCompleta();
+                lista = new List<sistema_modulo>();
+                lista = modeloModulo.GetListaCompleta();
                 if (dataGridView1.Rows.Count > 0)
                 {
                     dataGridView1.Rows.Clear();
                 }
                 lista.ForEach(x =>
                 {
-                    dataGridView1.Rows.Add(x.codigo, x.nombre_ventana, x.sistema_modulo.nombre,x.activo);
+                    dataGridView1.Rows.Add(x.id, x.nombre, x.activo);
                 });
             }
             catch (Exception ex)
@@ -62,7 +65,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             if (MessageBox.Show("Desea limpiar?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Getventana = null;
+                GetModulo = null;
                 loadList();
             }
         }
@@ -83,53 +86,37 @@ namespace puntoVentaWin.modulo_opciones
                     return;
 
                 index = Convert.ToInt16(dataGridView1.Rows[index].Cells[0].Value);
-                Getventana = modeloVentana.getVentanaById(index);
+                GetModulo = modeloModulo.getModuloById(index);
 
-                if (Getventana != null)
+                if (GetModulo != null)
                 {
                     //MessageBox.Show(index.ToString());
-                    //return Getventana;
+                    //return GetModulo;
                     this.Close();
                 }
                 else
                 {
-                    return;
+                    //return null;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error getObjeto.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
+                //return null;
             }
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            getObjeto();
         }
 
         public override void GetAction()
         {
             getObjeto();
         }
-        private void ventana_buscar_ventana_Load(object sender, EventArgs e)
+
+        private void ventana_buscar_modulo_Load(object sender, EventArgs e)
         {
 
         }
 
-       
-
-       
-
-       
-
-       
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

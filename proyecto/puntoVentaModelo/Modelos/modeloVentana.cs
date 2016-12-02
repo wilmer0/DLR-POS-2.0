@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Objects;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -21,7 +22,7 @@ namespace puntoVentaModelo.Modelos
                 var lista = (from c in entity.sistema_ventanas
                              where c.codigo == ventana.codigo
                              select c).FirstOrDefault();
-
+                
                 entity.SaveChanges();
                 return true;
             }

@@ -103,6 +103,12 @@
     <Compile Include="modulo_facturacion\caja\ventana_caja.Designer.cs">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </Compile>
+    <Compile Include="modulo_opciones\ventana_buscar_modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_buscar_modulo.Designer.cs">
+      <DependentUpon>ventana_buscar_modulo.cs</DependentUpon>
+    </Compile>
     <Compile Include="modulo_opciones\ventana_buscar_ventana.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_facturacion\caja\ventana_caja.resx">
       <DependentUpon>ventana_caja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_opciones\ventana_buscar_modulo.resx">
+      <DependentUpon>ventana_buscar_modulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_buscar_ventana.resx">
       <DependentUpon>ventana_buscar_ventana.cs</DependentUpon>
