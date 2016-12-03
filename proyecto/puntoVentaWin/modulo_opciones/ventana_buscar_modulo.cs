@@ -28,8 +28,7 @@ namespace puntoVentaWin.modulo_opciones
 
         //modelos
         modeloModulos modeloModulo = new modeloModulos();
-
-
+        
 
         public ventana_buscar_modulo(empleado empleadoApp)
         {
@@ -119,6 +118,33 @@ namespace puntoVentaWin.modulo_opciones
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                getObjeto();
+            }
+        }
+
+        private void nombreText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (moduloRadio.Checked)
+                {
+                    //modulo
+                    lista = modeloModulo.getListaByModulo(nombreText.Text.Trim());
+                }
+
+                loadList();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }

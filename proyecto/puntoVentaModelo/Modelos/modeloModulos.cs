@@ -288,5 +288,32 @@ namespace puntoVentaModelo.Modelos
                 entity = null;
             }
         }
+
+        public List<sistema_modulo> getListaByModulo(string modulo)
+        {
+
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                var lista = (from c in entity.sistema_modulo
+                             where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                             select c).ToList();
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error getListaByModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
     }
 }

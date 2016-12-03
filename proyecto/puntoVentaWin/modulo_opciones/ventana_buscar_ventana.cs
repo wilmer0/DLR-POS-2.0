@@ -35,6 +35,8 @@ namespace puntoVentaWin.modulo_opciones
             this.empleado = empleadoApp;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "buscar ventanas");
             this.Text = tituloLabel.Text;
+            nombreText.Focus();
+            nombreText.SelectAll();
             loadList();
         }
 
@@ -42,8 +44,13 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
-                lista=new List<sistema_ventanas>();
-                lista = modeloVentana.getListaCompleta();
+                nombreText.Focus();
+                nombreText.SelectAll();
+                if (lista == null)
+                {
+                    lista = new List<sistema_ventanas>();
+                    lista = modeloVentana.getListaCompleta();
+                }
                 if (dataGridView1.Rows.Count > 0)
                 {
                     dataGridView1.Rows.Clear();
@@ -77,6 +84,7 @@ namespace puntoVentaWin.modulo_opciones
         {
             try
             {
+
                 int index = dataGridView1.CurrentRow.Index;
 
                 if (index < 0)
@@ -117,13 +125,6 @@ namespace puntoVentaWin.modulo_opciones
         }
 
        
-
-       
-
-       
-
-       
-
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -132,6 +133,33 @@ namespace puntoVentaWin.modulo_opciones
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void nombreText_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (ventanaRadio.Checked)
+                {
+                    //ventana
+                    lista = modeloVentana.getListaByVentana(nombreText.Text.Trim());
+                }
+                else if (moduloRadio.Checked)
+                {
+                    //modulo
+                    lista = modeloVentana.getListaByModulo(nombreText.Text.Trim());
+                }
+
+                loadList();
+            }
+        }
+
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                getObjeto();
+            }
         }
     }
 }

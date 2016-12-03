@@ -307,6 +307,56 @@ namespace puntoVentaModelo.Modelos
         }
 
 
+        public List<sistema_ventanas> getListaByVentana(string ventana)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                var lista = (from c in entity.sistema_ventanas
+                             where c.nombre_ventana.ToLower().Contains(ventana.ToLower()) || c.nombre_logico.ToLower().Contains(ventana.ToLower())
+                             select c).ToList();
 
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error getListaByVentana.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+        public List<sistema_ventanas> getListaByModulo(string modulo)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                var lista = (from c in entity.sistema_ventanas
+                             where c.sistema_modulo.nombre.ToLower().Contains(modulo.ToLower()) || c.sistema_modulo.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                             select c).ToList();
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error getListaByModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
     }
 }
