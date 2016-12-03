@@ -23,6 +23,7 @@ namespace puntoVentaModelo
         public string nombre { get; set; }
         public Nullable<bool> activo { get; set; }
         public string nombre_modulo_proyecto { get; set; }
+        public string imagen { get; set; }
     
         public virtual modulos_vs_ventanas modulos_vs_ventanas { get; set; }
         public virtual ICollection<sistema_ventanas> sistema_ventanas { get; set; }
