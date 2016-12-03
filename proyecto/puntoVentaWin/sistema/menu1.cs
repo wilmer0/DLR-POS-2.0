@@ -150,6 +150,13 @@ namespace puntoVenta.sistema
             ventana.Owner = this;
             ventana.ShowDialog();
         }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            ventana_crear_modulo ventana = new ventana_crear_modulo(empleado);
+            ventana.Owner = this;
+            ventana.ShowDialog();
+        }
         
     }
 }

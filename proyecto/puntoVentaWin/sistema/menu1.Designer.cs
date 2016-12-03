@@ -71,7 +71,7 @@
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(1051, 37);
+            this.panel2.Size = new System.Drawing.Size(823, 27);
             // 
             // panel3
             // 
@@ -233,6 +233,7 @@
             this.button11.Size = new System.Drawing.Size(93, 77);
             this.button11.TabIndex = 45;
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 

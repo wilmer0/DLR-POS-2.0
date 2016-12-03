@@ -22,7 +22,18 @@ namespace puntoVentaModelo.Modelos
                 var lista = (from c in entity.sistema_ventanas
                              where c.codigo == ventana.codigo
                              select c).FirstOrDefault();
-                
+
+                var validar = (from c in entity.sistema_ventanas
+                               where c.nombre_logico == ventana.nombre_logico && c.codigo != ventana.codigo
+                               select c).ToList().FirstOrDefault();
+
+                if (validar != null)
+                {
+                    MessageBox.Show("Existe otra ventana con el mismo nombre lógico", "", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return false;
+                }
+
                 entity.SaveChanges();
                 return true;
             }
@@ -52,7 +63,16 @@ namespace puntoVentaModelo.Modelos
                          where c.codigo == ventana.codigo
                          select c).ToList().FirstOrDefault();
 
+               var validar = (from c in entity.sistema_ventanas
+                              where c.nombre_logico == ventana.nombre_logico && c.codigo != ventana.codigo
+                              select c).ToList().FirstOrDefault();
 
+               if (validar != null)
+               {
+                   MessageBox.Show("Existe otra ventana con el mismo nombre lógico", "", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                   return false;
+               }
                 lista.cod_modulo = ventana.cod_modulo;
                 lista.nombre_ventana = ventana.nombre_ventana;
                 lista.nombre_logico = ventana.nombre_logico;
@@ -121,7 +141,7 @@ namespace puntoVentaModelo.Modelos
                 return null;
             }
         }
-        public List<sistema_ventanas> getListaCompleta()
+        public List<sistema_ventanas> getListaCompleta(bool mantenimiento=false)
         {
             try
             {
@@ -129,10 +149,17 @@ namespace puntoVentaModelo.Modelos
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
                 List<sistema_ventanas> lista = new List<sistema_ventanas>();
-
-                lista = (from c in entity.sistema_ventanas
+                if (mantenimiento == true)
+                {
+                    lista = (from c in entity.sistema_ventanas
+                             select c).ToList();
+                }
+                else
+                {
+                    lista = (from c in entity.sistema_ventanas
+                             where c.activo==true
                         select c).ToList();
-
+                }
 
                 return lista;
 

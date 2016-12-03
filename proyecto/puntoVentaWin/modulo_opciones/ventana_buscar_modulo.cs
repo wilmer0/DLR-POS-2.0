@@ -16,6 +16,9 @@ namespace puntoVentaWin.modulo_opciones
     public partial class ventana_buscar_modulo : FormBase
     {
 
+        //variables
+        private bool mantenimiento = false;
+
         //objetos
         public sistema_modulo GetModulo;
         private empleado empleado;
@@ -37,15 +40,18 @@ namespace puntoVentaWin.modulo_opciones
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "buscar ventanas");
             this.Text = tituloLabel.Text;
             loadList();
-            loadList();
+            
         }
 
         public void loadList()
         {
             try
             {
-                lista = new List<sistema_modulo>();
-                lista = modeloModulo.GetListaCompleta();
+                if (lista == null)
+                {
+                    lista = new List<sistema_modulo>();
+                    lista = modeloModulo.GetListaCompleta(true);
+                }
                 if (dataGridView1.Rows.Count > 0)
                 {
                     dataGridView1.Rows.Clear();
@@ -145,6 +151,11 @@ namespace puntoVentaWin.modulo_opciones
         private void button3_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
