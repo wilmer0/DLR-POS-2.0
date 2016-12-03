@@ -16,6 +16,12 @@ namespace puntoVentaWin.modulo_opciones
     public partial class ventana_buscar_ventana : FormBase
     {
 
+
+        //variables
+        private bool mantenimiento = false;
+
+
+
         //objetos
         public sistema_ventanas Getventana;
         private empleado empleado;
@@ -49,7 +55,7 @@ namespace puntoVentaWin.modulo_opciones
                 if (lista == null)
                 {
                     lista = new List<sistema_ventanas>();
-                    lista = modeloVentana.getListaCompleta();
+                    lista = modeloVentana.getListaCompleta(true);
                 }
                 if (dataGridView1.Rows.Count > 0)
                 {
@@ -160,6 +166,11 @@ namespace puntoVentaWin.modulo_opciones
             {
                 getObjeto();
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

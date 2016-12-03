@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVentaModelo;
 using puntoVentaModelo.modelos;
+using puntoVentaModelo.Modelos;
 using puntoVentaWin.modulo_empresa;
 using puntoVentaWin.modulo_facturacion;
 using puntoVentaWin.modulo_opciones;
@@ -22,33 +23,74 @@ namespace puntoVenta.sistema
         //objetos
         private empleado empleado;
         private utilidades utilidades = new utilidades();
-
+        private sistema_ventanas ventana;
+        private sistema_modulo modulo;
+        private Button botonModulo;
+        private Button botonVentana;
 
         //modelos
         modeloEmpleado modeloEmpleado=new modeloEmpleado();
+        modeloModulosVsVentanas modeloModuloVsVentanas=new modeloModulosVsVentanas();
+
+
 
 
         //listas
-        List<sistema_modulo> listaModulos=new List<sistema_modulo>();
-        List<sistema_ventanas> listaModuloVentanas = new List<sistema_ventanas>(); 
-        List<empleado_accesos_ventanas> listaEmpleadoVentanas=new List<empleado_accesos_ventanas>(); 
+        private List<modulos_vs_ventanas> listaModulosVsVentanas;
+        private List<sistema_modulo> listaModulos;
+        List<sistema_ventanas> listaVentanas; 
+        List<empleado_accesos_ventanas> listaEmpleadoVentanas; 
 
-        public menu1(empleado empleadoA)
+
+
+
+        public menu1(empleado empleadoAPP)
         {
             InitializeComponent();
-            this.empleado = empleadoA;
+            this.empleado = empleadoAPP;
             this.tituloLabel.Text = utilidades.GetTituloVentana(empleado, "menú");
             this.Text = tituloLabel.Text;
             LoadVentana();
         }
 
-        public  void LoadVentana()
+
+        public void loadModulos()
         {
-            //cargar todos los modulos que tiene habilitados el empleado con todas las ventanas que tiene habilitadas
-            //listaModuloVentanas = modeloEmpleado.GetListaVentanasByEmpleado(empleado);
+            try
+            {
+                //cargar los modulos y ponerlo en el layout de modulos
+                if (listaModulosVsVentanas == null)
+                {
+                    listaModulosVsVentanas = new List<modulos_vs_ventanas>();
+                    listaModulosVsVentanas = modeloModuloVsVentanas.getListaCompleta();
+                }
 
-            
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error loadModulos.: " + ex.ToString(), "", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+            }
+        }
+        public void LoadVentana()
+        {
+            try
+            {
+                //cargar todos los modulos que tiene habilitados el empleado con todas las ventanas que tiene habilitadas
+                if (listaModulosVsVentanas == null)
+                {
+                    listaModulosVsVentanas=new List<modulos_vs_ventanas>();
+                    listaModulosVsVentanas = modeloModuloVsVentanas.getListaCompleta();
+                }
+
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error cargando los módulos.: " + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void menu1_Load(object sender, EventArgs e)
@@ -156,6 +198,11 @@ namespace puntoVenta.sistema
             ventana_crear_modulo ventana = new ventana_crear_modulo(empleado);
             ventana.Owner = this;
             ventana.ShowDialog();
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            this.WindowState=FormWindowState.Maximized;
         }
         
     }

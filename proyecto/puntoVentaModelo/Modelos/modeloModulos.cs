@@ -345,17 +345,29 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_modulo> getListaByModulo(string modulo)
+        public List<sistema_modulo> getListaByModulo(string modulo,bool mantenimiento=false)
         {
 
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
-                var lista = (from c in entity.sistema_modulo
-                             where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
-                             select c).ToList();
+                var lista=new List<sistema_modulo>();
+                if (mantenimiento == true)
+                {
+                    lista= (from c in entity.sistema_modulo
+                                 where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                                 select c).ToList();
+                }
+                else
+                {
+                     lista = (from c in entity.sistema_modulo
+                                 where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                              && c.activo==true   
+                              select c).ToList();
 
+                }
+              
                 return lista;
 
             }
