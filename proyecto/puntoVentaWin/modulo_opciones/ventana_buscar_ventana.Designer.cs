@@ -28,16 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ventana_buscar_ventana));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.button4 = new System.Windows.Forms.Button();
+            this.moduloRadio = new System.Windows.Forms.RadioButton();
+            this.ventanaRadio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.nombreText = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -94,6 +92,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(784, 286);
             this.dataGridView1.TabIndex = 13;
+            this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
             // 
             // Column1
             // 
@@ -123,9 +122,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.moduloRadio);
+            this.groupBox1.Controls.Add(this.ventanaRadio);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nombreText);
             this.groupBox1.Location = new System.Drawing.Point(12, 45);
@@ -133,43 +131,32 @@
             this.groupBox1.Size = new System.Drawing.Size(784, 87);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // radioButton2
+            // moduloRadio
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(197, 50);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(78, 21);
-            this.radioButton2.TabIndex = 5;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "módulo";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.moduloRadio.AutoSize = true;
+            this.moduloRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.moduloRadio.Location = new System.Drawing.Point(197, 50);
+            this.moduloRadio.Name = "moduloRadio";
+            this.moduloRadio.Size = new System.Drawing.Size(78, 21);
+            this.moduloRadio.TabIndex = 5;
+            this.moduloRadio.TabStop = true;
+            this.moduloRadio.Text = "módulo";
+            this.moduloRadio.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // ventanaRadio
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(93, 50);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(84, 21);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "ventana";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(537, 13);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(49, 34);
-            this.button4.TabIndex = 3;
-            this.button4.UseVisualStyleBackColor = true;
+            this.ventanaRadio.AutoSize = true;
+            this.ventanaRadio.Checked = true;
+            this.ventanaRadio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ventanaRadio.Location = new System.Drawing.Point(93, 50);
+            this.ventanaRadio.Name = "ventanaRadio";
+            this.ventanaRadio.Size = new System.Drawing.Size(84, 21);
+            this.ventanaRadio.TabIndex = 4;
+            this.ventanaRadio.TabStop = true;
+            this.ventanaRadio.Text = "ventana";
+            this.ventanaRadio.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -189,6 +176,7 @@
             this.nombreText.Name = "nombreText";
             this.nombreText.Size = new System.Drawing.Size(438, 26);
             this.nombreText.TabIndex = 0;
+            this.nombreText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.nombreText_KeyDown);
             // 
             // ventana_buscar_ventana
             // 
@@ -219,14 +207,13 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox nombreText;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton moduloRadio;
+        private System.Windows.Forms.RadioButton ventanaRadio;
     }
 }

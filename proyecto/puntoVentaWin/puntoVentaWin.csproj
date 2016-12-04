@@ -91,16 +91,16 @@
     <Compile Include="modulo_empresa\ventana_sucursal.Designer.cs">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.cs">
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.Designer.cs">
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.Designer.cs">
       <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_caja.cs">
+    <Compile Include="modulo_facturacion\ventana_caja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_caja.Designer.cs">
+    <Compile Include="modulo_facturacion\ventana_caja.Designer.cs">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_opciones\ventana_buscar_modulo.cs">
@@ -120,6 +120,12 @@
     </Compile>
     <Compile Include="modulo_opciones\ventana_configuracion_modulos.Designer.cs">
       <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_crear_modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_crear_modulo.Designer.cs">
+      <DependentUpon>ventana_crear_modulo.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_opciones\ventana_crear_ventana.cs">
       <SubType>Form</SubType>
@@ -167,10 +173,10 @@
     <EmbeddedResource Include="modulo_empresa\ventana_sucursal.resx">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modulo_facturacion\caja\ventana_busqueda_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_busqueda_caja.resx">
       <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modulo_facturacion\caja\ventana_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_caja.resx">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_buscar_modulo.resx">
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_configuracion_modulos.resx">
       <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_opciones\ventana_crear_modulo.resx">
+      <DependentUpon>ventana_crear_modulo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_crear_ventana.resx">
       <DependentUpon>ventana_crear_ventana.cs</DependentUpon>

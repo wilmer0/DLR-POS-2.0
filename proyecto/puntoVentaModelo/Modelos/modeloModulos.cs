@@ -10,6 +10,88 @@ namespace puntoVentaModelo.Modelos
 {
     public class modeloModulos
     {
+        public Boolean agregarModulo(sistema_modulo modulo)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                //validar que el nombre logico no exista en otro modulo
+                var validar = (from c in entity.sistema_modulo
+                               where c.nombre_modulo_proyecto == modulo.nombre_modulo_proyecto && c.id != modulo.id
+                               select c).ToList().FirstOrDefault();
+
+                if (validar != null)
+                {
+                    MessageBox.Show("Existe otro módulo con el mismo nombre lógico", "", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return false;
+                }
+
+                entity.sistema_modulo.Add(modulo);
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error agregarModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+
+
+        public Boolean modificarModulo(sistema_modulo modulo)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+
+                var lista = (from c in entity.sistema_modulo
+                             where c.id == modulo.id
+                             select c).ToList().FirstOrDefault();
+
+                //validar que el nombre logico no exista en otro modulo
+                var validar = (from c in entity.sistema_modulo
+                             where c.nombre_modulo_proyecto==modulo.nombre_modulo_proyecto &&  c.id != modulo.id
+                             select c).ToList().FirstOrDefault();
+
+                if (validar != null)
+                {
+                    MessageBox.Show("Existe otro módulo con el mismo nombre lógico", "", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    return false;
+                }
+
+                lista.id = modulo.id;
+                lista.nombre = modulo.nombre;
+                lista.nombre_modulo_proyecto = modulo.nombre_modulo_proyecto;
+                lista.imagen = modulo.imagen;
+                lista.activo = modulo.activo;
+
+                entity.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error modificarModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+
         public Boolean agregarModulos(List<sistema_modulo> listaModulos)
         {
             coneccion coneccion = new coneccion();
@@ -21,6 +103,7 @@ namespace puntoVentaModelo.Modelos
                     entity.sistema_modulo.Add(x); 
                 });
                 
+
                 entity.SaveChanges();
                 return true;
             }
@@ -38,40 +121,7 @@ namespace puntoVentaModelo.Modelos
         }
 
 
-        public Boolean modificarModulo(sistema_modulo modulo)
-        {
-            coneccion coneccion = new coneccion();
-            punto_ventaEntities entity = coneccion.GetConeccion();
-            try
-            {
-
-                var lista = (from c in entity.sistema_modulo
-                             where c.id == modulo.id
-                             select c).FirstOrDefault();
-
-
-                lista.nombre = modulo.nombre;
-                lista.activo = modulo.activo;
-                lista.nombre_modulo_proyecto = modulo.nombre_modulo_proyecto;
-                lista.sistema_ventanas = modulo.sistema_ventanas;
-
-
-                entity.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                entity = null;
-                MessageBox.Show("Error modificarModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                return false;
-            }
-            finally
-            {
-                entity = null;
-            }
-        }
-
+      
         public Boolean modificarModulos(List<sistema_modulo> listaModulos)
         {
             coneccion coneccion = new coneccion();
@@ -168,7 +218,7 @@ namespace puntoVentaModelo.Modelos
                 return null;
             }
         }
-        public List<sistema_modulo> GetListaCompleta()
+        public List<sistema_modulo> GetListaCompleta(bool mantenimiento =false)
         {
             try
             {
@@ -176,11 +226,17 @@ namespace puntoVentaModelo.Modelos
                 punto_ventaEntities entity = coneccion.GetConeccion();
 
                 List<sistema_modulo> lista=new List<sistema_modulo>();
-
-                lista = (from c in entity.sistema_modulo
-                            where c.activo==true
-                            select c).ToList();
-
+                if (mantenimiento == true)
+                {
+                    lista = (from c in entity.sistema_modulo
+                        select c).ToList();
+                }
+                else
+                {
+                    lista = (from c in entity.sistema_modulo
+                        where c.activo == true
+                        select c).ToList();
+                }
 
                 return lista;
 
@@ -280,6 +336,45 @@ namespace puntoVentaModelo.Modelos
             {
                 entity = null;
                 MessageBox.Show("Error agregarModulos.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+        public List<sistema_modulo> getListaByModulo(string modulo,bool mantenimiento=false)
+        {
+
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            try
+            {
+                var lista=new List<sistema_modulo>();
+                if (mantenimiento == true)
+                {
+                    lista= (from c in entity.sistema_modulo
+                                 where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                                 select c).ToList();
+                }
+                else
+                {
+                     lista = (from c in entity.sistema_modulo
+                                 where c.nombre.ToLower().Contains(modulo.ToLower()) || c.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                              && c.activo==true   
+                              select c).ToList();
+
+                }
+              
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error getListaByModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return null;
             }

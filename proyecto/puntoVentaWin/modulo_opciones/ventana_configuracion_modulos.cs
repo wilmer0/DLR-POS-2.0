@@ -106,6 +106,7 @@ namespace puntoVentaWin.modulo_opciones
                     return;
 
                 //agregar y modificar
+                listaModuloVentanaGuardar = listaModuloVentanaGuardar.Distinct().ToList();
                 if ((modeloVentana.agregarModuloVsVentana(listaModuloVentanaGuardar)) == true)
                 {
                     MessageBox.Show("Se realizó correctamente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);

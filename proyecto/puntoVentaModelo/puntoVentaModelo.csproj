@@ -218,6 +218,7 @@
     <Compile Include="Modelos\modeloEmpleado.cs" />
     <Compile Include="Modelos\modeloEmpresa.cs" />
     <Compile Include="Modelos\modeloModulos.cs" />
+    <Compile Include="Modelos\modeloModulosVsVentanas.cs" />
     <Compile Include="Modelos\modeloVentana.cs" />
     <Compile Include="Modelos\modeloSucursal.cs" />
     <Compile Include="modulos_vs_ventanas.cs">
