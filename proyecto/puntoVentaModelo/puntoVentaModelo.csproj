@@ -221,6 +221,9 @@
     <Compile Include="Modelos\modeloModulosVsVentanas.cs" />
     <Compile Include="Modelos\modeloVentana.cs" />
     <Compile Include="Modelos\modeloSucursal.cs" />
+    <Compile Include="modulos_vs_ventanas.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="moneda.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
