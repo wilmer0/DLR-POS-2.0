@@ -23,7 +23,7 @@ using Ionic.Zip;
 using puntoVentaModelo;
 using CompressionLevel = Ionic.Zlib.CompressionLevel;
 
-namespace puntoVentaWin
+namespace puntoVenta
 {
 
     public  class utilidades

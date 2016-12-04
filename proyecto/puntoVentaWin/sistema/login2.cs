@@ -11,7 +11,7 @@ using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 
 
-namespace puntoVentaWin.sistema
+namespace puntoVenta.sistema
 {
     public partial class login2 : FormBase
     {

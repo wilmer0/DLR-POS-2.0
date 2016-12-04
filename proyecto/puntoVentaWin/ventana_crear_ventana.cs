@@ -6,11 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using puntoVentaWin;
+using puntoVenta;
 using puntoVentaModelo;
 using puntoVentaModelo.Modelos;
 
-namespace puntoVentaWin.ventanas
+namespace puntoVentaWin.modulo_opciones
 {
     public partial class ventana_crear_ventana : FormBase
     {

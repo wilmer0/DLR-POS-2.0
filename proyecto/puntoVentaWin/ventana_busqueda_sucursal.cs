@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVentaWin;
+using puntoVenta;
 using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 
-namespace puntoVentaWin.ventanas
+namespace puntoVentaWin.modulo_empresa
 {
     public partial class ventana_busqueda_sucursal : FormBase
     {

@@ -1,4 +1,4 @@
-﻿namespace puntoVentaWin.ventanas
+﻿namespace puntoVentaWin.modulo_opciones
 {
     partial class ventana_crear_modulo
     {

@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVentaWin;
+using puntoVenta;
 using puntoVentaModelo;
 using puntoVentaModelo.Modelos;
 
-namespace puntoVentaWin.ventanas
+namespace puntoVentaWin.modulo_opciones
 {
     public partial class ventana_buscar_modulo : FormBase
     {

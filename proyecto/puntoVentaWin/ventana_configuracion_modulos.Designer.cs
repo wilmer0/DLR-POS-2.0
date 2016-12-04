@@ -1,4 +1,4 @@
-﻿namespace puntoVentaWin.ventanas
+﻿namespace puntoVentaWin.modulo_opciones
 {
     partial class ventana_configuracion_modulos
     {
@@ -70,7 +70,7 @@
             // 
             // panel2
             // 
-            this.panel2.Size = new System.Drawing.Size(860, 30);
+            this.panel2.Size = new System.Drawing.Size(1088, 37);
             // 
             // groupBox1
             // 
@@ -171,7 +171,6 @@
             this.dataGridView.Size = new System.Drawing.Size(832, 137);
             this.dataGridView.TabIndex = 16;
             this.dataGridView.Visible = false;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn4
             // 

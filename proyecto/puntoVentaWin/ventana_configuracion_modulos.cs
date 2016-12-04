@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVentaWin;
-using puntoVentaWin.clases;
+using puntoVenta;
+using puntoVenta.clases;
 using puntoVentaModelo;
 using puntoVentaModelo.Modelos;
 
-namespace puntoVentaWin.ventanas
+namespace puntoVentaWin.modulo_opciones
 {
     public partial class ventana_configuracion_modulos : FormBase
     {
@@ -309,11 +309,6 @@ namespace puntoVentaWin.ventanas
         private void button1_Click(object sender, EventArgs e)
         {
             GetAction();
-        }
-
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
         
     }

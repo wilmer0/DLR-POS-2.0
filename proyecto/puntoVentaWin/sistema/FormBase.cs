@@ -6,13 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using puntoVenta.sistema;
 using puntoVentaModelo;
 using System.Runtime.InteropServices;
-using puntoVentaWin.ventanas;
-using  puntoVentaWin.ventanas;
-using puntoVentaWin.ventanas;
 
-namespace puntoVentaWin
+namespace puntoVenta
 {
     public partial class FormBase : Form
     {

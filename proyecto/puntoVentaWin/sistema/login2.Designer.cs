@@ -1,4 +1,4 @@
-﻿namespace puntoVentaWin.sistema
+﻿namespace puntoVenta.sistema
 {
     partial class login2
     {
