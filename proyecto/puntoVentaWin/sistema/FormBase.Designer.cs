@@ -1,4 +1,4 @@
-﻿namespace puntoVenta
+﻿namespace puntoVentaWin
 {
     partial class FormBase
     {
@@ -109,7 +109,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(518, 27);
+            this.panel2.Size = new System.Drawing.Size(518, 30);
             this.panel2.TabIndex = 7;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
@@ -118,7 +118,7 @@
             this.tituloLabel.AutoSize = true;
             this.tituloLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tituloLabel.ForeColor = System.Drawing.Color.White;
-            this.tituloLabel.Location = new System.Drawing.Point(8, 10);
+            this.tituloLabel.Location = new System.Drawing.Point(8, 13);
             this.tituloLabel.Name = "tituloLabel";
             this.tituloLabel.Size = new System.Drawing.Size(49, 17);
             this.tituloLabel.TabIndex = 8;

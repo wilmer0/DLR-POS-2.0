@@ -67,41 +67,11 @@
     <Compile Include="clases\reporte_facturacion_rollo.cs" />
     <Compile Include="clases\singleton.cs" />
     <Compile Include="clases\Utilidades.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="modulo_facturacion\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="modulo_facturacion\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ventana_busqueda_sucursal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventana_busqueda_sucursal.Designer.cs">
-      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ventana_empresa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventana_empresa.Designer.cs">
-      <DependentUpon>ventana_empresa.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ventana_sucursal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventana_sucursal.Designer.cs">
-      <DependentUpon>ventana_sucursal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ventana_busqueda_caja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventana_busqueda_caja.Designer.cs">
-      <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ventana_caja.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ventana_caja.Designer.cs">
-      <DependentUpon>ventana_caja.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_opciones\Form1.cs">
       <SubType>Form</SubType>
@@ -109,42 +79,72 @@
     <Compile Include="modulo_opciones\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventana_buscar_modulo.cs">
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_buscar_modulo.Designer.cs">
+    <Compile Include="modulo_empresa\ventana_busqueda_sucursal.Designer.cs">
+      <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_empresa.Designer.cs">
+      <DependentUpon>ventana_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_sucursal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_empresa\ventana_sucursal.Designer.cs">
+      <DependentUpon>ventana_sucursal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.Designer.cs">
+      <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventana_caja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_facturacion\ventana_caja.Designer.cs">
+      <DependentUpon>ventana_caja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_buscar_modulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modulo_opciones\ventana_buscar_modulo.Designer.cs">
       <DependentUpon>ventana_buscar_modulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventana_buscar_ventana.cs">
+    <Compile Include="modulo_opciones\ventana_buscar_ventana.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_buscar_ventana.Designer.cs">
+    <Compile Include="modulo_opciones\ventana_buscar_ventana.Designer.cs">
       <DependentUpon>ventana_buscar_ventana.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventana_configuracion_modulos.cs">
+    <Compile Include="modulo_opciones\ventana_configuracion_modulos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_configuracion_modulos.Designer.cs">
+    <Compile Include="modulo_opciones\ventana_configuracion_modulos.Designer.cs">
       <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventana_crear_modulo.cs">
+    <Compile Include="modulo_facturacion\ventana_crear_modulo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_crear_modulo.Designer.cs">
+    <Compile Include="modulo_facturacion\ventana_crear_modulo.Designer.cs">
       <DependentUpon>ventana_crear_modulo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ventana_crear_ventana.cs">
+    <Compile Include="modulo_opciones\ventana_crear_ventana.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_crear_ventana.Designer.cs">
+    <Compile Include="modulo_opciones\ventana_crear_ventana.Designer.cs">
       <DependentUpon>ventana_crear_ventana.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ventana_mapa.cs">
+    <Compile Include="modulo_opciones\ventana_mapa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ventana_mapa.Designer.cs">
+    <Compile Include="modulo_opciones\ventana_mapa.Designer.cs">
       <DependentUpon>ventana_mapa.cs</DependentUpon>
     </Compile>
     <Compile Include="sistema\FormBase.cs">
@@ -167,37 +167,40 @@
     </Compile>
     <EmbeddedResource Include="archivos\Idioma-en\idioma-en.resx" />
     <EmbeddedResource Include="archivos\Idioma-es\idioma-es.resx" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="modulo_facturacion\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_busqueda_sucursal.resx">
+    <EmbeddedResource Include="modulo_opciones\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modulo_empresa\ventana_busqueda_sucursal.resx">
       <DependentUpon>ventana_busqueda_sucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_empresa.resx">
+    <EmbeddedResource Include="modulo_empresa\ventana_empresa.resx">
       <DependentUpon>ventana_empresa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_sucursal.resx">
+    <EmbeddedResource Include="modulo_empresa\ventana_sucursal.resx">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_busqueda_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_busqueda_caja.resx">
       <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_caja.resx">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_buscar_modulo.resx">
+    <EmbeddedResource Include="modulo_opciones\ventana_buscar_modulo.resx">
       <DependentUpon>ventana_buscar_modulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_buscar_ventana.resx">
+    <EmbeddedResource Include="modulo_opciones\ventana_buscar_ventana.resx">
       <DependentUpon>ventana_buscar_ventana.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_configuracion_modulos.resx">
+    <EmbeddedResource Include="modulo_opciones\ventana_configuracion_modulos.resx">
       <DependentUpon>ventana_configuracion_modulos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_crear_modulo.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_crear_modulo.resx">
       <DependentUpon>ventana_crear_modulo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ventana_crear_ventana.resx">
+    <EmbeddedResource Include="modulo_opciones\ventana_crear_ventana.resx">
       <DependentUpon>ventana_crear_ventana.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -209,7 +212,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ventana_mapa.resx">
+    <EmbeddedResource Include="modulo_opciones\ventana_mapa.resx">
       <DependentUpon>ventana_mapa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="sistema\FormBase.resx">
@@ -538,10 +541,9 @@
     <Folder Include="modulo_administracion\" />
     <Folder Include="modulo_cuentas_por_cobrar\" />
     <Folder Include="modulo_cuentas_por_pagar\" />
-    <Folder Include="modulo_empresa\" />
-    <Folder Include="modulo_facturacion\" />
     <Folder Include="modulo_inventario\" />
     <Folder Include="modulo_nomina\" />
+    <Folder Include="ventanas\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

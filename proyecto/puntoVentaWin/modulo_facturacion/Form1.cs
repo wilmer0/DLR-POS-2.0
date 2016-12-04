@@ -7,22 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVentaModelo;
-using puntoVentaModelo.modelos;
 
-namespace puntoVentaWin
+namespace puntoVentaWin.modulo_facturacion
 {
     public partial class Form1 : Form
     {
-
-
-        //objetos
-        public empleado empleado;
-
-
-        //modelos
-        modeloEmpleado modeloEmpleado = new modeloEmpleado();
-
         public Form1()
         {
             InitializeComponent();
@@ -30,6 +19,7 @@ namespace puntoVentaWin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
         }
     }
 }

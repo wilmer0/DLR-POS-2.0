@@ -1,4 +1,4 @@
-﻿namespace puntoVentaWin.modulo_empresa
+﻿namespace puntoVentaWin.ventanas
 {
     partial class ventana_sucursal
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace puntoVenta.clases
+namespace puntoVentaWin.clases
 {
     public class reporte_facturacion_rollo
     {

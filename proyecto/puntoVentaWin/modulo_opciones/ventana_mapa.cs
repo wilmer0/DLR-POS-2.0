@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using GMap.NET;
 using GMap.NET.MapProviders;
-using puntoVenta;
+using puntoVentaWin;
 
 namespace puntoVentaWin.pruebas
 {

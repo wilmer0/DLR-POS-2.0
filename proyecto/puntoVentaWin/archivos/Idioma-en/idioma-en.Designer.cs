@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace puntoVenta.archivos.Idioma_en {
+namespace puntoVentaWin.archivos.Idioma_en {
     using System;
     
     

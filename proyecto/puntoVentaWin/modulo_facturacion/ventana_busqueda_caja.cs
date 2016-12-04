@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVentaModelo;
 
-namespace puntoVentaWin.modulo_facturacion
+namespace puntoVentaWin.ventanas
 {
     public partial class ventana_busqueda_caja : Form
     {

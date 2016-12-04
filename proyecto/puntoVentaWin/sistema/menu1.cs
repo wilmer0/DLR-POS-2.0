@@ -12,12 +12,12 @@ using System.Windows.Forms;
 using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 using puntoVentaModelo.Modelos;
-using puntoVentaWin.modulo_empresa;
-using puntoVentaWin.modulo_facturacion;
-using puntoVentaWin.modulo_opciones;
+using puntoVentaWin.ventanas;
+using puntoVentaWin.ventanas;
+using puntoVentaWin.ventanas;
 using puntoVentaWin.pruebas;
 
-namespace puntoVenta.sistema
+namespace puntoVentaWin.sistema
 {
     public partial class menu1 : FormBase
     {
@@ -139,8 +139,8 @@ namespace puntoVenta.sistema
                     {
                         //nombre del formulario dinamico
                         //x.sistema_modulo.nombre_modulo_proyecto
-                        string form = "puntoVentaWin"   + "."+ x.nombre_logico ;
-                        //form = "puntoVentaWin.Form1";
+                        string form = "puntoVentaWin.ventanas."+ x.nombre_logico ;
+                        form = x.nombre_logico;
                         //form = "puntoVentaWin.modulo_opciones.Form1";
                         MessageBox.Show(form);
                         Assembly asm = Assembly.GetEntryAssembly();

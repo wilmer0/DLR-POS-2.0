@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVenta;
+using puntoVentaWin;
 using puntoVentaModelo;
 
-namespace puntoVentaWin.modulo_facturacion
+namespace puntoVentaWin.ventanas
 {
     public partial class ventana_caja : FormBase
     {

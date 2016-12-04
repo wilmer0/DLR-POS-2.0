@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using puntoVenta;
+using puntoVentaWin;
 using puntoVentaModelo;
 using puntoVentaModelo.modelos;
 
 
-namespace puntoVentaWin.modulo_empresa
+namespace puntoVentaWin.ventanas
 {
     public partial class ventana_empresa : FormBase
     {

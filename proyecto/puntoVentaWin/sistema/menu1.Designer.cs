@@ -1,4 +1,4 @@
-﻿namespace puntoVenta.sistema
+﻿namespace puntoVentaWin.sistema
 {
     partial class menu1
     {

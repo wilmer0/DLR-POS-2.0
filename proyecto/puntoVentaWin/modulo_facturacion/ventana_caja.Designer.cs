@@ -1,4 +1,4 @@
-﻿namespace puntoVentaWin.modulo_facturacion
+﻿namespace puntoVentaWin.ventanas
 {
     partial class ventana_caja
     {
