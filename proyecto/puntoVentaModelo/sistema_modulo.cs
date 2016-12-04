@@ -17,6 +17,7 @@ namespace puntoVentaModelo
         public sistema_modulo()
         {
             this.sistema_ventanas = new HashSet<sistema_ventanas>();
+            this.sistema_ventanas1 = new HashSet<sistema_ventanas>();
         }
     
         public int id { get; set; }
@@ -25,7 +26,7 @@ namespace puntoVentaModelo
         public string nombre_modulo_proyecto { get; set; }
         public string imagen { get; set; }
     
-        public virtual modulos_vs_ventanas modulos_vs_ventanas { get; set; }
         public virtual ICollection<sistema_ventanas> sistema_ventanas { get; set; }
+        public virtual ICollection<sistema_ventanas> sistema_ventanas1 { get; set; }
     }
 }

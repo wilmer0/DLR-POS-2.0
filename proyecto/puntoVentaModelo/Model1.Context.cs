@@ -72,7 +72,6 @@ namespace puntoVentaModelo
         public DbSet<mesas> mesas { get; set; }
         public DbSet<metodo_pago> metodo_pago { get; set; }
         public DbSet<modelo> modelo { get; set; }
-        public DbSet<modulos_vs_ventanas> modulos_vs_ventanas { get; set; }
         public DbSet<moneda> moneda { get; set; }
         public DbSet<moneda_historial> moneda_historial { get; set; }
         public DbSet<nomina> nomina { get; set; }
