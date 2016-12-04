@@ -91,16 +91,16 @@
     <Compile Include="modulo_empresa\ventana_sucursal.Designer.cs">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.cs">
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_busqueda_caja.Designer.cs">
+    <Compile Include="modulo_facturacion\ventana_busqueda_caja.Designer.cs">
       <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_caja.cs">
+    <Compile Include="modulo_facturacion\ventana_caja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modulo_facturacion\caja\ventana_caja.Designer.cs">
+    <Compile Include="modulo_facturacion\ventana_caja.Designer.cs">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </Compile>
     <Compile Include="modulo_opciones\ventana_buscar_modulo.cs">
@@ -173,10 +173,10 @@
     <EmbeddedResource Include="modulo_empresa\ventana_sucursal.resx">
       <DependentUpon>ventana_sucursal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modulo_facturacion\caja\ventana_busqueda_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_busqueda_caja.resx">
       <DependentUpon>ventana_busqueda_caja.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modulo_facturacion\caja\ventana_caja.resx">
+    <EmbeddedResource Include="modulo_facturacion\ventana_caja.resx">
       <DependentUpon>ventana_caja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modulo_opciones\ventana_buscar_modulo.resx">

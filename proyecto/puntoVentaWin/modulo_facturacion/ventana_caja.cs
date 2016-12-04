@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using puntoVenta;
 using puntoVentaModelo;
-using puntoVentaWin.modulo_facturacion.caja;
 
 namespace puntoVentaWin.modulo_facturacion
 {

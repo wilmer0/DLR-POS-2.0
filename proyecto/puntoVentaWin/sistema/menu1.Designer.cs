@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu1));
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button14 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.flowLayoutModulos = new System.Windows.Forms.FlowLayoutPanel();
             this.button33 = new System.Windows.Forms.Button();
-            this.flowLayoutOpciones = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutVentanas = new System.Windows.Forms.FlowLayoutPanel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -43,12 +44,11 @@
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutModulos.SuspendLayout();
-            this.flowLayoutOpciones.SuspendLayout();
+            this.flowLayoutVentanas.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -87,6 +87,19 @@
             this.panel3.TabIndex = 8;
             this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
+            // button14
+            // 
+            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button14.Location = new System.Drawing.Point(607, 0);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(93, 77);
+            this.button14.TabIndex = 10;
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -124,27 +137,27 @@
             this.button33.TabIndex = 38;
             this.button33.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutOpciones
+            // flowLayoutVentanas
             // 
-            this.flowLayoutOpciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.flowLayoutVentanas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutOpciones.AutoScroll = true;
-            this.flowLayoutOpciones.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flowLayoutOpciones.Controls.Add(this.button5);
-            this.flowLayoutOpciones.Controls.Add(this.button6);
-            this.flowLayoutOpciones.Controls.Add(this.button7);
-            this.flowLayoutOpciones.Controls.Add(this.button8);
-            this.flowLayoutOpciones.Controls.Add(this.button9);
-            this.flowLayoutOpciones.Controls.Add(this.button10);
-            this.flowLayoutOpciones.Controls.Add(this.button11);
-            this.flowLayoutOpciones.Controls.Add(this.button12);
-            this.flowLayoutOpciones.Controls.Add(this.button13);
-            this.flowLayoutOpciones.Location = new System.Drawing.Point(12, 126);
-            this.flowLayoutOpciones.Name = "flowLayoutOpciones";
-            this.flowLayoutOpciones.Size = new System.Drawing.Size(796, 248);
-            this.flowLayoutOpciones.TabIndex = 10;
-            this.flowLayoutOpciones.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutOpciones_Paint);
+            this.flowLayoutVentanas.AutoScroll = true;
+            this.flowLayoutVentanas.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutVentanas.Controls.Add(this.button5);
+            this.flowLayoutVentanas.Controls.Add(this.button6);
+            this.flowLayoutVentanas.Controls.Add(this.button7);
+            this.flowLayoutVentanas.Controls.Add(this.button8);
+            this.flowLayoutVentanas.Controls.Add(this.button9);
+            this.flowLayoutVentanas.Controls.Add(this.button10);
+            this.flowLayoutVentanas.Controls.Add(this.button11);
+            this.flowLayoutVentanas.Controls.Add(this.button12);
+            this.flowLayoutVentanas.Controls.Add(this.button13);
+            this.flowLayoutVentanas.Location = new System.Drawing.Point(12, 126);
+            this.flowLayoutVentanas.Name = "flowLayoutVentanas";
+            this.flowLayoutVentanas.Size = new System.Drawing.Size(796, 248);
+            this.flowLayoutVentanas.TabIndex = 10;
+            this.flowLayoutVentanas.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutOpciones_Paint);
             // 
             // button5
             // 
@@ -248,6 +261,7 @@
             this.button12.Size = new System.Drawing.Size(93, 77);
             this.button12.TabIndex = 46;
             this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button13
             // 
@@ -260,19 +274,7 @@
             this.button13.Size = new System.Drawing.Size(93, 77);
             this.button13.TabIndex = 47;
             this.button13.UseVisualStyleBackColor = true;
-            // 
-            // button14
-            // 
-            this.button14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button14.BackgroundImage")));
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(607, 0);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(93, 77);
-            this.button14.TabIndex = 10;
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // menu1
             // 
@@ -280,7 +282,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 551);
             this.ControlBox = true;
-            this.Controls.Add(this.flowLayoutOpciones);
+            this.Controls.Add(this.flowLayoutVentanas);
             this.Controls.Add(this.flowLayoutModulos);
             this.Controls.Add(this.panel3);
             this.MinimizeBox = true;
@@ -293,13 +295,13 @@
             this.Controls.SetChildIndex(this.panel2, 0);
             this.Controls.SetChildIndex(this.panel3, 0);
             this.Controls.SetChildIndex(this.flowLayoutModulos, 0);
-            this.Controls.SetChildIndex(this.flowLayoutOpciones, 0);
+            this.Controls.SetChildIndex(this.flowLayoutVentanas, 0);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.flowLayoutModulos.ResumeLayout(false);
-            this.flowLayoutOpciones.ResumeLayout(false);
+            this.flowLayoutVentanas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +312,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutModulos;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutOpciones;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutVentanas;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

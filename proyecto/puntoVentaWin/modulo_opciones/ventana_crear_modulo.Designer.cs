@@ -90,6 +90,7 @@
             this.button6.Size = new System.Drawing.Size(49, 34);
             this.button6.TabIndex = 34;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // imagenRutaText
             // 

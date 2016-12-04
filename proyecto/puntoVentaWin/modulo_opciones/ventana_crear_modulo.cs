@@ -194,5 +194,29 @@ namespace puntoVentaWin.modulo_opciones
                 MessageBox.Show("Error GetAcion.:" + ex.ToString(), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                OpenFileDialog file = new OpenFileDialog();
+                if (file.ShowDialog() == DialogResult.OK)
+                {
+                    //MessageBox.Show(file.FileName);
+                    imagenRutaText.Text = file.FileName;
+                    panel3.BackgroundImage = Image.FromFile(imagenRutaText.Text);
+                    //MessageBox.Show(Path.GetFileName(imagenRutaText.Text));
+
+                }
+            }
+            catch (Exception)
+            {
+                imagenRutaText.Text = "";
+                panel3.BackgroundImage = null;
+                MessageBox.Show("Debe seleccionar una imagen valida", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                imagenRutaText.Focus();
+            }
+        }
     }
 }

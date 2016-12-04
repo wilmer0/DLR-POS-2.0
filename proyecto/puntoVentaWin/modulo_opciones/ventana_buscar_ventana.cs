@@ -153,7 +153,7 @@ namespace puntoVentaWin.modulo_opciones
                 else if (moduloRadio.Checked)
                 {
                     //modulo
-                    lista = modeloVentana.getListaByModulo(nombreText.Text.Trim());
+                    lista = modeloVentana.getListaModuloByNombre(nombreText.Text.Trim());
                 }
 
                 loadList();

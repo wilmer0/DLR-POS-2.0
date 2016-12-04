@@ -34,6 +34,7 @@ namespace puntoVentaModelo.Modelos
                     return false;
                 }
 
+                entity.sistema_ventanas.Add(ventana);
                 entity.SaveChanges();
                 return true;
             }
@@ -295,7 +296,6 @@ namespace puntoVentaModelo.Modelos
             {
                 //eliminando las vieja
                 List<modulos_vs_ventanas> listaVieja =new List<modulos_vs_ventanas>();
-                //listaVieja = getListaCompletaModulosVsVentanas();
                 listaVieja = (entity.modulos_vs_ventanas.Where(x => x.id_modulo > 0)).ToList();
                 if (listaVieja.ToList().Count > 0)
                 {
@@ -305,11 +305,12 @@ namespace puntoVentaModelo.Modelos
                     });
                 }
                 
-                //agregando
+                //agregando lista nueva
                 if (lista.ToList().Count > 0)
                 {
                     lista.ForEach(x =>
                     {
+                        MessageBox.Show(x.id_modulo + "-" + x.id_ventana);
                         modulos_vs_ventanas moduloVsVentana=new modulos_vs_ventanas();
                         moduloVsVentana.id_modulo = x.id_modulo;
                         moduloVsVentana.id_ventana = x.id_ventana;
@@ -360,14 +361,52 @@ namespace puntoVentaModelo.Modelos
             }
         }
 
-        public List<sistema_ventanas> getListaByModulo(string modulo)
+        public List<sistema_ventanas> getListaByModuloID(int modulo)
+        {
+            coneccion coneccion = new coneccion();
+            punto_ventaEntities entity = coneccion.GetConeccion();
+            List<sistema_ventanas> listaVentanas=new List<sistema_ventanas>();
+            sistema_ventanas ventana;
+            try
+            {
+                var lista = (from c in entity.modulos_vs_ventanas
+                             where c.id_modulo==modulo
+                             select c).ToList();
+
+
+                lista.ForEach(x =>
+                {
+                    ventana=new sistema_ventanas();
+                    ventana = getVentanaById((int)x.id_ventana);
+                    if (ventana != null)
+                    {
+                        listaVentanas.Add(ventana);
+                    }
+                });
+                return listaVentanas;
+
+            }
+            catch (Exception ex)
+            {
+                entity = null;
+                MessageBox.Show("Error getListaByModuloID.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return null;
+            }
+            finally
+            {
+                entity = null;
+            }
+        }
+
+        public List<sistema_ventanas> getListaModuloByNombre(string nombre)
         {
             coneccion coneccion = new coneccion();
             punto_ventaEntities entity = coneccion.GetConeccion();
             try
             {
                 var lista = (from c in entity.sistema_ventanas
-                             where c.sistema_modulo.nombre.ToLower().Contains(modulo.ToLower()) || c.sistema_modulo.nombre_modulo_proyecto.ToLower().Contains(modulo.ToLower())
+                             where c.nombre_ventana.ToLower().Contains(nombre.ToLower().Trim()) || c.nombre_logico.ToLower().Contains(nombre.ToLower().Trim())
                              select c).ToList();
 
                 return lista;
@@ -376,7 +415,7 @@ namespace puntoVentaModelo.Modelos
             catch (Exception ex)
             {
                 entity = null;
-                MessageBox.Show("Error getListaByModulo.:" + ex.ToString(), "", MessageBoxButtons.OK,
+                MessageBox.Show("Error getListaModuloByNombre.:" + ex.ToString(), "", MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
                 return null;
             }

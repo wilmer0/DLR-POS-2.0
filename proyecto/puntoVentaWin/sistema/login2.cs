@@ -21,7 +21,7 @@ namespace puntoVenta.sistema
 
 
         //objetos
-        public puntoVentaModelo.empleado empleado;
+        private empleado empleado;
         utilidades utilidades = new utilidades();
         
 
@@ -37,7 +37,7 @@ namespace puntoVenta.sistema
 
         public override void LoadVentana()
         {
-            
+            empleado = null;
         }
 
         
