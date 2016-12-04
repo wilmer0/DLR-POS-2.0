@@ -98,9 +98,13 @@ namespace puntoVenta.sistema
                    botonModulo.Height = 77;
                    botonModulo.BackgroundImageLayout = ImageLayout.Stretch;
                    botonModulo.BackgroundImage=Image.FromFile(RutaImagenesModulos+x.imagen);
-                   flowLayoutModulos.Controls.Add(botonModulo);
+                   botonModulo.Text = x.nombre;
                    botonModulo.Click += (sender, args) =>  loadVentanas(x.id);
-                 
+
+
+
+                   flowLayoutModulos.Controls.Add(botonModulo);
+
                });
 
 
@@ -129,16 +133,18 @@ namespace puntoVenta.sistema
                     botonVentana.Height = 77;
                     botonVentana.BackgroundImageLayout=ImageLayout.Stretch;
                     botonVentana.BackgroundImage = Image.FromFile(RutaImagenesVentanas + x.imagen);
+                    botonVentana.Text = x.nombre_ventana;
                     //instanciar formulario de la ventana con el nombre logico
                     botonVentana.Click += (sender, args) =>
                     {
-                        //Assembly asm = Assembly.GetEntryAssembly();
-                        string form = "puntoVentaWin." + x.sistema_modulo.nombre_modulo_proyecto + "."+ x.nombre_logico ;
+                        //nombre del formulario dinamico
+                        //x.sistema_modulo.nombre_modulo_proyecto
+                        string form = "puntoVentaWin"   + "."+ x.nombre_logico ;
                         //form = "puntoVentaWin.Form1";
+                        //form = "puntoVentaWin.modulo_opciones.Form1";
                         MessageBox.Show(form);
                         Assembly asm = Assembly.GetEntryAssembly();
                         Type formtype = asm.GetType(form);
-
                         Form f = (Form)Activator.CreateInstance(formtype);
                         if (f != null)
                         {
@@ -151,6 +157,10 @@ namespace puntoVenta.sistema
                             MessageBox.Show("Form esta llgando nulo-->" + form);
                         }
                     };
+
+
+
+
 
 
                     flowLayoutVentanas.Controls.Add(botonVentana);
@@ -296,6 +306,11 @@ namespace puntoVenta.sistema
         }
 
         private void button13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void flowLayoutModulos_Paint(object sender, PaintEventArgs e)
         {
 
         }
