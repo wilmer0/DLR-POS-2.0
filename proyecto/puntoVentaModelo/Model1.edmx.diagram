@@ -190,6 +190,7 @@
         <AssociationConnector Association="punto_ventaModel.empleado_vs_cargo" />
         <AssociationConnector Association="punto_ventaModel.producto_unidad" />
         <AssociationConnector Association="punto_ventaModel.grupo_usuarios_permisos" />
+        <EntityTypeShape EntityType="punto_ventaModel.notificaciones" Width="1.5" PointX="23.375" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
