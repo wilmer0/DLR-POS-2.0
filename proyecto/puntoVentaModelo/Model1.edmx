@@ -341,6 +341,15 @@ advertencia 6002: La tabla o vista 'def.punto_venta.empleado_historial_datos' no
           <Property Name="cod_empleado" Type="int" Nullable="false" />
           <Property Name="cod_cargo" Type="int" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.empleado_vs_conceptos_nomina' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="empleado_vs_conceptos_nomina">
+          <Property Name="cod_nomina" Type="int" />
+          <Property Name="cod_empleado" Type="int" />
+          <Property Name="cod_concepto" Type="int" />
+          <Property Name="monto" Type="decimal" Precision="20" Scale="2" />
+          <Property Name="cod_empleado_modifico" Type="int" />
+        </EntityType>-->
         <EntityType Name="empresa">
           <Key>
             <PropertyRef Name="codigo" />
@@ -574,10 +583,9 @@ advertencia 6002: La tabla o vista 'def.punto_venta.mesas_detalles' no tiene def
         <EntityType Name="modulos_vs_ventanas">
           <Key>
             <PropertyRef Name="id_modulo" />
-            <PropertyRef Name="id_ventana" />
           </Key>
           <Property Name="id_modulo" Type="int" Nullable="false" />
-          <Property Name="id_ventana" Type="int" Nullable="false" />
+          <Property Name="id_ventana" Type="int" />
         </EntityType>
         <EntityType Name="moneda">
           <Key>
@@ -644,19 +652,6 @@ advertencia 6002: La tabla o vista 'def.punto_venta.nomina_detalle' no tiene def
           <Property Name="codigo" Type="int" Nullable="false" />
           <Property Name="nombre" Type="longtext" Nullable="false" />
           <Property Name="activo" Type="bool" Nullable="false" />
-        </EntityType>
-        <EntityType Name="notificaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="uint" Nullable="false" />
-          <Property Name="titulo" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="detalle" Type="varchar" MaxLength="500" Nullable="false" />
-          <Property Name="activo" Type="bool" Nullable="false" />
-          <Property Name="fecha_inicio" Type="datetime" Nullable="false" />
-          <Property Name="fecha_final" Type="datetime" Nullable="false" />
-          <Property Name="urgencia" Type="uint" Nullable="false" />
-          <Property Name="visto" Type="bool" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'def.punto_venta.oferta_producto_categoria_detalle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -806,6 +801,14 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="activo" Type="bool" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.producto_productos_requisitos' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="producto_productos_requisitos">
+          <Property Name="codpro_titular" Type="int" />
+          <Property Name="codpro_requisito" Type="int" />
+          <Property Name="cod_unidad" Type="int" />
+          <Property Name="cantidad" Type="decimal" Precision="20" Scale="2" />
+        </EntityType>-->
         <EntityType Name="producto_unidad">
           <Key>
             <PropertyRef Name="cod_producto" />
@@ -960,6 +963,13 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <Property Name="tipo_gasto" Type="uint" />
           <Property Name="fecha_modificacion" Type="datetime" Nullable="false" />
         </EntityType>
+        <!--Errores durante la generación:
+advertencia 6013: La tabla o vista 'def.punto_venta.suplidores_dgii' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+        <EntityType Name="suplidores_dgii">
+          <Property Name="identificacion" Type="longtext" />
+          <Property Name="nombre" Type="longtext" />
+          <Property Name="nombre_comercial" Type="longtext" />
+        </EntityType>-->
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -1313,6 +1323,12 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_vs_conceptos_nomina', pero no se encuentra la tabla.
+        <Association Name="empleado_concepto_nomina_concepto" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.empleado_vs_conceptos_nomina', pero no se encuentra la tabla.
+        <Association Name="empleado_concepto_nomina_empelado_modifico" />-->
         <Association Name="empleado_empleado">
           <End Role="empleado" Type="Self.empleado" Multiplicity="1" />
           <End Role="empleado_historial_datos" Type="Self.empleado_historial_datos" Multiplicity="*" />
@@ -1795,7 +1811,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
         </Association>
         <Association Name="modulos_vs_ventanas_modulo">
           <End Role="sistema_modulo" Type="Self.sistema_modulo" Multiplicity="1" />
-          <End Role="modulos_vs_ventanas" Type="Self.modulos_vs_ventanas" Multiplicity="*" />
+          <End Role="modulos_vs_ventanas" Type="Self.modulos_vs_ventanas" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="sistema_modulo">
               <PropertyRef Name="id" />
@@ -1806,7 +1822,7 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           </ReferentialConstraint>
         </Association>
         <Association Name="modulos_vs_ventanas_ventana">
-          <End Role="sistema_ventanas" Type="Self.sistema_ventanas" Multiplicity="1" />
+          <End Role="sistema_ventanas" Type="Self.sistema_ventanas" Multiplicity="0..1" />
           <End Role="modulos_vs_ventanas" Type="Self.modulos_vs_ventanas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="sistema_ventanas">
@@ -2069,6 +2085,15 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_producto_requisito" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_producto_titular" />-->
+        <!--Errores durante la generación:
+error 6004: Una relación hace referencia a la tabla 'def.punto_venta.producto_productos_requisitos', pero no se encuentra la tabla.
+        <Association Name="producto_productos_requisitos_unidad" />-->
         <Association Name="producto_subcategoria">
           <End Role="subcategoria_producto" Type="Self.subcategoria_producto" Multiplicity="1" />
           <End Role="producto" Type="Self.producto" Multiplicity="*" />
@@ -2307,7 +2332,6 @@ advertencia 6002: La tabla o vista 'def.punto_venta.producto_oferta_historial' n
           <EntitySet Name="nomina" EntityType="Self.nomina" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="nomina_conceptos" EntityType="Self.nomina_conceptos" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="nomina_tipos" EntityType="Self.nomina_tipos" Schema="punto_venta" store:Type="Tables" />
-          <EntitySet Name="notificaciones" EntityType="Self.notificaciones" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="pagos" EntityType="Self.pagos" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="pagos_detalles" EntityType="Self.pagos_detalles" Schema="punto_venta" store:Type="Tables" />
           <EntitySet Name="pais" EntityType="Self.pais" Schema="punto_venta" store:Type="Tables" />
@@ -3343,7 +3367,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
             <End Role="grupo_usuarios" EntitySet="grupo_usuarios" />
             <End Role="permiso" EntitySet="permiso" />
           </AssociationSet>
-          <EntitySet Name="notificaciones" EntityType="punto_ventaModel.notificaciones" />
         </EntityContainer>
         <EntityType Name="almacen">
           <Key>
@@ -5675,19 +5698,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
           <End Type="punto_ventaModel.grupo_usuarios" Role="grupo_usuarios" Multiplicity="*" />
           <End Type="punto_ventaModel.permiso" Role="permiso" Multiplicity="*" />
         </Association>
-        <EntityType Name="notificaciones">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int64" Nullable="false" />
-          <Property Name="titulo" Type="String" Nullable="false" />
-          <Property Name="detalle" Type="String" Nullable="false" />
-          <Property Name="activo" Type="Boolean" Nullable="false" />
-          <Property Name="fecha_inicio" Type="DateTime" Nullable="false" />
-          <Property Name="fecha_final" Type="DateTime" Nullable="false" />
-          <Property Name="urgencia" Type="Int64" Nullable="false" />
-          <Property Name="visto" Type="Boolean" Nullable="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -6762,20 +6772,6 @@ FROM `producto_oferta_historial` AS `producto_oferta_historial`</DefiningQuery>
               <ScalarProperty Name="codigo" ColumnName="cod_grupo" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="notificaciones">
-            <EntityTypeMapping TypeName="punto_ventaModel.notificaciones">
-              <MappingFragment StoreEntitySet="notificaciones">
-                <ScalarProperty Name="visto" ColumnName="visto" />
-                <ScalarProperty Name="urgencia" ColumnName="urgencia" />
-                <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
-                <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
-                <ScalarProperty Name="activo" ColumnName="activo" />
-                <ScalarProperty Name="detalle" ColumnName="detalle" />
-                <ScalarProperty Name="titulo" ColumnName="titulo" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
