@@ -138,7 +138,7 @@ namespace puntoVenta.sistema
                         MessageBox.Show(form);
                         Assembly asm = Assembly.GetEntryAssembly();
                         Type formtype = asm.GetType(form);
-
+                        //c
                         Form f = (Form)Activator.CreateInstance(formtype);
                         if (f != null)
                         {
