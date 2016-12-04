@@ -132,10 +132,13 @@ namespace puntoVenta.sistema
                     //instanciar formulario de la ventana con el nombre logico
                     botonVentana.Click += (sender, args) =>
                     {
-                        string form = "puntoVentaWin.modulo_facturacion.ventana_caja";
-                        MessageBox.Show("puntoVentaWin."+x.sistema_modulo.nombre_modulo_proyecto+"."+x.nombre_logico);
+                        //Assembly asm = Assembly.GetEntryAssembly();
+                        string form = "puntoVentaWin." + x.sistema_modulo.nombre_modulo_proyecto + "."+ x.nombre_logico ;
+                        //form = "puntoVentaWin.Form1";
+                        MessageBox.Show(form);
                         Assembly asm = Assembly.GetEntryAssembly();
                         Type formtype = asm.GetType(form);
+
                         Form f = (Form)Activator.CreateInstance(formtype);
                         if (f != null)
                         {
