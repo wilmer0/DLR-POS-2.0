@@ -282,7 +282,7 @@ namespace puntoVentaModelo.Modelos
                 entity = null;
             }
         }
-
+        //as
 
 
         public Boolean agregarModulosVentanas(List<modulos_vs_ventanas> lista)
